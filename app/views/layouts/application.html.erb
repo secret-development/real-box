@@ -7,8 +7,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div id="wrapper">
+  <div id="header">
+    <div id="account-panel">
+      Пользователь: <a href="#">Ерлан</a>(агент)
+    </div>
+    <div id="menu-tabs">
+      <ul>
+        <li><a href="#">Поиск</a></li>
+        <li><a href="#">Объекты</a></li>
+        <li><a href="#">Клиенты</a></li>
+        <li><a href="#">Персонал</a></li>
+        <li><a href="#">Сделки</a></li>
+        <li><a href="#">Рассылка</a></li>
+        <li><a href="#">Архив</a></li>
+        <li><a href="#">Отчеты</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="maincontent">
+    <%= yield %>
+  </div>
+  <div id="footer">
+    &copy; <a href="http://remeli.kz">Remeli.kz</a> 2012
+  </div>
+</div>
 </body>
 </html>
