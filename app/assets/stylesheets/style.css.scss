@@ -1,16 +1,41 @@
 // variables:
 $white: #fff; 
+$main-font: normal 0.8em/130% “Myriad Pro”, Arial, Helvetica, Tahoma, sans-serif;
+$small-font: normal 10px/130% “Myriad Pro”, Arial, Helvetica, Tahoma, sans-serif;
+$main-color-font: #414141;
 
-// functions:
+// mixins:
 
 
 // main code:
 body{
   background:$white;
+  font:$main-font;
+  color:$main-color-font;
 }
 
 #wrapper{
-  width:1000px;
-  border:1px solid #ccc;
-  margin:0 auto;
+  width:90%;
+  min-width:960px;
+  margin:10px auto;
+  border:1px solid #ddd;
+  padding:2px;
+  
+  #account-panel{
+    text-align:right;
+    height:50px;
+    font:$small-font;
+    .username{
+      position:relative;
+      top:5px;
+      right:10px;
+    }
+    .exit-from-system{
+      height:20px;
+      margin-top:10px;
+      margin-right:10px;
+      background:url('exit.png') 97% 0% no-repeat;
+    }
+  }
+  
 }
