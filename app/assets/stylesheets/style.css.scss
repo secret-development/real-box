@@ -75,7 +75,7 @@ a{
   
   #menu-tabs{
     border-bottom:1px solid #ddd;
-    margin:15px 0px 10px 0px;
+    margin:15px 0px 15px 0px;
     float:left;
     width:100%;
     ul{
@@ -116,4 +116,11 @@ a{
     text-align:right;
     font:$small-font;
   }
+}
+
+
+// controllers styles:
+#search-wrapper{
+  border:1px solid #ddd;
+  padding:10px;
 }
