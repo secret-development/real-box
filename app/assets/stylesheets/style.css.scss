@@ -8,8 +8,11 @@ $main-color-font: #414141;
   $href-color-hover:#5A5A5A;
 
 // mixins:
-@mixin shadow-text{
+@mixin shadow-text-light{
   text-shadow: 0px 1px 1px #ddd;
+}
+@mixin shadow-text-dark{
+  text-shadow: 0px 1px 1px #6C6C6C;
 }
 
 // main code:
@@ -35,27 +38,62 @@ a{
   
   #account-panel{
     text-align:right;
-    height:30px;
+    height:25px;
     font:$small-font;
-    // border:1px solid #ccc;
     ul{
       position:relative;
       float:right;
       top:6px;
       right:-2px;
-      @include shadow-text;
+      @include shadow-text-light;
       li{
         float:left;
         margin-right:10px;
+        border-right:1px solid #ccc;
+        padding-right:10px;
       }
       .hello{
         color:#6F6F6F;
+      }
+      .exit-from-system{
+        width:50px;
+        border:none;
+        background:url("exit.png") 1% 0% no-repeat;
       }
     }
   }
   
   #menu-tabs{
-    
+    border-bottom:1px solid #ddd;
+    margin:10px 0px 10px 0px;
+    float:left;
+    width:100%;
+    ul{
+      li{
+        @include shadow-text-dark;
+        -webkit-border-top-left-radius:5px;
+				-webkit-border-top-right-radius:5px;
+				-moz-border-radius-topleft:5px;
+				-moz-border-radius-topright:5px;
+        border:1px solid #ddd;
+        border-bottom:none;
+        margin-right:1px;
+        float:left;
+        padding:4px 10px;
+        background:url('backtabs.png');
+        a{
+          color:#FBFBFB;
+          &:hover{
+            text-decoration:none;
+            color:#E7E7E7;
+          }
+        }
+      }
+    }
+  }
+  
+  #maincontent{
+    clear:both;
   }
   
 }
