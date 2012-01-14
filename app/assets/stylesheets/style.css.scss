@@ -1,11 +1,16 @@
 // variables:
 $white: #fff; 
 $main-font: normal 0.8em/130% “Myriad Pro”, Arial, Helvetica, Tahoma, sans-serif;
-$small-font: normal 10px/130% “Myriad Pro”, Arial, Helvetica, Tahoma, sans-serif;
+$small-font: normal 11px/130% “Myriad Pro”, Arial, Helvetica, Tahoma, sans-serif;
 $main-color-font: #414141;
+// href:
+  $href-color:#848484;
+  $href-color-hover:#5A5A5A;
 
 // mixins:
-
+@mixin shadow-text{
+  text-shadow: 0px 1px 1px #ddd;
+}
 
 // main code:
 body{
@@ -13,7 +18,14 @@ body{
   font:$main-font;
   color:$main-color-font;
 }
-
+a{
+  color:$href-color;
+  text-decoration:none;
+  &:hover{
+    color:$href-color-hover;
+    text-decoration:underline;
+  }
+}
 #wrapper{
   width:90%;
   min-width:960px;
@@ -23,19 +35,27 @@ body{
   
   #account-panel{
     text-align:right;
-    height:50px;
+    height:30px;
     font:$small-font;
-    .username{
+    // border:1px solid #ccc;
+    ul{
       position:relative;
-      top:5px;
-      right:10px;
+      float:right;
+      top:6px;
+      right:-2px;
+      @include shadow-text;
+      li{
+        float:left;
+        margin-right:10px;
+      }
+      .hello{
+        color:#6F6F6F;
+      }
     }
-    .exit-from-system{
-      height:20px;
-      margin-top:10px;
-      margin-right:10px;
-      background:url('exit.png') 97% 0% no-repeat;
-    }
+  }
+  
+  #menu-tabs{
+    
   }
   
 }
