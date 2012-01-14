@@ -12,14 +12,4 @@ require 'spec_helper'
 #   end
 # end
 describe PagesHelper do
-  
-  before(:all) do
-    @default_title = "Система: ReHandy"
-  end
-  
-  describe "#title" do
-    it "return the default page" do
-      helper.title.should eql("#{@default_title}")
-    end
-  end
 end
