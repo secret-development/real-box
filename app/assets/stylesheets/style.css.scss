@@ -24,6 +24,12 @@ $main-color-font: #414141;
   -o-top-left-radius:5px;
   -o-top-right-radius:5px;
 }
+@mixin radius{
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
+  -o-border-radius:5px;
+}
 
 // main code:
 body{
@@ -50,6 +56,8 @@ a{
     text-align:right;
     height:25px;
     font:$small-font;
+    background:#F1F1F1;
+    @include radius;
     ul{
       position:relative;
       float:right;
@@ -82,25 +90,23 @@ a{
       li{
         a{
           @include tabsradius;
-          @include shadow-text-dark;
           border:1px solid #ccc;
           border-bottom:none;
           display:block;
-          color:#FBFBFB;
+          color:#3B73AD;
           margin-right:1px;
           float:left;
           padding:4px 10px;
-          background:url('backtabs.png');
+          background:#F1F1F1;
           &:hover{
-            @include shadow-text-light;
             text-decoration:none;
-            color:#4E4E4E;
-            opacity:0.6;
+            color:#8F8F8F;
           }
         }
       }
-      .selected{        
-        opacity:0.6;
+      .selected{      
+        background:#6C6C6C;  
+        color:#fff;
       }
     }
   }
@@ -121,6 +127,6 @@ a{
 
 // controllers styles:
 #search-wrapper{
-  border:1px solid #ddd;
+  // border:1px solid #ddd;
   padding:10px;
 }
