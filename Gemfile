@@ -41,4 +41,6 @@ group :test, :development do
   gem "watchr"
   # Pretty printed test output
   gem 'turn', '~> 0.8.3', :require => false
+  # fast dev:
+  gem 'rails-dev-tweaks', '~> 0.5.2'
 end

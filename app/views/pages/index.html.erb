@@ -1,8 +1,25 @@
 <div id="search-wrapper">
   <form action="">
     <div class="field">
-      <label for="type-transaction">Тип сделки:</label>
-      
+      <label class="title" for="type-deal">Тип сделки:</label>
+      <div class="condition-block" id="type-deal">
+        <input type="radio" id="radio1" name="type-deal" value="purchase">
+        <label for="radio1">Купля</label> 
+        <input type="radio" id="radio2" name="type-deal" value="sale">
+        <label for="radio2">Продажа</label> 
+        <input type="radio" id="radio3" name="type-deal" value="rent">
+        <label for="radio3">Аренда</label>
+        <input type="radio" id="radio4" name="type-deal" value="pick">
+        <label for="radio4">Съем</label>
+        <input type="radio" id="radio5" name="type-deal" value="exchange">
+        <label for="radio5">Обмен</label>
+      </div>
+    </div>
+    <div class="field">
+      <label for="object-sale" class="title">Объект</label>
+      <div class="condition-block" id="object-sale">
+
+      </div>
     </div>
   </form>
 </div>

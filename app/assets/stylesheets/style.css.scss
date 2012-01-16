@@ -1,8 +1,9 @@
 // variables:
 $white: #fff; 
-$main-font: normal 0.8em/130% “Myriad Pro”, Arial, Helvetica, Tahoma, sans-serif;
-$small-font: normal 11px/130% “Myriad Pro”, Arial, Helvetica, Tahoma, sans-serif;
+$main-font: normal 0.8em/130% Helvetica, Arial, Tahoma, sans-serif;
+$small-font: normal 11px/130% Helvetica, Arial, Tahoma, sans-serif;
 $main-color-font: #414141;
+$search-form-font: 1.4em/130% Helvetica, Arial, Tahoma, sans-serif;
 // href:
   $href-color:#848484;
   $href-color-hover:#5A5A5A;
@@ -134,4 +135,18 @@ a{
 #search-wrapper{
   // border:1px solid #ddd;
   padding:10px;
+  .field{
+    clear:both; // TODO: проверить, добавить еще пару блоков
+    .title{
+      float:left;
+      font:$search-form-font;
+      margin-top:2px;
+      margin-right:10px;
+    }
+    .condition-block{
+      float:left;
+      margin-left:100px;
+    }
+  }
+  
 }
