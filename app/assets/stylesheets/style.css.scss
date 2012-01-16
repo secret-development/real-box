@@ -12,7 +12,7 @@ $main-color-font: #414141;
   text-shadow: 0px 1px 1px #ddd;
 }
 @mixin shadow-text-dark{
-  text-shadow: 0px 1px 1px #6C6C6C;
+  text-shadow: 0px 1px 1px #4D4D4D;
 }
 @mixin tabsradius{
   -webkit-border-top-left-radius:5px;
@@ -23,6 +23,12 @@ $main-color-font: #414141;
   border-top-right-radius:5px;
   -o-top-left-radius:5px;
   -o-top-right-radius:5px;
+}
+@mixin radius{
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
+  -o-border-radius:5px;
 }
 
 // main code:
@@ -50,6 +56,8 @@ a{
     text-align:right;
     height:25px;
     font:$small-font;
+    background:#F1F1F1;
+    @include radius;
     ul{
       position:relative;
       float:right;
@@ -75,32 +83,35 @@ a{
   
   #menu-tabs{
     border-bottom:1px solid #ddd;
-    margin:15px 0px 10px 0px;
+    margin:15px 0px 15px 0px;
     float:left;
     width:100%;
     ul{
       li{
         a{
           @include tabsradius;
-          @include shadow-text-dark;
           border:1px solid #ccc;
           border-bottom:none;
           display:block;
-          color:#FBFBFB;
+          color:#4C4C4C;
           margin-right:1px;
           float:left;
           padding:4px 10px;
-          background:url('backtabs.png');
+          background:#F1F1F1;
           &:hover{
-            @include shadow-text-light;
             text-decoration:none;
-            color:#4E4E4E;
-            opacity:0.6;
+            color:#fff;
+            background:#A0A0A0;
           }
         }
       }
-      .selected{        
-        opacity:0.6;
+      .selected{      
+        background:#6C6C6C;  
+        color:#fff;
+        &:hover{
+          color:#fff;
+          background:#6C6C6C;
+        }
       }
     }
   }
@@ -116,4 +127,11 @@ a{
     text-align:right;
     font:$small-font;
   }
+}
+
+
+// controllers styles:
+#search-wrapper{
+  // border:1px solid #ddd;
+  padding:10px;
 }
