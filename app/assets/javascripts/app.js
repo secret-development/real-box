@@ -8,5 +8,5 @@ $(function(){
 
 // forms:
 $(document).ready(function() {
-  $('#date').datepicker();
+  $('#type-deal').buttonset();
 });
