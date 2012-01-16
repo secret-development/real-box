@@ -1,0 +1,119 @@
+// variables:
+$white: #fff; 
+$main-font: normal 0.8em/130% “Myriad Pro”, Arial, Helvetica, Tahoma, sans-serif;
+$small-font: normal 11px/130% “Myriad Pro”, Arial, Helvetica, Tahoma, sans-serif;
+$main-color-font: #414141;
+// href:
+  $href-color:#848484;
+  $href-color-hover:#5A5A5A;
+
+// mixins:
+@mixin shadow-text-light{
+  text-shadow: 0px 1px 1px #ddd;
+}
+@mixin shadow-text-dark{
+  text-shadow: 0px 1px 1px #6C6C6C;
+}
+@mixin tabsradius{
+  -webkit-border-top-left-radius:5px;
+  -webkit-border-top-right-radius:5px;
+  -moz-border-radius-topleft:5px;
+  -moz-border-radius-topright:5px;
+  border-top-left-radius:5px;
+  border-top-right-radius:5px;
+  -o-top-left-radius:5px;
+  -o-top-right-radius:5px;
+}
+
+// main code:
+body{
+  background:$white;
+  font:$main-font;
+  color:$main-color-font;
+}
+a{
+  color:$href-color;
+  text-decoration:none;
+  &:hover{
+    color:$href-color-hover;
+    text-decoration:underline;
+  }
+}
+#wrapper{
+  width:90%;
+  min-width:960px;
+  margin:10px auto;
+  // border:1px solid #ccc;
+  padding:2px;
+  
+  #account-panel{
+    text-align:right;
+    height:25px;
+    font:$small-font;
+    ul{
+      position:relative;
+      float:right;
+      top:6px;
+      right:-2px;
+      @include shadow-text-light;
+      li{
+        float:left;
+        margin-right:10px;
+        border-right:1px solid #ccc;
+        padding-right:10px;
+      }
+      .hello{
+        color:#6F6F6F;
+      }
+      .exit-from-system{
+        width:50px;
+        border:none;
+        background:url("exit.png") 1% 0% no-repeat;
+      }
+    }
+  }
+  
+  #menu-tabs{
+    border-bottom:1px solid #ddd;
+    margin:15px 0px 10px 0px;
+    float:left;
+    width:100%;
+    ul{
+      li{
+        a{
+          @include tabsradius;
+          @include shadow-text-dark;
+          border:1px solid #ccc;
+          border-bottom:none;
+          display:block;
+          color:#FBFBFB;
+          margin-right:1px;
+          float:left;
+          padding:4px 10px;
+          background:url('backtabs.png');
+          &:hover{
+            @include shadow-text-light;
+            text-decoration:none;
+            color:#4E4E4E;
+            opacity:0.6;
+          }
+        }
+      }
+      .selected{        
+        opacity:0.6;
+      }
+    }
+  }
+  
+  #maincontent{
+    clear:both;
+  }
+  
+  #footer{
+    clear:both;
+    margin-top:10px;
+    padding:5px 10px 5px 0px;
+    text-align:right;
+    font:$small-font;
+  }
+}
