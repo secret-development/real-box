@@ -5,3 +5,8 @@ $(function(){
     $(this).addClass('selected');
   });
 });
+
+// forms:
+$(document).ready(function() {
+  $('#date').datepicker();
+});
