@@ -132,20 +132,21 @@ a{
 
 
 // controllers styles:
+
+// search form:
 #search-wrapper{
   // border:1px solid #ddd;
   padding:10px;
   .field{
-    clear:both; // TODO: проверить, добавить еще пару блоков
+    margin-bottom:15px;
     .title{
-      float:left;
       font:$search-form-font;
       margin-top:2px;
-      margin-right:10px;
+      width:180px;
+      display: inline-block;
     }
     .condition-block{
-      float:left;
-      margin-left:100px;
+      display: inline-block;
     }
   }
   

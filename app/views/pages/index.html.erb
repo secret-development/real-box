@@ -1,7 +1,7 @@
 <div id="search-wrapper">
   <form action="">
     <div class="field">
-      <label class="title" for="type-deal">Тип сделки:</label>
+      <label class="title" for="type-deal">Сделка:</label>
       <div class="condition-block" id="type-deal">
         <input type="radio" id="radio1" name="type-deal" value="purchase">
         <label for="radio1">Купля</label> 
@@ -16,9 +16,13 @@
       </div>
     </div>
     <div class="field">
-      <label for="object-sale" class="title">Объект</label>
+      <label for="object-sale" class="title">Объект:</label>
       <div class="condition-block" id="object-sale">
-
+        <select name="object-sale" id="object-sale">
+          <option value="flat" selected>Квартира</option>
+          <option value="penthouse">Коттедж</option>
+          <option value="room">Комната</option>
+        </select>
       </div>
     </div>
   </form>
