@@ -18,6 +18,9 @@ end
 
 gem 'jquery-rails'
 
+# annotate model:
+gem 'annotate'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -30,10 +33,12 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-group :test do
+group :test, :development do
+  gem 'spork', '0.9.0.rc9'
   gem "rspec", "~> 2.8.0"
   gem "rspec-rails", "~> 2.8.1"
   gem "capybara", "~> 1.1.2"
+  gem "watchr"
   # Pretty printed test output
   gem 'turn', '~> 0.8.3', :require => false
 end
