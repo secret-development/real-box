@@ -3,7 +3,7 @@ $white: #fff;
 $main-font: normal 0.8em/130% Helvetica, Arial, Tahoma, sans-serif;
 $small-font: normal 11px/130% Helvetica, Arial, Tahoma, sans-serif;
 $main-color-font: #414141;
-$search-form-font: 1.4em/130% Helvetica, Arial, Tahoma, sans-serif;
+$search-form-font: 1.2em/130% Helvetica, Arial, Tahoma, sans-serif;
 $gray-color:#6C6C6C;
 // href:
   $href-color:#848484;
@@ -139,6 +139,8 @@ a{
   padding:10px;
   // form field
   .field{
+
+    padding:2px;
     margin-bottom:20px;
     clear:both;
     .title{
@@ -147,6 +149,14 @@ a{
       width:180px;
       display:block;
       float:left;
+    }
+    .title-detail{
+      margin-top:2px;
+      float:left;
+      display:block;
+      width:180px;
+      font:small-font;
+      color:$href-color;
     }
     .condition-block{
       width:70%;
@@ -158,6 +168,26 @@ a{
         margin-top:5px;
       }
       
+      // numrooms block slider
+      #numrooms{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #square{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #kitchen-square{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #living-square{
+        width:80%;
+        margin-top:5px;
+      }
     }
   }  
 }
@@ -169,4 +199,19 @@ a{
   font:$small-font;
   margin-top:10px;
   color:$gray-color;
+  background:none;
+}
+
+// detailt options in form:
+.detail-options{
+  font:$small-font;
+  #square-detail{
+    float:left;
+    margin-top:3px;
+  }
+}
+
+// hide
+.hide{
+  display: none;
 }

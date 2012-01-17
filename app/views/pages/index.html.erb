@@ -16,6 +16,17 @@
         <label for="radio5">Обмен</label>
       </div>
     </div>
+    <!-- CITIES: -->
+    <div class="field">
+      <label for="city" class="title">Город:</label>
+      <div class="condition-block">
+        <select name="city" id="city">
+          <option value="kst" selected>Костанай</option>
+          <option value="lsk">Лисаковск</option>
+          <option value="rdn">Рудный</option>
+        </select>
+      </div>
+    </div>
     <!-- OBJECTS: -->
     <div class="field">
       <label for="object-sale" class="title">Объект:</label>
@@ -47,6 +58,48 @@
         <input type="text" id="price-label" class="input-slider" name="price">
       </div>
     </div>
-
+    <!-- NUMBER OF ROOMS: -->
+    <div class="field">
+      <label for="numrooms" class="title">Количество комнат:</label>
+      <div class="condition-block">
+        <div id="numrooms"></div>
+        <input type="text" id="numrooms-label" class="input-slider" name="numrooms">        
+      </div>
+    </div>
+    <!-- SQUARE -->
+    <div class="field">
+      <label for="square" class="title">
+        Площадь:
+      <p class="detail-options"><a href="#" id="square-detail">подробнее</a><span class="ui-icon ui-icon-gear"></span></p>
+      </label>
+      <div class="condition-block">
+        <div id="square"></div>
+        <input type="text" id="square-label" class="input-slider" name="square">
+      </div>
+    </div>
+    <!-- OPTION SQUARE FORM -->
+    <div class="hide" id="option-square-form">
+      <!-- kitchen square -->
+      <div class="field">
+        <label for="kitchen-square" class="title-detail">
+          площадь кухни:
+        </label>
+        <div class="condition-block">
+          <div id="kitchen-square"></div>
+          <input type="text" id="kitchen-square-label" class="input-slider" name="kitchen-square">
+        </div>
+      </div>
+      <!-- living square -->
+      <div class="field">
+        <label for="living-square" class="title-detail">
+          жилая площадь:
+        </label>
+        <div class="condition-block">
+          <div id="living-square"></div>
+          <input type="text" id="living-square-label" class="input-slider" name="living-square">
+        </div>
+      </div>      
+    </div>
+  
   </form>
 </div>
