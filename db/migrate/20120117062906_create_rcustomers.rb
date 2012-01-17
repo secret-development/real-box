@@ -6,7 +6,7 @@ class CreateRcustomers < ActiveRecord::Migration
       t.string :phonehome
       t.string :phonemobile
       t.string :email
-      t.string :typecust
+      t.text :typecust
       t.text :note
 
       t.timestamps

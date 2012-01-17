@@ -1,4 +1,4 @@
-# encoding:utf-8
+# encoding: UTF-8
 class Rcustomer < ActiveRecord::Base
-validates :firstname, :lastname, :presence => true
+  validates :firstname, :lastname, :presence => true
 end

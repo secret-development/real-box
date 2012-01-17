@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20120117062906) do
     t.string   "phonehome"
     t.string   "phonemobile"
     t.string   "email"
-    t.string   "typecust"
+    t.text     "typecust"
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
