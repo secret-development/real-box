@@ -26,21 +26,22 @@ $(function(){
       var stopvalue = ui.values[1];
       stopvalue = partion(stopvalue);
       
-      $("#price-label").html("$"+startvalue+" - $"+stopvalue);
+      $("#price-label").val("$"+startvalue+" - $"+stopvalue);
     }
   });
   
   // partiotion price:
   var firstvalue = $("#price").slider("values", 0);
   firstvalue = partion(firstvalue);
+  
   var secondvalue = $("#price").slider("values", 1)
   secondvalue = partion(secondvalue);
   
-  $( "#price-label" ).html( "$" + firstvalue + " - $" + secondvalue );
+  $( "#price-label" ).val( "$" + firstvalue + " - $" + secondvalue );
 });
 
 // partition price function
 function partion(obj){
-  obj = obj.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1&thinsp;");
+  obj = obj.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1 ");
   return obj
 }
