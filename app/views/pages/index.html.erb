@@ -1,7 +1,8 @@
 <div id="search-wrapper">
   <form action="">
+    <!-- TYPE DEAL: -->
     <div class="field">
-      <label class="title" for="type-deal">Тип сделки:</label>
+      <label class="title" for="type-deal">Сделка:</label>
       <div class="condition-block" id="type-deal">
         <input type="radio" id="radio1" name="type-deal" value="purchase">
         <label for="radio1">Купля</label> 
@@ -15,11 +16,90 @@
         <label for="radio5">Обмен</label>
       </div>
     </div>
+    <!-- CITIES: -->
     <div class="field">
-      <label for="object-sale" class="title">Объект</label>
-      <div class="condition-block" id="object-sale">
-
+      <label for="city" class="title">Город:</label>
+      <div class="condition-block">
+        <select name="city" id="city">
+          <option value="kst" selected>Костанай</option>
+          <option value="lsk">Лисаковск</option>
+          <option value="rdn">Рудный</option>
+        </select>
       </div>
     </div>
+    <!-- OBJECTS: -->
+    <div class="field">
+      <label for="object-sale" class="title">Объект:</label>
+      <div class="condition-block">
+        <select name="object-sale" id="object-sale">
+          <option value="flat" selected>Квартира</option>
+          <option value="penthouse">Коттедж</option>
+          <option value="room">Комната</option>
+        </select>
+      </div>
+    </div>
+    <!-- TOWNSHIP: -->
+    <div class="field">
+      <label for="township" class="title">Район:</label>
+      <div class="condition-block">
+        <select name="township" id="township">
+          <option value="ksk">КСК</option>
+          <option value="kgbi">КЖБИ</option>
+          <option value="centr">Центр</option>
+          <option value="zapadnii">Западный</option>
+        </select>
+      </div>
+    </div>
+    <!-- PRICE: -->
+    <div class="field">
+      <label for="price" class="title">Цена:</label>
+      <div class="condition-block">
+        <div id="price"></div>
+        <input type="text" id="price-label" class="input-slider" name="price">
+      </div>
+    </div>
+    <!-- NUMBER OF ROOMS: -->
+    <div class="field">
+      <label for="numrooms" class="title">Количество комнат:</label>
+      <div class="condition-block">
+        <div id="numrooms"></div>
+        <input type="text" id="numrooms-label" class="input-slider" name="numrooms">        
+      </div>
+    </div>
+    <!-- SQUARE -->
+    <div class="field">
+      <label for="square" class="title">
+        Площадь:
+      <p class="detail-options"><a href="#" id="square-detail">подробнее</a><span class="ui-icon ui-icon-gear"></span></p>
+      </label>
+      <div class="condition-block">
+        <div id="square"></div>
+        <input type="text" id="square-label" class="input-slider" name="square">
+      </div>
+    </div>
+    <!-- OPTION SQUARE FORM -->
+    <div class="hide" id="option-square-form">
+      <!-- kitchen square -->
+      <div class="field">
+        <label for="kitchen-square" class="title-detail">
+          площадь кухни:
+        </label>
+        <div class="condition-block">
+          <div id="kitchen-square"></div>
+          <input type="text" id="kitchen-square-label" class="input-slider" name="kitchen-square">
+        </div>
+      </div>
+      <!-- living square -->
+      <div class="field">
+        <label for="living-square" class="title-detail">
+          жилая площадь:
+        </label>
+        <div class="condition-block">
+          <div id="living-square"></div>
+          <input type="text" id="living-square-label" class="input-slider" name="living-square">
+        </div>
+      </div>      
+    </div>
+  
   </form>
 </div>
