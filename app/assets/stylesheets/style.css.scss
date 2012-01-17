@@ -4,6 +4,7 @@ $main-font: normal 0.8em/130% Helvetica, Arial, Tahoma, sans-serif;
 $small-font: normal 11px/130% Helvetica, Arial, Tahoma, sans-serif;
 $main-color-font: #414141;
 $search-form-font: 1.4em/130% Helvetica, Arial, Tahoma, sans-serif;
+$gray-color:#6C6C6C;
 // href:
   $href-color:#848484;
   $href-color-hover:#5A5A5A;
@@ -136,6 +137,7 @@ a{
 // search form:
 #search-wrapper{
   padding:10px;
+  // form field
   .field{
     margin-bottom:20px;
     clear:both;
@@ -147,10 +149,21 @@ a{
       float:left;
     }
     .condition-block{
-      border:1px solid #ccc;
       width:70%;
       display:inline-block;
+      
+      // price block slider
+      #price{
+        width:80%;
+      }
+      
     }
-  }
-  
+  }  
+}
+
+// label slider:
+.label-slider{
+  font:$small-font;
+  margin-top:10px;
+  color:$gray-color;
 }

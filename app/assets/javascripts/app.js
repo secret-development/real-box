@@ -16,13 +16,32 @@ $(function(){
   $("#price").slider({
     range: true,
     min: 1000,
-    max: 2000000,
+    max: 1000000,
     step: 1000,
-    values: [5000, 500000],
+    values: [20000, 300000],
     slide: function(event, ui){
-      $( "#price-label" ).html( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      var startvalue = ui.values[0].toString();
+      startvalue = partion(startvalue);
+      
+      var stopvalue = ui.values[1].toString();
+      stopvalue = partion(stopvalue);
+      
+      $("#price-label").html("$"+startvalue+" - $"+stopvalue);
     }
   });
-  $( "#price-label" ).html( "$" + $( "#price" ).slider( "values", 0 ) +
-  			" - $" + $( "#price" ).slider( "values", 1 ) );
+  // partiotion price:
+  
+  var firstvalue = $("#price").slider("values", 0).toString();
+  firstvalue = partion(firstvalue)
+  
+  var secondvalue = $("#price").slider("values", 1).toString();
+  secondvalue = partion(secondvalue)
+  
+  $( "#price-label" ).html( "$" + firstvalue + " - $" + secondvalue );
 });
+
+// partition price function
+function partion(obj){
+  obj = obj.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1&thinsp;");
+  return obj
+}
