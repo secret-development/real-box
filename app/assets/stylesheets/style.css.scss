@@ -1,8 +1,10 @@
 // variables:
 $white: #fff; 
-$main-font: normal 0.8em/130% “Myriad Pro”, Arial, Helvetica, Tahoma, sans-serif;
-$small-font: normal 11px/130% “Myriad Pro”, Arial, Helvetica, Tahoma, sans-serif;
+$main-font: normal 0.8em/130% Helvetica, Arial, Tahoma, sans-serif;
+$small-font: normal 11px/130% Helvetica, Arial, Tahoma, sans-serif;
 $main-color-font: #414141;
+$search-form-font: 1.2em/130% Helvetica, Arial, Tahoma, sans-serif;
+$gray-color:#6C6C6C;
 // href:
   $href-color:#848484;
   $href-color-hover:#5A5A5A;
@@ -131,7 +133,85 @@ a{
 
 
 // controllers styles:
+
+// search form:
 #search-wrapper{
-  // border:1px solid #ddd;
   padding:10px;
+  // form field
+  .field{
+
+    padding:2px;
+    margin-bottom:20px;
+    clear:both;
+    .title{
+      font:$search-form-font;
+      margin-top:2px;
+      width:180px;
+      display:block;
+      float:left;
+    }
+    .title-detail{
+      margin-top:2px;
+      float:left;
+      display:block;
+      width:180px;
+      font:small-font;
+      color:$href-color;
+    }
+    .condition-block{
+      width:70%;
+      display:inline-block;
+      
+      // price block slider
+      #price{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      // numrooms block slider
+      #numrooms{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #square{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #kitchen-square{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #living-square{
+        width:80%;
+        margin-top:5px;
+      }
+    }
+  }  
+}
+
+// label slider:
+.input-slider{
+  width:80%;
+  border:0;
+  font:$small-font;
+  margin-top:10px;
+  color:$gray-color;
+  background:none;
+}
+
+// detailt options in form:
+.detail-options{
+  font:$small-font;
+  #square-detail{
+    float:left;
+    margin-top:3px;
+  }
+}
+
+// hide
+.hide{
+  display: none;
 }
