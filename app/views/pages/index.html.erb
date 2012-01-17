@@ -1,5 +1,6 @@
 <div id="search-wrapper">
   <form action="">
+    <!-- TYPE DEAL: -->
     <div class="field">
       <label class="title" for="type-deal">Сделка:</label>
       <div class="condition-block" id="type-deal">
@@ -15,14 +16,35 @@
         <label for="radio5">Обмен</label>
       </div>
     </div>
+    <!-- OBJECTS: -->
     <div class="field">
       <label for="object-sale" class="title">Объект:</label>
-      <div class="condition-block" id="object-sale">
+      <div class="condition-block">
         <select name="object-sale" id="object-sale">
           <option value="flat" selected>Квартира</option>
           <option value="penthouse">Коттедж</option>
           <option value="room">Комната</option>
         </select>
+      </div>
+    </div>
+    <!-- TOWNSHIP: -->
+    <div class="field">
+      <label for="township" class="title">Район:</label>
+      <div class="condition-block">
+        <select name="township" id="township">
+          <option value="ksk">КСК</option>
+          <option value="kgbi">КЖБИ</option>
+          <option value="centr">Центр</option>
+          <option value="zapadnii">Западный</option>
+        </select>
+      </div>
+    </div>
+    <!-- PRICE: -->
+    <div class="field">
+      <label for="price" class="title">Цена:</label>
+      <div class="condition-block">
+        <div id="price"></div>
+        <div id="price-label" class="label-slider"></div>
       </div>
     </div>
   </form>

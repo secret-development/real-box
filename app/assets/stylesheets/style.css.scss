@@ -135,18 +135,21 @@ a{
 
 // search form:
 #search-wrapper{
-  // border:1px solid #ddd;
   padding:10px;
   .field{
-    margin-bottom:15px;
+    margin-bottom:20px;
+    clear:both;
     .title{
       font:$search-form-font;
       margin-top:2px;
       width:180px;
-      display: inline-block;
+      display:block;
+      float:left;
     }
     .condition-block{
-      display: inline-block;
+      border:1px solid #ccc;
+      width:70%;
+      display:inline-block;
     }
   }
   
