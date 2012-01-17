@@ -20,28 +20,27 @@ $(function(){
     step: 1000,
     values: [20000, 300000],
     slide: function(event, ui){
-      var startvalue = ui.values[0].toString();
+      var startvalue = ui.values[0];
       startvalue = partion(startvalue);
       
-      var stopvalue = ui.values[1].toString();
+      var stopvalue = ui.values[1];
       stopvalue = partion(stopvalue);
       
       $("#price-label").html("$"+startvalue+" - $"+stopvalue);
     }
   });
+  
   // partiotion price:
-  
-  var firstvalue = $("#price").slider("values", 0).toString();
-  firstvalue = partion(firstvalue)
-  
-  var secondvalue = $("#price").slider("values", 1).toString();
-  secondvalue = partion(secondvalue)
+  var firstvalue = $("#price").slider("values", 0);
+  firstvalue = partion(firstvalue);
+  var secondvalue = $("#price").slider("values", 1)
+  secondvalue = partion(secondvalue);
   
   $( "#price-label" ).html( "$" + firstvalue + " - $" + secondvalue );
 });
 
 // partition price function
 function partion(obj){
-  obj = obj.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1&thinsp;");
+  obj = obj.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1&thinsp;");
   return obj
 }
