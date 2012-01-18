@@ -1,7 +1,7 @@
 # encoding: UTF-8
 require 'spec_helper'
 
-describe Rcustomer do
+describe Customer do
   #pending "add some examples to (or delete) #{__FILE__}"
   before(:each) do
     @attr = {
@@ -11,6 +11,6 @@ describe Rcustomer do
     }
   end
   it "should create a new instance with valid attributes" do
-    Rcustomer.create!(@attr)    
+    Customer.create!(@attr)    
   end
 end

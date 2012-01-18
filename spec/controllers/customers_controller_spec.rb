@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RcustomersController do
+describe CustomersController do
   render_views
 
   describe "GET 'new'" do
