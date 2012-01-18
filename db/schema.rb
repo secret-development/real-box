@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20120118103006) do
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "real"
+    t.boolean  "real",        :default => false
   end
 
   add_index "customers", ["firstname", "lastname"], :name => "index_rcustomers_on_firstname_and_lastname"
