@@ -1,4 +1,6 @@
 Crm::Application.routes.draw do
+  
+  resources :rcustomers
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
