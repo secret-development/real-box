@@ -108,13 +108,31 @@
       <input type="text" id="floor-label" class="input-slider" name="floor">
     </div>
   </div>
+  <!-- EXTENDED OPTIONS -->
+  <div class="field hide" id="extended-options">
+    <label for="type-of-structure" class="title">Тип строения:</label>
+    <div class="condition-block">
+        <div id="type-of-structure">
+          <input type="radio" id="rad1" name="type-of-structure" value="brick">
+          <label for="rad1">Кирпичное</label> 
+          <input type="radio" id="rad2" name="type-of-structure" value="panel">
+          <label for="rad2">Панельное</label> 
+          <input type="radio" id="rad3" name="type-of-structure" value="    cinderblock">
+          <label for="rad3">Шлакоблочное</label>
+          <input type="radio" id="rad4" name="type-of-structure" value="monolithic">
+          <label for="rad4">Монолитное</label>
+          <input type="radio" id="rad5" name="type-of-structure" value="wooden">
+          <label for="rad5">Деревянное</label>
+        </div>
+    </div>
+  </div>
   <!-- EXTENDED SEARCH: -->
   <div id="extended-search">
     <span>Расширенный поиск</span>
   </div>
   <!-- SUBMIT SEARCH -->
   <div id="submit-search">
-    <input type="button" class="submit-button" value="Поиск">
+    <input type="submit" class="submit-button" value="Поиск">
   </div>
   </form>
 </div>
