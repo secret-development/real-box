@@ -70,7 +70,7 @@
     <div class="field">
       <label for="square" class="title">
         Площадь:
-      <p class="detail-options"><a href="#" id="square-detail">подробнее</a><span class="ui-icon ui-icon-gear"></span></p>
+      <p class="detail-options"><a id="square-detail">подробнее</a><span class="ui-icon ui-icon-gear"></span></p>
       </label>
       <div class="condition-block">
         <div id="square"></div>
@@ -80,7 +80,7 @@
     <!-- OPTION SQUARE FORM -->
     <div class="hide" id="option-square-form">
       <!-- kitchen square -->
-      <div class="field">
+      <div class="field extendblock">
         <label for="kitchen-square" class="title-detail">
           площадь кухни:
         </label>
@@ -90,7 +90,7 @@
         </div>
       </div>
       <!-- living square -->
-      <div class="field">
+      <div class="field extendblock">
         <label for="living-square" class="title-detail">
           жилая площадь:
         </label>
@@ -108,8 +108,31 @@
       <input type="text" id="floor-label" class="input-slider" name="floor">
     </div>
   </div>
-  <div class="extended-search">
-    <a href="#">Расширенный поиск</a>
+  <!-- EXTENDED OPTIONS -->
+  <div class="field hide" id="extended-options">
+    <label for="type-of-structure" class="title">Тип строения:</label>
+    <div class="condition-block">
+        <div id="type-of-structure">
+          <input type="radio" id="rad1" name="type-of-structure" value="brick">
+          <label for="rad1">Кирпичное</label> 
+          <input type="radio" id="rad2" name="type-of-structure" value="panel">
+          <label for="rad2">Панельное</label> 
+          <input type="radio" id="rad3" name="type-of-structure" value="    cinderblock">
+          <label for="rad3">Шлакоблочное</label>
+          <input type="radio" id="rad4" name="type-of-structure" value="monolithic">
+          <label for="rad4">Монолитное</label>
+          <input type="radio" id="rad5" name="type-of-structure" value="wooden">
+          <label for="rad5">Деревянное</label>
+        </div>
+    </div>
+  </div>
+  <!-- EXTENDED SEARCH: -->
+  <div id="extended-search">
+    <span>Расширенный поиск</span>
+  </div>
+  <!-- SUBMIT SEARCH -->
+  <div id="submit-search">
+    <input type="submit" class="submit-button" value="Поиск">
   </div>
   </form>
 </div>

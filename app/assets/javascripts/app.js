@@ -147,4 +147,27 @@ $(function(){
   $("#floor-label").val($("#floor").slider("values",0) + " - " + $("#floor").slider("values",1));
 });
 
+// extended options:
+
+// type of structure
+$(document).ready(function() {
+  $('#type-of-structure').buttonset();
+});
+
+// extended options call
+$(document).ready(function(){
+  $("#extended-search>span").click(function(){
+    if($("#extended-options").hasClass("hide")){
+      $("#extended-options").slideDown("fast");
+      $("#extended-options").removeClass("hide");  
+    }
+    else{
+      $("#extended-options").hide();
+      $("#extended-options").addClass("hide");
+    };
+  });
+});
+
 // todo: посдвечивать блок со значением когда изменяется слайдером
+// todo: сделать чтобы в скрытых полях значения не улетали при отправке формы
+// как вариант: partial
