@@ -70,7 +70,7 @@
     <div class="field">
       <label for="square" class="title">
         Площадь:
-      <p class="detail-options"><a href="#" id="square-detail">подробнее</a><span class="ui-icon ui-icon-gear"></span></p>
+      <p class="detail-options"><a id="square-detail">подробнее</a><span class="ui-icon ui-icon-gear"></span></p>
       </label>
       <div class="condition-block">
         <div id="square"></div>
@@ -108,8 +108,16 @@
       <input type="text" id="floor-label" class="input-slider" name="floor">
     </div>
   </div>
-  <div class="extended-search">
-    <a href="#">Расширенный поиск</a>
+  <!-- EXTENDED SEARCH: -->
+  <div id="extended-search">
+    <a>
+      <span class="extended-search-link">Дополнительные опции</span>
+      <span class="ui-icon ui-icon-wrench"></span>
+    </a>
+  </div>
+  <!-- SEARCH BUTTON -->
+  <div id="search-button-block">
+    <input type="button" value="Поиск">
   </div>
   </form>
 </div>

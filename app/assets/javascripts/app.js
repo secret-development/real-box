@@ -147,4 +147,9 @@ $(function(){
   $("#floor-label").val($("#floor").slider("values",0) + " - " + $("#floor").slider("values",1));
 });
 
+// extend search block
+$(document).ready(function() {
+  $("#extended-search>a").button();
+});
+
 // todo: посдвечивать блок со значением когда изменяется слайдером

@@ -216,6 +216,9 @@ body{
   #square-detail{
     float:left;
     margin-top:3px;
+    &:hover{
+      cursor: pointer;
+    }
   }
 }
 
@@ -231,4 +234,24 @@ body{
 // hide
 .hide{
   display: none;
+}
+
+// extended search:
+#extended-search{
+  margin-top:5px;
+  margin-bottom:10px;
+  a{
+    @include radius;
+    padding-top:2px;
+    display:inline-block;
+    font:$small-font;
+    width:170px;
+    &:hover{
+      text-decoration:none;
+    }
+    .extended-search-link{
+      float:left;
+      margin-right:5px;  
+    }
+  }
 }
