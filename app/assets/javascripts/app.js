@@ -126,12 +126,25 @@ $(document).ready(function() {
       $("#option-square-form").removeClass("hide");  
     }
     else{
-      $("#option-square-form").slideUp("slow");
+      $("#option-square-form").hide();
       $("#option-square-form").addClass("hide");
     };
   });
 });
 
+// floor:
+$(function(){
+  $("#floor").slider({
+    range:true,
+    min: 1,
+    max: 40,
+    values: [2,9],
+    step: 1,
+    slide: function(event, ui){
+      $("#floor-label").val(ui.values[0] + " - " + ui.values[1])
+    }
+  });
+  $("#floor-label").val($("#floor").slider("values",0) + " - " + $("#floor").slider("values",1));
+});
 
 // todo: посдвечивать блок со значением когда изменяется слайдером
-// todo: кнопка подробнее уплыла
