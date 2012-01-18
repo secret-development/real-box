@@ -126,7 +126,7 @@ $(document).ready(function() {
       $("#option-square-form").removeClass("hide");  
     }
     else{
-      $("#option-square-form").slideUp("slow");
+      $("#option-square-form").hide();
       $("#option-square-form").addClass("hide");
     };
   });
