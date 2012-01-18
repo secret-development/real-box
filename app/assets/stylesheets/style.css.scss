@@ -153,9 +153,11 @@ body{
       margin-top:2px;
       float:left;
       display:block;
-      width:180px;
+      width:160px;
       font:small-font;
       color:$href-color;
+      font-style:italic;
+      padding-left:10px;
     }
     .condition-block{
       width:70%;
@@ -217,6 +219,15 @@ body{
   }
 }
 
+#option-square-form{
+  border-left:2px solid #ddd;
+  margin-top:-10px;
+  margin-left:8px;
+  .extendblock{
+    margin-bottom:0px !important;
+  }
+  margin-bottom:20px;
+}
 // hide
 .hide{
   display: none;
