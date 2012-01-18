@@ -38,13 +38,13 @@ body{
   background:$white;
   font:$main-font;
   color:$main-color-font;
-}
-a{
-  color:$href-color;
-  text-decoration:none;
-  &:hover{
-    color:$href-color-hover;
-    text-decoration:underline;
+  a{
+    color:$href-color;
+    text-decoration:none;
+    &:hover{
+      color:$href-color-hover;
+      text-decoration:underline;
+    }
   }
 }
 #wrapper{

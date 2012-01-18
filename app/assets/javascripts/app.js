@@ -18,6 +18,10 @@ $(document).ready(function() {
   $(".input-slider").attr("disabled", true);
 });
 
+// select menu
+$(document).ready(function() {
+  $(".selectmenujs").selectmenu({style:'dropdown'});
+});
 
 // price:
 $(function(){
