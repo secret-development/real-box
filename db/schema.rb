@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120118081830) do
+ActiveRecord::Schema.define(:version => 20120118102132) do
 
-  create_table "rcustomers", :force => true do |t|
+  create_table "customers", :force => true do |t|
     t.string   "firstname"
     t.string   "lastname"
     t.string   "phonehome"
@@ -25,6 +25,6 @@ ActiveRecord::Schema.define(:version => 20120118081830) do
     t.datetime "updated_at"
   end
 
-  add_index "rcustomers", ["firstname", "lastname"], :name => "index_rcustomers_on_firstname_and_lastname"
+  add_index "customers", ["firstname", "lastname"], :name => "index_rcustomers_on_firstname_and_lastname"
 
 end
