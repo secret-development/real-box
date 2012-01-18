@@ -15,9 +15,13 @@ $(document).ready(function() {
 
 // disabled input for slider
 $(document).ready(function() {
-  $(".input-slider").attr("disabled", true);
+  $(".input-slider").attr("readonly", true);
 });
 
+// select menu
+$(document).ready(function() {
+  $(".selectmenujs").selectmenu({style:'dropdown'});
+});
 
 // price:
 $(function(){
