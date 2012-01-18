@@ -204,6 +204,9 @@ a{
 
 // detailt options in form:
 .detail-options{
+  border:1px solid #ccc;
+  clear:both;
+  width:110px;
   font:$small-font;
   #square-detail{
     float:left;
