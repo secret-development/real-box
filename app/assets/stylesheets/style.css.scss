@@ -238,20 +238,61 @@ body{
 
 // extended search:
 #extended-search{
-  margin-top:5px;
-  margin-bottom:10px;
-  a{
-    @include radius;
-    padding-top:2px;
+  display:inline-block;
+  margin-top:10px;
+  margin-right:10px;
+  span{
+    font:$search-form-font;
     display:inline-block;
-    font:$small-font;
-    width:170px;
+    height:24px;
+    padding-left:40px;
+    padding-top:8px;
+    padding-right:5px;
+    background:url("extended-search.png") no-repeat;
+    color:$href-color;
     &:hover{
+      color:$href-color-hover;
       text-decoration:none;
-    }
-    .extended-search-link{
-      float:left;
-      margin-right:5px;  
+      cursor: pointer;
     }
   }
+}
+// submit search:
+#submit-search{
+  display:inline-block;
+  margin-left:10px;
+}
+
+// submit button
+.submit-button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 32px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}
+.submit-button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+	cursor: pointer;
+}
+.submit-button:active {
+	position:relative;
+	top:1px;
 }
