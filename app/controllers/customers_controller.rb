@@ -1,5 +1,5 @@
 # encoding: UTF-8
-class RcustomersController < ApplicationController
+class CustomersController < ApplicationController
   respond_to :html
   
   def index
@@ -7,33 +7,33 @@ class RcustomersController < ApplicationController
   end
   
   def new
-    @rcustomer = Rcustomer.new
-    respond_with @rcustomer    
+    @customer = Customer.new
+    respond_with @customer    
   end
   
   def create
-    @rcustomer = Rcustomer.create(params[:rcustomer])
-    if @rcustomer.save
+    @customer = Customer.create(params[:customer])
+    if @customer.save
       flash[:notice] = "Клиент успешно сохранен!"
-      respond_with @rcustomer   
+      respond_with @customer   
     else
       render 'new'      
     end    
   end
   
   def update
-    @rcustomer = Rcustomer.find(params[:id])
-    if @rcustomer.update_attributes(params[:rcustomer])
+    @customer = Customer.find(params[:id])
+    if @customer.update_attributes(params[:customer])
       flash[:notice] = "Клиент успешно обновлен"
-      respond_with @rcustomer   
+      respond_with @customer   
     else
       render 'edit'        
     end    
   end
   
   def destroy
-    @rcustomer = Rcustomer.find(params[:id])
-    @rcustomer.destroy
+    @customer = Customer.find(params[:id])
+    @customer.destroy
     flash[:notice] = "Клиент успешно удален"
   end
 end
