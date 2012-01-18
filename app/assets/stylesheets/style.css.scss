@@ -58,14 +58,13 @@ body{
     text-align:right;
     height:25px;
     font:$small-font;
-    background:#F1F1F1;
-    @include radius;
+    width:400px;
+    float:right;
     ul{
       position:relative;
       float:right;
       top:6px;
       right:-2px;
-      @include shadow-text-light;
       li{
         float:left;
         margin-right:10px;
@@ -85,7 +84,7 @@ body{
   
   #menu-tabs{
     border-bottom:1px solid #ddd;
-    margin:15px 0px 15px 0px;
+    margin:-26px 0px 15px 0px;
     float:left;
     width:100%;
     ul{
