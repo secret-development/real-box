@@ -104,7 +104,7 @@ $(function(){
   $("#living-square").slider({
     range: true,
     min: 1,
-    max: 700,
+    max: 600,
     values: [50,200],
     step:1,
     slide: function(event, ui){
@@ -130,3 +130,4 @@ $(document).ready(function() {
 
 
 // todo: посдвечивать блок со значением когда изменяется слайдером
+// todo: кнопка подробнее уплыла
