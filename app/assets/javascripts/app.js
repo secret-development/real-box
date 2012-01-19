@@ -18,6 +18,7 @@ $(document).ready(function() {
   $(".input-slider").attr("readonly", true);
 });
 
+
 // select menu
 $(document).ready(function() {
   $(".selectmenujs").selectmenu({style:'dropdown'});
@@ -157,6 +158,9 @@ $(document).ready(function() {
   $('#type-of-structure').buttonset();
 });
 
+// disabled for hide inputs:
+
+
 // extended options call
 $(document).ready(function(){
   $("#extended-search>span").click(function(){
@@ -202,7 +206,6 @@ $(document).ready(function() {
   $("#layout").buttonset();  
   $("#state").buttonset();
 });
-
 
 
 // todo: посдвечивать блок со значением когда изменяется слайдером
