@@ -176,12 +176,23 @@
     <div class="field">
       <label for="internet" class="title">Интернет:</label>
       <div class="condition-block" id="internet">
-        <input type="radio" id="int1" name="furniture" value="yes">
+        <input type="radio" id="int1" name="internet" value="yes">
         <label for="int1">Есть</label>
-        <input type="radio" id="int2" name="furniture" value="no">
+        <input type="radio" id="int2" name="internet" value="no">
         <label for="int2">Нет</label>
-        <input type="radio" id="int3" name="furniture" value="unknown">
+        <input type="radio" id="int3" name="internet" value="unknown">
         <label for="int3">Неизвестно</label>
+      </div>
+    </div>
+    <!-- BALCONY -->
+    <div class="field">
+      <label for="balcony" class="title">Балкон:</label>
+      <div class="condition-block">
+        <select name="balcony" id="balcony" class="selectmenujs">
+          <option value="balcony" selected>Балкон</option>
+          <option value="loggia">Лоджия</option>
+          <option value="no">Нет</option>
+        </select>
       </div>
     </div>
   </div>
