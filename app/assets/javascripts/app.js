@@ -201,6 +201,10 @@ $(document).ready(function() {
   $("#furniture").buttonset();
 });
 
+// internet:
+$(document).ready(function(){
+  $("#internet").buttonset();
+});
 // todo: посдвечивать блок со значением когда изменяется слайдером
 // todo: сделать чтобы в скрытых полях значения не улетали при отправке формы
 // как вариант: partial
