@@ -109,7 +109,7 @@
     </div>
   </div>
   <!-- EXTENDED OPTIONS -->
-  <div id="extended-options">
+  <div class="hide" id="extended-options">
     <!-- TYPE OF STRUCTURE -->
     <div class="field">
       <label for="type-of-structure" class="title">Тип строения:</label>
@@ -135,18 +135,6 @@
         <div id="year-of-constr"></div>
       </div>
       <input type="text" id="year-of-constr-label" class="input-slider" name="year-of-constr">
-    </div>
-    <!-- WC -->
-    <div class="field">
-      <label for="wc" class="title">Санузел:</label>
-      <div class="condition-block" id="wc">
-        <input type="radio" id="wc1" name="wc" value="separate">
-        <label for="wc1">Раздельный</label>
-        <input type="radio" id="wc2" name="wc" value="combined">
-        <label for="wc2">Совмещенный</label>
-        <input type="radio" id="wc3" name="wc" value="unknown">
-        <label for="wc3">Неизвестно</label>
-      </div>
     </div>
     <!-- PHONE: -->
     <div class="field">
@@ -187,12 +175,61 @@
     <!-- BALCONY -->
     <div class="field">
       <label for="balcony" class="title">Балкон:</label>
-      <div class="condition-block">
-        <select name="balcony" id="balcony" class="selectmenujs">
-          <option value="balcony" selected>Балкон</option>
-          <option value="loggia">Лоджия</option>
-          <option value="no">Нет</option>
-        </select>
+      <div class="condition-block" id="balcony">
+        <input type="checkbox" id="bal1" name="balcony" value="balcony">
+        <label for="bal1">Балкон</label>
+        <input type="checkbox" id="bal2" name="balcony" value="loggia">
+        <label for="bal2">Лоджия</label>
+        <input type="checkbox" id="bal3" name="balcony" value="no">
+        <label for="bal3">Нет</label>                
+        <input type="checkbox" id="bal4" name="balcony" value="unknown">
+        <label for="bal4">Неизвестно</label>
+      </div>
+    </div>
+     <!-- WC -->
+      <div class="field">
+        <label for="wc" class="title">Санузел:</label>
+        <div class="condition-block" id="wc">
+          <input type="radio" id="wc1" name="wc" value="separate">
+          <label for="wc1">Раздельный</label>
+          <input type="radio" id="wc2" name="wc" value="combined">
+          <label for="wc2">Совмещенный</label>
+          <input type="radio" id="wc3" name="wc" value="unknown">
+          <label for="wc3">Неизвестно</label>
+        </div>
+      </div>
+    <!-- LAYOUT -->
+    <div class="field">
+      <label for="layout" class="title">Планировка:</label>
+      <div class="condition-block" id="layout">
+        <input type="checkbox" id="la1" name="layout" value="stalinka">
+        <label for="la1">"Сталинка"</label>
+        <input type="checkbox" id="la2" name="layout" value="chrushevka">
+        <label for="la2">"Хрущёвка"</label>
+        <input type="checkbox" id="la3" name="layout" value="improved">
+        <label for="la3">Улучшенная планировка</label>
+        <input type="checkbox" id="la4" name="layout" value="new">
+        <label for="la4">"Новая" планировка</label>
+        <input type="checkbox" id="la5" name="layout" value="other">
+        <label for="la5">Другая</label>
+      </div>
+    </div>
+    <!-- STATE -->
+    <div class="field">
+      <label for="state" class="title">Состояние:</label>
+      <div class="condition-block" id="state">
+        <input type="checkbox" id="st1" name="state" value="euro">
+        <label for="st1">Евроремонт</label>
+        <input type="checkbox" id="st2" name="state" value="ideal">
+        <label for="st2">Идеальное</label>
+        <input type="checkbox" id="st3" name="state" value="good">
+        <label for="st3">Хорошее</label>
+        <input type="checkbox" id="st4" name="state" value="afterconst">
+        <label for="st4">После строительства</label>
+        <input type="checkbox" id="st5" name="state" value="requirerepairs">
+        <label for="st5">Требуется ремонт</label>
+        <input type="checkbox" id="st6" name="state" value="satisfactory">
+        <label for="st6">Удовлетворительное</label>
       </div>
     </div>
   </div>

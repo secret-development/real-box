@@ -186,27 +186,21 @@ $(document).ready(function() {
   $("#year-of-constr-label").val($("#year-of-constr").slider("values", 0) + " - " + $("#year-of-constr").slider("values", 1) + " год");
 });
 
-// wc:
-$(document).ready(function() {
-  $('#wc').buttonset();
-});
-
-// telephone:
+// buttons set for extended checkboex and radio buttons:
 $(document).ready(function() {
   $('#telephone').buttonset();
-});
-
-// furniture:
-$(document).ready(function() {
   $("#furniture").buttonset();
+  $("#internet").buttonset();
+  $("#balcony").buttonset();
+  $('#wc').buttonset();
+  $("#layout").buttonset();  
+  $("#state").buttonset();
 });
 
-// internet:
-$(document).ready(function(){
-  $("#internet").buttonset();
-});
+
+
 // todo: посдвечивать блок со значением когда изменяется слайдером
 // todo: сделать чтобы в скрытых полях значения не улетали при отправке формы
 // как вариант: partial
 
-// todo:   балкон, планировка, состояние, фото
+// todo:  планировка, состояние, фото
