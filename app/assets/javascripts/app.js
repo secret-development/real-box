@@ -124,7 +124,7 @@ $(document).ready(function() {
     if($("#option-square-form").hasClass("hide")){
       $("#option-square-form").slideDown("slow");
       $('html, body').animate({ 
-            scrollTop: $('#option-square-form').offset().top 
+            scrollTop: $('#square-detail').offset().top 
         }, 500);
       $("#option-square-form").removeClass("hide");  
     }
