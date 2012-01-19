@@ -1,0 +1,29 @@
+<h1>Добавить клиента</h1><br/>
+<%= form_for @customer do |c| -%>
+  
+  <%= c.label :firstname, "Имя:" %><br/>
+  <%= c.text_field :firstname %><br/>
+  
+  <%= c.label :lastname, "Фамилия:" %><br/>
+  <%= c.text_field :lastname %><br/>
+  
+  <%= c.label :phonehome, "Телефон:" %><br/>
+  <%= c.text_field :phonehome %><br/>
+  
+  <%= c.label :phonemobile, "Сот.телефон:" %><br/>
+  <%= c.text_field :phonemobile %><br/>
+  
+  <%= c.label :email, "Email:" %><br/>
+  <%= c.text_field :email %><br/>
+  
+  <%= c.label :typecust, "Тип клиента:" %><br/>
+  <%= c.text_field :typecust %><br/>
+  
+   <%= c.label :phonehome, "Телефон:" %><br/>
+  <%= c.text_field :phonehome %><br/>
+  
+  <%= c.submit "Сохранить" %>
+  
+  
+  
+<% end -%>
