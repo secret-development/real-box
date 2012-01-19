@@ -123,6 +123,9 @@ $(document).ready(function() {
   $("#square-detail").click(function(){
     if($("#option-square-form").hasClass("hide")){
       $("#option-square-form").slideDown("slow");
+      $('html, body').animate({ 
+            scrollTop: $('#option-square-form').offset().top 
+        }, 500);
       $("#option-square-form").removeClass("hide");  
     }
     else{
@@ -159,6 +162,9 @@ $(document).ready(function(){
   $("#extended-search>span").click(function(){
     if($("#extended-options").hasClass("hide")){
       $("#extended-options").slideDown("fast");
+      $('html, body').animate({ 
+            scrollTop: $('#extended-options').offset().top 
+        }, 500);
       $("#extended-options").removeClass("hide");
       $("#extended-search>span").html("Краткий поиск");  
     }
