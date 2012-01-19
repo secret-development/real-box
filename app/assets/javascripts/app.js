@@ -123,6 +123,9 @@ $(document).ready(function() {
   $("#square-detail").click(function(){
     if($("#option-square-form").hasClass("hide")){
       $("#option-square-form").slideDown("slow");
+      $('html, body').animate({ 
+            scrollTop: $('#option-square-form').offset().top 
+        }, 500);
       $("#option-square-form").removeClass("hide");  
     }
     else{
@@ -159,15 +162,51 @@ $(document).ready(function(){
   $("#extended-search>span").click(function(){
     if($("#extended-options").hasClass("hide")){
       $("#extended-options").slideDown("fast");
-      $("#extended-options").removeClass("hide");  
+      $('html, body').animate({ 
+            scrollTop: $('#extended-options').offset().top 
+        }, 500);
+      $("#extended-options").removeClass("hide");
+      $("#extended-search>span").html("Краткий поиск");  
     }
     else{
       $("#extended-options").hide();
       $("#extended-options").addClass("hide");
+      $("#extended-search>span").html("Расширенный поиск");  
     };
   });
 });
 
+// year of construction
+$(document).ready(function() {
+  var d = new Date();
+  var current_year = d.getFullYear();
+  $("#year-of-constr").slider({
+    range: true,
+    min: 1900,
+    max: current_year,
+    values: [1950, current_year],
+    slide: function(event, ui){
+      $("#year-of-constr-label").val(ui.values[0] + " - " + ui.values[1] + " год");
+    }
+  });
+  $("#year-of-constr-label").val($("#year-of-constr").slider("values", 0) + " - " + $("#year-of-constr").slider("values", 1) + " год");
+});
+
+// buttons set for extended checkboex and radio buttons:
+$(document).ready(function() {
+  $('#telephone').buttonset();
+  $("#furniture").buttonset();
+  $("#internet").buttonset();
+  $("#balcony").buttonset();
+  $('#wc').buttonset();
+  $("#layout").buttonset();  
+  $("#state").buttonset();
+});
+
+
+
 // todo: посдвечивать блок со значением когда изменяется слайдером
 // todo: сделать чтобы в скрытых полях значения не улетали при отправке формы
 // как вариант: partial
+
+// todo:  планировка, состояние, фото

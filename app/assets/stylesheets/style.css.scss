@@ -35,7 +35,7 @@ $gray-color:#6C6C6C;
 
 // main code:
 body{
-  background:$white;
+    background:#F9F9F9;
   font:$main-font;
   color:$main-color-font;
   a{
@@ -51,9 +51,9 @@ body{
   width:90%;
   min-width:960px;
   margin:10px auto;
+  @include radius;
   // border:1px solid #ccc;
   padding:2px;
-  
   #account-panel{
     text-align:right;
     height:25px;
@@ -98,7 +98,7 @@ body{
           margin-right:1px;
           float:left;
           padding:4px 10px;
-          background:#F1F1F1;
+          background:#E2E2E2;
           &:hover{
             text-decoration:none;
             color:#fff;
@@ -138,7 +138,7 @@ body{
   padding:10px;
   // form field
   .field{
-    padding:5px;
+    padding:1px;
     margin-bottom:20px;
     clear:both;
     .title{
@@ -194,6 +194,51 @@ body{
         width:80%;
         margin-top:5px;
       }
+      
+      #type-of-structure{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #year-of-constr{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #telephone{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #furniture{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #internet{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #balcony{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #wc{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #layout{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #state{
+        width:80%;
+        margin-top:5px;
+      }
     }
   }  
 }
@@ -236,31 +281,37 @@ body{
   display: none;
 }
 
-// extended search:
-#extended-search{
-  display:inline-block;
-  margin-top:10px;
-  margin-right:10px;
-  span{
-    font:$search-form-font;
+
+// search bottom:
+#search-bottom{
+  margin-left:5px;
+  margin-top:30px;
+
+  // extended search:
+  #extended-search{
     display:inline-block;
-    height:24px;
-    padding-left:40px;
-    padding-top:8px;
-    padding-right:5px;
-    background:url("extended-search.png") no-repeat;
-    color:$href-color;
-    &:hover{
-      color:$href-color-hover;
-      text-decoration:none;
-      cursor: pointer;
+    margin-right:10px;
+    span{
+      font:$search-form-font;
+      display:inline-block;
+      height:24px;
+      padding-left:40px;
+      padding-top:8px;
+      padding-right:5px;
+      background:url("extended-search.png") no-repeat;
+      color:$href-color;
+      &:hover{
+        color:$href-color-hover;
+        text-decoration:none;
+        cursor: pointer;
+      }
     }
   }
-}
-// submit search:
-#submit-search{
-  display:inline-block;
-  margin-left:10px;
+  // submit search:
+  #submit-search{
+    display:inline-block;
+    margin-left:10px;
+  } 
 }
 
 // submit button
