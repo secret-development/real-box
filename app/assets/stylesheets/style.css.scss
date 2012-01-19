@@ -35,7 +35,7 @@ $gray-color:#6C6C6C;
 
 // main code:
 body{
-  background:$white;
+    background:#F9F9F9;
   font:$main-font;
   color:$main-color-font;
   a{
@@ -54,7 +54,6 @@ body{
   @include radius;
   // border:1px solid #ccc;
   padding:2px;
-  background:#F9F9F9;
   #account-panel{
     text-align:right;
     height:25px;
@@ -99,7 +98,7 @@ body{
           margin-right:1px;
           float:left;
           padding:4px 10px;
-          background:#F1F1F1;
+          background:#E2E2E2;
           &:hover{
             text-decoration:none;
             color:#fff;
