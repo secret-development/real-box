@@ -9,5 +9,9 @@ describe CustomersController do
       response.should be_success
     end    
   end
+  
+  describe "" do
+    
+  end
 end
 

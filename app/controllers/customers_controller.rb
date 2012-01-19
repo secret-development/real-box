@@ -11,6 +11,11 @@ class CustomersController < ApplicationController
     respond_with @customer    
   end
   
+  def show
+    @customer = Customer.find(params[:id])
+        
+  end
+  
   def create
     @customer = Customer.create(params[:customer])
     if @customer.save
