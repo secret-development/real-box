@@ -14,13 +14,16 @@
   <%= c.text_field :phonemobile %><br/>
   
   <%= c.label :email, "Email:" %><br/>
-  <%= c.text_field :email %><br/>
+  <%= c.email_field :email %><br/>
   
   <%= c.label :typecust, "Тип клиента:" %><br/>
-  <%= c.text_field :typecust %><br/>
+  <%= c.select(:typecust,options_for_select([["Покупатель",1],["Продавец",2],["Собственник",3],["Арендатор",4],["Обменник",5]])) %><br/>
   
-   <%= c.label :phonehome, "Телефон:" %><br/>
-  <%= c.text_field :phonehome %><br/>
+  <%= c.label :socialstatus, "Статус:" %><br/>
+  <%= c.text_field :socialstatus %><br/>
+  
+  <%= c.label :note, "Заметка:" %><br/>
+  <%= c.text_area :note, :size => "30x15" %><br/>
   
   <%= c.submit "Сохранить" %>
   
