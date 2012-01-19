@@ -19,8 +19,19 @@
   <%= c.label :typecust, "Тип клиента:" %><br/>
   <%= c.select(:typecust,options_for_select([["Покупатель",1],["Продавец",2],["Собственник",3],["Арендатор",4],["Обменник",5]])) %><br/>
   
+  <%= c.label :real, "Потенциальный:" %><br/>
+  <%= c.check_box :real %><br/>
+  
   <%= c.label :socialstatus, "Статус:" %><br/>
-  <%= c.text_field :socialstatus %><br/>
+  <p>
+    <%= c.radio_button(:socialstatus,"Студент")  %>
+    <%= c.label(:socialstatus,"Студент")  %>
+    <%= c.radio_button(:socialstatus,"Семейные")  %>
+    <%= c.label(:socialstatus,"Семейные")  %>
+    <%= c.radio_button(:socialstatus,"Работающий(ая)")  %>
+    <%= c.label(:socialstatus,"Работающий(ая)")  %>
+  </p><br/>
+  
   
   <%= c.label :note, "Заметка:" %><br/>
   <%= c.text_area :note, :size => "30x15" %><br/>
