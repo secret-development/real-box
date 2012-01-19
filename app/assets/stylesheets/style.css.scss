@@ -194,6 +194,32 @@ body{
         width:80%;
         margin-top:5px;
       }
+      
+      #type-of-structure{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #year-of-constr{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #wc{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #telephone{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      
+      #furniture{
+        width:80%;
+        margin-top:5px;
+      }
     }
   }  
 }
@@ -236,31 +262,37 @@ body{
   display: none;
 }
 
-// extended search:
-#extended-search{
-  display:inline-block;
-  margin-top:10px;
-  margin-right:10px;
-  span{
-    font:$search-form-font;
+
+// search bottom:
+#search-bottom{
+  margin-left:5px;
+  margin-top:30px;
+
+  // extended search:
+  #extended-search{
     display:inline-block;
-    height:24px;
-    padding-left:40px;
-    padding-top:8px;
-    padding-right:5px;
-    background:url("extended-search.png") no-repeat;
-    color:$href-color;
-    &:hover{
-      color:$href-color-hover;
-      text-decoration:none;
-      cursor: pointer;
+    margin-right:10px;
+    span{
+      font:$search-form-font;
+      display:inline-block;
+      height:24px;
+      padding-left:40px;
+      padding-top:8px;
+      padding-right:5px;
+      background:url("extended-search.png") no-repeat;
+      color:$href-color;
+      &:hover{
+        color:$href-color-hover;
+        text-decoration:none;
+        cursor: pointer;
+      }
     }
   }
-}
-// submit search:
-#submit-search{
-  display:inline-block;
-  margin-left:10px;
+  // submit search:
+  #submit-search{
+    display:inline-block;
+    margin-left:10px;
+  } 
 }
 
 // submit button

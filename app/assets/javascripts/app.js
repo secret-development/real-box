@@ -159,15 +159,50 @@ $(document).ready(function(){
   $("#extended-search>span").click(function(){
     if($("#extended-options").hasClass("hide")){
       $("#extended-options").slideDown("fast");
-      $("#extended-options").removeClass("hide");  
+      $("#extended-options").removeClass("hide");
+      $("#extended-search>span").html("Краткий поиск");  
     }
     else{
       $("#extended-options").hide();
       $("#extended-options").addClass("hide");
+      $("#extended-search>span").html("Расширенный поиск");  
     };
   });
+});
+
+// year of construction
+$(document).ready(function() {
+  var d = new Date();
+  var current_year = d.getFullYear();
+  $("#year-of-constr").slider({
+    range: true,
+    min: 1900,
+    max: current_year,
+    values: [1950, current_year],
+    slide: function(event, ui){
+      $("#year-of-constr-label").val(ui.values[0] + " - " + ui.values[1] + " год");
+    }
+  });
+  $("#year-of-constr-label").val($("#year-of-constr").slider("values", 0) + " - " + $("#year-of-constr").slider("values", 1) + " год");
+});
+
+// wc:
+$(document).ready(function() {
+  $('#wc').buttonset();
+});
+
+// telephone:
+$(document).ready(function() {
+  $('#telephone').buttonset();
+});
+
+// furniture:
+$(document).ready(function() {
+  $("#furniture").buttonset();
 });
 
 // todo: посдвечивать блок со значением когда изменяется слайдером
 // todo: сделать чтобы в скрытых полях значения не улетали при отправке формы
 // как вариант: partial
+
+// todo:   балкон, интернет, мебель, планировка, состояние, фото

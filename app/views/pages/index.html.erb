@@ -5,9 +5,9 @@
       <label class="title" for="type-deal">Сделка:</label>
       <div class="condition-block" id="type-deal">
         <input type="radio" id="radio1" name="type-deal" value="purchase">
-        <label for="radio1">Купля</label> 
+        <label for="radio1">Купля</label>
         <input type="radio" id="radio2" name="type-deal" value="sale">
-        <label for="radio2">Продажа</label> 
+        <label for="radio2">Продажа</label>
         <input type="radio" id="radio3" name="type-deal" value="rent">
         <label for="radio3">Аренда</label>
         <input type="radio" id="radio4" name="type-deal" value="pick">
@@ -109,30 +109,79 @@
     </div>
   </div>
   <!-- EXTENDED OPTIONS -->
-  <div class="field hide" id="extended-options">
-    <label for="type-of-structure" class="title">Тип строения:</label>
-    <div class="condition-block">
-        <div id="type-of-structure">
-          <input type="radio" id="rad1" name="type-of-structure" value="brick">
-          <label for="rad1">Кирпичное</label> 
-          <input type="radio" id="rad2" name="type-of-structure" value="panel">
-          <label for="rad2">Панельное</label> 
-          <input type="radio" id="rad3" name="type-of-structure" value="    cinderblock">
-          <label for="rad3">Шлакоблочное</label>
-          <input type="radio" id="rad4" name="type-of-structure" value="monolithic">
-          <label for="rad4">Монолитное</label>
-          <input type="radio" id="rad5" name="type-of-structure" value="wooden">
-          <label for="rad5">Деревянное</label>
-        </div>
+  <div id="extended-options">
+    <!-- TYPE OF STRUCTURE -->
+    <div class="field">
+      <label for="type-of-structure" class="title">Тип строения:</label>
+      <div class="condition-block">
+          <div id="type-of-structure">
+            <input type="checkbox" id="tos1" name="type-of-structure" value="brick">
+            <label for="tos1">Кирпичное</label> 
+            <input type="checkbox" id="tos2" name="type-of-structure" value="panel">
+            <label for="tos2">Панельное</label> 
+            <input type="checkbox" id="tos3" name="type-of-structure" value="    cinderblock">
+            <label for="tos3">Шлакоблочное</label>
+            <input type="checkbox" id="tos4" name="type-of-structure" value="monolithic">
+            <label for="tos4">Монолитное</label>
+            <input type="checkbox" id="tos5" name="type-of-structure" value="wooden">
+            <label for="tos5">Деревянное</label>
+          </div>
+      </div>  
+    </div>
+    <!-- YEAR OF CONSTURCTION -->
+    <div class="field">
+      <label for="year-of-constr" class="title">Год постройки:</label>
+      <div class="condition-block">
+        <div id="year-of-constr"></div>
+      </div>
+      <input type="text" id="year-of-constr-label" class="input-slider" name="year-of-constr">
+    </div>
+    <!-- WC -->
+    <div class="field">
+      <label for="wc" class="title">Санузел:</label>
+      <div class="condition-block" id="wc">
+        <input type="radio" id="wc1" name="wc" value="separate">
+        <label for="wc1">Раздельный</label>
+        <input type="radio" id="wc2" name="wc" value="combined">
+        <label for="wc2">Совмещенный</label>
+        <input type="radio" id="wc3" name="wc" value="unknown">
+        <label for="wc3">Неизвестно</label>
+      </div>
+    </div>
+    <!-- PHONE: -->
+    <div class="field">
+      <label for="telephone" class="title">Телефон:</label>
+      <div class="condition-block" id="telephone">
+        <input type="radio" id="phone1" name="telephone" value="yes">
+        <label for="phone1">Есть</label>
+        <input type="radio" id="phone2" name="telephone" value="no">
+        <label for="phone2">Нет</label>
+        <input type="radio" id="phone3" name="telephone" value="unknown">
+        <label for="phone3">Неизвестно</label>
+      </div>
+    </div>
+    <!-- FURNITURE -->
+    <div class="field">
+      <label for="furniture" class="title">Мебель:</label>
+      <div class="condition-block" id="furniture">
+        <input type="radio" id="fur1" name="furniture" value="yes">
+        <label for="fur1">Есть</label>
+        <input type="radio" id="fur2" name="furniture" value="no">
+        <label for="fur2">Нет</label>
+        <input type="radio" id="fur3" name="furniture" value="unknown">
+        <label for="fur3">Неизвестно</label>
+      </div>
     </div>
   </div>
-  <!-- EXTENDED SEARCH: -->
-  <div id="extended-search">
-    <span>Расширенный поиск</span>
-  </div>
-  <!-- SUBMIT SEARCH -->
-  <div id="submit-search">
-    <input type="submit" class="submit-button" value="Поиск">
+  <div id="search-bottom">
+    <!-- EXTENDED SEARCH: -->
+    <div id="extended-search">
+      <span>Расширенный поиск</span>
+    </div>
+    <!-- SUBMIT SEARCH -->
+    <div id="submit-search">
+      <input type="submit" class="submit-button" value="Поиск">
+    </div>
   </div>
   </form>
 </div>
