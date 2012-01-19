@@ -15,7 +15,7 @@ class CustomersController < ApplicationController
     @customer = Customer.create(params[:customer])
     if @customer.save
       flash[:notice] = "Клиент успешно сохранен!"
-      respond_with @customer   
+      respond_with(@customer, :location => customers_path)   
     else
       render 'new'      
     end    
