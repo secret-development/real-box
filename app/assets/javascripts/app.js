@@ -158,7 +158,7 @@ $(document).ready(function(){
   $("#extended-search>span").click(function(){
     if($("#extended-options").hasClass("hide")){
       // enable disabled inputs
-      $("#extended-options :input").removeAttr("disabled");
+      $("#extended-options input").removeAttr("disabled");
       $("#extended-options label").removeAttr("aria-disabled");
       // other actions
       $("#extended-options").slideDown("fast");
@@ -170,7 +170,7 @@ $(document).ready(function(){
     }
     else{
       // disabled enable inputs:
-      $("#extended-options :input").attr("disabled", true);
+      $("#extended-options input").attr("disabled", "disabled");
       $("#extended-options label").attr("aria-disabled","true");
       // other actions
       $("#extended-options").hide();
@@ -210,7 +210,8 @@ $(document).ready(function() {
 
 // disabled inputs 
 $(document).ready(function() {
-  $("#extended-options :input").attr("disabled", true);
+  $("#extended-options input").attr("disabled", "disabled");
+  $("#extended-options label").attr("aria-disabled", "true");
 });
 
 // todo: посдвечивать блок со значением когда изменяется слайдером
