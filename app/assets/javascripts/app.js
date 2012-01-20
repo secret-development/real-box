@@ -123,6 +123,9 @@ $(function(){
 $(document).ready(function() {
   $("#square-detail").click(function(){
     if($("#option-square-form").hasClass("hide")){
+      // enable disabled inputs
+      $("#option-square-form input").removeAttr("disabled");
+      // other animation actions
       $("#option-square-form").slideDown("slow");
       $('html, body').animate({ 
             scrollTop: $('#square-detail').offset().top 
@@ -130,6 +133,8 @@ $(document).ready(function() {
       $("#option-square-form").removeClass("hide");  
     }
     else{
+      // disabled enabled inputs
+      $("#option-square-form input").attr("disabled", "disabled");
       $("#option-square-form").hide();
       $("#option-square-form").addClass("hide");
     };
@@ -208,16 +213,17 @@ $(document).ready(function() {
   $("#state").buttonset();
 });
 
-// disabled inputs 
+// disabled inputs for extended-options
 $(document).ready(function() {
   $("#extended-options input").attr("disabled", "disabled");
   $("#extended-options label").attr("aria-disabled", "true");
 });
 
-// todo: посдвечивать блок со значением когда изменяется слайдером
-// todo: сделать чтобы в скрытых полях значения не улетали при отправке формы
-// как вариант: partial
+// disabled inputs for option-square-form
+$(document).ready(function() {
+  $("#option-square-form input").attr("disabled", "disabled");
+});
 
-// todo:  планировка, состояние, фото
+// todo: фото
 
 // todo: cookie при поиске скрытые поля остаются открытыми если они открыты
