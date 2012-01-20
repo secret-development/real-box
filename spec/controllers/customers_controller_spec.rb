@@ -22,7 +22,14 @@ describe CustomersController do
     
     it {should render_template("new")}
     it {should render_template("new")}
-    it {should render_template("customers/new")}
+    it {should render_template("customers/new")}    
+  end
+  
+  describe "#create" do
+    subject {post :create, :customers => {:firstname => "Ivan", :lastname => "Ivanov"}}
+    it "redirects_to customer_url(@customer)" do
+      subject.should redirect_to(customer_url(assigns(:customer)))      
+    end
     
   end
   
