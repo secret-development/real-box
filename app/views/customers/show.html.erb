@@ -4,7 +4,12 @@
   <%= @customer.firstname %><br/>
   <%= @customer.phonehome %><br/>
   <%= @customer.phonemobile %><br/>
+  Статус:
   <%= @customer.socialstatus %><br/>
+  Тип клиента:
   <%= @customer.typecust %><br/>
+  Потенциальный:
+  <%= @customer.real %><br/>
 </p><br/>
-<%= link_to 'Изменить', edit_customer_path  %>  
+<%= link_to 'Изменить', edit_customer_path  %>
+<%= link_to 'Удалить', customer_path, :method => :delete, :confirm => "Вы уверены?"  %>  

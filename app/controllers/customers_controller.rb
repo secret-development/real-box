@@ -18,6 +18,7 @@ class CustomersController < ApplicationController
   
   def show
     @customer = Customer.find(params[:id])
+    convert(@customer.real)
     respond_with @customer    
   end
   
