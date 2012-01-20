@@ -153,26 +153,24 @@ $(function(){
 
 // extended options:
 
-// type of structure
-$(document).ready(function() {
-  $('#type-of-structure').buttonset();
-});
-
-// disabled for hide inputs:
-
-
 // extended options call
 $(document).ready(function(){
   $("#extended-search>span").click(function(){
     if($("#extended-options").hasClass("hide")){
+      // enable disabled inputs
+      $("#extended-options :input").removeAttr("disabled");
+      // other actions
       $("#extended-options").slideDown("fast");
-      $('html, body').animate({ 
-            scrollTop: $('#extended-options').offset().top 
+      $('html, body').animate({
+            scrollTop: $('#extended-options').offset().top
         }, 500);
       $("#extended-options").removeClass("hide");
-      $("#extended-search>span").html("Краткий поиск");  
+      $("#extended-search>span").html("Краткий поиск");
     }
     else{
+      // disabled enable inputs:
+      $("#extended-options :input").attr("disabled", true);
+      // other actions
       $("#extended-options").hide();
       $("#extended-options").addClass("hide");
       $("#extended-search>span").html("Расширенный поиск");  
@@ -197,16 +195,22 @@ $(document).ready(function() {
 });
 
 // buttons set for extended checkboex and radio buttons:
-$(document).ready(function() {
-  $('#telephone').buttonset();
-  $("#furniture").buttonset();
-  $("#internet").buttonset();
-  $("#balcony").buttonset();
-  $('#wc').buttonset();
-  $("#layout").buttonset();  
-  $("#state").buttonset();
-});
+// $(document).ready(function() {
+//   $('#type-of-structure').buttonset();
+//   $('#telephone').buttonset();
+//   $("#furniture").buttonset();
+//   $("#internet").buttonset();
+//   $("#balcony").buttonset();
+//   $('#wc').buttonset();
+//   $("#layout").buttonset();  
+//   $("#state").buttonset();
+// });
 
+// disabled inputs 
+$(document).ready(function() {
+  $("#extended-options :input").attr("disabled", true);
+});
+ 
 
 // todo: посдвечивать блок со значением когда изменяется слайдером
 // todo: сделать чтобы в скрытых полях значения не улетали при отправке формы
