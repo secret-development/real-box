@@ -26,9 +26,14 @@ describe CustomersController do
   end
   
   describe "#create" do
-    subject {post :create, :customers => {:firstname => "Ivan", :lastname => "Ivanov"}}
+    subject {post :create, :customer => {:firstname => "Ivan", :lastname => "Ivanov"}}
+    
     it "redirects_to customer_url(@customer)" do
-      subject.should redirect_to(customer_url(assigns(:customer)))      
+      subject.should redirect_to(customers_url(assigns(:customer)))      
+    end
+    it "redirect_to :action 'index'" do
+      subject.should redirect_to :action => :index   #:action => :show, :id => assigns(:customer).id
+      
     end
     
   end
