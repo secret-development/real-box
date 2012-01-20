@@ -35,28 +35,5 @@ describe CustomersController do
       subject.should redirect_to :action => :index   #:action => :show, :id => assigns(:customer).id если редирект на экшн show     
     end    
   end
-  
-  describe "#update" do
-    before(:each) do
-      @attr = {
-        :firstname => "Vova",
-        :lastname => "Vovanov"
-      }
-    end
-    #subject {post :update, :customer => {:update_attributes => true}}#:firstname => "Uri", :lastname => "Urev"}}
-    @c = Customer.create!(@attr)
-    @c.save.should eq(true)
-    #@c.firstname = "Vov"
-    #@c.lastname ="w"
-    it "redirect_to :action 'show'" do
-      @c.update_attributes.should be_false
-      #subject.should redirect_to :action => :show, :id => assigns(:customer).id      
-    end
-    
-   
-    
-  end
-  
-
 end
 

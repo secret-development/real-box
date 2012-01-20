@@ -1,7 +1,10 @@
 <h1>Информация о клиенте</h1>
+<p>
   <%= @customer.lastname %><br/>
   <%= @customer.firstname %><br/>
   <%= @customer.phonehome %><br/>
   <%= @customer.phonemobile %><br/>
   <%= @customer.socialstatus %><br/>
-  <%= @customer.typecust %><br/>  
+  <%= @customer.typecust %><br/>
+</p><br/>
+<%= link_to 'Изменить', edit_customer_path  %>  
