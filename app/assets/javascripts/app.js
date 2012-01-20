@@ -18,6 +18,7 @@ $(document).ready(function() {
   $(".input-slider").attr("readonly", true);
 });
 
+
 // select menu
 $(document).ready(function() {
   $(".selectmenujs").selectmenu({style:'dropdown'});
@@ -124,7 +125,7 @@ $(document).ready(function() {
     if($("#option-square-form").hasClass("hide")){
       $("#option-square-form").slideDown("slow");
       $('html, body').animate({ 
-            scrollTop: $('#option-square-form').offset().top 
+            scrollTop: $('#square-detail').offset().top 
         }, 500);
       $("#option-square-form").removeClass("hide");  
     }
@@ -152,23 +153,26 @@ $(function(){
 
 // extended options:
 
-// type of structure
-$(document).ready(function() {
-  $('#type-of-structure').buttonset();
-});
-
 // extended options call
 $(document).ready(function(){
   $("#extended-search>span").click(function(){
     if($("#extended-options").hasClass("hide")){
+      // enable disabled inputs
+      $("#extended-options :input").removeAttr("disabled");
+      $("#extended-options label").removeAttr("aria-disabled");
+      // other actions
       $("#extended-options").slideDown("fast");
-      $('html, body').animate({ 
-            scrollTop: $('#extended-options').offset().top 
+      $('html, body').animate({
+            scrollTop: $('#extended-options').offset().top
         }, 500);
       $("#extended-options").removeClass("hide");
-      $("#extended-search>span").html("Краткий поиск");  
+      $("#extended-search>span").html("Краткий поиск");
     }
     else{
+      // disabled enable inputs:
+      $("#extended-options :input").attr("disabled", true);
+      $("#extended-options label").attr("aria-disabled","true");
+      // other actions
       $("#extended-options").hide();
       $("#extended-options").addClass("hide");
       $("#extended-search>span").html("Расширенный поиск");  
@@ -194,6 +198,7 @@ $(document).ready(function() {
 
 // buttons set for extended checkboex and radio buttons:
 $(document).ready(function() {
+  $('#type-of-structure').buttonset();
   $('#telephone').buttonset();
   $("#furniture").buttonset();
   $("#internet").buttonset();
@@ -203,10 +208,15 @@ $(document).ready(function() {
   $("#state").buttonset();
 });
 
-
+// disabled inputs 
+$(document).ready(function() {
+  $("#extended-options :input").attr("disabled", true);
+});
 
 // todo: посдвечивать блок со значением когда изменяется слайдером
 // todo: сделать чтобы в скрытых полях значения не улетали при отправке формы
 // как вариант: partial
 
 // todo:  планировка, состояние, фото
+
+// todo: cookie при поиске скрытые поля остаются открытыми если они открыты
