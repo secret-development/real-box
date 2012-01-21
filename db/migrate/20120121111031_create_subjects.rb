@@ -8,7 +8,7 @@ class CreateSubjects < ActiveRecord::Migration
       t.integer :price
       t.integer :numbofrooms
       t.float :square
-      t.float :kicthensquare
+      t.float :kitchensquare
       t.float :livingsquare
       t.integer :floor
       t.string :typestructure
