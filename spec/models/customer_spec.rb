@@ -15,8 +15,9 @@ describe Customer do
     Customer.create!(@attr)    
   end
   
-  it "must be zero by default" do 
+  it "must be zero by default and save attributes" do 
     @c = Customer.create(@attr)
-    @c.real?().should be_false    
+    @c.real?().should be_false
+    @c.save.should eq(true)    
   end
 end
