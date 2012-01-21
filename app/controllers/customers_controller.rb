@@ -11,6 +11,16 @@ class CustomersController < ApplicationController
     respond_with @customer    
   end
   
+  def edit
+    @customer = Customer.find(params[:id])
+    respond_with @customer    
+  end
+  
+  def show
+    @customer = Customer.find(params[:id])
+    respond_with @customer    
+  end
+  
   def create
     @customer = Customer.create(params[:customer])
     if @customer.save
@@ -35,5 +45,6 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @customer.destroy
     flash[:notice] = "Клиент успешно удален"
+    respond_with @customer
   end
 end
