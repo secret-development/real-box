@@ -3,9 +3,12 @@ require 'spec_helper'
 
 describe Subject do
   before(:each) do
+    @typesubjects = ["квартира", "комната", "коттедж", "дача", 
+      "офис", "участок"]
+      
     # valid data
     @attr = {
-      :typesubject => "квартира",
+      :typesubject => @typesubjects[0],
       :cityname => "костанай",
       :township => "центр",
       :address => "абая 165, 119",
@@ -25,6 +28,7 @@ describe Subject do
       :layout => "сталинка",
       :state => "отличное"
     }
+    
   end
   
   describe "validates presence" do
@@ -64,10 +68,45 @@ describe Subject do
       req_presence_sub(:floor).should_not be_valid
     end
 
-
     # Require presence subject(validates :presence => true)
     def req_presence_sub(par)
       @subejct = Subject.new(@attr.merge(par => ""))
+    end
+  end
+  
+  describe "other validations" do
+    let(:subject) { Subject.new(@attr) }
+    
+    it "should include typesubjects" do
+      subject.typesubject.should include @typesubjects[0]
+    end
+    
+    it "price should include only integers" do
+      subject.price.should be_kind_of(Integer)
+    end
+    
+    it "numbofrooms should include only integers" do
+      subject.numbofrooms.should be_kind_of(Integer)
+    end
+    
+    it "floor should include only integers" do
+      subject.floor.should be_kind_of(Integer)
+    end
+    
+    it "year of construction include only integers" do
+      subject.yearofconstruction.should be_kind_of(Integer)
+    end
+    
+    it "square should numericality" do
+      subject.square.should be_kind_of(Numeric)
+    end
+    
+    it "kitchen square should numericality" do
+      subject.kitchensquare.should be_kind_of(Numeric)
+    end
+    
+    it "living square should numericality" do
+      subject.livingsquare.should be_kind_of(Numeric)
     end
     
   end
