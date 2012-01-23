@@ -142,7 +142,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  annotate
+  annotate (~> 2.4.0)
   capybara (~> 1.1.2)
   coffee-rails (~> 3.2.1)
   jquery-rails
