@@ -3,6 +3,7 @@ require 'spec_helper'
 
 describe Subject do
   before(:each) do
+    # valid data
     @attr = {
       :typesubject => "квартира",
       :cityname => "костанай",
@@ -29,4 +30,6 @@ describe Subject do
   it "should create a new instance given a valid attribute" do
     @subject = Subject.create!(@attr)
   end
+  
+  
 end
