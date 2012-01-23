@@ -1,0 +1,18 @@
+<%= form_for(@subject) do |f| %>
+  <div class="field">
+    <%= f.label :cityname, "Город:" %>
+    <%= f.select :cityname, options_for_select(ApplicationHelper::CURRENT_CITY) %>
+  </div>
+  <div class="field">
+    <%= f.label :typesubject, "Тип помещения:" %>
+    <%= f.select :typesubject, options_for_select(ApplicationHelper::TS) %>
+  </div>
+  <div class="field">
+    <%= f.label :township, "Район:" %>
+    <%= f.select :township, options_for_select(['КЖБИ','КСК']) %>
+  </div>
+  <div class="field">
+    <%= f.label :price, "Цена:" %>
+    <%= f.text_field :price %>
+  </div>
+<% end %>
