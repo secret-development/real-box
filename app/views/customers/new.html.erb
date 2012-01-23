@@ -20,7 +20,7 @@
   <%= c.select(:typecust,options_for_select([["Покупатель","Покупатель"],["Продавец","Продавец"],["Собственник","Собственник"],["Арендатор","Арендатор"],["Обменник","Обменник"]])) %><br/>
   
   <%= c.label :real, "Потенциальный:" %><br/>
-  <%= c.check_box :real %><br/>
+  <%= c.check_box :real, :checked => true %><br/>
   
   <%= c.label :socialstatus, "Статус:" %><br/>
   <p>

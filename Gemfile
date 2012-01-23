@@ -13,7 +13,7 @@ gem 'mysql2'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', "~> 1.2.2"
+  gem 'uglifier', ">= 1.0.3"
 end
 
 gem 'jquery-rails'
@@ -34,6 +34,7 @@ gem "annotate", "~> 2.4.0"
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test, :development do
+  gem "awesome_print", "~> 1.0.2"
   gem 'spork', '0.9.0.rc9'
   gem "rspec", "~> 2.8.0"
   gem "rspec-rails", "~> 2.8.1"
