@@ -40,6 +40,7 @@ group :test, :development do
   gem "rspec-rails", "~> 2.8.1"
   gem "capybara", "~> 1.1.2"
   gem "watchr"
+  gem 'factory_girl_rails'
   # Pretty printed test output
   gem 'turn', '~> 0.8.3', :require => false
 end
