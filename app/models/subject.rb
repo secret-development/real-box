@@ -10,5 +10,4 @@ class Subject < ActiveRecord::Base
   # square
   validates :square, :kitchensquare, :livingsquare, :numericality => true
   
-  
 end
