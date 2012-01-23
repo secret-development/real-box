@@ -1,2 +1,2 @@
-module SubjecstHelper
+module SubjectsHelper
 end
