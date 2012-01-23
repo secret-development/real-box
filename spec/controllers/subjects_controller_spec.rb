@@ -1,7 +1,7 @@
 # encoding: UTF-8
 require 'spec_helper'
 
-describe SubjectController do
+describe SubjectsController do
   render_views
   
   describe "GET 'index'" do

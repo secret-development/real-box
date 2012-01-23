@@ -11,5 +11,5 @@ require 'spec_helper'
 #     end
 #   end
 # end
-describe SubjectHelper do
+describe SubjectsHelper do
 end
