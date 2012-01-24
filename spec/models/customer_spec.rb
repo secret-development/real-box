@@ -25,7 +25,6 @@ describe Customer do
   it "update" do
     @cust = Customer.create!(@attr)
     Customer = @cust.id
-    Customer = {:firstname => "Vanya"}
-    
+    Customer = {:firstname => "Vanya"}   
   end
 end

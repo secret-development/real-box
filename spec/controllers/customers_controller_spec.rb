@@ -1,41 +1,55 @@
+# encoding: UTF-8
 require 'spec_helper'
 
 describe CustomersController do
   render_views
+  
+  before(:each) do
+    @customer = Factory(:customer)
+  end
 
-  describe "GET 'new'" do
-    it "should be successful" do
+  describe "GET should be successful" do
+    it "'new'" do
       get :new
       response.should be_success
-    end    
+    end     
+    it "'index'" do
+      get :index
+      response.should be_success       
+    end
+  
+    it "'edit'" do
+      get :edit, :id => @customer
+      response.should be_success
+    end
+  
+    it "'show'" do
+      get :show, :id => @customer
+      response.should be_success    
+    end
   end
   
-  describe "GET #index" do
-    subject {get :index}
+  describe "Post success" do
+    before(:each) do
+      @attr = {:firstname => "vano", :lastname => "vanov", :phonehome => "1243", :phonemobile => "876965" }
+    end
     
-    it {should render_template(:index)}
+    it "should create" do
+      lambda do
+        post :create, :customer => @attr
+      end.should change(Customer, :count).by(1) 
+    end
     
-  end
-  
-  describe "GET #new" do
-    subject {get :new}
+    it "should redirect to the customer_path" do
+      post :create, :customer => @attr
+      response.should redirect_to(customer_path(assigns(:customer)))
+      #response.should redirect_to :action => :show, :id => assigns(:customer).id       
+    end
     
-    it {should render_template("new")}
-    it {should render_template("new")}
-    it {should render_template("customers/new")}    
-  end
-  
-  describe "#create" do
-    subject {post :create, :customer => {
-      :firstname => "Ivan", 
-      :lastname => "Ivanov", 
-      :phonehome => "853049853",
-      :phonemobile => "853049853"
-    }}   
-    
-    it "redirect_to :action 'show'" do
-      subject.should redirect_to :action => :show, :id => assigns(:customer).id      
-    end    
+    it "should have a flash success message" do
+      post :create, :customer => @attr
+      flash[:notice].should =~ /Клиент успешно сохранен!/
+    end     
   end
 end
 
