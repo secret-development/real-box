@@ -1,42 +1,57 @@
-  <%= form_for @customer do |c| %>
-  <% @customer.errors.full_messages.each do |msg| %>
-    <b><%= msg %></b><br/>
-  <% end %>
+<%= form_for @customer do |c| %>
   
-  <%= c.label :firstname, "Имя:" %><br/>
-  <%= c.text_field :firstname %><br/>
+  <div class="field">
+    <%= c.label :firstname, "Имя:" %>
+    <%= c.text_field :firstname %>
+  </div>
   
-  <%= c.label :lastname, "Фамилия:" %><br/>
-  <%= c.text_field :lastname %><br/>
+  <div class="field">
+    <%= c.label :lastname, "Фамилия:" %>
+    <%= c.text_field :lastname %>
+  </div>
   
-  <%= c.label :phonehome, "Телефон:" %><br/>
-  <%= c.text_field :phonehome %><br/>
+  <div class="field">
+    <%= c.label :phonehome, "Телефон:" %>
+    <%= c.text_field :phonehome %>
+  </div>
   
-  <%= c.label :phonemobile, "Сот.телефон:" %><br/>
-  <%= c.text_field :phonemobile %><br/>
+  <div class="field">
+    <%= c.label :phonemobile, "Сот.телефон:" %>
+    <%= c.text_field :phonemobile %>
+  </div>
   
-  <%= c.label :email, "Email:" %><br/>
-  <%= c.email_field :email %><br/>
+  <div class="field">
+    <%= c.label :email, "Email:" %>
+    <%= c.email_field :email %>
+  </div>
   
-  <%= c.label :typecust, "Тип клиента:" %><br/>
-  <%= c.select(:typecust,options_for_select([["Покупатель","Покупатель"],["Продавец","Продавец"],["Собственник","Собственник"],["Арендатор","Арендатор"],["Обменник","Обменник"]])) %><br/>
+  <div class="field">
+    <%= c.label :typecust, "Тип клиента:" %>
+    <%= c.select(:typecust,options_for_select([["Покупатель","Покупатель"],["Продавец","Продавец"],["Собственник","Собственник"],["Арендатор","Арендатор"],["Обменник","Обменник"]])) %><br/>
+  </div>
   
-  <%= c.label :real, "Потенциальный:" %><br/>
-  <%= c.check_box :real %><br/>
+  <div class="field">
+    <%= c.label :real, "Потенциальный:" %>
+    <%= c.check_box :real %><br/>
+  </div>
   
-  <%= c.label :socialstatus, "Статус:" %><br/>
-  <p>
+  <div class="radio-button">
+    <%= c.label :socialstatus, "Статус:" %>
     <%= c.radio_button(:socialstatus,"Студент")  %>
     <%= c.label(:socialstatus,"Студент")  %>
-    <label><%= c.radio_button(:socialstatus,"Семейные")  %></label>
+    <%= c.radio_button(:socialstatus,"Семейные")  %>
     <%= c.label(:socialstatus,"Семейные")  %>
     <%= c.radio_button(:socialstatus,"Работающий(ая)")  %>
     <%= c.label(:socialstatus,"Работающий(ая)")  %>
-  </p><br/>
+  </div>
   
   
-  <%= c.label :note, "Заметка:" %><br/>
-  <%= c.text_area :note, :size => "30x15" %><br/>
- 
-  <%= c.submit "Сохранить" %>
+  <div class="text-area">
+    <%= c.label :note, "Заметка:" %>
+    <%= c.text_area :note %>
+  </div>
+  
+  <div class="submit">
+    <%= c.submit "Сохранить" %>
+  </div>
 <% end %>
