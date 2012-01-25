@@ -1,4 +1,5 @@
 <% @potentials.each do |p| %>
   <%= p.lastname %><br/>
-  <%= p.firstname %><br/><hr>
+  <%= p.firstname %><br/>
+  <%= link_to 'Просмотр', p %><hr>
 <% end %>

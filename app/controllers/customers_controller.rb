@@ -3,8 +3,8 @@ class CustomersController < ApplicationController
   respond_to :html
   
   def index
-    @customers = Customer.real
-    @potentials = Customer.potentials
+    @customers = Customer.real.all
+    @potentials = Customer.potentials.all
   end
   
   def new

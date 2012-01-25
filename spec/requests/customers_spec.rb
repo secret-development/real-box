@@ -19,17 +19,17 @@ describe "Customers" do
     end
   end
   
-#  describe "Post /customers" do
-#    it "create customer" do
-#      visit new_customer_path                
-#      fill_in :firstname, :with => "Vasya"
-#      fill_in :lastname, :with => "Chapaev"
-#      fill_in :phonemobile, :with => "853049853"
-#      fill_in :phonehome, :with => "853049853"
-#      click_button "Сохранить"
-#      #save_and_open_page
-#      page.should have_content("Клиент успешно сохранен!")
-#          
-#    end    
-#  end
+  describe "Post /customers" do
+    it "create customer" do
+      visit new_customer_path                
+      fill_in :firstname, :with => "Vasya"
+      fill_in :lastname, :with => "Chapaev"
+      fill_in :phonemobile, :with => "853049853"
+      fill_in :phonehome, :with => "853049853"
+      click_button "Сохранить"
+      save_and_open_page
+      page.should have_content("Клиент успешно сохранен!")
+          
+    end    
+  end
 end
