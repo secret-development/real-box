@@ -3,7 +3,8 @@ class CustomersController < ApplicationController
   respond_to :html
   
   def index
-    @customers = Customer.all
+    @customers = Customer.real.all
+    @potentials = Customer.potentials.all
   end
   
   def new
@@ -25,7 +26,7 @@ class CustomersController < ApplicationController
     @customer = Customer.create(params[:customer])
     if @customer.save
       flash[:notice] = "Клиент успешно сохранен!"
-      respond_with(@customer, :location => customers_path)   
+      respond_with(@customer)#, :location => customers_path)   
     else
       render 'new'      
     end    

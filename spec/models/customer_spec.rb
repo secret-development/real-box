@@ -7,7 +7,8 @@ describe Customer do
     @attr = {
       :firstname => "Ivan",
       :lastname => "Ivanov",
-      :phonehome => "",
+      :phonehome => "839321",
+      :phonemobile => "87771234567",
      # :real => true,
     }
   end
@@ -20,4 +21,14 @@ describe Customer do
     @c.real?().should be_false
     @c.save.should eq(true)    
   end
+<<<<<<< HEAD
+  
+  it "update" do
+    @cust = Customer.create!(@attr)
+    Customer = @cust.id
+    Customer = {:firstname => "Vanya"}   
+  end
 end
+=======
+end
+>>>>>>> aleksandr

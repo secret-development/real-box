@@ -20,3 +20,15 @@ Factory.define :subject do |subject|
   subject.layout                 "сталинка"
   subject.state                  "отличное"
 end
+
+Factory.define :customer do |customer|
+  customer.firstname      "Ivan"
+  customer.lastname       "Ivanov"
+  customer.phonehome      "853049853"
+  customer.phonemobile    "853049853"
+  customer.email          "vanya@mail.ru"
+  customer.typecust       "Покупатель"
+  customer.real           true
+  customer.note           "bla-bla-bla"
+  customer.socialstatus   "Работающий(ая)"
+end

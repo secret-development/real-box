@@ -1,13 +1,20 @@
 // variables:
+
+// colors:
 $white: #fff; 
-$main-font: normal 0.8em/130% Helvetica, Arial, Tahoma, sans-serif;
-$small-font: normal 11px/130% Helvetica, Arial, Tahoma, sans-serif;
 $main-color-font: #414141;
-$search-form-font: 1.2em/130% Helvetica, Arial, Tahoma, sans-serif;
 $gray-color:#6C6C6C;
 // href:
   $href-color:#848484;
   $href-color-hover:#5A5A5A;
+  
+// fonts:
+$main-font: normal 0.8em/130% Helvetica, Arial, Tahoma, sans-serif;
+$small-font: normal 11px/130% Helvetica, Arial, Tahoma, sans-serif;
+$h1-font: normal 22px/130% "Arial Narrow", Arial, Tahoma, sans-serif;
+$search-form-font: 1.2em/130% Helvetica, Arial, Tahoma, sans-serif;
+$form-font: normal 16px/130% Helvetica, Arial, Tahoma, sans-serif;
+
 
 // mixins:
 @mixin shadow-text-light{
@@ -31,6 +38,12 @@ $gray-color:#6C6C6C;
   -moz-border-radius:5px;
   border-radius:5px;
   -o-border-radius:5px;
+}
+@mixin radius10{
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+  -o-border-radius:10px;
 }
 
 // main code:
@@ -345,4 +358,48 @@ body{
 .submit-button:active {
 	position:relative;
 	top:1px;
+}
+
+// form for add object
+.form-add-object{
+  background:$white;
+  border:1px solid #ccc;
+  @include radius10;
+  padding:20px;
+  .title-form{
+    font:$h1-font;
+    margin-bottom:15px;
+  }
+  .field{
+    margin:15px 0px 15px 0px;
+    height:30px;
+    .measure{
+      color:$gray-color;
+      font:$small-font;
+    }
+    font:$form-font;
+    color:$gray-color;
+    label{
+      float:left;
+      display:block;
+      width:240px;
+    }
+    input{
+      @include radius;
+      width:100px;
+      border:1px solid #ccc;
+      padding:3px 5px;
+    }
+    select{
+    }
+  }
+  .submit{
+    margin-top:30px;
+  }
+  .text-area{
+    padding: 5px;
+  }
+  .radio-button{
+    
+  }
 }
