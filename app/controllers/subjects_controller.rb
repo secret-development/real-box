@@ -1,6 +1,5 @@
 # encoding: UTF-8
 class SubjectsController < ApplicationController
-
   respond_to :html
   
   def index

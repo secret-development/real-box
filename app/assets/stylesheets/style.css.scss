@@ -1,13 +1,22 @@
 // variables:
+
+// colors:
 $white: #fff; 
-$main-font: normal 0.8em/130% Helvetica, Arial, Tahoma, sans-serif;
-$small-font: normal 11px/130% Helvetica, Arial, Tahoma, sans-serif;
 $main-color-font: #414141;
-$search-form-font: 1.2em/130% Helvetica, Arial, Tahoma, sans-serif;
 $gray-color:#6C6C6C;
 // href:
   $href-color:#848484;
   $href-color-hover:#5A5A5A;
+  
+// fonts:
+$main-font: normal 0.8em/130% Helvetica, Arial, Tahoma, sans-serif;
+$small-font: normal 11px/130% Helvetica, Arial, Tahoma, sans-serif;
+$h1-font: normal 22px/130% "Arial Narrow", Arial, Tahoma, sans-serif;
+$search-form-font: 1.2em/130% Helvetica, Arial, Tahoma, sans-serif;
+$form-font: normal 12px/130% Helvetica, Arial, Tahoma, sans-serif;
+
+
+
 
 // mixins:
 @mixin shadow-text-light{
@@ -345,4 +354,38 @@ body{
 .submit-button:active {
 	position:relative;
 	top:1px;
+}
+
+// form for add object
+.form-add-object{
+  padding:3px;
+  .title-form{
+    font:$h1-font;
+    margin-bottom:15px;
+  }
+  .field{
+    margin:15px 0px 15px 0px;
+    .measure{
+      color:$gray-color;
+      font:$small-font;
+    }
+    label{
+      float:left;
+      display:block;
+      width:190px;
+      font:$search-form-font;
+      color:$gray-color;
+    }
+    input{
+      @include radius;
+      width:100px;
+      border:1px solid #ccc;
+      padding:3px 5px;
+      margin-top:-1px;
+      margin-bottom:2px;
+    }
+  }
+  .submit{
+    margin-top:30px;
+  }
 }
