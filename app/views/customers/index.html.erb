@@ -1,8 +1,16 @@
+<h4>Реальные:</h4>
 <% @customers.each do |c| %>
-  <%= c.lastname %><br/>
-  <%= c.firstname %><br/>
+  <%= c.lastname %>
+  <%= c.firstname %>
   <%= link_to "Просмотр",c %><br/>  
-<% end %>
-
+<% end %> 
 <hr>
-<%= link_to "Добавить клиента", new_customer_path %> 
+<h4>Потенциальные:</h4>
+<% @potentials.each do |p| %>
+  <%=p.lastname %>
+  <%=p.firstname %>
+  <%= link_to 'Просмотр', p %><br/>
+  
+<% end %>
+<br/><br/><br/><br/>
+<%= link_to "Добавить клиента", new_customer_path %><br>
