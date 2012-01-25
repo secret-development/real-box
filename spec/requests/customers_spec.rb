@@ -32,4 +32,25 @@ describe "Customers" do
 #          
 #    end    
 #  end
+  end
+  
+  describe "Post /customers" do
+    it "create customer" do
+      visit new_customer_path                
+      fill_in :firstname, :with => "Vasya"
+      fill_in :lastname, :with => "Chapaev"
+      click_button "Сохранить"
+      #save_and_open_page     
+    end    
+  end
+
+  #describe "link_to " do
+    #it "link_to show" do
+      #visit customers_path
+      #click_link "Просмотр"
+      #page.should have_content("")
+      #response.should render_template('customers/show') 
+    #end    
+  #end
+
 end
