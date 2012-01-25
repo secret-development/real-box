@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
   respond_to :html
   
   def index
-    @customers = Customer.all
+    @customers = Customer.where(:real => true)
   end
   
   def new
