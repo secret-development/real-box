@@ -2,80 +2,60 @@
   <%= error_messages_for(@subject) %>
   <div class="field">
     <%= f.label :cityname, "Город:" %>
-    <%= f.select :cityname, options_for_select() %>
   </div>
   <div class="field">
     <%= f.label :typesubject, "Тип помещения:" %>
-    <%= f.select :typesubject, options_for_select() %>
   </div>
   <div class="field">
     <%= f.label :township, "Район:" %>
-    <%= f.select :township, options_for_select(['КЖБИ','КСК']) %>
   </div>
   <div class="field">
     <%= f.label :address, "Адрес:" %>
-    <%= f.text_field :address, :class => "address" %>
   </div>
   <div class="field">
     <%= f.label :price, "Цена:" %>
-    <%= f.text_field :price, :placeholder => "40000" %><span class="measure">&dollar;</span>
   </div>
   <div class="field">
     <%= f.label :numbofrooms, "Количество комнат:" %>
-    <%= f.text_field :numbofrooms, :placeholder => "3" %>
   </div>
   <div class="field">
     <%= f.label :square, "Общая площадь:" %>
-    <%= f.text_field :square, :placeholder => "100" %><span class="measure">м&sup2;</span>
   </div>
   <div class="field">
     <%= f.label :kitchensquare, "Площадь кухни:" %>
-    <%= f.text_field :kitchensquare, :placeholder => "20" %><span class="measure">м&sup2;</span>
   </div>
   <div class="field">
     <%= f.label :livingsquare, "Жилая площадь:" %>
-    <%= f.text_field :livingsquare, :placeholder => "80" %><span class="measure">м&sup2;</span>
   </div>
   <div class="field">
     <%= f.label :floor, "Этаж:" %>
-    <%= f.text_field :floor, :placeholder => "4" %>
   </div>
   <div class="field">
     <%= f.label :typestructure, "Тип строения:" %>
-    <%= f.select :typestructure, options_for_select() %>
   </div>
   <div class="field">
     <%= f.label :yearofconstruction, "Год постройки" %>
-    <%= f.select :yearofconstruction,  
-        options_for_select()  %>
   </div>
   <div class="field">
     <%= f.label :telephone, "Телефон:" %>
-    <%= f.select :telephone, options_for_select() %>
   </div>
   <div class="field">
     <%= f.label :furniture, "Мебель:" %>
-    <%= f.select :furniture, options_for_select() %>
   </div>
   <div class="field">
     <%= f.label :internet, "Интернет:" %>
-    <%= f.select :internet, options_for_select() %>
   </div>
   <div class="field">
     <%= f.label :balcony, "Балкон:" %>
-    <%= f.select :balcony, options_for_select() %>
   </div>
   <div class="field">
     <%= f.label :wc, "Санузел:" %>
-    <%= f.select :wc, options_for_select() %>
   </div>
   <div class="field">
     <%= f.label :layout, "Планировка:" %>
-    <%= f.select :layout, options_for_select() %>
   </div>
   <div class="field">
     <%= f.label :state, "Состояние:" %>
-    <%= f.select :state, options_for_select() %>
   </div>
   <div class="submit">
     <%= f.submit @subject.button_value, :class => "submit-button" %>
