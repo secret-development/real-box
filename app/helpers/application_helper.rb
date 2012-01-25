@@ -14,4 +14,7 @@ module ApplicationHelper
     render(:partial => "shared/error_messages", :locals => {:object => object})
   end
   
+  def edit_icon
+    image_tag "edit-icon.png"
+  end
 end
