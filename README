@@ -1,1 +1,4 @@
 empty
+
+# TODO: 1) запоминать выбранные чекбоксы при поиске
+2) создать конф файл http://railscasts.com/episodes/85-yaml-configuration-file

@@ -3,7 +3,7 @@ module ApplicationHelper
   def title
     base_title = "Система: ReHandy"
     if @title
-      "#{base_title} + #{@title}"
+      "#{base_title} | #{@title}"
     else
       base_title
     end

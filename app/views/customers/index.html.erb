@@ -1,0 +1,8 @@
+<% @customers.each do |c| %>
+  <%= c.lastname %><br/>
+  <%= c.firstname %><br/>
+  <%= link_to "Просмотр",c %><br/>  
+<% end %>
+
+<hr>
+<%= link_to "Добавить клиента", new_customer_path %> 
