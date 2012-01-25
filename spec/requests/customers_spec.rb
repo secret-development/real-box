@@ -32,7 +32,7 @@ describe "Customers" do
 #          
 #    end    
 #  end
-  end
+  # end
   
   describe "Post /customers" do
     it "create customer" do

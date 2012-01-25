@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(:version => 20120125120218) do
     t.datetime "updated_at", :null => false
   end
 
-
   create_table "customers", :force => true do |t|
     t.string   "firstname"
     t.string   "lastname"
@@ -28,8 +27,8 @@ ActiveRecord::Schema.define(:version => 20120125120218) do
     t.string   "email"
     t.text     "typecust"
     t.text     "note"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "real",         :default => false
     t.string   "socialstatus"
   end
