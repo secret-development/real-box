@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(:version => 20120121111031) do
     t.string   "email"
     t.text     "typecust"
     t.text     "note"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.boolean  "real",         :default => false
     t.string   "socialstatus"
   end

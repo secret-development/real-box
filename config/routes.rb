@@ -1,5 +1,7 @@
 Crm::Application.routes.draw do
   
+  resources :users
+
   resources :customers
   resources :subjects
   # The priority is based upon order of creation:
