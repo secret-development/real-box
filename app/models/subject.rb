@@ -10,4 +10,12 @@ class Subject < ActiveRecord::Base
   # square
   validates :square, :kitchensquare, :livingsquare, :numericality => true
   
+  def button_value
+    if new_record?
+      "Добавить"
+    else
+      "Редактировать"
+    end
+  end
+  
 end
