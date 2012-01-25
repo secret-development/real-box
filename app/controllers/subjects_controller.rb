@@ -20,7 +20,7 @@ class SubjectsController < ApplicationController
   end
   
   def edit
-    @subject = Subject.new
+    @subject = Subject.find(params[:id])
     @title = "Редактирование объекта"
     respond_with @subject
   end
