@@ -13,9 +13,7 @@ $main-font: normal 0.8em/130% Helvetica, Arial, Tahoma, sans-serif;
 $small-font: normal 11px/130% Helvetica, Arial, Tahoma, sans-serif;
 $h1-font: normal 22px/130% "Arial Narrow", Arial, Tahoma, sans-serif;
 $search-form-font: 1.2em/130% Helvetica, Arial, Tahoma, sans-serif;
-$form-font: normal 12px/130% Helvetica, Arial, Tahoma, sans-serif;
-
-
+$form-font: normal 16px/130% Helvetica, Arial, Tahoma, sans-serif;
 
 
 // mixins:
@@ -40,6 +38,12 @@ $form-font: normal 12px/130% Helvetica, Arial, Tahoma, sans-serif;
   -moz-border-radius:5px;
   border-radius:5px;
   -o-border-radius:5px;
+}
+@mixin radius10{
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+  -o-border-radius:10px;
 }
 
 // main code:
@@ -358,31 +362,35 @@ body{
 
 // form for add object
 .form-add-object{
-  padding:3px;
+  background:$white;
+  border:1px solid #ccc;
+  @include radius10;
+  padding:20px;
   .title-form{
     font:$h1-font;
     margin-bottom:15px;
   }
   .field{
     margin:15px 0px 15px 0px;
+    height:30px;
     .measure{
       color:$gray-color;
       font:$small-font;
     }
+    font:$form-font;
+    color:$gray-color;
     label{
       float:left;
       display:block;
-      width:190px;
-      font:$search-form-font;
-      color:$gray-color;
+      width:240px;
     }
     input{
       @include radius;
       width:100px;
       border:1px solid #ccc;
       padding:3px 5px;
-      margin-top:-1px;
-      margin-bottom:2px;
+    }
+    select{
     }
   }
   .submit{
