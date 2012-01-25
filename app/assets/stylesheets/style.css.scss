@@ -1,8 +1,10 @@
 // variables:
 $white: #fff; 
-$main-font: normal 0.8em/130% “Myriad Pro”, Arial, Helvetica, Tahoma, sans-serif;
-$small-font: normal 11px/130% “Myriad Pro”, Arial, Helvetica, Tahoma, sans-serif;
+$main-font: normal 0.8em/130% Helvetica, Arial, Tahoma, sans-serif;
+$small-font: normal 11px/130% Helvetica, Arial, Tahoma, sans-serif;
 $main-color-font: #414141;
+$search-form-font: 1.2em/130% Helvetica, Arial, Tahoma, sans-serif;
+$gray-color:#6C6C6C;
 // href:
   $href-color:#848484;
   $href-color-hover:#5A5A5A;
@@ -33,37 +35,36 @@ $main-color-font: #414141;
 
 // main code:
 body{
-  background:$white;
+    background:#F9F9F9;
   font:$main-font;
   color:$main-color-font;
-}
-a{
-  color:$href-color;
-  text-decoration:none;
-  &:hover{
-    color:$href-color-hover;
-    text-decoration:underline;
+  a{
+    color:$href-color;
+    text-decoration:none;
+    &:hover{
+      color:$href-color-hover;
+      text-decoration:underline;
+    }
   }
 }
 #wrapper{
   width:90%;
   min-width:960px;
   margin:10px auto;
+  @include radius;
   // border:1px solid #ccc;
   padding:2px;
-  
   #account-panel{
     text-align:right;
     height:25px;
     font:$small-font;
-    background:#F1F1F1;
-    @include radius;
+    width:400px;
+    float:right;
     ul{
       position:relative;
       float:right;
       top:6px;
       right:-2px;
-      @include shadow-text-light;
       li{
         float:left;
         margin-right:10px;
@@ -83,7 +84,7 @@ a{
   
   #menu-tabs{
     border-bottom:1px solid #ddd;
-    margin:15px 0px 15px 0px;
+    margin:-26px 0px 15px 0px;
     float:left;
     width:100%;
     ul{
@@ -97,7 +98,7 @@ a{
           margin-right:1px;
           float:left;
           padding:4px 10px;
-          background:#F1F1F1;
+          background:#E2E2E2;
           &:hover{
             text-decoration:none;
             color:#fff;
@@ -131,7 +132,217 @@ a{
 
 
 // controllers styles:
+
+// search form:
 #search-wrapper{
-  // border:1px solid #ddd;
   padding:10px;
+  // form field
+  .field{
+    padding:1px;
+    margin-bottom:20px;
+    clear:both;
+    .title{
+      font:$search-form-font;
+      color:#000;
+      margin-top:2px;
+      width:180px;
+      display:block;
+      float:left;
+    }
+    .title-detail{
+      margin-top:2px;
+      float:left;
+      display:block;
+      width:160px;
+      font:small-font;
+      color:$href-color;
+      font-style:italic;
+      padding-left:10px;
+    }
+    .condition-block{
+      width:70%;
+      display:inline-block;
+      
+      // price block slider
+      #price{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      // numrooms block slider
+      #numrooms{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #square{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #kitchen-square{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #living-square{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #floor{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #type-of-structure{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #year-of-constr{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #telephone{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #furniture{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #internet{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #balcony{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #wc{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #layout{
+        width:80%;
+        margin-top:5px;
+      }
+      
+      #state{
+        width:80%;
+        margin-top:5px;
+      }
+    }
+  }  
+}
+
+// label slider:
+.input-slider{
+  width:80%;
+  border:0;
+  font:$small-font;
+  margin-top:10px;
+  color:$gray-color;
+  background:none;
+}
+
+// detailt options in form:
+.detail-options{
+  clear:both;
+  width:110px;
+  font:$small-font;
+  #square-detail{
+    float:left;
+    margin-top:3px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+#option-square-form{
+  border-left:2px solid #ddd;
+  margin-top:-10px;
+  margin-left:8px;
+  .extendblock{
+    margin-bottom:0px !important;
+  }
+  margin-bottom:20px;
+}
+// hide
+.hide{
+  display: none;
+}
+
+
+// search bottom:
+#search-bottom{
+  margin-top:30px;
+
+  // extended search:
+  #extended-search{
+    display:inline-block;
+    margin-right:10px;
+    span{
+      font:$search-form-font;
+      display:inline-block;
+      height:24px;
+      padding-left:40px;
+      padding-top:8px;
+      padding-right:5px;
+      background:url("extended-search.png") no-repeat;
+      color:$href-color;
+      &:hover{
+        color:$href-color-hover;
+        text-decoration:none;
+        cursor: pointer;
+      }
+    }
+  }
+  // submit search:
+  #submit-search{
+    display:inline-block;
+    margin-left:10px;
+  } 
+}
+
+// submit button
+.submit-button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 32px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}
+.submit-button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+	cursor: pointer;
+}
+.submit-button:active {
+	position:relative;
+	top:1px;
 }
