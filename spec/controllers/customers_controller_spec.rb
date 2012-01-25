@@ -51,5 +51,17 @@ describe CustomersController do
       flash[:notice].should =~ /Клиент успешно сохранен!/
     end     
   end
+  
+  describe "index.html.erb should be show potentials and real customers" do
+    before(:each) do
+      @potential =  {:firstname => "vano", :lastname => "vanov", :phonehome => "1243", :phonemobile => "876965" }
+      @real = {:firstname => "vano", :lastname => "vanov", :phonehome => "1243", :phonemobile => "876965", :real => true }
+    end
+    
+    it "success" do
+      
+    end
+    
+  end
 end
 
