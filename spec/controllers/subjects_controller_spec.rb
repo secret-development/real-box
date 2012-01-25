@@ -14,7 +14,7 @@ describe SubjectsController do
   end
 
   it "get show" do
-    get :show, :id => @subject
+    get :show, :id => @subject.id
     response.should be_success
   end
 
@@ -24,7 +24,7 @@ describe SubjectsController do
   end
   
   it "get edit" do
-    get :edit
+    get :edit, :id => @subject.id
     response.should be_success
   end
   

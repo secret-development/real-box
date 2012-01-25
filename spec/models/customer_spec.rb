@@ -22,9 +22,7 @@ describe Customer do
     @c.save.should eq(true)    
   end
   
-  it "update" do
-    @cust = Customer.create!(@attr)
-    Customer = @cust.id
-    Customer = {:firstname => "Vanya"}   
-  end
+
 end
+
+

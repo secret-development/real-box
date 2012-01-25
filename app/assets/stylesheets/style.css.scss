@@ -7,7 +7,8 @@ $gray-color:#6C6C6C;
 // href:
   $href-color:#848484;
   $href-color-hover:#5A5A5A;
-  
+$error-color:#941A1F;  
+$error-color-back:#EBBAB2;
 // fonts:
 $main-font: normal 0.8em/130% Helvetica, Arial, Tahoma, sans-serif;
 $small-font: normal 11px/130% Helvetica, Arial, Tahoma, sans-serif;
@@ -376,6 +377,7 @@ body{
     .measure{
       color:$gray-color;
       font:$small-font;
+      margin-left:10px;
     }
     font:$form-font;
     color:$gray-color;
@@ -390,16 +392,46 @@ body{
       border:1px solid #ccc;
       padding:3px 5px;
     }
-    select{
+    .address{
+      width:170px;
     }
   }
   .submit{
     margin-top:30px;
   }
+
   .text-area{
     padding: 5px;
   }
   .radio-button{
     
   }
+
+  // errors:
+  .field_with_errors{
+    float:left;
+    display: inline-block;
+    input, select, textarea{
+      border:1px solid $error-color;
+      background:$error-color-back;
+    }   
+  }
+  .errorExplanation{
+    @include radius;
+    border:1px solid $error-color;
+    padding:10px;
+    width:300px;
+    color:$gray-color;  
+    margin-bottom:30px;
+    .error-title{
+      font-size:18px;
+      margin-bottom:10px;      
+    }
+    ul li{
+      list-style-type: disc;
+      margin-left:20px;
+      margin-top:5px;
+    }
+  }
 }
+

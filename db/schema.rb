@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120121111031) do
+ActiveRecord::Schema.define(:version => 20120125120218) do
+
+  create_table "cities", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "customers", :force => true do |t|
     t.string   "firstname"
@@ -56,5 +62,17 @@ ActiveRecord::Schema.define(:version => 20120121111031) do
   add_index "subjects", ["numbofrooms"], :name => "index_subjects_on_numbofrooms"
   add_index "subjects", ["price"], :name => "index_subjects_on_price"
   add_index "subjects", ["square"], :name => "index_subjects_on_square"
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.date     "birth_date"
+    t.string   "adress"
+    t.string   "phone"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
 end
