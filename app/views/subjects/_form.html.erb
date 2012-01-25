@@ -15,4 +15,63 @@
     <%= f.label :price, "Цена:" %>
     <%= f.text_field :price %>
   </div>
+  <div class="field">
+    <%= f.label :numbofrooms, "Количество комнат:" %>
+    <%= f.text_field :numbofrooms %>
+  </div>
+  <div class="field">
+    <%= f.label :square, "Общая площадь:" %>
+    <%= f.text_field :square %>
+  </div>
+  <div class="field">
+    <%= f.label :kitchensquare, "Площадь кухни:" %>
+    <%= f.text_field :kitchensquare %>
+  </div>
+  <div class="field">
+    <%= f.label :livingsquare, "Жилая площадь:" %>
+    <%= f.text_field :kitchensquare %>
+  </div>
+  <div class="field">
+    <%= f.label :floor, "Этаж:" %>
+    <%= f.text_field :floor %>
+  </div>
+  <div class="field">
+    <%= f.label :typestructure, "Тип строения:" %>
+    <%= f.select :typestructure, options_for_select(ApplicationHelper::TYPESTR) %>
+  </div>
+  <div class="field">
+    <%= f.label :yearofconstruction, "Год постройки" %>
+    <%= f.select :yearofconstruction, options_for_select(ApplicationHelper::YEAROFCONSTR, :selected => ApplicationHelper::YEAROFCONSTR.last)  %>
+  </div>
+  <div class="field">
+    <%= f.label :telephone, "Телефон:" %>
+    <%= f.select :telephone, options_for_select(ApplicationHelper::YOR) %>
+  </div>
+  <div class="field">
+    <%= f.label :furniture, "Мебель:" %>
+    <%= f.select :furniture, options_for_select(ApplicationHelper::YOR) %>
+  </div>
+  <div class="field">
+    <%= f.label :internet, "Интернет:" %>
+    <%= f.select :internet, options_for_select(ApplicationHelper::YOR) %>
+  </div>
+  <div class="field">
+    <%= f.label :balcony, "Балкон:" %>
+    <%= f.select :balcony, options_for_select(ApplicationHelper::BALCONY) %>
+  </div>
+  <div class="field">
+    <%= f.label :wc, "Санузел:" %>
+    <%= f.select :wc, options_for_select(ApplicationHelper::WC) %>
+  </div>
+  <div class="field">
+    <%= f.label :layout, "Планировка:" %>
+    <%= f.select :layout, options_for_select(ApplicationHelper::LAYOUT) %>
+  </div>
+  <div class="field">
+    <%= f.label :state, "Состояние:" %>
+    <%= f.select :state, options_for_select(ApplicationHelper::STATE) %>
+  </div>
+  <div class="submit">
+    <%= f.submit @subject.button_value %>
+  </div>
 <% end %>
