@@ -21,6 +21,7 @@ describe Customer do
     @c.real?().should be_false
     @c.save.should eq(true)    
   end
+<<<<<<< HEAD
   
   it "update" do
     @cust = Customer.create!(@attr)
@@ -28,3 +29,6 @@ describe Customer do
     Customer = {:firstname => "Vanya"}   
   end
 end
+=======
+end
+>>>>>>> aleksandr
