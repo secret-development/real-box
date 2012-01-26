@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class User < ActiveRecord::Base
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -13,4 +14,12 @@ class User < ActiveRecord::Base
             :format     => { :with => email_regex },
             :uniqueness => { :case_sensitive => false }
             
+  def button_value
+    if new_record?
+      "Добавить"
+    else
+      "Редактировать"  
+    end
+  end
+  
 end
