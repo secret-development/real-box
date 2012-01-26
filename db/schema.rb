@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120125120218) do
+ActiveRecord::Schema.define(:version => 20120126041448) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -25,15 +25,21 @@ ActiveRecord::Schema.define(:version => 20120125120218) do
     t.string   "phonehome"
     t.string   "phonemobile"
     t.string   "email"
-    t.text     "typecust"
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "real",         :default => false
-    t.string   "socialstatus"
+    t.boolean  "real",             :default => false
+    t.integer  "type_customer_id"
+    t.integer  "social_status_id"
   end
 
   add_index "customers", ["firstname", "lastname"], :name => "index_rcustomers_on_firstname_and_lastname"
+
+  create_table "social_statuses", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "subjects", :force => true do |t|
     t.string   "typesubject"
@@ -62,6 +68,12 @@ ActiveRecord::Schema.define(:version => 20120125120218) do
   add_index "subjects", ["numbofrooms"], :name => "index_subjects_on_numbofrooms"
   add_index "subjects", ["price"], :name => "index_subjects_on_price"
   add_index "subjects", ["square"], :name => "index_subjects_on_square"
+
+  create_table "type_customers", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"
