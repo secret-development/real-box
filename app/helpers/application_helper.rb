@@ -17,4 +17,12 @@ module ApplicationHelper
   def edit_icon
     image_tag "edit-icon.png"
   end
+  
+  def delete_icon
+    image_tag "delete-icon.png"
+  end
+  
+  def flash_msg(object)
+    render(:partial => "shared/flashmsg", :locals => {:object => object})
+  end
 end
