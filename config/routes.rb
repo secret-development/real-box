@@ -5,7 +5,7 @@ Crm::Application.routes.draw do
   resources :subjects
   resources :cities, :except => [:show]
   resources :type_customers, :except => [:show]
-  recources :social_statuses, :except => [:show]
+  resources :social_statuses, :except => [:show]
   
   # settings
   match "settings" => "settings#index", :as => :settings
