@@ -9,6 +9,9 @@ $gray-color:#6C6C6C;
   $href-color-hover:#5A5A5A;
 $error-color:#941A1F;  
 $error-color-back:#EBBAB2;
+// notice-color:
+$notice-color:#A6D268;
+$alert-color:#992922;
 // fonts:
 $main-font: normal 0.8em/130% Helvetica, Arial, Tahoma, sans-serif;
 $small-font: normal 11px/130% Helvetica, Arial, Tahoma, sans-serif;
@@ -435,3 +438,76 @@ body{
   }
 }
 
+// notices
+.flash-notice{
+  color:$notice-color;
+}
+.flash-alert{
+  color:$alert-color;
+}
+
+// settings
+.settings{
+  @include radius10;
+  padding:10px;
+  background: $white;
+  border:1px solid #ccc;
+  .title{
+    font:$h1-font;
+    margin-bottom:15px;
+  }
+  #set-list{
+    margin-top:40px;
+    padding:10px;
+    margin-bottom:10px;
+    li{
+      float:left;
+      margin-right:10px;
+      margin-bottom:50px;
+      width:260px;
+      text-align:center;
+      .city_link{
+        background:url('city_icon.png') no-repeat top center;
+      }
+      .typecustomers_link{
+        background:url('typeclients_icon.png') no-repeat top center;
+      }
+      .socialstatus_link{
+        background:url('socialstatus_icon.png') no-repeat top center;
+      }
+      .typeobjesct_link{
+        background:url('typeobject_icon.png') no-repeat top center;
+      }
+      .condition_link{
+        background:url('condition_icon.png') no-repeat top center;
+      }
+      .value_icon{
+        background:url('values_icon.png') no-repeat top center;
+      }
+      a{
+        padding-top:40px;
+        display:inline-block;
+        height:15px;
+        text-decoration:none;
+      }
+    }
+  }
+  .city{
+    margin-bottom:25px;
+    // city-settings
+    .city-settings{
+      margin:25px 0px;
+      .city-name{
+        font:$form-font;
+        width:200px;
+        float:left;
+        color:$gray-color;
+      }
+    }
+  }
+}
+
+
+.clear{
+  clear:both;
+}

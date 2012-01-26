@@ -9,12 +9,6 @@ class CitiesController < ApplicationController
     respond_with @cities
   end
   
-  def show
-    @city = City.find(params[:id])
-    @title = @city.name
-    respond_with @city
-  end
-  
   def new
     @city = City.new
     @title = "Добавление города"
@@ -31,7 +25,7 @@ class CitiesController < ApplicationController
     @city = City.new(params[:city])
     if @city.save
       flash[:notice] = "Город успешно добавлен"
-      respond_with(@city, :location => city_path(@city))
+      respond_with(@city, :location => cities_path)
     else
       render 'new'
     end
@@ -41,7 +35,7 @@ class CitiesController < ApplicationController
     @city = City.find(params[:id])
     if @city.update_attributes(params[:city])
       flash[:notice] = "Город успешно обновлён"
-      respond_with(@city, :location => city_path(@city))
+      respond_with(@city, :location => cities_path)
     else
       render 'edit'
     end    

@@ -27,8 +27,6 @@ Factory.define :customer do |customer|
   customer.phonehome      "853049853"
   customer.phonemobile    "853049853"
   customer.email          "vanya@mail.ru"
-  customer.typecust       "Покупатель"
   customer.real           true
   customer.note           "bla-bla-bla"
-  customer.socialstatus   "Работающий(ая)"
 end
