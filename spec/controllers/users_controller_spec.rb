@@ -116,11 +116,30 @@ describe UsersController do
     
     it "should have a success message" do
       put :update, :id => @user.id, :user => @attr
-      #flash[:notice].should =~ /Персонал успешно обновлён/i
       flash[:notice].should eql("Персонал успешно обновлен")
     end
     
   end
+    
+  end
+  
+  describe "DELETE 'destroy'" do
+    
+    it "should redirect to users" do
+      delete :destroy, :id => @user.id
+      response.should redirect_to(users_path)
+    end
+    
+    it "should destroy the user" do
+      lambda do 
+        delete :destroy, :id => @user.id
+      end.should change(User, :count).by(-1)
+    end
+    
+    it "should have a success message" do
+      delete :destroy, :id => @user.id
+      flash[:notice].should eql("Персонал успешно удален")
+    end
     
   end
   
