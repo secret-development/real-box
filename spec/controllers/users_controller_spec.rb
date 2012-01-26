@@ -7,9 +7,6 @@ describe UsersController do
   
   describe "GET 'show'" do
     
-    before(:each) do
-      @user = Factory(:user)
-    end
     it "get show" do
       get :show, :id => @user
       response.should be_success
@@ -79,4 +76,15 @@ describe UsersController do
     
   end
   
+  describe "PUT 'update'" do
+    
+    describe "failure update" do
+      
+      before(:each) do
+        @user = Factory
+      end
+      
+    end
+    
+  end
 end
