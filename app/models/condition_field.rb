@@ -13,4 +13,12 @@ class ConditionField < ActiveRecord::Base
     }
   end
   
+  def button_value
+    if new_record?
+      "Добавить"
+    else
+      "Редактировать"
+    end
+  end
+  
 end
