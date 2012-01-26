@@ -67,7 +67,6 @@ describe CitiesController do
   describe "PUT update" do
     describe "failure" do
       before(:each) do
-        @city = Factory(:city)
         @attr = {:name => ""}
       end
       
@@ -85,7 +84,6 @@ describe CitiesController do
     
     describe "success" do
       before(:each) do
-        @city = Factory(:city)
         @attr = {:name => "Астана"}
       end
       
@@ -108,9 +106,6 @@ describe CitiesController do
   end
   
   describe "destroy" do
-    before(:each) do
-      @city = Factory(:city)
-    end
     
     it "should redirect to cities_path" do
       delete :destroy, :id => @city.id

@@ -5,20 +5,21 @@ describe ConditionField do
 
   before(:each) do
 
+    @conditionfield = Factory(:condition_field)
+    
     @typefields = { 
-      "select" => "выпадающий список",
-      "radio"  => "радио кнопки",
-      "checkbox" => "чекбоксы",
-      "textfield" => "текстовое поле",
-      "textarea" => "большое текстовое поле"
+      "выпадающий список" => "select",
+      "радио кнопки" => "radio",
+      "чекбоксы" => "checkbox",
+      "текстовое поле" => "textfield",
+      "большое текстовое поле" => "textarea"
       }
       
     @attr = {
-      :namefield => "Санузел",
-      :typefield => @typefields["select"]
+      :namefield => "Состояние",
+      :typefield => @typefields["выпадающий список"]
     }
     
-    @conditionfield = Factory(:condition_field)
   end
   
   describe "validates" do
@@ -39,6 +40,12 @@ describe ConditionField do
     
     it "typefield should include value of TYPEFIELDS" do
       (@typefields.to_s).should include(@conditionfield.typefield)
+    end
+    
+    it "should reject duplicate namefield" do
+      ConditionField.create!(@attr)
+      condition_field_with_dup = ConditionField.new(@attr)
+      condition_field_with_dup.should_not be_valid
     end
   end
 end

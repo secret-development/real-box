@@ -74,7 +74,6 @@ describe SubjectsController do
   describe "PUT 'update'" do
     describe "failure update" do
       before(:each) do
-        @subject = Factory(:subject)
         # #invalid data
         @attr = invalid_data
       end
@@ -93,7 +92,6 @@ describe SubjectsController do
     
     describe "success update" do
       before(:each) do
-        @subject = Factory(:subject)
         @attr = valid_data
       end
       
@@ -116,9 +114,6 @@ describe SubjectsController do
   end
   
   describe "DELETE 'destroy'" do
-    before(:each) do
-      @subject = Factory(:subject)
-    end
     
     it "should redirect to subjects" do
       delete :destroy, :id => @subject.id

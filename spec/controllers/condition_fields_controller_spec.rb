@@ -23,7 +23,6 @@ describe ConditionFieldsController do
   end
   
   describe "POST 'create'" do
-    
     describe "failure" do
       before(:each) do
         @attr = invalid_data
@@ -70,7 +69,6 @@ describe ConditionFieldsController do
     describe "failure" do
       before(:each) do
         @attr = invalid_data
-        @conditionfield = Factory(:condition_field)
       end
       
       it "should render the 'edit' page" do
@@ -90,7 +88,6 @@ describe ConditionFieldsController do
     describe "success" do
       before(:each) do
         @attr = valid_data
-        @conditionfield = Factory(:condition_field)
       end
       
       it "should redirect to condition fields list" do
@@ -116,9 +113,6 @@ describe ConditionFieldsController do
   end
   
   describe "DELETE 'destroy'" do
-    before(:each) do
-      @conditionfield = Factory(:condition_field)
-    end
     
     it "should redirect to conditionfields list" do
       delete :destroy, :id => @conditionfield.id
@@ -139,18 +133,17 @@ describe ConditionFieldsController do
   
   def invalid_data
     {
-      :namefield => "Санузел",
+      :namefield => "Телефон",
       :typefield => ""
     }
   end
   
   def valid_data
     {
-      :namefield => "Состояние",
+      :namefield => "Интернет",
       :typefield => "select"
     }
   end
-  
 end
 
 # todo routes spec

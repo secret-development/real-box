@@ -1,8 +1,20 @@
 <div class="settings">
   <h1 class="title">Поля для недвижимости:</h1>
-  <div class="city">
+  <div class="conditionfields">
     <%= flash_msg(flash[:notice]) %>
+    <% @conditionfields.each do |c| %>
+      <div class="conditionfield">
+        <h1 class="cond-value">
+          <%= c.namefield %>: <span><%= c.typefield %></span>
+        </h1>  
+        <div class="actions-settings">
+          <%= link_to edit_icon, edit_condition_field_path(c) %>
+          <%= link_to delete_icon, c, :method => :delete, 
+              :confirm => "Вы уверены?" %>
+        </div>
+      </div>
 
+    <% end %>
   </div>
-  <%= button_to "Добавить поле", new_condition_field_path, :method => :get ,:class => "submit-button" %> 
+  <%= button_to "Добавить поле", new_condition_field_path, :method => :get ,:class => "submit-button" %>
 </div>

@@ -1,15 +1,16 @@
 # encoding:utf-8
 class ConditionField < ActiveRecord::Base
   validates :namefield, :presence => true
+  validates :namefield, :uniqueness => true
   validates :typefield, :presence => true
   
   def typefields
     {
-      "select" => "выпадающий список",
-      "radio"  => "радио кнопки",
-      "checkbox" => "чекбоксы",
-      "textfield" => "текстовое поле",
-      "textarea" => "большое текстовое поле"
+      "выпадающий список" => "select",
+      "радио кнопки" => "radio",
+      "чекбоксы" => "checkbox",
+      "текстовое поле" => "textfield",
+      "большое текстовое поле" => "textarea" 
     }
   end
   

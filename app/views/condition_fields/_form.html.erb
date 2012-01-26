@@ -2,11 +2,11 @@
   <%= error_messages_for(@conditionfield) %>
   <div class="field">
     <%= f.label :namefield, "Имя поля:" %>
-    <%= f.text_field :namefield %>
+    <%= f.text_field :namefield, :class => "field_for_subject" %>
   </div>
   <div class="field">
-    <%= f.label :typefield %>
-    <%= f.text_field :typefield %>
+    <%= f.label :typefield, "Тип поля:" %>
+    <%= f.select :typefield, @conditionfield.typefields, :class => "field_for_subject" %>
   </div>
   <div class="submit">
     <%= f.submit @conditionfield.button_value, :class => "submit-button" %>
