@@ -14,7 +14,9 @@ class TypeCustomersController < ApplicationController
     respond_with(@typecustomer)    
   end
   
-  def edit    
+  def edit
+    @typecustomer = TypeCustomer.find(params[:id])
+    respond_with(@typecustomer)    
   end
   
   def create

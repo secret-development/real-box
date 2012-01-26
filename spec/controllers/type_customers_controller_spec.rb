@@ -19,7 +19,7 @@ describe TypeCustomersController do
   end
   
   it "GET 'edit'" do
-    get :edit
+    get :edit, :id => @typecustomer.id
     response.should be_success
   end
   
