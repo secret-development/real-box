@@ -21,14 +21,29 @@ class SocialStatusesController < ApplicationController
   end
   
   def create
-    @socialstatus = SocialStatus.create
+    @socialstatus = SocialStatus.new(params[:social_status])
     if @socialstatus.save
-      flash[:notice] = "Социальный статус создан"
+      flash[:notice] = "Социальный статус создан!"
+      respond_with(@socialstatus, :location => social_status_path)
+    else
+      render 'new'      
+    end    
+  end
+  
+  def update
+    @socialstatus = SocialStatus.find(params[:id])
+    if @socialstatus.update_attributes(params[:social_status])
+      flash[:notice] = "Социальный статус обновлен!"
       respond_with(@socialstatus, :location => social_statuses_path)
     else
-      flash[:alert] = "Социальный статус не создан"
-      respond_with(@socialstatus, :location => social_statuses_path)      
-    end
-    
+      render 'edit'      
+    end    
   end
+  
+  def destroy
+    @socialstatus = SocialStatus.find(params[:id])
+    @socialstatus.destroy
+    redirect_to social_statuses_path
+    flash[:notice] = "Социальный статус удален!"    
+  end  
 end

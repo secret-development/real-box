@@ -5,10 +5,6 @@
   <%= @customer.firstname %><br/>
   <%= @customer.phonehome %><br/>
   <%= @customer.phonemobile %><br/>
-  Статус:
-  <%= @customer.socialstatus %><br/>
-  Тип клиента:
-  <%= @customer.typecust %><br/>
 </p><br/><hr>
 <%= link_to 'Изменить', edit_customer_path  %>
 <%= link_to 'Удалить', customer_path, :method => :delete, :confirm => "Вы уверены?"  %>

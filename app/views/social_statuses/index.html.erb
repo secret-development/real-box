@@ -1,0 +1,16 @@
+<div class="settings">
+  <h1 class="title">Социальные статусы:</h1>
+  <div class="city">
+    <%= flash_msg(flash[:notice]) %>
+    <% @socialstatuses.each do |socialstatus| %>
+    <div class="city-settings">
+      <h2 class="city-name"><%= socialstatus.title %></h2>
+      <div class="city-settings-actions">
+        <%= link_to edit_icon, edit_social_status_path(socialstatus) %>
+        <%= link_to delete_icon, socialstatus, :method => :delete, :confirm => "Вы уверены?"  %>
+      </div>
+    </div>  
+    <% end %>
+  </div>
+  <%= button_to "Добавить социальный статус", new_social_status_path, :method => :get, :class => "submit-button" %>
+</div>

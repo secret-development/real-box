@@ -12,4 +12,5 @@ require 'spec_helper'
 #   end
 # end
 describe SocialStatusesHelper do
+
 end
