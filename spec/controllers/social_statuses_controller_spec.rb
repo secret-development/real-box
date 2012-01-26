@@ -77,7 +77,24 @@ describe SocialStatusesController do
     end    
   end
   
-   
+  describe "DELETE successful" do
+  
+    it "should redirect to socialstatus index page after delete" do
+      delete :destroy, :id => @socialstatus.id
+      response.should redirect_to(social_statuses_path)      
+    end
+    
+    it "should be delete" do
+      lambda do
+        delete :destroy, :id => @socialstatus.id
+      end.should change(SocialStatus, :count).by(-1)    
+    end
+    
+    it "shoult have a success message" do
+      delete :destroy, :id => @socialstatus.id
+      flash[:notice].should =~ /Социальный статус удален!/i      
+    end
+  end 
 
   
 end
