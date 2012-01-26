@@ -3,6 +3,7 @@ require 'spec_helper'
 
 describe SocialStatusesController do
   render_views
+  
   before(:each) do
     @socialstatus = Factory(:social_status)
   end
@@ -35,17 +36,17 @@ describe SocialStatusesController do
   
   describe "POST create successful" do
     before(:each) do
-      @attr = { :title => "Семейный" }
-    end
-    it "should redirect to socialstatus index page" do
-      post :create, :social_status => @attr
-      response.should redirect_to(social_statuses_path)      
-    end
-    
+      @attr = {:title => "Студент"}
+    end  
     it "should be create" do
       lambda do
         post :create, :social_status => @attr
       end.should change(SocialStatus, :count).by(1)      
+    end
+    
+    it "should redirect to socialstatus index page" do
+      post :create, :social_status => @attr
+      response.should redirect_to(social_statuses_path)      
     end
     
     it "should have a message" do
