@@ -5,7 +5,7 @@
     <% @cities.each do |city| %>
       <div class="city-settings">
         <h2 class="city-name"><%= city.name %></h2>
-        <div class="city-settings-actions">
+        <div class="actions-settings">
           <%= link_to edit_icon, edit_city_path(city) %>
           <%= link_to delete_icon, city, :method => :delete, 
               :confirm => "Вы уверены?" %>
@@ -13,5 +13,5 @@
       </div>
     <% end %>    
   </div>
-  <%= button_to "Добавить город", new_city_path, :method => :get ,:class => "submit-button" %>  
+  <%= button_to "Добавить город", new_city_path, :method => :get ,:class => "submit-button" %> 
 </div>
