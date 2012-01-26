@@ -9,6 +9,9 @@ $gray-color:#6C6C6C;
   $href-color-hover:#5A5A5A;
 $error-color:#941A1F;  
 $error-color-back:#EBBAB2;
+// notice-color:
+$notice-color:#A6D268;
+$alert-color:#992922;
 // fonts:
 $main-font: normal 0.8em/130% Helvetica, Arial, Tahoma, sans-serif;
 $small-font: normal 11px/130% Helvetica, Arial, Tahoma, sans-serif;
@@ -434,4 +437,38 @@ body{
     }
   }
 }
+
+// notices
+.flash-notice{
+  color:$notice-color;
+}
+.flash-alert{
+  color:$alert-color;
+}
+
+// settings
+.settings{
+  @include radius10;
+  padding:10px;
+  background: $white;
+  border:1px solid #ccc;
+  .title{
+    font:$h1-font;
+    margin-bottom:15px;
+  }
+  .city{
+    margin-bottom:25px;
+    // city-settings
+    .city-settings{
+      margin:25px 0px;
+      .city-name{
+        font:$form-font;
+        width:200px;
+        float:left;
+        color:$gray-color;
+      }
+    }
+  }
+}
+
 

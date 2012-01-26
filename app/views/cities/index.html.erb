@@ -1,10 +1,17 @@
-<% @cities.each do |city| %>
-  <div class="city-settings">
-    <%= city.name %>
-    <div class="city-settings-actions">
-      <%= link_to edit_icon, edit_city_path(city) %>
-    </div>
+<div class="settings">
+  <h1 class="title">Города:</h1>
+  <div class="city">
+    <%= flash_msg(flash[:notice]) %>
+    <% @cities.each do |city| %>
+      <div class="city-settings">
+        <h2 class="city-name"><%= city.name %></h2>
+        <div class="city-settings-actions">
+          <%= link_to edit_icon, edit_city_path(city) %>
+          <%= link_to delete_icon, city, :method => :delete, 
+              :confirm => "Вы уверены?" %>
+        </div>
+      </div>
+    <% end %>    
   </div>
-<% end %>
-
-<%= link_to "Добавить город", new_city_path %>
+  <%= button_to "Добавить город", new_city_path, :method => :get ,:class => "submit-button" %>  
+</div>
