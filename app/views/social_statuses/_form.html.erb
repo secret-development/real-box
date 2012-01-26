@@ -1,0 +1,11 @@
+<%= form_for @socialstatus do |f| %>
+  <%= error_messages_for(@socialstatus) %>
+  <div class="field">
+    <%= f.label :title, "Название" %>
+    <%= f.text_field :title, :class => "adress" %>
+  </div>
+  
+  <div class="submit">
+    <%= f.submit @socialstatus.button_value, :class => "submit-button" %>
+  </div>
+<% end %>
