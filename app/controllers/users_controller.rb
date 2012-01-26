@@ -12,19 +12,19 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    respond_with @users
+    respond_with @user
   end
   
   def new
     @user = User.new
     @title = "Добавление персонала"
-    respond_with @users
+    respond_with @user
   end
   
   def edit
     @user = User.find(params[:id])
     @title = "Редактирование персонала"
-    respond_with @users
+    respond_with @user
   end
   
   def create
