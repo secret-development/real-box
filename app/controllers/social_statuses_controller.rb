@@ -44,9 +44,6 @@ class SocialStatusesController < ApplicationController
     @socialstatus = SocialStatus.find(params[:id])
     @socialstatus.destroy
     respond_with(@socialstatus, :location => social_statuses_path)
-    flash[:notice] = "Социальный статус удален!"
-    
-  end
-  
-  
+    flash[:notice] = "Социальный статус удален!"    
+  end  
 end
