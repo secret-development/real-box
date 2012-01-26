@@ -1,0 +1,14 @@
+<%= form_for(@conditionfield) do |f| %>
+  <%= error_messages_for(@conditionfield) %>
+  <div class="field">
+    <%= f.label :namefield, "Имя поля:" %>
+    <%= f.text_field :namefield %>
+  </div>
+  <div class="field">
+    <%= f.label :typefield %>
+    <%= f.text_field :typefield %>
+  </div>
+  <div class="submit">
+    <%= f.submit @conditionfield.button_value, :class => "submit-button" %>
+  </div>
+<% end %>
