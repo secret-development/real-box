@@ -2,7 +2,10 @@
 class TypeCustomersController < ApplicationController
   respond_to :html
   
-  def index    
+  def index
+    @typecustomers = TypeCustomer.all
+    @title = "Типы клиентов"
+    respond_with(@typecustomers)    
   end
   
   def new
@@ -18,7 +21,7 @@ class TypeCustomersController < ApplicationController
     @typecustomer = TypeCustomer.new(params[:type_customer])
     if @typecustomer.save
       flash[:notice] = "Тип клиента добавлен!"
-      respond_with(@typecustomer, :location => type_customer_path)
+      respond_with(@typecustomer, :location => type_customers_path)
     else
       render 'new'      
     end      
