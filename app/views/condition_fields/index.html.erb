@@ -1,0 +1,8 @@
+<div class="settings">
+  <h1 class="title">Поля для недвижимости:</h1>
+  <div class="city">
+    <%= flash_msg(flash[:notice]) %>
+
+  </div>
+  <%= button_to "Добавить поле", new_condition_field_path, :method => :get ,:class => "submit-button" %> 
+</div>
