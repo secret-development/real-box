@@ -58,11 +58,11 @@ describe CustomersController do
       @real = {:firstname => "vano", :lastname => "vanov", :phonehome => "1243", :phonemobile => "876965", :real => true }
     end
     
-    it "success" do
-      post :create, :customer => @real
-      post :create, :customer => @potential
-        
-    end    
+#    it "success" do
+#      post :create, :customer => @real
+#      post :create, :customer => @potential
+#        
+#    end    
   end
 end
 

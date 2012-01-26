@@ -1,5 +1,12 @@
+# encoding: UTF-8
 require 'spec_helper'
 
 describe TypeCustomer do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before(:each) do
+    @attr = { :title => "Продавец" }
+  end
+  
+  it "should be create" do
+    TypeCustomer.create!(@attr)    
+  end
 end

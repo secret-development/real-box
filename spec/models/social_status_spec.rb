@@ -1,5 +1,13 @@
+# encoding: UTF-8
 require 'spec_helper'
 
 describe SocialStatus do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before(:each) do
+    @attr = {
+      :title => "Семейные"
+    }
+  end
+  it "should be create" do
+    SocialStatus.create!(@attr)    
+  end
 end

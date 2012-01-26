@@ -1,0 +1,2 @@
+class SocialStatusesController < ApplicationController
+end

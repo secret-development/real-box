@@ -1,0 +1,2 @@
+class TypeCustomersController < ApplicationController
+end
