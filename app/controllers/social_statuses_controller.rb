@@ -27,7 +27,18 @@ class SocialStatusesController < ApplicationController
       respond_with(@socialstatus, :location => social_statuses_path)
     else
       render 'new'      
-    end
-    
+    end    
   end
+  
+  def update
+    @socialstatus = SocialStatus.find(params[:id])
+    if @socialstatus.update_attributes(params[:social_status])
+      flash[:notice] = "Социальный статус обновлен!"
+      respond_with(@socialstatus, :location => social_statuses_path)
+    else
+      render 'edit'      
+    end    
+  end
+  
+  
 end

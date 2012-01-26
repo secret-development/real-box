@@ -55,6 +55,29 @@ describe SocialStatusesController do
     end    
   end
   
+  describe "Update successful" do
+    before(:each) do
+      @attr = {:title => "Рабочий"}
+    end
+    
+    it "should be update" do
+      lambda do
+        put :update, :id => @socialstatus.id, :social_status => @attr
+      end.should_not change(SocialStatus, :count)  
+    end
+    
+    it "should redirect to socialstatus index page" do
+      put :update, :id => @socialstatus.id, :social_status => @attr
+      response.should redirect_to(social_statuses_path)      
+    end
+    
+    it "should have a success message" do
+      put :update, :id => @socialstatus.id, :social_status => @attr
+      flash[:notice].should =~ /Социальный статус обновлен!/i      
+    end    
+  end
+  
+   
 
   
 end
