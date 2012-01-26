@@ -1,0 +1,2 @@
+class ConditionFieldsController < ApplicationController
+end
