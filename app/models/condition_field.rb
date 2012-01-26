@@ -1,6 +1,7 @@
 # encoding:utf-8
 class ConditionField < ActiveRecord::Base
   validates :namefield, :presence => true
+  validates :namefield, :uniqueness => true
   validates :typefield, :presence => true
   
   def typefields
