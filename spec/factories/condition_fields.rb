@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :condition_field do
-    namefield "Состояние"
+    namefield "Санузел"
+    typefield "select"
   end
 end
