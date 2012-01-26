@@ -36,7 +36,7 @@ describe SocialStatusesController do
   
   describe "POST create successful" do
     before(:each) do
-      @attr = {:title => "Студент"}
+      @attr = {:title => "Рабочий"}
     end  
     it "should be create" do
       lambda do
@@ -57,7 +57,7 @@ describe SocialStatusesController do
   
   describe "Update successful" do
     before(:each) do
-      @attr = {:title => "Рабочий"}
+      @attr = {:title => "Семейные"}
     end
     
     it "should be update" do
