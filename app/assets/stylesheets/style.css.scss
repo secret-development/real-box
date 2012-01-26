@@ -497,10 +497,27 @@ body{
       }
     }
   }
+  .conditionfields{
+    margin-bottom:25px;
+    .conditionfield{
+      margin:25px 0px;
+      .cond-value{
+        font:$form-font;
+        width:270px;
+        float:left;
+        color:#000;
+        span{
+          color:$gray-color;
+        }
+      }  
+    }
+    
+  }
   .city{
     margin-bottom:25px;
     // city-settings
     .city-settings{
+      clear:both;
       margin:25px 0px;
       .city-name{
         font:$form-font;
@@ -512,7 +529,10 @@ body{
   }
 }
 
-
+.actions-settings{
+  display: inline-block;
+  margin-left:5px;
+}
 .clear{
   clear:both;
 }

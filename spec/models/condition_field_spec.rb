@@ -15,7 +15,7 @@ describe ConditionField do
       
     @attr = {
       :namefield => "Санузел",
-      :typefield => @typefields["select"]
+      :typefield => @typefields["выпадающий список"]
     }
     
     @conditionfield = Factory(:condition_field)
