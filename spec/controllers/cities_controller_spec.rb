@@ -13,11 +13,6 @@ describe CitiesController do
     response.should be_success
   end
   
-  it "get show" do
-    get :show, :id => @city.id
-    response.should be_success
-  end
-  
   it "get new" do
     get :new
     response.should be_success
@@ -53,7 +48,7 @@ describe CitiesController do
       
       it "should redirect to cities" do
         post :create, :city => @attr
-        response.should redirect_to(city_path(assigns(:city)))
+        response.should redirect_to(cities_path)
       end
       
       it "should change count un City model" do
@@ -96,7 +91,7 @@ describe CitiesController do
       
       it "should redirect to city path" do
         put :update, :id => @city.id, :city => @attr
-        response.should redirect_to(city_path(assigns(:city)))
+        response.should redirect_to(cities_path)
       end
       
       it "should not create new object" do

@@ -1,0 +1,10 @@
+<% @cities.each do |city| %>
+  <div class="city-settings">
+    <%= city.name %>
+    <div class="city-settings-actions">
+      <%= link_to edit_icon, edit_city_path(city) %>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to "Добавить город", new_city_path %>
