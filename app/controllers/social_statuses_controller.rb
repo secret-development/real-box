@@ -24,7 +24,7 @@ class SocialStatusesController < ApplicationController
     @socialstatus = SocialStatus.new(params[:social_status])
     if @socialstatus.save
       flash[:notice] = "Социальный статус создан!"
-      respond_with(@socialstatus, :location => social_statuses_path)
+      respond_with(@socialstatus, :location => social_status_path)
     else
       render 'new'      
     end    
@@ -43,7 +43,7 @@ class SocialStatusesController < ApplicationController
   def destroy
     @socialstatus = SocialStatus.find(params[:id])
     @socialstatus.destroy
-    respond_with(@socialstatus, :location => social_statuses_path)
+    redirect_to social_statuses_path
     flash[:notice] = "Социальный статус удален!"    
   end  
 end
