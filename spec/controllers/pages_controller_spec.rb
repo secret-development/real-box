@@ -10,6 +10,11 @@ describe PagesController do
       response.should be_success
     end
     
+    it "routes root_path" do
+      { :get => "/" }.
+      should route_to(:controller => "pages", :action => "index")
+    end
+    
     it "should have a non-blank body" do
       get :index
       response.body.should_not =~ /<body>\s*<\/body>/
