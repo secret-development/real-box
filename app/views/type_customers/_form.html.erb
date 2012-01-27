@@ -1,0 +1,11 @@
+<%= form_for @typecustomer do |f| %>
+  <%= error_messages_for( @typecustomer ) %>
+  <div class="field">
+    <%= f.label :title, "Тип клиента:" %>
+    <%= f.text_field :title, :class => "adress" %>
+  </div>
+  
+  <div class="submit">
+    <%= f.submit @typecustomer.button_value, :class => "submit-button" %> 
+  </div>   
+<% end %>
