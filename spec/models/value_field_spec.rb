@@ -36,5 +36,6 @@ describe ValueField do
       v = ValueField.reflect_on_association(:condition_field)
       v.macro.should == :belongs_to
     end
+    
   end
 end
