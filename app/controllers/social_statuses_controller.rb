@@ -24,7 +24,7 @@ class SocialStatusesController < ApplicationController
     @socialstatus = SocialStatus.new(params[:social_status])
     if @socialstatus.save
       flash[:notice] = "Социальный статус создан!"
-      respond_with(@socialstatus, :location => social_status_path)
+      respond_with(@socialstatus, :location => social_statuses_path)
     else
       render 'new'      
     end    
