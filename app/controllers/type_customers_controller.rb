@@ -40,6 +40,9 @@ class TypeCustomersController < ApplicationController
   end
   
   def destroy
-        
+    @typecustomer = TypeCustomer.find(params[:id])
+    @typecustomer.destroy
+    flash[:notice] = "Тип клиента удален!"
+    redirect_to(@typecustomer, :location => type_customers_path)        
   end
 end

@@ -77,6 +77,24 @@ describe TypeCustomersController do
       put :update, :id => @typecustomer.id, :type_customer => @attr
       flash[:notice].should =~ /Тип клиента обновлен!/i      
     end
+  end
+  
+  describe "DELETE successful" do
+    it "should be destroy" do
+      lambda do
+        delete :destroy, :id => @typecustomer.id
+      end.should change(TypeCustomer, :count).by(-1)
+    end
+    
+    it "should have a successful message" do
+      delete :destroy, :id => @typecustomer.id
+      flash[:notice].should =~ /Тип клиента удален!/i   
+    end
+    
+    it "should redirect to index page" do
+      delete :destroy, :id => @typecustomer.id
+      response.should redirect_to(type_customers_path)
+    end
     
   end
 
