@@ -22,7 +22,25 @@ describe Customer do
     @c.save.should eq(true)    
   end
   
-
+  it "should respond to type_customer" do
+    t = Customer.new
+    t.should respond_to(:type_customer) 
+  end
+  
+  it "should respond to social_status" do
+    s = Customer.new
+    s.should respond_to(:social_status)    
+  end
+  
+  it "should have one status" do
+    t = Customer.reflect_on_association(:social_status)
+    t.macro.should ==:belongs_to
+  end
+  
+   it "should have one type" do
+    s = Customer.reflect_on_association(:type_customer)
+    s.macro.should ==:belongs_to
+  end
 end
 
 

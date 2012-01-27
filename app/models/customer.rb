@@ -7,4 +7,12 @@ class Customer < ActiveRecord::Base
   validates :phonehome, :phonemobile, :numericality => { :only_integer => true, :message => "Только целые числа!" }
   scope :real, where(:real => true)
   scope :potentials, where(:real => false)
+  
+  def button_value
+    if new_record?
+      "Добавить"
+    else
+      "Редактировать"      
+    end    
+  end
 end

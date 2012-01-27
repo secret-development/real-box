@@ -1,4 +1,5 @@
 <h4>Реальные:</h4>
+<%= flash_msg(flash[:notice]) %>
 <% @customers.each do |c| %>
   <%= c.lastname %>
   <%= c.firstname %>
@@ -13,4 +14,4 @@
   
 <% end %>
 <br/><br/><br/><br/>
-<%= link_to "Добавить клиента", new_customer_path %><br>
+<%= button_to "Добавить клиента", new_customer_path, :method => :get %><br>
