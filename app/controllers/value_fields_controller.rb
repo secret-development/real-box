@@ -1,0 +1,2 @@
+class ValueFieldsController < ApplicationController
+end
