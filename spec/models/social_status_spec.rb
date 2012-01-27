@@ -12,7 +12,12 @@ describe SocialStatus do
   end
   
   it "should respond to customer" do
-    t = SocialStatus.new
-    t.should respond_to(:customers)    
+    s = SocialStatus.new
+    s.should respond_to(:customers)    
+  end
+  
+  it "should have many customers" do
+    s = SocialStatus.reflect_on_association(:customers)
+    s.macro.should ==:has_many    
   end
 end
