@@ -48,4 +48,21 @@ describe ConditionField do
       condition_field_with_dup.should_not be_valid
     end
   end
+  
+  describe "association" do
+    it "should respond to value_fields" do
+      c = ConditionField.new(@attr)
+      c.should respond_to(:value_fields)
+    end
+    
+    it "should has_many value_fields" do
+      c = ConditionField.reflect_on_association(:value_fields)
+      c.macro.should == :has_many
+    end
+    
+    it "should dependent destroy" do
+      c = ConditionField.reflect_on_association(:value_fields)
+      c.options[:dependent].should == :destroy
+    end
+  end
 end
