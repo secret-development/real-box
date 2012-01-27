@@ -30,7 +30,13 @@ class TypeCustomersController < ApplicationController
   end
   
   def update
-        
+    @typecustomer = TypeCustomer.find(params[:id])
+    if @typecustomer.update_attributes(params[:type_customer])
+      flash[:notice] = "Тип клиента обновлен!"
+      respond_with(@typecustomer, :location => type_customers_path)
+    else  
+      render 'edit'      
+    end      
   end
   
   def destroy

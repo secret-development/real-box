@@ -56,5 +56,28 @@ describe TypeCustomersController do
       response.should redirect_to(type_customer_path)
     end
   end
+  
+  describe "Update successful" do
+    before(:each) do
+      @attr ={:title => "Продавец"}
+    end
+    
+    it " should be update" do
+      lambda do
+        put :update, :id => @typecustomer.id, :type_customer => @attr
+      end.should_not change(TypeCustomer, :count) 
+    end
+    
+    it "should be redirect index page" do
+      put :update, :id => @typecustomer.id, :type_customer => @attr
+      response.should redirect_to(type_customers_path)
+    end
+    
+    it "should have a successful message" do
+      put :update, :id => @typecustomer.id, :type_customer => @attr
+      flash[:notice].should =~ /Тип клиента обновлен!/i      
+    end
+    
+  end
 
 end
