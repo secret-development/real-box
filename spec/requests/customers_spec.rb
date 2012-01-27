@@ -11,12 +11,13 @@ describe "Customers" do
       page.should have_content("Popovich")
     end
     
-    it "link_to show" do
-      visit customers_path
-      click_link "Просмотр"
-      #page.should have_content("")
-      response.should render_template('customers/show') 
-    end
+    
+    # it "link_to show" do
+    #       visit customers_path
+    #       click_link "Просмотр"
+    #       #page.should have_content("")
+    #       response.should render_template('customers/show') 
+    #     end
   end
   
 #  describe "Post /customers" do

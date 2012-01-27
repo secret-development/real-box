@@ -23,7 +23,18 @@ describe ValueField do
     it "should require a condition_field_id" do
       @valuefield = ValueField.new(@attr.merge(:condition_field_id => ""))
       @valuefield.should_not be_valid
+    end    
+  end
+  
+  describe "associations" do
+    it "should respond to condition_field" do
+      v = ValueField.new(@attr)
+      v.should respond_to(:condition_field)
     end
     
+    it "should belongs to condition_field" do
+      v = ValueField.reflect_on_association(:condition_field)
+      v.macro.should == :belongs_to
+    end
   end
 end
