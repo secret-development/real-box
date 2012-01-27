@@ -1,8 +1,6 @@
 <ul>
   <li>
-    <%= user.first_name %>
-    <%= user.middle_name %>
-    <%= user.last_name %>
+    <%= link_to (user.first_name + ' ' + user.middle_name + ' ' + user.last_name), user_path(user) %>
     <%= link_to edit_icon, edit_user_path(user) %>
     <%= link_to delete_icon, user, :method => :delete, 
       :confirm => "Вы уверены?" %>
@@ -12,4 +10,4 @@
   <li><%= user.adress %></li>
   <li><%= user.phone %></li>
 </ul>
-<br /><br /><br /> 
+<br /><br />

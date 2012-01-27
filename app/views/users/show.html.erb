@@ -1,2 +1,8 @@
-<h1>Show user</h1>
-<p>Find me in /app/views/users/show.html.erb</p>
+<div class="form-add-object">
+  <h1 class="title-form">
+    <%= @user.last_name %>
+    <%= @user.first_name %>
+    <%= @user.middle_name %>
+  </h1>
+  <%= render @user %>
+</div>
