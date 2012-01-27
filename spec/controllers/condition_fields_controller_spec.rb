@@ -20,6 +20,7 @@ describe ConditionFieldsController do
   
   it "get edit" do
     get :edit, :id => @conditionfield.id
+    response.should be_success
   end
   
   describe "POST 'create'" do
