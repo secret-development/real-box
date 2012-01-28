@@ -27,7 +27,8 @@
   </div>
   
   <div class="field">
-    
+    <%= c.label :type_customer_id, "Тип клиента" %>
+    <%= c.collection_select(:type_customer_id, TypeCustomer.all, :id, :title) %>  
   </div>
   
   <div class="field">
@@ -36,7 +37,8 @@
   </div>
   
   <div class="field">
-      
+    <%= c.label :social_status_id, "Социальный статус" %>
+    <%= c.collection_select(:social_status_id, SocialStatus.all, :id, :title) %>      
   </div>
   
   

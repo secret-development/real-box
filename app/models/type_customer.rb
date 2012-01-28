@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class TypeCustomer < ActiveRecord::Base
-  has_many :customers
+  has_many :customers, :dependent => :destroy
   validates :title, :presence => true
   def button_value
     if new_record?
