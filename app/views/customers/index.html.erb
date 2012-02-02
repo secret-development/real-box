@@ -1,17 +1,21 @@
 <%= flash_msg(flash[:notice]) %>
-<h4>Реальные:</h4>
-<% @customers.each do |c| %>
-  <%= c.lastname %>
-  <%= c.firstname %>
-  <%= link_to "Просмотр",c %><br/>  
-<% end %> 
-<hr>
-<h4>Потенциальные:</h4>
-<% @potentials.each do |p| %>
-  <%=p.lastname %>
-  <%=p.firstname %>
-  <%= link_to 'Просмотр', p %><br/>
+<div class="customer-index">
+  <h4>Реальные:</h4>
+  <% @customers.each do |c| %>
+    <%= c.lastname %>
+    <%= c.firstname %>
+    <%= link_to "Просмотр",c %><br/>  
+  <% end %> 
+  <hr>
   
-<% end %>
-<br/><br/><br/><br/>
-<%= button_to "Добавить клиента", new_customer_path, :method => :get %><br>
+  <h4>Потенциальные:</h4>
+  <% @potentials.each do |p| %>
+    <%=p.lastname %>
+    <%=p.firstname %>
+    <%= link_to 'Просмотр', p %><br/>
+    <% end %>
+</div>
+
+<div class="add-button">
+  <%= button_to "Добавить клиента", new_customer_path, :method => :get %><br>
+</div>
