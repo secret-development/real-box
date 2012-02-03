@@ -1,5 +1,5 @@
 Crm::Application.routes.draw do
-  
+
   resources :users
   resources :customers
   resources :subjects
