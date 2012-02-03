@@ -10,4 +10,14 @@ describe SocialStatus do
   it "should be create" do
     SocialStatus.create!(@attr)    
   end
+  
+  it "should respond to customer" do
+    s = SocialStatus.new
+    s.should respond_to(:customers)    
+  end
+  
+  it "should have many customers" do
+    s = SocialStatus.reflect_on_association(:customers)
+    s.macro.should ==:has_many    
+  end
 end

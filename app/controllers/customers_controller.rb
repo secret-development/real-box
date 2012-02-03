@@ -46,6 +46,6 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @customer.destroy
     flash[:notice] = "Клиент успешно удален"
-    respond_with @customer
+    redirect_to @customer
   end
 end
