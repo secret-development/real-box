@@ -30,3 +30,7 @@ Factory.define :customer do |customer|
   customer.real           true
   customer.note           "bla-bla-bla"
 end
+
+Factory.define :type_customer_with_customer, :parent => :type_customer do |type|
+  type.after_create { |a| Factory(:customer, :type_customer => a)}  
+end
