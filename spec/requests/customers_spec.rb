@@ -2,23 +2,23 @@
 require 'spec_helper'
 
 describe "Customers" do
-  describe "GET /customers" do
-    it "displays customers" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      Customer.create!(:firstname => "Alesha", :lastname => "Popovich", :phonemobile => "853049853", :phonehome => "853049853")
-      visit customers_path
-      page.should have_content("Alesha")
-      page.should have_content("Popovich")
-    end
-    
-    
-    # it "link_to show" do
-    #       visit customers_path
-    #       click_link "Просмотр"
-    #       #page.should have_content("")
-    #       response.should render_template('customers/show') 
-    #     end
-  end
+#  describe "GET /customers" do
+#    it "displays customers" do
+#      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
+#      Customer.create!(:firstname => "Alesha", :lastname => "Popovich", :phonemobile => "853049853", :phonehome => "853049853")
+#      visit customers_path
+#      page.should have_content("Alesha")
+#      page.should have_content("Popovich")
+#    end
+#    
+#    
+#     it "link_to show" do
+#           visit customers_path
+#           click_link "Просмотр"
+#           #page.should have_content("")
+#           response.should render_template('customers/show') 
+#         end
+#  end
   
 #  describe "Post /customers" do
 #    it "create customer" do
