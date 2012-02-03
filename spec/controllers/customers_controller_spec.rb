@@ -6,6 +6,9 @@ describe CustomersController do
   
   before(:each) do
     @customer = Factory(:customer)
+    type = Factory(:type_customer)
+    soc = Factory(:social_status)
+    @customer = Factory(:customer, :type_customer => type, :social_status => soc)
   end
 
   describe "GET should be successful" do

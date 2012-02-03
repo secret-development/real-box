@@ -1,7 +1,9 @@
 Crm::Application.routes.draw do
-  
+
   resources :users
-  resources :customers
+  resources :customers do
+    get 'potentials', :on => :member
+  end
   resources :subjects
   resources :cities, :except => [:show]
   resources :type_customers, :except => [:show]
