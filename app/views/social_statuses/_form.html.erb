@@ -1,6 +1,16 @@
-<%= form_for @socialstatus, :html => {:class => "social-status-formfor"} do |f| %>
-  <label><%= f.label :title, "Наименование" %></label>
-  <%= f.text_field :title %>
-  <%= f.submit @socialstatus.button_value, :class => "btn-primary" %>
-  <button type="reset" class="btn cancel-form">Отмена</button>  
+<%= form_for @socialstatus do |f| %>
+  <fieldset>
+    <div class="control-group">
+      <label><%= f.label :title, "Наименование" %></label>
+      <div class="controls">
+        <%= f.text_field :title %>
+      </div>
+    </div>
+ 
+    <div class="form-actions">
+      <%= f.submit @socialstatus.button_value, :class => "btn-primary" %>
+      <button type="reset" class="btn cancel-form">Отмена</button>
+    </div>
+  </fieldset>
 <% end %>
+
