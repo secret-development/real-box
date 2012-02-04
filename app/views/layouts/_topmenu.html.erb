@@ -1,13 +1,29 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">Samruk</a>
+      <%= link_to "NorthSouth", root_path, :class => "brand" %>
       <ul class="nav">
         <li classs="active">
-          <a href="#">Поиск</a>
+          <%= link_to "Поиск", root_path %>
         </li>
-        <li><a href="#">Объекты</a></li>
-        <li><a href="#">Клиенты</a></li>
+        <li>
+          <%= link_to "Объекты", subjects_path %>
+        </li>
+        <li>
+          <%= link_to "Клиенты", customers_path %>
+        </li>
+        <li>
+          <%= link_to "Персонал", users_path %>
+        </li>
+        <li>
+          <%= link_to "Архив", "#" %>
+        </li>
+        <li>
+          <%= link_to "История", "#" %>
+        </li>
+        <li>
+          <%= link_to "Отчеты", "#" %>
+        </li>
       </ul>
       <ul class="nav pull-right">
         <li class="dropdown">
@@ -16,10 +32,18 @@
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="#">Список городов</a></li>
-            <li><a href="#">Типы клиентов</a></li>
-            <li><a href="#">Социальные статусы клиентов</a></li>
-            <li><a>Еще...</a></li>
+            <li>
+              <%= link_to "Список городов", cities_path %>
+            </li>
+            <li>
+              <%= link_to "Социальные статусы клиентов", social_statuses_path %>
+            </li>
+            <li>
+              <%= link_to "Типы недвижимости", "#" %>  
+            </li>
+            <li>
+              <%= link_to "Еще...", settings_path %>
+            </li>
           </ul>
         </li>
       </ul>
