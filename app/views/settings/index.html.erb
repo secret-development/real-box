@@ -1,0 +1,31 @@
+<div id="settings">
+  <h1 class="title-page">Настройки</h1>
+  <ul id="settings-list">
+    <li>
+      <%= link_to "Список городов", cities_path, 
+          :class => "city-icon" %>
+    </li>
+    <li>
+      <%= link_to "Типы клиентов", type_customers_path,
+          :class => "typeclients-icon" %>
+    </li>
+    <li>
+      <%= link_to "Социальные статусы клиентов", social_statuses_path,
+          :class => "socialstatus-icon" %>
+    </li>
+    <li>
+      <%= link_to "Типы недвижимости", "#",
+          :class => "typeobject-icon" %>
+    </li>
+    <li class="condition-icon">
+      <%= link_to "Доп.поля для недвижимости", condition_fields_path,
+          :class => "condition-icon" %>
+    </li>
+    <li class="values-icon">
+      <%= link_to "Значения доп.полей", "#",
+          :class => "values-icon" %>
+    </li>
+    <div class="clear"></div>
+  </ul>
+  
+</div>
