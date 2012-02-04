@@ -1,0 +1,9 @@
+<div id="cities">
+  <h1 class="title-page">Города</h1>
+  <ul id="cities-list">
+    <% @cities.each do |city| %>
+      <li><%= city.name %></li>
+    <% end %>
+  </ul>
+  <%= link_to "Добавить город", new_city_path, :class => "btn" %>
+</div>
