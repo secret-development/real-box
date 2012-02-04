@@ -1,0 +1,20 @@
+<div id="user_form">
+  <%= form_for @user do |f| %>  
+    <%= f.label :email, "Email:" %>
+    <%= f.text_field :email %>
+    <%= f.label :last_name, "Фамилия:" %>
+    <%= f.text_field :last_name %>
+    <%= f.label :first_name, "Имя:" %>
+    <%= f.text_field :first_name %>
+    <%= f.label :middle_name, "Отчество:" %>
+    <%= f.text_field :middle_name %>
+    <%= f.label :birth_date, "Дата рождения:" %>
+    <%= f.text_field :birth_date %>
+    <%= f.label :adress, "Адрес:" %>
+    <%= f.text_field :adress %>
+    <%= f.label :phone, "Телефон:" %>
+    <%= f.text_field :phone %><br />
+    <%= f.submit @user.button_value %><br />
+    <button type="reset" class="btn cancel-form">Отмена</button>
+  <% end %>
+</div>

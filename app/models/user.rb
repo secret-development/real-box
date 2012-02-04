@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
     if new_record?
       "Добавить"
     else
-      "Редактировать"  
+      "Обновить"  
     end
   end
   
