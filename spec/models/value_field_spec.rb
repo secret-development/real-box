@@ -39,3 +39,14 @@ describe ValueField do
     
   end
 end
+# == Schema Information
+#
+# Table name: value_fields
+#
+#  id                 :integer(4)      not null, primary key
+#  valuefield         :string(255)
+#  condition_field_id :integer(4)
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#
+
