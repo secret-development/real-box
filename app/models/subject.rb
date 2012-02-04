@@ -19,3 +19,5 @@ class Subject < ActiveRecord::Base
   end
   
 end
+
+# TODO: переделать модель: миграции, сделать основные поля и связать с доп.полями

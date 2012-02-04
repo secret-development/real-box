@@ -1,6 +1,8 @@
 # encoding: UTF-8
 class SocialStatus < ActiveRecord::Base
-  has_many :customers
+  validates :title, :presence => true, :uniqueness => true
+  has_many :customers, :dependent => :destroy
+  default_scope order('title ASC')
   def button_value
     if new_record?
       "Добавить"
