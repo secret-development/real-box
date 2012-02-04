@@ -44,3 +44,21 @@ describe Customer do
 end
 
 
+# == Schema Information
+#
+# Table name: customers
+#
+#  id               :integer(4)      not null, primary key
+#  firstname        :string(255)
+#  lastname         :string(255)
+#  phonehome        :string(255)
+#  phonemobile      :string(255)
+#  email            :string(255)
+#  note             :text
+#  created_at       :datetime
+#  updated_at       :datetime
+#  real             :boolean(1)      default(FALSE)
+#  type_customer_id :integer(4)
+#  social_status_id :integer(4)
+#
+
