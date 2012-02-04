@@ -8,6 +8,22 @@
 </head>
 <body>
   <%= render 'layouts/topmenu' %>
-  <%= yield %>
+  <div class="container" id="main-wrapper">
+    <div class="row">
+      <div class="span12" id="content">
+        <%= yield %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span12" id="footer">
+        <address class="pull-right">
+          <a href="http://remeli.kz">
+            Remeli.kz
+          </a>
+           &copy; 2012
+        </address>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
