@@ -1,0 +1,6 @@
+<%= form_for @socialstatus, :html => {:class => "social-status-formfor"} do |f| %>
+  <label><%= f.label :title, "Наименование" %></label>
+  <%= f.text_field :title %>
+  <%= f.submit @socialstatus.button_value, :class => "btn-primary" %>
+  <button type="reset" class="btn cancel-form">Отмена</button>  
+<% end %>

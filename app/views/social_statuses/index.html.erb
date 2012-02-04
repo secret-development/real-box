@@ -1,9 +1,15 @@
 <div id="social-status">
   <h1 class="title-page">Социальные статусы</h1>
-  <% @socialstatuses.each do |s| %>
-    <div id="social-status-list">
-      <%= s.title %>
-    </div>  
-  <% end %>
+  <div id="social-status-list">
+    <% @socialstatuses.each do |s| %>
+      <div class="social-status-title">
+        <%= s.title %>
+      </div>
+      <div class="actions-with-social-status">
+        <%= link_to edit_icon, edit_social_status_path(s) %>
+        <%= link_to delete_icon, s, :method => :delete, :confirm => "Вы уверены?" %>
+      </div>
+    <% end %>
+  </div>
   <%= link_to 'Добавить', new_social_status_path, :class => "btn" %>
 </div>
