@@ -1,7 +1,9 @@
 <%= form_for @socialstatus do |f| %>
   <fieldset>
     <div class="control-group">
-      <label><%= f.label :title, "Наименование" %></label>
+      <div class="control-label">
+        <%= f.label :title, "Наименование" %>
+      </div>
       <div class="controls">
         <%= f.text_field :title %>
       </div>
