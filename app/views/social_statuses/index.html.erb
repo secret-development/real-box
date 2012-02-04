@@ -1,0 +1,9 @@
+<div id="social-status">
+  <h1 class="title-page">Социальные статусы</h1>
+  <% @socialstatuses.each do |s| %>
+    <div id="social-status-list">
+      <%= s.title %>
+    </div>  
+  <% end %>
+  <%= link_to 'Добавить', new_social_status_path, :class => "btn" %>
+</div>
