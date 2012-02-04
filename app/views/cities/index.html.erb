@@ -2,7 +2,16 @@
   <h1 class="title-page">Города</h1>
   <ul id="cities-list">
     <% @cities.each do |city| %>
-      <li><%= city.name %></li>
+      <li>
+        <div class="city-title">
+          <%= city.name %>
+        </div>
+        <div class="actions-with-cities">
+          <%= link_to edit_icon, edit_city_path(city) %>
+          <%= link_to delete_icon, city, :method => :delete,
+              :confirm => "Вы уверены?" %>
+        </div>
+      </li>
     <% end %>
   </ul>
   <%= link_to "Добавить город", new_city_path, :class => "btn" %>
