@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
     end
   end
   
+  def full_name
+    first_name + ' ' + middle_name + ' ' + last_name
+  end
+  
 end
 # == Schema Information
 #
