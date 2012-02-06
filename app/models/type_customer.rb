@@ -10,6 +10,14 @@ class TypeCustomer < ActiveRecord::Base
       "Редактировать"    
     end  
   end
+  
+  def legend_value
+    if new_record?
+      "Добавление типа клиента"
+    else
+      "Редактирование типа клиента"      
+    end    
+  end
 end
 # == Schema Information
 #
