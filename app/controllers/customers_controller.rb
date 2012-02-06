@@ -4,6 +4,7 @@ class CustomersController < ApplicationController
   
   def index
     @customers = Customer.real.all
+    @title = "Клиенты"
     #@potentials = Customer.potentials.all
   end
   
