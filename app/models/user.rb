@@ -18,8 +18,12 @@ class User < ActiveRecord::Base
     if new_record?
       "Добавить"
     else
-      "Редактировать"  
+      "Обновить"  
     end
+  end
+  
+  def full_name
+    first_name + ' ' + middle_name + ' ' + last_name
   end
   
 end
