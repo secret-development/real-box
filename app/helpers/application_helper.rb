@@ -29,4 +29,9 @@ module ApplicationHelper
   def eye_icon
     raw("<i class='icon-eye-open'></i>")    
   end
+  
+  def plus_icon
+    raw("<i class='icon-plus'></i>")
+    
+  end
 end
