@@ -25,4 +25,8 @@ module ApplicationHelper
   def delete_icon
     raw("<i class='icon-trash'></i>")
   end
+  
+  def eye_icon
+    raw("<i class='icon-eye-open'></i>")    
+  end
 end
