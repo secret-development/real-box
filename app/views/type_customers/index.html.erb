@@ -1,0 +1,18 @@
+<div id="type-customer">
+  <h1 class="title-page">Типы клиентов</h1>
+  <ul class="type-customer-list">
+    <% @typecustomers.each do |t| %>
+      <li>
+        <div class="type-customer-title">
+          <%= t.title %>
+        </div>
+        
+        <div class="actions-with-type-customer">
+        <%= link_to edit_icon, edit_type_customer_path(t) %>
+        <%= link_to delete_icon, t, :method => :delete, :confirm => "Вы уверены?" %>
+        </div>
+      </li>    
+    <% end %>
+  </ul>
+  <%= link_to 'Добавить тип клиента', new_type_customer_path, :class => "btn"  %>
+</div>
