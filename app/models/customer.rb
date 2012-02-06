@@ -15,6 +15,14 @@ class Customer < ActiveRecord::Base
       "Редактировать"      
     end    
   end
+  
+  def legend_value
+    if new_record?
+      "Добавление клиента"
+    else 
+      "Редактирование клиента"      
+    end    
+  end
 end
 # == Schema Information
 #

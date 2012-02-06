@@ -10,6 +10,18 @@ class TypeCustomer < ActiveRecord::Base
       "Редактировать"    
     end  
   end
+  
+  def legend_value
+    if new_record?
+      "Добавление типа клиента"
+    else
+      "Редактирование типа клиента"      
+    end    
+  end
+  
+  def self.asctitle
+    order("title ASC")    
+  end
 end
 # == Schema Information
 #
