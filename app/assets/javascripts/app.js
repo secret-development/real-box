@@ -4,3 +4,5 @@ $(document).ready(function() {
     javascript:history.go(-1);
   });
 });
+
+ready
