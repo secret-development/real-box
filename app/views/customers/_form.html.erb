@@ -49,10 +49,16 @@
       </div>
     </div>
     <div class="control-group">
-      <div class="controls"></div>
+      <%= f.label :real, "Потенциальный:" %>
+      <div class="controls">
+        <%= f.check_box :real %>
+      </div>
     </div>
     <div class="control-group">
-      <div class="controls"></div>
+      <%= f.label :note, "Заметка:" %>
+      <div class="controls">
+        <%= f.text_area :note, :rows=>3 %>
+      </div>
     </div>
     
     <div class="form-actions">
