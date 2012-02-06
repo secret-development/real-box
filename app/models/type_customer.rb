@@ -18,6 +18,10 @@ class TypeCustomer < ActiveRecord::Base
       "Редактирование типа клиента"      
     end    
   end
+  
+  def self.asctitle
+    order("ASC title")    
+  end
 end
 # == Schema Information
 #
