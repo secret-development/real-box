@@ -11,12 +11,14 @@
       <th>Сот. телефон</th>
       <th>Электронная почта</th>
       <th>Заметка</th>
+      <th>Операции</th>
     </tr>
   </thead>
+   
   <% @customers.each do |c| %>
     <tbody>
       <tr>
-        <td></td>
+        <td><%=  %></td>
         <td> <%= c.lastname %></td>
         <td><%= c.firstname %></td>
         <td><%= c.type_customer.title %></td>
@@ -25,6 +27,11 @@
         <td><%= c.phonemobile %></td>
         <td><%= c.email %></td>
         <td><%= c.note %></td>
+        <td>
+          <%= link_to eye_icon, customer_path(c) %>
+          <%= link_to edit_icon, edit_customer_path(c) %>
+          <%= link_to delete_icon, c, :method => :delete, :confirm => "Вы уверены?" %>
+        </td>
       </tr>
     </tbody>    
   <% end %>
