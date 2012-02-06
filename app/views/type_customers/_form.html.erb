@@ -1,5 +1,6 @@
 <%= form_for(@typecustomer, :html => { :class => "form-horizontal"}) do |f| %>
   <fieldset>
+    <legend><%= @typecustomer.legend_value %></legend>
     <div class="control-group">
       <%= f.label :title, "Тип клиента" %>
       <div class="controls">
