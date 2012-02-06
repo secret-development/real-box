@@ -22,6 +22,14 @@ class User < ActiveRecord::Base
     end
   end
   
+  def legend
+    if new_record?
+      "Добавление"
+    else
+      "Редактирование"
+    end
+  end
+  
   def full_name
     first_name + ' ' + middle_name + ' ' + last_name
   end
