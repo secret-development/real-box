@@ -43,7 +43,10 @@
       </div>
     </div>
     <div class="control-group">
-      <div class="controls"></div>
+      <%= f.label :social_status_id, "Социальный статус клиента:" %>
+      <div class="controls">
+        <%= f.collection_select(:social_status_id, SocialStatus.asctitle, :id, :title) %>
+      </div>
     </div>
     <div class="control-group">
       <div class="controls"></div>
