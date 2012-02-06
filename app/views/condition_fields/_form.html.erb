@@ -1,0 +1,22 @@
+<%= form_for(@conditionfield, :html => {:class => "form-horizontal"}) do |f| %>
+  <%= error_messages_for(@conditionfield) %>
+  <fieldset>
+    <legend><%= @conditionfield.legend_value %></legend>
+    <div class="control-group">
+      <%= f.label :namefield, "Название поля:" %>
+      <div class="controls">
+        <%= f.text_field :namefield, :placeholder => "Мебель..." %>  
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :typefield, "Тип поля:" %>
+      <div class="controls">
+        <%= f.select :typefield, @conditionfield.typefields %>  
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= f.submit @conditionfield.button_value, :class => "btn btn-primary" %>
+      <button type="reset" class="btn cancel-form">Отмена</button>
+    </div>
+  </fieldset>
+<% end %>
