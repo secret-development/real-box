@@ -1,7 +1,31 @@
-<% @customers.each do |c| %>
-  <%= c.firstname %>
-  <%= c.lastname %>
-  <%= c.type_customer.title %>
-  <%= c.social_status.title %>
-  <%= c.email %>
-<% end %>
+<h1 class="title-page"><%= @title %></h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Фамилия</th>
+      <th>Имя</th>
+      <th>Тип клиента</th>
+      <th>Соц. статус</th>
+      <th>Телефон</th>
+      <th>Сот. телефон</th>
+      <th>Электронная почта</th>
+      <th>Заметка</th>
+    </tr>
+  </thead>
+  <% @customers.each do |c| %>
+    <tbody>
+      <tr>
+        <td></td>
+        <td> <%= c.lastname %></td>
+        <td><%= c.firstname %></td>
+        <td><%= c.type_customer.title %></td>
+        <td><%= c.social_status.title %></td>
+        <td><%= c.phonehome %></td>
+        <td><%= c.phonemobile %></td>
+        <td><%= c.email %></td>
+        <td><%= c.note %></td>
+      </tr>
+    </tbody>    
+  <% end %>
+</table>

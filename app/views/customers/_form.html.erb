@@ -4,14 +4,14 @@
     <div class="control-group">
       <%= f.label :lastname, "Фамилия:" %>
       <div class="controls">
-        <%= f.text_field :lastname%>
+        <%= f.text_field :lastname, :placeholder => "Иванов "%>
       </div>
     </div>
     
     <div class="control-group">
       <%= f.label :firstname, "Имя:" %>
       <div class="controls">
-        <%= f.text_field :firstname%>
+        <%= f.text_field :firstname, :placeholder => "Иван "%>
       </div>
     </div>
     
@@ -32,7 +32,7 @@
     <div class="control-group">
       <%= f.label :email, "Почтовый адрес:" %>
       <div class="controls">
-        <%= f.text_field :email %>  
+        <%= f.email_field :email, :placeholder => "example@mail.ru" %>  
       </div>
     </div>
     
@@ -57,7 +57,7 @@
     <div class="control-group">
       <%= f.label :note, "Заметка:" %>
       <div class="controls">
-        <%= f.text_area :note, :rows=>3 %>
+        <%= f.text_area :note, :rows=>3, :placeholder => "О клиенте ..." %>
       </div>
     </div>
     
