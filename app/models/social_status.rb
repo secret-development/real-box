@@ -18,6 +18,10 @@ class SocialStatus < ActiveRecord::Base
       "Редактирование статуса"      
     end    
   end
+  
+  def self.asctitle
+    order("title ASC")    
+  end
 end
 # == Schema Information
 #

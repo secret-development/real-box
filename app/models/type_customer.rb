@@ -20,7 +20,7 @@ class TypeCustomer < ActiveRecord::Base
   end
   
   def self.asctitle
-    order("ASC title")    
+    order("title ASC")    
   end
 end
 # == Schema Information
