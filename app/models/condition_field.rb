@@ -18,6 +18,14 @@ class ConditionField < ActiveRecord::Base
     }
   end
   
+  def legend_value
+    if new_record?
+      "Добавить поле"
+    else
+      "Редактировать поле"
+    end
+  end
+
   def button_value
     if new_record?
       "Добавить"
