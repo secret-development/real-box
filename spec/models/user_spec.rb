@@ -107,6 +107,17 @@ describe User do
     
   end
   
+  describe "helper methods" do
+    
+    describe "full_name" do
+      it "combine name and middle_name" do
+        @user = User.create!(@attr)
+        @user.full_name.should == @user.first_name + ' ' + @user.middle_name + ' ' + @user.last_name 
+      end
+    end
+    
+  end
+  
 end
 # == Schema Information
 #

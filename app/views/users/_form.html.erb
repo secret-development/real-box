@@ -1,0 +1,53 @@
+<div id="user_form">
+  <%= form_for(@user, :html => {:class => "form-horizontal"}) do |f| %>
+    <fieldset>
+      <legend><%= @user.legend %> персонала</legend>
+      <div class="control-group">
+        <%= f.label :email, "Email:" %>
+        <div class="controls">
+          <%= f.text_field :email %>  
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :last_name, "Фамилия:" %>
+        <div class="controls">
+          <%= f.text_field :last_name %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :first_name, "Имя:" %>
+        <div class="controls">
+          <%= f.text_field :first_name %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :middle_name, "Отчество:" %>
+        <div class="controls">
+          <%= f.text_field :middle_name %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :birth_date, "Дата рождения:" %>
+        <div class="controls">
+          <%= f.text_field :birth_date %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :adress, "Адрес:" %>
+        <div class="controls">
+          <%= f.text_field :adress %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :phone, "Телефон:" %>
+        <div class="controls">
+          <%= f.text_field :phone %>
+        </div>
+      </div>
+      <div class="form-actions">
+        <%= f.submit @user.button_value, :class => "btn btn-primary" %>
+        <button type="reset" class="btn cancel-form">Отмена</button>
+      </div>
+    </fieldset>
+  <% end %>
+</div>
