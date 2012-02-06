@@ -10,6 +10,18 @@ class SocialStatus < ActiveRecord::Base
       "Редактировать"    
     end  
   end
+  
+  def legend_value
+    if new_record?
+      "Добавление статуса"
+    else 
+      "Редактирование статуса"      
+    end    
+  end
+  
+  def self.asctitle
+    order("title ASC")    
+  end
 end
 # == Schema Information
 #

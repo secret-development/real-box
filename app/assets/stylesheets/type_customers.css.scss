@@ -1,3 +1,19 @@
-// Place all the styles related to the type_customers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+//index page
+#type-customer{
+  .type-customer-list{
+    list-style-type: none;
+    margin: 10px 5px 10px 5px;
+    li{
+      margin-bottom: 10px;
+      padding: 2px 0;
+      .type-customer-title{
+        display:inline-block;
+        font: 14px;
+        min-width: 200px;
+      }
+      .actions-with-type-customer{
+        display:inline-block;
+      }
+    }
+  }
+}
