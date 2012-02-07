@@ -26,8 +26,8 @@
         <td><%= c.social_status.title %></td>
         <td><%= c.phonehome %></td>
         <td><%= c.phonemobile %></td>
-        <td><%= c.email %></td>
-        <td><%= c.note %></td>
+        <td><%= mail_to c.email %></td>
+        <td><%= truncate(c.note, :length => 25, :omission => '...') %></td>
         <td>
           <%= link_to eye_icon, customer_path(c) %>
           <%= link_to edit_icon, edit_customer_path(c) %>
