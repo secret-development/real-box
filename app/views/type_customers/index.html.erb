@@ -1,5 +1,7 @@
 <div id="type-customer">
   <h1 class="title-page">Типы клиентов</h1>
+  <%= flash_msg(flash[:notice]) %>
+  <%= link_to plus_icon + 'Добавить', new_type_customer_path, :class => "btn button-add"  %>
   <ul class="type-customer-list">
     <% @typecustomers.each do |t| %>
       <li>
@@ -13,6 +15,5 @@
         </div>
       </li>    
     <% end %>
-  </ul>
-  <%= link_to plus_icon + 'Добавить', new_type_customer_path, :class => "btn"  %>
+  </ul>  
 </div>

@@ -1,5 +1,6 @@
 <div class="span4">
   <h1 class="title-page">Информация о клиенте</h1>
+  <%= flash_msg(flash[:notice]) %>
   <address>
   <div id="info-customer">
     <strong><%= @customer.lastname %> <%= @customer.firstname %></strong>
