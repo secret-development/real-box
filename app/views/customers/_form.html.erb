@@ -1,5 +1,5 @@
 <%= form_for(@customer, :html => { :class => "form-horizontal", :id => "validation"}) do |f| %>
-  
+  <%= error_messages_for(@customer) %>
   <fieldset>
     <legend><%= @customer.legend_value %></legend>
     <div class="control-group">
