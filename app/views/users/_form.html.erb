@@ -1,11 +1,13 @@
+<!--TODO: datapicker-->
 <div id="user_form">
   <%= form_for(@user, :html => {:class => "form-horizontal"}) do |f| %>
+    <%= error_messages_for(@user) %>
     <fieldset>
       <legend><%= @user.legend %> персонала</legend>
       <div class="control-group">
         <%= f.label :email, "Email:" %>
         <div class="controls">
-          <%= f.text_field :email %>  
+          <%= f.email_field :email %>  
         </div>
       </div>
       <div class="control-group">
@@ -29,7 +31,9 @@
       <div class="control-group">
         <%= f.label :birth_date, "Дата рождения:" %>
         <div class="controls">
-          <%= f.text_field :birth_date %>
+          <%= f.date_select :birth_date, 
+          :start_year => Time.now.year - 60,
+          :end_year => Time.now.year - 0 %>
         </div>
       </div>
       <div class="control-group">
