@@ -1,2 +1,10 @@
 <h1 class="title-page">Информация о клиенте</h1>
+<%= @customer.lastname %>
+<%= @customer.firstname %>
+<%= @customer.type_customer.title %>
+<%= @customer.social_status.title %>
+<%= @customer.phonehome %>
+<%= @customer.phonemobile %>
+<%= mail_to @customer.email %>
+<%= @customer.note %>
 
