@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
   respond_to :html
   
   def index
-    @customers = Customer.real.all
+    @customers = Customer.real.page(params[:page]).per(14)
     @title = "Клиенты"
     #@potentials = Customer.potentials.all
   end
