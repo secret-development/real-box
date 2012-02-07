@@ -45,4 +45,3 @@ end
 #  updated_at :datetime        not null
 #  typefield  :string(255)
 #
-
