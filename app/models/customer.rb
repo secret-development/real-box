@@ -1,10 +1,11 @@
 # encoding: UTF-8
 class Customer < ActiveRecord::Base
+  # associations
   belongs_to :type_customer
   belongs_to :social_status
+  #validations
   validates :firstname, :lastname, :presence => true
-  #validates :firstname, :lastname, :format => { :with => /^"([^"]*)"$/, :message => "Вводить только буквы!" }
-  validates :phonehome, :phonemobile, :numericality => { :only_integer => true, :message => "Только целые числа!" }
+  #scope
   scope :real, where(:real => false)
   scope :potentials, where(:real => true)
   default_scope order("lastname ASC")
