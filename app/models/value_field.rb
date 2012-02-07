@@ -6,6 +6,16 @@ class ValueField < ActiveRecord::Base
   # validations:
   validates :valuefield, :presence => true
   validates :condition_field_id, :presence => true
+  
+  def legend_value
+    new_record? ? "Добавить значение" : "Редактировать значение"
+  end
+  
+  def button_value
+    new_record? ? "Добавить" : "Редактировать"
+  end
+  
+  
 end
 # == Schema Information
 #
