@@ -1,5 +1,8 @@
 Crm::Application.routes.draw do
 
+  get "potentials/index"
+  match "potentials" => "potentials#index", :as => :potentials
+
   resources :users
   resources :customers
   resources :subjects
