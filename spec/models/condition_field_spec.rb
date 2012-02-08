@@ -40,6 +40,11 @@ describe ConditionField do
       @conditionfield.should_not be_valid
     end
     
+    it "should require typsubject_id(assocation)" do
+      @conditionfield = ConditionField.new(@attr.merge(:typesubject_id => nil))
+      @conditionfield.should_not be_valid
+    end
+    
     it "typefield should include value of TYPEFIELDS" do
       (@typefields.to_s).should include(@conditionfield.typefield)
     end
@@ -54,6 +59,13 @@ describe ConditionField do
       ConditionField.create!(@attr)
       condition = ConditionField.new(@attr.merge(:typesubject_id => 4))
       condition.should be_valid
+    end
+    
+    it "should reject duplicate namefield(case sensitive)" do
+      ConditionField.create!(@attr)
+      condition = 
+      ConditionField.new(@attr.merge(:namefield => @attr[:namefield].upcase))
+      condition.should_not be_valid
     end
     
   end
