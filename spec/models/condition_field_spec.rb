@@ -47,6 +47,7 @@ describe ConditionField do
       condition_field_with_dup = ConditionField.new(@attr)
       condition_field_with_dup.should_not be_valid
     end
+    
   end
   
   describe "association" do
