@@ -119,6 +119,12 @@ describe TypesubjectsController do
       delete :destroy, :id => @typesubject
       response.should redirect_to(typesubjects_path)
     end
+    
+    it "should destroy the typesubject" do
+      lambda do
+        delete :destroy, :id => @typesubject
+      end.should change(Typesubject, :count).by(-1)
+    end
   end
   
   
