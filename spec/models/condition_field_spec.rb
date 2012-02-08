@@ -64,6 +64,16 @@ describe ConditionField do
       c = ConditionField.reflect_on_association(:value_fields)
       c.options[:dependent].should == :destroy
     end
+    
+    it "should respond to typesubject" do
+      @conditionfield.should respond_to(:typesubject)
+    end
+    
+    it "should belongs_to typesubject" do
+      c = ConditionField.reflect_on_association(:typesubject)
+      c.macro.should == :belongs_to
+    end
+    
   end
 end
 # == Schema Information

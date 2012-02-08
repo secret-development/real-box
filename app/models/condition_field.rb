@@ -2,6 +2,7 @@
 class ConditionField < ActiveRecord::Base
   # associations:
   has_many :value_fields, :dependent => :destroy
+  belongs_to :typesubject
   
   # validations
   validates :namefield, :presence => true
