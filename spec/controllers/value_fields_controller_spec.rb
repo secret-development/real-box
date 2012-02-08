@@ -5,8 +5,9 @@ describe ValueFieldsController do
   render_views
   
   before(:each) do
-    @conditionfield = Factory(:condition_field)
-    @valuefield = Factory(:value_field)
+    typesubject = Factory(:typesubject)
+    @conditionfield = Factory(:condition_field, :typesubject => typesubject)
+    @valuefield = Factory(:value_field, :condition_field => @conditionfield)
     @attr = {
       :valuefield => "Нет",
       :condition_field_id => @conditionfield.id

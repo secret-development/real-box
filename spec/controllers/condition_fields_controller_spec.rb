@@ -5,7 +5,8 @@ describe ConditionFieldsController do
   render_views
   
   before(:each) do
-    @conditionfield = Factory(:condition_field)
+    typesubject = Factory(:typesubject)
+    @conditionfield = Factory(:condition_field, :typesubject => typesubject)
   end
   
   it "get index" do
@@ -135,14 +136,17 @@ describe ConditionFieldsController do
   def invalid_data
     {
       :namefield => "Телефон",
-      :typefield => ""
+      :typefield => "",
+      :typesubject_id => nil
     }
   end
   
   def valid_data
     {
       :namefield => "Интернет",
-      :typefield => "select"
+      :typefield => "select",
+      :typesubject_id => 1
+      
     }
   end
 end

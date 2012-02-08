@@ -3,7 +3,9 @@ require 'spec_helper'
 
 describe ValueField do
   before(:each) do
-    @valuefield = Factory(:value_field)
+    typesubject = Factory(:typesubject)
+    @conditionfield = Factory(:condition_field, :typesubject => typesubject)
+    @valuefield = Factory(:value_field, :condition_field => @conditionfield)
     @attr = {
       :valuefield => "Нет",
       :condition_field_id => 1
