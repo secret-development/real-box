@@ -10,7 +10,7 @@ Crm::Application.routes.draw do
   resources :social_statuses, :except => [:show]
   resources :condition_fields
   resources :value_fields, :except => [:show]
-  
+  resources :typesubjects, :except => [:show]
   # settings
   match "settings" => "settings#index", :as => :settings
   # The priority is based upon order of creation:
