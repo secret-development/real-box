@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
   respond_to :html
   
   def index
-    @customers = Customer.real.page(params[:page]).per(7)
+    @customers = Customer.real.page(params[:page]).per(9)
     @title = "Клиенты"
     #@potentials = Customer.potentials.all
   end
@@ -19,7 +19,7 @@ class CustomersController < ApplicationController
   end
   
   def show
-    @customer = Customer.find_by_permalink(params[:id])
+    @customer = Customer.find(params[:id])
     respond_with @customer    
   end
   
