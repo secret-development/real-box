@@ -17,10 +17,10 @@
       <th>Операции</th>
     </tr>
   </thead>
+  
   <tbody>
-  <% @customers.each do |c| %>
-    
-      <tr>
+    <% @customers.each do |c| %>
+       <tr>
         <td><%= c.id %></td>
         <td> <%= c.lastname %></td>
         <td><%= c.firstname %></td>
@@ -35,8 +35,7 @@
           <%= link_to edit_icon, edit_customer_path(c) %>
           <%= link_to delete_icon, c, :method => :delete, :confirm => "Вы уверены?" %>
         </td>
-      </tr>
-        
-  <% end %>
+      </tr>      
+    <% end %>
   </tbody>
 </table>
