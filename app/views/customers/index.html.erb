@@ -31,7 +31,7 @@
         <td><%= mail_to c.email %></td>
         <td><%= truncate(c.note, :length => 25, :omission => '...') %></td>
         <td>
-          <%= link_to eye_icon, customer_path(c) %>
+          <%= link_to eye_icon, :controller => 'customers', :action => 'show', :id => c.id %>
           <%= link_to edit_icon, edit_customer_path(c) %>
           <%= link_to delete_icon, c, :method => :delete, :confirm => "Вы уверены?" %>
         </td>

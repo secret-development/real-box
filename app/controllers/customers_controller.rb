@@ -19,7 +19,7 @@ class CustomersController < ApplicationController
   end
   
   def show
-    @customer = Customer.find(params[:id])
+    @customer = Customer.find_by_permalink(params[:id])
     respond_with @customer    
   end
   
