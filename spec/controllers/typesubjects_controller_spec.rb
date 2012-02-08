@@ -125,6 +125,11 @@ describe TypesubjectsController do
         delete :destroy, :id => @typesubject
       end.should change(Typesubject, :count).by(-1)
     end
+    
+    it "should success message" do
+      delete :destroy, :id => @typesubject
+      flash[:notice].should =~ /Тип объекта успешно удалён/i
+    end
   end
   
   
