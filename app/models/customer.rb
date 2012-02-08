@@ -11,9 +11,9 @@ class Customer < ActiveRecord::Base
   default_scope order("lastname ASC")
   
   #permalink
-  def to_param
-    permalink    
-  end
+#  def to_param
+#    permalink    
+#  end
   
   def button_value
     if new_record?
