@@ -1,3 +1,8 @@
 $(document).ready(function() {
-  $("#table-customer").tablesorter({sortList: [[1,0],[3,0]]});
+  //сортировка таблицы
+  $('#table-customer').tablesorter({
+    widgets: ["zebra"],
+    sortList:[[2,0]]
+    });
+  
 });
