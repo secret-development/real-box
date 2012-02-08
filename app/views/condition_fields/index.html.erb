@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Поле:</th>
+      <th>Тип недвижимости</th>
       <th>Тип поля:</th>
       <th>Действия:</th>
     </tr>
@@ -14,6 +15,7 @@
     <% @conditionfields.each do |c| %>
       <tr>
         <td><%= c.namefield %></td>
+        <td><%= c.typesubject.name %></td>
         <td><%= c.typefield %></td>
         <td class="actions-buttons">
           <%= link_to edit_icon, edit_condition_field_path(c) %>
