@@ -1,8 +1,12 @@
 # encoding: UTF-8
 class TypeCustomer < ActiveRecord::Base
+  #associations
   has_many :customers, :dependent => :destroy
+  #validates
   validates :title, :presence => true, :uniqueness => true
+  #scope
   default_scope order('title ASC')
+  
   def button_value
     if new_record?
       "Добавить"

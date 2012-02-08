@@ -1,7 +1,8 @@
 <h1 class="title-page"><%= @title %></h1>
 <%= flash_msg(flash[:notice]) %>
 <%= link_to plus_icon + "Добавить" , new_customer_path, :class => "btn button-add" %>
-<table class="table table-striped table-condensed">
+<%= link_to list_icon + 'Потенциальные клиенты',potentials_path, :class => "btn button-add", :id => "potentials-link" %>
+<table class="table table-striped table-condensed" id="table-customer">
   <thead>
     <tr>
       <th>#</th>
@@ -20,7 +21,7 @@
   <% @customers.each do |c| %>
     <tbody>
       <tr>
-        <td><%=  %></td>
+        <td><%= c.id %></td>
         <td> <%= c.lastname %></td>
         <td><%= c.firstname %></td>
         <td><%= c.type_customer.title %></td>
@@ -30,7 +31,7 @@
         <td><%= mail_to c.email %></td>
         <td><%= truncate(c.note, :length => 25, :omission => '...') %></td>
         <td>
-          <%= link_to eye_icon, customer_path(c) %>
+          <%= link_to eye_icon, :controller => 'customers', :action => 'show', :id => c.id %>
           <%= link_to edit_icon, edit_customer_path(c) %>
           <%= link_to delete_icon, c, :method => :delete, :confirm => "Вы уверены?" %>
         </td>
@@ -38,9 +39,3 @@
     </tbody>    
   <% end %>
 </table>
-<div>
- <ul class="pager">
-    <%= paginate @customers %>
- </ul>
-</div>
-
