@@ -3,6 +3,13 @@
   <fieldset>
     <legend><%= @conditionfield.legend_value %></legend>
     <div class="control-group">
+      <%= f.label :typesubject_id, "Тип объекта:" %> 
+      <div class="controls">
+        <%= collection_select(:condition_field, :typesubject_id,
+            Typesubject.all, :id, :name) %>
+      </div>
+    </div>
+    <div class="control-group">
       <%= f.label :namefield, "Название поля:" %>
       <div class="controls">
         <%= f.text_field :namefield, :placeholder => "Мебель..." %>  

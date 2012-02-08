@@ -8,6 +8,7 @@ class ConditionField < ActiveRecord::Base
   validates :namefield, :presence => true
   validates :namefield, :uniqueness => true
   validates :typefield, :presence => true
+  validates :typesubject_id, :presence => true
   
   def typefields
     {
