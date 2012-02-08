@@ -7,6 +7,7 @@ class TypesubjectsController < ApplicationController
   end
   
   def new
+    @typesubject = Typesubject.new
   end
   
   def edit

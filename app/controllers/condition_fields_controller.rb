@@ -6,16 +6,19 @@ class ConditionFieldsController < ApplicationController
   def index
     @conditionfields = ConditionField.all
     @title = "Поля для недвижимости"
+    respond_with(@conditionfields)
   end
   
   def new
     @conditionfield = ConditionField.new
     @title = "Добавление поля"
+    respond_with(@conditionfield)
   end
   
   def edit
     @conditionfield = ConditionField.find(params[:id])
     @title = "Редактирование поля"
+    respond_with(@conditionfield)
   end
   
   def create
