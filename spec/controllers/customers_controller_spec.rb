@@ -14,7 +14,8 @@ describe CustomersController do
     it "'new'" do
       get :new
       response.should be_success
-    end     
+    end   
+      
     it "'index'" do
       get :index
       response.should be_success       

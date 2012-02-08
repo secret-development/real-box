@@ -43,7 +43,7 @@ describe CitiesController do
     
     describe 'success' do
       before(:each) do
-        @attr = {:name => "костанай"}
+        @attr = {:name => "рудный"}
       end
       
       it "should redirect to cities" do
