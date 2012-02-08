@@ -11,7 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120208064354) do
+
+ActiveRecord::Schema.define(:version => 20120208070416) do
+
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -21,9 +23,10 @@ ActiveRecord::Schema.define(:version => 20120208064354) do
 
   create_table "condition_fields", :force => true do |t|
     t.string   "namefield"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "typefield"
+    t.integer  "typesubject_id"
   end
 
   create_table "customers", :force => true do |t|
@@ -79,6 +82,13 @@ ActiveRecord::Schema.define(:version => 20120208064354) do
 
   create_table "type_customers", :force => true do |t|
     t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "typesubjects", :force => true do |t|
+    t.string   "name"
+    t.string   "permalink"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
