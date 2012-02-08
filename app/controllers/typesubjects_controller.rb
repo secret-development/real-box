@@ -4,7 +4,7 @@ class TypesubjectsController < ApplicationController
   respond_to :html
   
   def index
-    @typesubjects = Typsubject.all
+    @typesubjects = Typesubject.all
     @title = "Типы недвижимости"
     respond_with(@typesubjects)
   end
