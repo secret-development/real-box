@@ -11,7 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+
 ActiveRecord::Schema.define(:version => 20120208070416) do
+
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -39,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20120208070416) do
     t.boolean  "real",             :default => false
     t.integer  "type_customer_id"
     t.integer  "social_status_id"
+    t.string   "permalink"
   end
 
   add_index "customers", ["firstname", "lastname"], :name => "index_rcustomers_on_firstname_and_lastname"
