@@ -16,6 +16,13 @@ describe City do
     it "should require a name" do
       @city = City.new(@attr.merge(:name => "")).should_not be_valid
     end
+    
+    # it "should reject name with duplicate" do
+    #               @city = City.create!(@attr)
+    #               city = City.new(@attr)
+    #               city.should_not be_valid
+    #             end
+    
   end
 end
 # == Schema Information

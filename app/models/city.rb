@@ -1,8 +1,9 @@
 # encoding:utf-8
 class City < ActiveRecord::Base
   # validates
-  validates :name, :presence => true
-  
+  validates :name, :presence => true,
+            :uniqueness => { :case_sensitive => false}
+            
   def legend_value
     if new_record?
       "Добавить город"
