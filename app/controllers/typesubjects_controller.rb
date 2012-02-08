@@ -4,13 +4,21 @@ class TypesubjectsController < ApplicationController
   respond_to :html
   
   def index
+    @typesubjects = Typsubject.all
+    @title = "Типы недвижимости"
+    respond_with(@typesubjects)
   end
   
   def new
     @typesubject = Typesubject.new
+    @title = "Добавление типа"
+    respond_with(@typesubject)
   end
   
   def edit
+    @typesubject = Typesubject.find(params[:id])
+    @title = "Редактирование типа"
+    respond_with(@typesubject)
   end
   
   def create
