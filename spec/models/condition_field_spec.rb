@@ -50,10 +50,11 @@ describe ConditionField do
       condition_field_with_dup.should_not be_valid
     end
     
-    # it "should not reject duplicate namefield with diff typesubject" do
-    #   ConditionField.create!(@attr)
-    #   condition = ConditionField.new(@attr)
-    # end
+    it "should not reject duplicate namefield with diff typesubject" do
+      ConditionField.create!(@attr)
+      condition = ConditionField.new(@attr.merge(:typesubject_id => 4))
+      condition.should be_valid
+    end
     
   end
   
