@@ -5,8 +5,8 @@ describe ValueFieldsController do
   render_views
   
   before(:each) do
-    typesubject = Factory(:typesubject)
-    @conditionfield = Factory(:condition_field, :typesubject => typesubject)
+    @typesubject = Factory(:typesubject)
+    @conditionfield = Factory(:condition_field, :typesubject => @typesubject)
     @valuefield = Factory(:value_field, :condition_field => @conditionfield)
     @attr = {
       :valuefield => "Нет",
@@ -136,9 +136,6 @@ describe ValueFieldsController do
     end
   end
   
-  it "should load_typesubject" do
-    controller.stub!(:load_typesubject).and_return(true)
-  end
   
   def valid_data
     {

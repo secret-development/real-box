@@ -2,6 +2,7 @@
 class ConditionFieldsController < ApplicationController
 
   respond_to :html
+  before_filter :load_typesubject, :only => [:index]
   
   def index
     @conditionfields = ConditionField.all
@@ -46,6 +47,12 @@ class ConditionFieldsController < ApplicationController
     @conditionfield.destroy
     flash[:notice] = "Поле успешно удалено"
     redirect_to condition_fields_path
+  end
+  
+  def load_typesubject
+    @typesubjects = []
+    ConditionField.all.each { |c| @typesubjects << c.typesubject}
+    @typesubjects.uniq!
   end
   
 end
