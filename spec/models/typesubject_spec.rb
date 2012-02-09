@@ -73,6 +73,7 @@ describe Typesubject do
     
   end
   
+  
   describe "associations" do
     
     describe "has_many :condition_fields" do
