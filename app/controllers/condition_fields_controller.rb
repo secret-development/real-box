@@ -53,6 +53,7 @@ class ConditionFieldsController < ApplicationController
     @typesubjects = []
     ConditionField.all.each { |c| @typesubjects << c.typesubject}
     @typesubjects.uniq!
+    @typesubjects
   end
   
 end

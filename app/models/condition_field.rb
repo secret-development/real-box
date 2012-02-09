@@ -10,6 +10,9 @@ class ConditionField < ActiveRecord::Base
             :scope => [:typesubject_id], :case_sensitive => false }
   validates :typefield, :presence => true
   validates :typesubject_id, :presence => true
+
+  # scopes:
+  default_scope order("namefield ASC")
   
   def typefields
     {
