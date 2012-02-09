@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120208070416) do
+ActiveRecord::Schema.define(:version => 20120209101117) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20120208070416) do
     t.string   "permalink"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "floor"
   end
 
   create_table "users", :force => true do |t|
