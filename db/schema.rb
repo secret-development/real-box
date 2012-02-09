@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20120209095329) do
     t.string   "permalink"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "floor"
   end
 
   create_table "users", :force => true do |t|

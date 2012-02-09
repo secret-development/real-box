@@ -37,4 +37,5 @@ module ApplicationHelper
   def list_icon
     raw("<i class='icon-list-alt'></i>")    
   end
+  
 end

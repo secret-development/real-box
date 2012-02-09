@@ -14,6 +14,12 @@
         <%= f.text_field :permalink, :placeholder => "cottage..." %>
       </div>
     </div>
+    <div class="control-group">
+      <%= f.label :floor, "Этажность важна?" %>
+      <div class="controls">
+        <%= select('typesubject', 'floor', [["Да",true],["Нет",false]]) %>
+      </div>
+    </div>
     <div class="form-actions">
       <%= f.submit @typesubject.button_value, :class => "btn btn-primary" %>
       <button type="reset" class="btn cancel-form">Отмена</button>
