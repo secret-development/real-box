@@ -41,7 +41,7 @@ class ConditionField < ActiveRecord::Base
   end
 
   def namefield_with_typesubject
-    "#{typesubject.name} / #{namefield}"
+    "#{typesubject.name} → #{namefield}"
   end
   
 end

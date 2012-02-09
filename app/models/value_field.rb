@@ -6,6 +6,10 @@ class ValueField < ActiveRecord::Base
   # validations:
   validates :valuefield, :presence => true
   validates :condition_field_id, :presence => true
+  validates :valuefield, :uniqueness => {
+    :scope => [:condition_field_id],
+    :case_sensitive => false
+  }
   
   def legend_value
     new_record? ? "Добавить значение" : "Редактировать значение"
