@@ -4,8 +4,6 @@ require 'spec_helper'
 describe ConditionField do
 
   before(:each) do
-
-    @conditionfield = Factory(:condition_field)
     
     @typefields = { 
       "выпадающий список" => "select",
@@ -17,8 +15,12 @@ describe ConditionField do
       
     @attr = {
       :namefield => "Состояние",
-      :typefield => @typefields["выпадающий список"]
+      :typefield => @typefields["выпадающий список"],
+      :typesubject_id => 2
     }
+    
+    @typesubject = Factory(:typesubject)
+    @conditionfield = Factory(:condition_field, :typesubject => @typesubject)
     
   end
   
@@ -38,6 +40,11 @@ describe ConditionField do
       @conditionfield.should_not be_valid
     end
     
+    it "should require typsubject_id(assocation)" do
+      @conditionfield = ConditionField.new(@attr.merge(:typesubject_id => nil))
+      @conditionfield.should_not be_valid
+    end
+    
     it "typefield should include value of TYPEFIELDS" do
       (@typefields.to_s).should include(@conditionfield.typefield)
     end
@@ -47,6 +54,20 @@ describe ConditionField do
       condition_field_with_dup = ConditionField.new(@attr)
       condition_field_with_dup.should_not be_valid
     end
+    
+    it "should not reject duplicate namefield with diff typesubject" do
+      ConditionField.create!(@attr)
+      condition = ConditionField.new(@attr.merge(:typesubject_id => 4))
+      condition.should be_valid
+    end
+    
+    it "should reject duplicate namefield(case sensitive)" do
+      ConditionField.create!(@attr)
+      condition = 
+      ConditionField.new(@attr.merge(:namefield => @attr[:namefield].upcase))
+      condition.should_not be_valid
+    end
+    
   end
   
   describe "association" do

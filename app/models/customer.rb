@@ -10,6 +10,11 @@ class Customer < ActiveRecord::Base
   scope :potentials, where(:real => true)
   default_scope order("lastname ASC")
   
+  #permalink
+#  def to_param
+#    permalink    
+#  end
+  
   def button_value
     if new_record?
       "Добавить"

@@ -5,7 +5,6 @@ describe CustomersController do
   render_views
   
   before(:each) do
-    @customer = Factory(:customer)
     type = Factory(:type_customer)
     soc = Factory(:social_status)
     @customer = Factory(:customer, :type_customer => type, :social_status => soc)
@@ -15,7 +14,8 @@ describe CustomersController do
     it "'new'" do
       get :new
       response.should be_success
-    end     
+    end   
+      
     it "'index'" do
       get :index
       response.should be_success       

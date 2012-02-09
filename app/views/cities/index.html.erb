@@ -1,4 +1,5 @@
 <div id="cities">
+  <%= flash_msg(flash[:notice]) %>
   <h1 class="title-page">Города</h1>
   <ul id="cities-list">
     <% @cities.each do |city| %>
@@ -14,5 +15,5 @@
       </li>
     <% end %>
   </ul>
-  <%= link_to "Добавить город", new_city_path, :class => "btn" %>
+  <%= link_to plus_icon + " Добавить город", new_city_path, :class => "btn" %>
 </div>

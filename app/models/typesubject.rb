@@ -5,8 +5,10 @@ class Typesubject < ActiveRecord::Base
   has_many :condition_fields, :dependent => :destroy
   
   # validates
-  validates :name, :presence => true, :uniqueness => true
-  validates :permalink, :presence => true, :uniqueness => true
+  validates :name, :presence => true, 
+            :uniqueness => { :case_sensitive => false }
+  validates :permalink, :presence => true, 
+            :uniqueness => { :case_sensitive => false }
   
   def legend_value
     new_record? ? "Добавить тип недвижимости" : "Редактировать тип недвижимости"

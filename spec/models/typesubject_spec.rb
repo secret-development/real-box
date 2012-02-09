@@ -44,6 +44,21 @@ describe Typesubject do
       Typesubject.new(@attr.merge(:name => "Дом"))
       typesubject_with_duplicate.should_not be_valid
     end
+    
+    it "should reject duplicate name(case sensitive)" do
+      Typesubject.create!(@attr)
+      typesubject = 
+      Typesubject.new(@attr.merge(:name => @attr[:name].downcase, :permalink => "sss"))
+      typesubject.should_not be_valid
+    end
+    
+    it "should reject duplicate permalink(case sensitive)" do
+      Typesubject.create!(@attr)
+      typesubject = 
+      Typesubject.new(@attr.merge(:name => "сад", :permalink => @attr[:permalink].upcase))
+      typesubject.should_not be_valid
+    end
+    
   end
   
   describe "associations" do

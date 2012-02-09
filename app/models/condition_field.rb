@@ -4,10 +4,12 @@ class ConditionField < ActiveRecord::Base
   has_many :value_fields, :dependent => :destroy
   belongs_to :typesubject
   
-  # validations
+  # validations  
   validates :namefield, :presence => true
-  validates :namefield, :uniqueness => true
+  validates :namefield, :uniqueness => { 
+            :scope => [:typesubject_id], :case_sensitive => false }
   validates :typefield, :presence => true
+  validates :typesubject_id, :presence => true
   
   def typefields
     {
