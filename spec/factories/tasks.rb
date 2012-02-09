@@ -5,7 +5,7 @@ FactoryGirl.define do
     title "MyString"
     description "MyText"
     user_id 1
-    deadline "2012-02-08"
+    deadline "2050-02-08"
     done false
   end
 end

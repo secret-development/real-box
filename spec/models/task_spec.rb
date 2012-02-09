@@ -8,7 +8,7 @@ describe Task do
       :title => "MyTask",
       :description => "Just to do something",
       :user_id => 1,
-      :deadline => "2012-02-08",
+      :deadline => "2050-02-08",
       :done => false
     }
   end
@@ -48,16 +48,22 @@ describe Task do
       req_inclusion_of(:done).should_not be_valid
     end
     
-    it "should eject titles that are too long" do
+    it "should reject titles that are too long" do
       long_title = "a" * 141
       long_title_task = Task.new(@attr.merge(:title => long_title))
       long_title_task.should_not be_valid
     end
     
-    it "should eject descriptions that are too long" do
+    it "should reject descriptions that are too long" do
       long_description = "a" * 801
       long_description_task = Task.new(@attr.merge(:description => long_description))
       long_description_task.should_not be_valid
+    end
+    
+    it "should reject deadlines that already have passed" do
+      passed_deadline = Time.now - 2.days
+      passed_deadline_task = Task.new(@attr.merge(:deadline => passed_deadline))
+      passed_deadline_task.should_not be_valid
     end
     
     # Require inclusion_of task(validates_inclusion_of :in => [true, false])
