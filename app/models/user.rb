@@ -1,6 +1,12 @@
 #encoding: UTF-8
 class User < ActiveRecord::Base
   
+  attr_accessible :email, :last_name,
+                  :first_name, :middle_name,
+                  :birth_date, :adress, :phone
+                  
+  has_many :tasks, :dependent => :destroy
+  
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates :adress, :phone, :birth_date, 
