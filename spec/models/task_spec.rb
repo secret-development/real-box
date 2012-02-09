@@ -73,6 +73,20 @@ describe Task do
     
   end
   
+  describe "user associations" do
+    
+    it "should respond to user" do
+      @task = Task.new(@attr)
+      @task.should respond_to(:user)
+    end
+    
+    it "should belongs_to user" do
+      @task = Task.reflect_on_association(:user)
+      @task.macro.should == :belongs_to
+    end
+    
+  end
+  
 end
 
 # == Schema Information
