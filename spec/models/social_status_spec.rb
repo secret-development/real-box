@@ -26,6 +26,12 @@ describe SocialStatus do
     old_title = SocialStatus.new(@attr)
     old_title.should_not be_valid    
   end
+  
+  it "validations uniqueness case sensetive" do
+    SocialStatus.create!(@attr)
+    old_title = SocialStatus.new(@attr.merge(:title => @attr[:title].upcase))
+    old_title.should_not be_valid    
+  end
 end
 # == Schema Information
 #

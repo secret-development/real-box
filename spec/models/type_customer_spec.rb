@@ -26,6 +26,12 @@ describe TypeCustomer do
     old_title = TypeCustomer.new(@attr)
     old_title.should_not be_valid        
   end
+  
+  it "validation uniqueness case sensetive" do
+    TypeCustomer.create!(@attr)
+    old_title = TypeCustomer.new(@attr.merge(:title => @attr[:title].upcase))
+    old_title.should_not be_valid     
+  end
 end
 # == Schema Information
 #
