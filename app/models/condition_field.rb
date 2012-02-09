@@ -10,6 +10,9 @@ class ConditionField < ActiveRecord::Base
             :scope => [:typesubject_id], :case_sensitive => false }
   validates :typefield, :presence => true
   validates :typesubject_id, :presence => true
+
+  # scopes:
+  default_scope order("namefield ASC")
   
   def typefields
     {
@@ -36,18 +39,12 @@ class ConditionField < ActiveRecord::Base
       "Редактировать"
     end
   end
+
+  def namefield_with_typesubject
+    "#{typesubject.name} → #{namefield}"
+  end
   
 end
-# == Schema Information
-#
-# Table name: condition_fields
-#
-#  id         :integer(4)      not null, primary key
-#  namefield  :string(255)
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
-#  typefield  :string(255)
-## == Schema Information
 #
 # Table name: condition_fields
 #

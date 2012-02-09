@@ -26,6 +26,25 @@ describe ValueField do
       @valuefield = ValueField.new(@attr.merge(:condition_field_id => ""))
       @valuefield.should_not be_valid
     end    
+    
+    it "should reject duplicate valuefield" do
+      ValueField.create!(@attr)
+      @valuefield = ValueField.new(@attr)
+      @valuefield.should_not be_valid
+    end
+    
+    it "should reject duplicate valuefield(case sensitive)" do
+      ValueField.create!(@attr)
+      @valuefield = 
+      ValueField.new(@attr.merge(:valuefield => @attr[:valuefield].upcase))
+      @valuefield.should_not be_valid
+    end
+    
+    it "should not reject duplicate with diff condition_field_id" do
+      ValueField.create!(@attr)
+      condition = ValueField.new(@attr.merge(:condition_field_id => 2))
+      condition.should be_valid
+    end
   end
   
   describe "associations" do
@@ -40,6 +59,7 @@ describe ValueField do
     end
     
   end
+  
 end
 # == Schema Information
 #
