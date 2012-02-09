@@ -15,10 +15,11 @@ class Task < ActiveRecord::Base
             :length => { :maximum => 800 }
   validates :deadline, 
             :presence => true,
-            :timeliness => { :on_or_after => lambda { Date.current }, :type => :date }
+            :timeliness => { :on_or_after => lambda { Time.now }, :type => :datetime }
   validates_inclusion_of :done, :in => [true, false]
   
 end
+
 # == Schema Information
 #
 # Table name: tasks
@@ -27,9 +28,8 @@ end
 #  title       :string(255)
 #  description :text
 #  user_id     :integer(4)
-#  deadline    :date
+#  deadline    :datetime
 #  done        :boolean(1)
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #
-

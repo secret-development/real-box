@@ -8,7 +8,7 @@ describe Task do
       :title => "MyTask",
       :description => "Just to do something",
       :user_id => 1,
-      :deadline => "2050-02-08",
+      :deadline => "2050-02-08 13:58:15",
       :done => false
     }
   end
@@ -97,7 +97,7 @@ end
 #  title       :string(255)
 #  description :text
 #  user_id     :integer(4)
-#  deadline    :date
+#  deadline    :datetime
 #  done        :boolean(1)
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
