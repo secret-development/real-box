@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   end
   
 end
-
+#TODO: to add notice
 # == Schema Information
 #
 # Table name: users
