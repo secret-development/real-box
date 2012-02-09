@@ -6,7 +6,7 @@
       <%= f.label :condition_field_id, "Поле:" %>
       <div class="controls">
         <%= collection_select(:value_field, :condition_field_id, 
-            ConditionField.all, :id, :namefield) %>
+            ConditionField.all, :id, :namefield_with_typesubject) %>
       </div>
     </div>
     <div class="control-group">
