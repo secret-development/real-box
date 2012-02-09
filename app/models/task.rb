@@ -2,7 +2,7 @@
 
 class Task < ActiveRecord::Base
   
-  validates :user_id, :deadline,
+  validates :user_id,
             :presence => true
   validates :title, 
             :presence => true,
@@ -10,7 +10,9 @@ class Task < ActiveRecord::Base
   validates :description,
             :presence => true,
             :length => { :maximum => 800 }
-            
+  validates :deadline, 
+            :presence => true,
+            :timeliness => { :on_or_after => lambda { Date.current }, :type => :date }
   validates_inclusion_of :done, :in => [true, false]
   
 end
