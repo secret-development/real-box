@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class SocialStatus < ActiveRecord::Base
-  validates :title, :presence => true, :uniqueness => true
+  validates :title, :presence => true, :uniqueness => { :case_sensitive => false }
   has_many :customers, :dependent => :destroy
   default_scope order('title ASC')
   def button_value
