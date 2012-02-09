@@ -1,7 +1,7 @@
 # encoding: utf-8
 class ValueFieldsController < ApplicationController
   respond_to :html
-  
+  before_filter :load_typesubject, :only => [:index]
   
   def index
     @valuefields = ValueField.all
@@ -47,4 +47,12 @@ class ValueFieldsController < ApplicationController
     flash[:notice] = "Значение успешно удалено"
     redirect_to value_fields_path
   end
+  
+  def load_typesubject
+    @typesubjects = []
+    ValueField.all.each { |v| @typesubjects << v.condition_field.typesubject}
+    @typesubjects.uniq!
+  end
+  
+  
 end

@@ -40,6 +40,7 @@ describe ValueField do
     end
     
   end
+  
 end
 # == Schema Information
 #

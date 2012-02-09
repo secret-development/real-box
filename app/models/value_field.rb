@@ -14,6 +14,7 @@ class ValueField < ActiveRecord::Base
   def button_value
     new_record? ? "Добавить" : "Редактировать"
   end
+
   
 end
 # == Schema Information

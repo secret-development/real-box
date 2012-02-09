@@ -2,41 +2,30 @@
 <%= flash_msg(flash[:notice]) %>
 <%= link_to plus_icon + "Добавить" , new_value_field_path, 
     :class => "btn button-add" %>
-<table class="table table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>
-        Тип объекта
-      </th>
-      <th>
-        Поле
-      </th>
-      <th>
-        Значение
-      </th>
-      <th>
-        Действия
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @valuefields.each do |v| %>
-      <tr>
-        <td>
-          <%= v.condition_field.typesubject.name %>
-        </td>
-        <td>
-          <%= v.condition_field.namefield %>
-        </td>
-        <td>
-          <%= v.valuefield %>
-        </td>
-        <td class="actions-buttons">
-          <%= link_to edit_icon, edit_value_field_path(v) %>
-          <%= link_to delete_icon, v, 
-              :method => :delete, :confirm => "Вы уверены?" %>
-        </td>
+<% @typesubjects.each do |t| %>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr class="valuefield-typesubject-title">
+        <th colspan="3"><%= t.name %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Поле</th>
+        <th>Значение</th>
+        <th>Действия</th>
+      </tr>
+      <% @valuefields.each do |v| %>
+        <tr>
+          <td><%= v.condition_field.namefield %></td>
+          <td><%= v.valuefield %> </td>
+          <td class="actions-buttons">
+            <%= link_to edit_icon, edit_value_field_path(v) %>
+            <%= link_to delete_icon, v, :method => :delete, 
+                :confirm => "Вы уверены?" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

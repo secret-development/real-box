@@ -136,6 +136,10 @@ describe ValueFieldsController do
     end
   end
   
+  it "should load_typesubject" do
+    controller.stub!(:load_typesubject).and_return(true)
+  end
+  
   def valid_data
     {
       :valuefield => "Нет",
