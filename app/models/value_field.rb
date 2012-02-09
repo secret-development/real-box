@@ -15,7 +15,6 @@ class ValueField < ActiveRecord::Base
     new_record? ? "Добавить" : "Редактировать"
   end
   
-  
 end
 # == Schema Information
 #

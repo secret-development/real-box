@@ -18,25 +18,25 @@
         Действия
       </th>
     </tr>
-    <tbody>
-      <% @valuefields.each do |v| %>
-        <tr>
-          <td>
-            <%= v.condition_field.typesubject.name %>
-          </td>
-          <td>
-            <%= v.condition_field.namefield %>
-          </td>
-          <td>
-            <%= v.valuefield %>
-          </td>
-          <td class="actions-buttons">
-            <%= link_to edit_icon, edit_value_field_path(v) %>
-            <%= link_to delete_icon, v, 
-                :method => :delete, :confirm => "Вы уверены?" %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
   </thead>
+  <tbody>
+    <% @valuefields.each do |v| %>
+      <tr>
+        <td>
+          <%= v.condition_field.typesubject.name %>
+        </td>
+        <td>
+          <%= v.condition_field.namefield %>
+        </td>
+        <td>
+          <%= v.valuefield %>
+        </td>
+        <td class="actions-buttons">
+          <%= link_to edit_icon, edit_value_field_path(v) %>
+          <%= link_to delete_icon, v, 
+              :method => :delete, :confirm => "Вы уверены?" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>

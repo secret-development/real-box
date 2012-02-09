@@ -38,5 +38,4 @@ module ApplicationHelper
     raw("<i class='icon-list-alt'></i>")    
   end
   
-
 end
