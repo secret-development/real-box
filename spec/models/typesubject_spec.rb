@@ -66,6 +66,11 @@ describe Typesubject do
       typesubject.should_not be_valid
     end
     
+    it "should floor contain false or true" do
+      @typesubject = Typesubject.new(@attr)
+      @typesubject.should include([true, false])
+    end
+    
   end
   
   describe "associations" do
