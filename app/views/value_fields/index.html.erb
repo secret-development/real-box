@@ -3,7 +3,7 @@
 <%= link_to plus_icon + "Добавить" , new_value_field_path, 
     :class => "btn button-add" %>
 <% @typesubjects.each do |t| %>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-striped table-condensed cv-table">
     <thead>
       <tr class="valuefield-typesubject-title">
         <th colspan="3"><%= t.name %></th>
@@ -15,17 +15,19 @@
         <th>Значение</th>
         <th>Действия</th>
       </tr>
-      <% @valuefields.each do |v| %>
-        <tr>
-          <td><%= v.condition_field.namefield %></td>
-          <td><%= v.valuefield %> </td>
-          <td class="actions-buttons">
-            <%= link_to edit_icon, edit_value_field_path(v) %>
-            <%= link_to delete_icon, v, :method => :delete, 
+      <% t.condition_fields.each do |c| %>
+        <% c.value_fields.each do |v| %>
+          <tr>
+            <td><%= c.namefield %></td>
+            <td><%= v.valuefield %> </td>
+            <td class="actions-buttons">
+              <%= link_to edit_icon, edit_value_field_path(v) %>
+              <%= link_to delete_icon, v, :method => :delete, 
                 :confirm => "Вы уверены?" %>
-          </td>
-        </tr>
-      <% end %>
+            </td>          
+            </tr>
+        <% end %>
+      <% end %>      
     </tbody>
   </table>
 <% end %>
