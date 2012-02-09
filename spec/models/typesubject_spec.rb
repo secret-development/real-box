@@ -10,7 +10,8 @@ describe Typesubject do
     # valid data
     @attr = {
       :name => "Дача",
-      :permalink => "dacha"
+      :permalink => "dacha",
+      :floor => true
     }
   end
   
@@ -27,6 +28,12 @@ describe Typesubject do
     
     it "should require permalink" do
       @attr[:permalink] = nil
+      @typesubject = Typesubject.new(@attr)
+      @typesubject.should_not be_valid
+    end
+    
+    it "should require floor" do
+      @attr[:floor] = nil
       @typesubject = Typesubject.new(@attr)
       @typesubject.should_not be_valid
     end
@@ -59,7 +66,13 @@ describe Typesubject do
       typesubject.should_not be_valid
     end
     
+    it "should floor contain false or true" do
+      @typesubject = Typesubject.new(@attr)
+      [true, false].should include(@typesubject.floor)
+    end
+    
   end
+  
   
   describe "associations" do
     

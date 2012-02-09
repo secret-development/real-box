@@ -136,14 +136,16 @@ describe TypesubjectsController do
   def invalid_data
     {
       :name => "Дом",
-      :permalink => ""
+      :permalink => "",
+      :floor => nil
     }
   end
   
   def valid_data
     {
       :name => "Земля",
-      :permalink => "terrain"
+      :permalink => "terrain",
+      :floor => true
     }
   end
   

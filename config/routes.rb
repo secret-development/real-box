@@ -4,6 +4,7 @@ Crm::Application.routes.draw do
   match "potentials" => "potentials#index", :as => :potentials
 
   resources :users
+  resources :tasks
   resources :customers do
     
   end
