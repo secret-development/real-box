@@ -9,7 +9,7 @@ class Typesubject < ActiveRecord::Base
             :uniqueness => { :case_sensitive => false }
   validates :permalink, :presence => true, 
             :uniqueness => { :case_sensitive => false }
-  validates :floor, :presence => true
+  validates :floor, :inclusion => { :in => [true, false]}
   
   def legend_value
     new_record? ? "Добавить тип недвижимости" : "Редактировать тип недвижимости"
