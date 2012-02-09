@@ -6,14 +6,37 @@
   <thead>
     <tr>
       <th>
-        Значение:
+        Тип объекта
       </th>
       <th>
-        Поле:
+        Поле
       </th>
       <th>
-        Действия:
+        Значение
+      </th>
+      <th>
+        Действия
       </th>
     </tr>
+    <tbody>
+      <% @valuefields.each do |v| %>
+        <tr>
+          <td>
+            <%= v.condition_field.typesubject.name %>
+          </td>
+          <td>
+            <%= v.condition_field.namefield %>
+          </td>
+          <td>
+            <%= v.valuefield %>
+          </td>
+          <td class="actions-buttons">
+            <%= link_to edit_icon, edit_value_field_path(v) %>
+            <%= link_to delete_icon, v, 
+                :method => :delete, :confirm => "Вы уверены?" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
   </thead>
 </table>
