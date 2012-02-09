@@ -81,8 +81,8 @@ describe Task do
     end
     
     it "should belongs_to user" do
-      @task = Task.reflect_on_association(:user)
-      @task.macro.should == :belongs_to
+      t = Task.reflect_on_association(:user)
+      t.macro.should == :belongs_to
     end
     
   end

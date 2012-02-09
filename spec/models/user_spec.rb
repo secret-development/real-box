@@ -118,6 +118,25 @@ describe User do
     
   end
   
+  describe "task associations" do
+    
+    it "should respond to tasks" do
+      @user = User.new(@attr)
+      @user.should respond_to(:tasks)
+    end
+    
+    it "should have many tasks" do
+      u = User.reflect_on_association(:tasks)
+      u.macro.should == :has_many
+    end
+    
+    it "should dependent destroy" do
+      u = User.reflect_on_association(:tasks)
+      u.options[:dependent].should == :destroy
+    end
+    
+  end
+  
 end
 
 # == Schema Information
