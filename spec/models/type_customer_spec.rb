@@ -2,6 +2,7 @@
 require 'spec_helper'
 
 describe TypeCustomer do
+
   before(:each) do
     @attr = { :title => "Продавец" }
   end
@@ -18,6 +19,12 @@ describe TypeCustomer do
   it "should have many customers" do
     t = TypeCustomer.reflect_on_association(:customers)
     t.macro.should ==:has_many    
+  end
+  
+  it "validation uniqueness" do
+    TypeCustomer.create!(@attr)
+    old_title = TypeCustomer.new(@attr)
+    old_title.should_not be_valid        
   end
 end
 # == Schema Information

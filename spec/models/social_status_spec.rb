@@ -20,6 +20,12 @@ describe SocialStatus do
     s = SocialStatus.reflect_on_association(:customers)
     s.macro.should ==:has_many    
   end
+  
+  it "validation uniqueness" do
+    SocialStatus.create!(@attr)
+    old_title = SocialStatus.new(@attr)
+    old_title.should_not be_valid    
+  end
 end
 # == Schema Information
 #
