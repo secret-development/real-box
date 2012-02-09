@@ -68,7 +68,7 @@ describe Typesubject do
     
     it "should floor contain false or true" do
       @typesubject = Typesubject.new(@attr)
-      @typesubject.should include([true, false])
+      [true, false].should include(@typesubject.floor)
     end
     
   end
