@@ -45,4 +45,5 @@ group :test, :development do
   gem "database_cleaner", "~> 0.7.1"
   # Pretty printed test output
   gem 'turn', '~> 0.8.3', :require => false
+  gem 'simplecov', :require => false
 end
