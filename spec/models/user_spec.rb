@@ -110,9 +110,31 @@ describe User do
   describe "helper methods" do
     
     describe "full_name" do
-      it "combine name and middle_name" do
+      it "should combine name and middle_name" do
         @user = User.create!(@attr)
         @user.full_name.should == @user.first_name + ' ' + @user.middle_name + ' ' + @user.last_name 
+      end
+    end
+    
+    describe "legend" do
+      it "should write 'Добавление' or 'Редактирование'" do
+        @user = User.create!(@attr)
+        if @user.new_record?
+          @user.legend.should == "Добавление"
+        else
+          @user.legend.should == "Редактирование"
+        end
+      end
+    end
+    
+    describe "button_value" do
+      it "should write 'Добавить' or 'Обновить'" do
+        @user = User.create!(@attr)
+        if @user.new_record?
+          @user.button_value.should == "Добавить"
+        else
+          @user.button_value.should == "Обновить"
+        end
       end
     end
     
