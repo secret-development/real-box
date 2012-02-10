@@ -2,12 +2,13 @@
 <%= flash_msg(flash[:notice]) %>
 <%= link_to plus_icon + "Добавить" , new_customer_path, :class => "btn button-add" %>
 <%= link_to list_icon + 'Потенциальные клиенты',potentials_path, :class => "btn button-add", :id => "potentials-link" %>
-
-<table class="table table-striped table-condensed customers">
+<div class="span6"></div>
+<div class="span6"></div>
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered dataTable" id="example">
   <thead>
     <tr>
       <th>#</th>
-      <th>Фамилия</th>
+      <th>Фамилия <%=  %></th>
       <th>Имя</th>
       <th>Тип клиента</th>
       <th>Соц. статус</th>
