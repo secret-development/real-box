@@ -93,9 +93,17 @@ describe ConditionField do
     it "should belongs_to typesubject" do
       c = ConditionField.reflect_on_association(:typesubject)
       c.macro.should == :belongs_to
-    end
-    
+    end    
   end
+  
+  describe "scopes" do
+    
+    it "formfor scopes should return order(typesubject_id ASC)" do
+      @conditionfields = ConditionField.forform
+      @conditionfields.to_sql.should =~ /typesubject_id ASC/i
+    end
+  end
+  
 end
 # == Schema Information
 #
