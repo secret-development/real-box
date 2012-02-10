@@ -18,6 +18,30 @@ class Task < ActiveRecord::Base
             :timeliness => { :on_or_after => lambda { Time.now }, :type => :datetime }
   validates_inclusion_of :done, :in => [true, false]
   
+  def status
+    if done == true
+      "Да"
+    else
+      "Нет"
+    end
+  end
+  
+  def button_value
+    if new_record?
+      "Добавить"
+    else
+      "Обновить"  
+    end
+  end
+  
+  def legend
+    if new_record?
+      "Добавление"
+    else
+      "Редактирование"
+    end
+  end
+  
 end
 
 # == Schema Information
