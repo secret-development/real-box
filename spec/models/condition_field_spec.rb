@@ -97,6 +97,7 @@ describe ConditionField do
   end
   
   describe "scopes" do
+    
     it "formfor scopes should return order(typesubject_id ASC)" do
       @conditionfields = ConditionField.forform
       @conditionfields.to_sql.should =~ /typesubject_id ASC/i
