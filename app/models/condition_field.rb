@@ -13,6 +13,7 @@ class ConditionField < ActiveRecord::Base
 
   # scopes:
   default_scope order("namefield ASC")
+  scope :forform, reorder("typesubject_id ASC")
   
   def typefields
     {
