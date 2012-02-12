@@ -91,7 +91,8 @@ describe Task do
   
   describe "helper methods" do
     
-    describe "done: status method" do
+    describe "done methods" do
+      
       it "should write 'Да' or 'Нет' instead of 'true' or 'false'" do
         @task = Task.create!(@attr)
         if @task.done = true
@@ -100,6 +101,7 @@ describe Task do
           @task.status.should == "Нет"
         end
       end
+      
     end
     
     describe "legend" do
