@@ -108,6 +108,7 @@ describe Subject do
     it "living square should numericality" do
       subject.livingsquare.should be_kind_of(Numeric)
     end    
+    
   end
   
 end
