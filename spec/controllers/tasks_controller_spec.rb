@@ -7,6 +7,7 @@ describe TasksController do
 
   before(:each) do
     @task = Factory(:task)
+    @user = Factory(:user)
   end
   
   it "get show" do

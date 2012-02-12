@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   respond_to :html
   
   def index
-    @task = Task.all
+    @tasks = Task.all
     @title = "Задачи"
   end
 
