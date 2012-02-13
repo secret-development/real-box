@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class Customer < ActiveRecord::Base
   # associations
-  belongs_to :type_customer
+  belongs_to :typetransaction
   belongs_to :social_status
   #validations
   validates :firstname, :lastname, :presence => true

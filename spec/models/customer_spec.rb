@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe Customer do
-  #pending "add some examples to (or delete) #{__FILE__}"
+
   before(:each) do
     @attr = {
       :firstname => "Ivan",
@@ -22,10 +22,6 @@ describe Customer do
     @c.save.should eq(true)    
   end
   
-  it "should respond to type_customer" do
-    t = Customer.new
-    t.should respond_to(:type_customer) 
-  end
   
   it "should respond to social_status" do
     s = Customer.new
@@ -37,10 +33,15 @@ describe Customer do
     t.macro.should ==:belongs_to
   end
   
-   it "should have one type" do
-    s = Customer.reflect_on_association(:type_customer)
-    s.macro.should ==:belongs_to
+  
+  
+  describe "associations" do
+    it "should respond to typetransaction" do
+      c = Customer.new(@attr)
+      c.should respond_to(:typetransaction)
+    end
   end
+  
 end
 
 

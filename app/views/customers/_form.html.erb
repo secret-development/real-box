@@ -37,12 +37,6 @@
     </div>
     
     <div class="control-group">
-      <%= f.label :type_customer_id, "Тип клиента:" %>
-      <div class="controls">
-        <%= f.collection_select(:type_customer_id, TypeCustomer.asctitle, :id, :title) %>
-      </div>
-    </div>
-    <div class="control-group">
       <%= f.label :social_status_id, "Социальный статус клиента:" %>
       <div class="controls">
         <%= f.collection_select(:social_status_id, SocialStatus.asctitle, :id, :title) %>
