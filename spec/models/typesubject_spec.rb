@@ -92,6 +92,23 @@ describe Typesubject do
         t.options[:dependent].should == :destroy
       end
     end
+    
+    describe "has_many :subjects" do
+      it "should respond_to :subjects" do
+        @typesubject = Typesubject.new(@attr)
+        @typesubject.should respond_to(:subjects)
+      end
+      
+      it "should has_many :subjects" do
+        t = Typesubject.reflect_on_association(:subjects)
+        t.macro.should == :has_many
+      end
+      
+      it "should dependent nullify" do
+        t = Typesubject.reflect_on_association(:subjects)
+        t.options[:dependent].should == :nullify
+      end
+    end
   end
   
 end
