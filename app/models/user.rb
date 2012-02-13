@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
             :format     => { :with => email_regex },
             :uniqueness => { :case_sensitive => false }
             
+  scope :forform, reorder("last_name ASC")
+            
   def button_value
     if new_record?
       "Добавить"
@@ -37,7 +39,7 @@ class User < ActiveRecord::Base
   end
   
   def full_name
-    first_name + ' ' + middle_name + ' ' + last_name
+    last_name + ' ' + first_name + ' ' + middle_name
   end
   
 end

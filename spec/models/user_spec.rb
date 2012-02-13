@@ -112,7 +112,7 @@ describe User do
     describe "full_name" do
       it "should combine name and middle_name" do
         @user = User.create!(@attr)
-        @user.full_name.should == @user.first_name + ' ' + @user.middle_name + ' ' + @user.last_name 
+        @user.full_name.should == @user.last_name + ' ' + @user.first_name + ' ' + @user.middle_name 
       end
     end
     

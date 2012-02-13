@@ -62,9 +62,9 @@ describe UsersController do
         end.should change(User, :count).by(1)
       end
       
-      it "should redirect to the show user page" do
+      it "should redirect to the index user page" do
         post :create, :user => @attr
-        response.should redirect_to(user_path(assigns(:user)))
+        response.should redirect_to(users_path)
       end
       
       it "should have a success message" do
@@ -103,9 +103,9 @@ describe UsersController do
       @attr = valid_data
     end
     
-    it "should redirect to user" do
+    it "should redirect to users" do
       put :update, :id => @user.id, :user => @attr
-      response.should redirect_to(user_path(assigns(:user)))
+      response.should redirect_to(users_path)
     end
     
     it "should not create a user" do

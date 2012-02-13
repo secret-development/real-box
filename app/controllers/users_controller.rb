@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Персонал успешно добавлен"
-      respond_with(@user, :location => user_path(@user))
+      redirect_to users_path
     else
       render 'new'
     end
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = "Персонал успешно обновлен"
-      respond_with(@user, :location => user_path(@user))
+      redirect_to users_path
     else
       render 'edit'
     end
