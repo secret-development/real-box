@@ -40,6 +40,11 @@ describe Customer do
       c = Customer.new(@attr)
       c.should respond_to(:typetransaction)
     end
+    
+    it "shouild belongs_to to typetransaction" do
+      c = Customer.reflect_on_association(:typetransaction)
+      c.macro.should == :belongs_to
+    end
   end
   
 end
