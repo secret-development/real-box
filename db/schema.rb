@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120209101117) do
+ActiveRecord::Schema.define(:version => 20120213130651) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(:version => 20120209101117) do
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "real",             :default => false
-    t.integer  "type_customer_id"
+    t.boolean  "real",               :default => false
     t.integer  "social_status_id"
     t.string   "permalink"
+    t.integer  "typetransaction_id"
   end
 
   add_index "customers", ["firstname", "lastname"], :name => "index_rcustomers_on_firstname_and_lastname"
@@ -60,18 +60,18 @@ ActiveRecord::Schema.define(:version => 20120209101117) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "type_customers", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "typesubjects", :force => true do |t|
     t.string   "name"
     t.string   "permalink"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.boolean  "floor"
+  end
+
+  create_table "typetransactions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

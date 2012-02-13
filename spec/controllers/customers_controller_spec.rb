@@ -5,9 +5,10 @@ describe CustomersController do
   render_views
   
   before(:each) do
-    type = Factory(:type_customer)
+
     soc = Factory(:social_status)
-    @customer = Factory(:customer, :type_customer => type, :social_status => soc)
+    typetr = Factory(:typetransaction)
+    @customer = Factory(:customer, :typetransaction => typetr, :social_status => soc)
   end
 
   describe "GET should be successful" do
