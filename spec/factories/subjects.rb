@@ -3,6 +3,8 @@
 
 FactoryGirl.define do
   factory :subject do
-    
+    price 10000
+    area 73
+    address "Абая 165, 8"
   end
 end
