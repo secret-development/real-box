@@ -3,6 +3,7 @@
 <%= link_to plus_icon + "Добавить" , new_customer_path, :class => "btn button-add" %>
 <%= link_to list_icon + 'Потенциальные клиенты',potentials_path, :class => "btn button-add", :id => "potentials-link" %>
 
+
 <table class="table table-striped table-condensed customers">
   <thead>
     <tr>
@@ -15,9 +16,9 @@
       <th>Электронная почта</th>
       <th>Заметка</th>
       <th>Операции</th>
-    </tr>
-  </thead>
-  
+      </tr>
+    </thead>
+
   <tbody>
     <% @customers.each do |c| %>
        <tr>
@@ -34,7 +35,8 @@
           <%= link_to edit_icon, edit_customer_path(c) %>
           <%= link_to delete_icon, c, :method => :delete, :confirm => "Вы уверены?" %>
         </td>
-      </tr>      
-    <% end %>
-  </tbody>
-</table>
+        </tr>      
+      <% end %>
+    </tbody>
+  </table>
+
