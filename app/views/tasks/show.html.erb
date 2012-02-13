@@ -1,2 +1,18 @@
-<h1>Tasks#show</h1>
-<p>Find me in app/views/tasks/show.html.erb</p>
+<div id="task">
+  <h1 class="title-page"><%= @task.title %></h1>
+  <div class="task's user">
+    <%= link_to @task.user.full_name, user_path(@task.user) %>
+  </div>
+  <div class="description">
+    <%= @task.description %>
+  </div>
+  <div class="deadline">
+    <%= @task.deadline.strftime('%d.%m.%Y %H:%M:%S') %>
+  </div>
+  <div class="status">
+    <%= @task.status %>
+  </div>
+  <div class="created_at">
+    <%= @task.created_at.strftime('%d.%m.%Y %H:%M:%S') %>
+  </div>
+</div>

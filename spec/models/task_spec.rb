@@ -1,3 +1,5 @@
+#encoding: UTF-8
+
 require 'spec_helper'
 
 describe Task do
@@ -87,7 +89,48 @@ describe Task do
     
   end
   
+  describe "helper methods" do
+    
+    describe "done methods" do
+      
+      it "should write 'Да' or 'Нет' instead of 'true' or 'false'" do
+        @task = Task.create!(@attr)
+        if @task.done = true
+          @task.status.should == "Да"
+        else
+          @task.status.should == "Нет"
+        end
+      end
+      
+    end
+    
+    describe "legend" do
+      it "should write 'Добавление' or 'Редактирование'" do
+        @task = Task.create!(@attr)
+        if @task.new_record?
+          @task.legend.should == "Добавление"
+        else
+          @task.legend.should == "Редактирование"
+        end
+      end
+    end
+    
+    describe "button_value" do
+      it "should write 'Добавить' or 'Обновить'" do
+        @task = Task.create!(@attr)
+        if @task.new_record?
+          @task.button_value.should == "Добавить"
+        else
+          @task.button_value.should == "Обновить"
+        end
+      end
+    end
+    
+  end
+  
 end
+
+#TODO: доделать тесты с new_record?
 
 # == Schema Information
 #
