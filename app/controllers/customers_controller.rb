@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
   respond_to :html
   
   def index
-    @customers = Customer.real.page(params[:page]).per(10)
+    @customers = Customer.order(params[:sort])# + '' + params[:direction])#real.page(params[:page]).per(10)
     @title = "Клиенты"
     #@potentials = Customer.potentials.all
   end
