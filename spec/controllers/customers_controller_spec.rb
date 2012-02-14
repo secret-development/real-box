@@ -59,7 +59,7 @@ describe CustomersController do
   describe "scope should be show potentials and real customers" do
     before(:each) do
       @potential =  {:firstname => "vano", :lastname => "vanov", :phonehome => "1243", :phonemobile => "876965" }
-      @real = {:firstname => "vano", :lastname => "vanov", :phonehome => "1243", :phonemobile => "876965", :real => true }
+      @real = {:firstname => "vano", :lastname => "vanov", :phonehome => "1243", :phonemobile => "876965", :potentials => false }
     end
     
 #    it "success" do

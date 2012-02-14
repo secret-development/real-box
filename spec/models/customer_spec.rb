@@ -18,7 +18,7 @@ describe Customer do
   
   it "must be zero by default and save attributes" do 
     @c = Customer.create(@attr)
-    @c.real?().should be_false
+    @c.potentials?().should be_false
     @c.save.should eq(true)    
   end
   

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120213133634) do
+ActiveRecord::Schema.define(:version => 20120214115425) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -36,9 +36,8 @@ ActiveRecord::Schema.define(:version => 20120213133634) do
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "real",               :default => false
+    t.boolean  "potentials",         :default => false
     t.integer  "social_status_id"
-    t.string   "permalink"
     t.integer  "typetransaction_id"
   end
 

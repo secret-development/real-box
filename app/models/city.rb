@@ -7,6 +7,9 @@ class City < ActiveRecord::Base
   # validates
   validates :name, :presence => true,
             :uniqueness => { :case_sensitive => false}
+
+  # scope
+  default_scope order("name ASC")
             
   def legend_value
     if new_record?
