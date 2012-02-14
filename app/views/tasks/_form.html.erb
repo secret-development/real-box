@@ -11,8 +11,8 @@
       </div>
       <div class="control-group">
         <%= f.label :description, "Описание:" %>
-        <div class="controls">
-          <%= f.text_area :description %>  
+        <div class="controls"> 
+          <%= f.text_area :description, :rows => "8", :class => "span4" %>  
         </div>
       </div>
       <div class="control-group">
@@ -25,17 +25,10 @@
       <div class="control-group">
         <%= f.label :deadline, "Дедлайн:" %>
         <div class="controls">
-          <%= f.date_select :deadline, 
+          <%= f.datetime_select :deadline, 
                             :order => [:day, :month, :year],
                             :start_year => Time.now.year, 
                             :end_year => Time.now.year + 3 %>
-        </div>
-      </div>
-      <div class="control-group">
-        <%= f.label :deadline, "Время:" %>
-        <div class="controls">
-          <%= f.time_select :deadline, :ignore_date => true,
-                            :minute_step => 5 %>
         </div>
       </div>
       <%= f.hidden_field :done, :value => false %>

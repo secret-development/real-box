@@ -15,12 +15,12 @@ class Task < ActiveRecord::Base
             :length => { :maximum => 800 }
   validates :deadline, 
             :presence => true,
-            :timeliness => { :on_or_after => lambda { Time.now }, :type => :datetime }
+            :timeliness => { :on_or_after => :date_for_validation, :type => :datetime }
   validates_inclusion_of :done, :in => [true, false]
   
   def status
     if done == true
-      "Да"
+      "Да "
     else
       "Нет"
     end
@@ -42,8 +42,19 @@ class Task < ActiveRecord::Base
     end
   end
   
+  def date_for_validation
+    if new_record?
+      Time.now
+    else
+      created_at
+    end
+  end
+  
 end
 
+#TODO: file_attachment
+#TODO: data picker
+#TODO: bootstrap collapse (уточнить время)
 # == Schema Information
 #
 # Table name: tasks

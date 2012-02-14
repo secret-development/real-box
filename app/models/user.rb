@@ -42,8 +42,14 @@ class User < ActiveRecord::Base
     last_name + ' ' + first_name + ' ' + middle_name
   end
   
+  def short_name
+    last_name + ' ' + first_name.strip[0] + '.'
+  end
+  
 end
-#TODO: to add notice
+
+# TODO: to add notice
+# TODO: avatar
 # == Schema Information
 #
 # Table name: users
