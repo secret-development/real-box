@@ -3,6 +3,13 @@
   <fieldset>
     <legend><%= @subject.legend_value %></legend>
     <div class="control-group">
+      <%= f.label :city_id, "Город:" %>
+      <div class="controls">
+        <%= collection_select(:subject, :city_id,
+            City.all, :id, :name) %>
+      </div>
+    </div>
+    <div class="control-group">
       <%= f.label :typesubject_id, "Тип недвижимости:" %>
       <div class="controls">
         <%= collection_select(:subject, :typesubject_id, 
@@ -10,11 +17,28 @@
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :city_id, "Город:" %>
+      <%= f.label :price, "Цена" %>
       <div class="controls">
-        <%= collection_select(:subject, :city_id,
-            City.all, :id, :name) %>
+        <%= f.text_field :price, :placeholder => "10000" %> 
+        <span class="calc-label">$</span>
       </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :area, "Площадь:" %>
+      <div class="controls">
+        <%= f.text_field :area, :placeholder => "70" %> 
+        <span class="calc-label">м<sup>2</sup></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :address%>
+      <div class="controls">
+        <%= f.text_field :address, :placeholder => "ул. Ленина 54, дом 32, кв. 5" %>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= f.submit @subject.button_value, :class => "btn btn-primary" %>
+      <button type="reset" class="btn cancel-form">Отмена</button>
     </div>
   </fieldset>
 <% end %>

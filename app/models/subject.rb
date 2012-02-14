@@ -13,6 +13,10 @@ class Subject < ActiveRecord::Base
   def legend_value
     new_record? ? "Добавить объект" : "Редактировать объект"
   end
+  
+  def button_value
+    new_record? ? "Добавить" : "Редактировать"
+  end
 end
 
 # == Schema Information
