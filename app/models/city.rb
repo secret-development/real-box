@@ -1,5 +1,9 @@
 # encoding:utf-8
 class City < ActiveRecord::Base
+  
+  # associations:
+  has_many :subjects, :dependent => :nullify
+  
   # validates
   validates :name, :presence => true,
             :uniqueness => { :case_sensitive => false}
