@@ -1,8 +1,16 @@
 # encoding:utf-8
+
 class Subject < ActiveRecord::Base
+  # associations
   belongs_to :typesubject
   belongs_to :city
+  
+  # validations:
+  validates :typesubject_id, :presence => true
+  validates :city_id, :presence => true
+  validates :price, :presence => true, :numericality => true
 end
+
 # == Schema Information
 #
 # Table name: subjects

@@ -18,7 +18,30 @@ describe Subject do
   end
   
   describe "validations" do
+    it "should create new instance with valid attributes" do
+      subject = Subject.create!(@attr)
+    end
     
+    it "should require the typesubject_id" do
+      subject = Subject.new(@attr.merge(:typesubject_id => nil))
+      subject.should_not be_valid
+    end
+    
+    it "should require the city_id" do
+      subject = Subject.new(@attr.merge(:city_id => nil))
+      subject.should_not be_valid
+    end
+    
+    it "should require the price" do
+      subject = Subject.new(@attr.merge(:price => nil))
+      subject.should_not be_valid
+    end
+    
+    it "should price the numericality" do
+      @attr[:price] = "dededeede"
+      subject = Subject.new(@attr)
+      subject.should_not be_valid
+    end
   end
   
   describe "associations" do
