@@ -55,7 +55,7 @@ module ApplicationHelper
   end
 
   def type_customer(object)
-    if object == 1
+    if object == true
       "Потенциальный"
     else
       "Действующий"
