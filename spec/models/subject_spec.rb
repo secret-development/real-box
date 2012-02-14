@@ -1,142 +1,85 @@
-#encoding:utf-8
+# encoding:utf-8
 require 'spec_helper'
 
 describe Subject do
   before(:each) do
-    @typesubjects = ["квартира", "комната", "коттедж", "дача", 
-      "офис", "участок"]
-      
-    # valid data
+    @city = Factory(:city)
+    @typesubject = Factory(:typesubject)
+    @subject = Factory(:subject, :typesubject => @typesubject, :city => @city)
+    
+    # valid attributes
     @attr = {
-      :typesubject => @typesubjects[0],
-      :cityname => "костанай",
-      :township => "центр",
-      :address => "абая 165, 119",
-      :price => 70000,
-      :numbofrooms => 3,
-      :square => 72.0,
-      :kitchensquare => 15.0,
-      :livingsquare => 57.0,
-      :floor => 7,
-      :typestructure => "панельный",
-      :yearofconstruction => 1950,
-      :telephone => "yes",
-      :furniture => "yes",
-      :internet => "no",
-      :balcony => "лоджия",
-      :wc => "раздельный",
-      :layout => "сталинка",
-      :state => "отличное"
+      :typesubject_id => 1,
+      :city_id => 2,
+      :price => 100003,
+      :area => 80,
+      :address => "Баймагамбетова 15, 23"
     }
-    
   end
   
-  describe "validates presence" do
-    it "should create a new instance given a valid attribute" do
-      @subject = Subject.create!(@attr)
+  describe "validations" do
+    it "should create new instance with valid attributes" do
+      subject = Subject.create!(@attr)
     end
-
-    it "should require a typesubject" do
-      req_presence_sub(:typesubject).should_not be_valid
+    
+    it "should require the typesubject_id" do
+      subject = Subject.new(@attr.merge(:typesubject_id => nil))
+      subject.should_not be_valid
     end
-
-    it "should require a cityname" do
-      req_presence_sub(:cityname).should_not be_valid
+    
+    it "should require the city_id" do
+      subject = Subject.new(@attr.merge(:city_id => nil))
+      subject.should_not be_valid
     end
-
-    it "should require a township" do
-      req_presence_sub(:township).should_not be_valid
+    
+    it "should require the price" do
+      subject = Subject.new(@attr.merge(:price => nil))
+      subject.should_not be_valid
     end
-
-    it "should require address" do
-      req_presence_sub(:address).should_not be_valid
-    end
-
-    it "should require price" do
-      req_presence_sub(:price).should_not be_valid
-    end
-
-    it "should require numbofrooms" do
-      req_presence_sub(:numbofrooms).should_not be_valid
-    end
-
-    it "should require square" do
-      req_presence_sub(:square).should_not be_valid
-    end
-
-    it "should require floor" do
-      req_presence_sub(:floor).should_not be_valid
-    end
-
-    # Require presence subject(validates :presence => true)
-    def req_presence_sub(par)
-      @subejct = Subject.new(@attr.merge(par => ""))
+    
+    it "should price the numericality" do
+      @attr[:price] = "dededeede"
+      subject = Subject.new(@attr)
+      subject.should_not be_valid
     end
   end
   
-  describe "other validations" do
-    let(:subject) { Subject.new(@attr) }
-    
-    it "should include typesubjects" do
-      subject.typesubject.should include @typesubjects[0]
+  describe "associations" do
+    describe "typesubject" do
+      it "should respond to typesubject" do
+        subject = Subject.new(@attr)
+        subject.should respond_to(:typesubject)
+      end
+      
+      it "should belongs_to to typesubject" do
+        s = Subject.reflect_on_association(:typesubject)
+        s.macro.should == :belongs_to
+      end
     end
     
-    it "price should include only integers" do
-      subject.price.should be_kind_of(Integer)
+    describe "city" do
+      it "should respond to city" do
+        subject = Subject.new(@attr)
+        subject.should respond_to(:city)
+      end
+      
+      it "should belongs_to to city" do
+        subject = Subject.reflect_on_association(:city)
+        subject.macro.should == :belongs_to
+      end
     end
-    
-    it "numbofrooms should include only integers" do
-      subject.numbofrooms.should be_kind_of(Integer)
-    end
-    
-    it "floor should include only integers" do
-      subject.floor.should be_kind_of(Integer)
-    end
-    
-    it "year of construction include only integers" do
-      subject.yearofconstruction.should be_kind_of(Integer)
-    end
-    
-    it "square should numericality" do
-      subject.square.should be_kind_of(Numeric)
-    end
-    
-    it "kitchen square should numericality" do
-      subject.kitchensquare.should be_kind_of(Numeric)
-    end
-    
-    it "living square should numericality" do
-      subject.livingsquare.should be_kind_of(Numeric)
-    end    
-    
   end
-  
-end
-# == Schema Information
+end# == Schema Information
 #
 # Table name: subjects
 #
-#  id                 :integer(4)      not null, primary key
-#  typesubject        :string(255)
-#  cityname           :string(255)
-#  township           :string(255)
-#  address            :string(255)
-#  price              :integer(4)
-#  numbofrooms        :integer(4)
-#  square             :float
-#  kitchensquare      :float
-#  livingsquare       :float
-#  floor              :integer(4)
-#  typestructure      :string(255)
-#  yearofconstruction :integer(4)
-#  telephone          :string(255)
-#  furniture          :string(255)
-#  internet           :string(255)
-#  balcony            :string(255)
-#  wc                 :string(255)
-#  layout             :string(255)
-#  state              :string(255)
-#  created_at         :datetime        not null
-#  updated_at         :datetime        not null
+#  id             :integer(4)      not null, primary key
+#  typesubject_id :integer(4)
+#  city_id        :integer(4)
+#  price          :integer(4)
+#  area           :integer(4)
+#  address        :string(255)
+#  created_at     :datetime        not null
+#  updated_at     :datetime        not null
 #
 

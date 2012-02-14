@@ -52,6 +52,7 @@ class Task < ActiveRecord::Base
   
 end
 
+
 #TODO: file_attachment
 #TODO: data picker
 #TODO: bootstrap collapse (уточнить время)
@@ -68,3 +69,4 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #
+

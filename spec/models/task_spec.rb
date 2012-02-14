@@ -142,7 +142,6 @@ describe Task do
 end
 
 # == Schema Information
-#
 # Table name: tasks
 #
 #  id          :integer(4)      not null, primary key
@@ -154,3 +153,4 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #
+

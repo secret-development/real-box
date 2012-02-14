@@ -5,9 +5,10 @@ describe CustomersController do
   render_views
   
   before(:each) do
-    type = Factory(:type_customer)
+
     soc = Factory(:social_status)
-    @customer = Factory(:customer, :type_customer => type, :social_status => soc)
+    typetr = Factory(:typetransaction)
+    @customer = Factory(:customer, :typetransaction => typetr, :social_status => soc)
   end
 
   describe "GET should be successful" do
@@ -58,7 +59,7 @@ describe CustomersController do
   describe "scope should be show potentials and real customers" do
     before(:each) do
       @potential =  {:firstname => "vano", :lastname => "vanov", :phonehome => "1243", :phonemobile => "876965" }
-      @real = {:firstname => "vano", :lastname => "vanov", :phonehome => "1243", :phonemobile => "876965", :real => true }
+      @real = {:firstname => "vano", :lastname => "vanov", :phonehome => "1243", :phonemobile => "876965", :potentials => false }
     end
     
 #    it "success" do

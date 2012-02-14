@@ -1,7 +1,25 @@
-#info-customer{
-  font-size: 16px;
-  #type-customer, #status_customer, #phone-customer, #note-customer{
-    margin: 5px 5px 5px 0px;
-    padding: 2px 2px 2px 0px;
+#show-customer{
+  background:#F9F9F9;
+  padding:10px;
+  border:1px solid #eee;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
+  -o-border-radius:5px;
+  font-size:15px;
+  color:#111111;
+  .field-customer{
+    margin-bottom:10px;
+    .title-field{
+      color:#565656;
+      display:inline-block;
+      min-width:180px;
+    }
+  }
+  .actions-with-customers{
+    margin:30px 0px 10px 0px;
+    a{
+      margin-right:7px;
+    }
   }
 }

@@ -48,6 +48,7 @@ class User < ActiveRecord::Base
   
 end
 
+
 # TODO: to add notice
 # TODO: avatar
 # == Schema Information
@@ -65,3 +66,4 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #
+
