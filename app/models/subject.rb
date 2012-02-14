@@ -9,6 +9,10 @@ class Subject < ActiveRecord::Base
   validates :typesubject_id, :presence => true
   validates :city_id, :presence => true
   validates :price, :presence => true, :numericality => true
+  
+  def legend_value
+    new_record? ? "Добавить объект" : "Редактировать объект"
+  end
 end
 
 # == Schema Information
