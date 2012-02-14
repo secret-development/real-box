@@ -38,4 +38,28 @@ module ApplicationHelper
     raw("<i class='icon-list-alt'></i>")    
   end
   
+  def isset_field(object)
+    object.empty? ? "нет данных" : object
+  end
+  
+  def isset_mail(object)
+    if object.empty?
+      "нет данных"
+    else
+      mail_to object, object
+    end
+  end
+  
+  def to_date(object)
+    object.to_date
+  end
+
+  def type_customer(object)
+    if object == 1
+      "Потенциальный"
+    else
+      "Действующий"
+    end
+  end
+  
 end

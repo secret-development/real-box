@@ -6,8 +6,8 @@ class Customer < ActiveRecord::Base
   #validations
   validates :firstname, :lastname, :presence => true
   #scope
-  scope :real, where(:real => false)
-  scope :potentials, where(:real => true)
+  scope :real, where(:potentials => false)
+  scope :potentials, where(:potentials => true)
   default_scope order("lastname ASC")
   
   #permalink
@@ -46,7 +46,6 @@ end
 #  updated_at         :datetime
 #  real               :boolean(1)      default(FALSE)
 #  social_status_id   :integer(4)
-#  permalink          :string(255)
 #  typetransaction_id :integer(4)
 #
 
