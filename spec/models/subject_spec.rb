@@ -39,6 +39,24 @@ describe Subject do
         subject = Subject.new(@attr)
         subject.should respond_to(:city)
       end
+      
+      it "should belongs_to to city" do
+        subject = Subject.reflect_on_association(:city)
+        subject.macro.should == :belongs_to
+      end
     end
   end
-end
+end# == Schema Information
+#
+# Table name: subjects
+#
+#  id             :integer(4)      not null, primary key
+#  typesubject_id :integer(4)
+#  city_id        :integer(4)
+#  price          :integer(4)
+#  area           :integer(4)
+#  address        :string(255)
+#  created_at     :datetime        not null
+#  updated_at     :datetime        not null
+#
+

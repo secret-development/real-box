@@ -25,6 +25,23 @@ describe City do
     
   end
   
+  describe "associations" do
+    it "should respond to subjects" do
+      @city = City.new(@attr)
+      @city.should respond_to(:subjects)
+    end
+    
+    it "should has_many subjects" do
+      city = City.reflect_on_association(:subjects)
+      city.macro.should == :has_many
+    end
+    
+    it "should dependent nullify" do
+      city = City.reflect_on_association(:subjects)
+      city.options[:dependent].should == :nullify
+    end
+  end
+  
 end
 # == Schema Information
 #
@@ -35,3 +52,4 @@ end
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
 #
+

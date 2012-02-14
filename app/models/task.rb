@@ -44,7 +44,7 @@ class Task < ActiveRecord::Base
   
 end
 
-# == Schema Information
+## == Schema Information
 #
 # Table name: tasks
 #
@@ -57,3 +57,4 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #
+

@@ -161,7 +161,7 @@ describe User do
   
 end
 
-# == Schema Information
+## == Schema Information
 #
 # Table name: users
 #
@@ -176,3 +176,4 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #
+
