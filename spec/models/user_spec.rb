@@ -116,6 +116,14 @@ describe User do
       end
     end
     
+    describe "short_name" do
+      it "should combine last_name and first letter of first_name" do
+        @user = User.create!(@attr)
+        @user.short_name.should == @user.last_name + ' ' + 
+        @user.first_name.strip[0] + '.'
+      end
+    end
+    
     describe "legend" do
       it "should write 'Добавление' or 'Редактирование'" do
         @user = User.create!(@attr)
