@@ -7,7 +7,9 @@ describe SubjectsController do
   before(:each) do
     city = Factory(:city)
     typesubject = Factory(:typesubject)
-    @subject = Factory(:subject, :typesubject => typesubject, :city => city)
+    typetransaction = Factory(:typetransaction)
+    @subject = Factory(:subject, :typesubject => typesubject, :city => city,
+                :typetransaction => typetransaction)
   end
   
   it "get 'index'" do

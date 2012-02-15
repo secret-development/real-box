@@ -1,0 +1,29 @@
+<h1 class="title-page">Информация об объекте</h1>
+<div id="show-subject-page">
+  <div class="field-subject">
+    <span class="title-field-subject">Тип сделки:</span>
+    <%= @subject.typetransaction.name %>
+  </div>
+  <div class="field-subject">
+    <span class="title-field-subject">Город:</span>
+    <%= @subject.city.name %>
+  </div>
+  <div class="field-subject">
+    <span class="title-field-subject">Цена:</span>
+    <%= to_dollar(@subject.price) %>
+  </div>
+  <div class="field-subject">
+    <span class="title-field-subject">Площадь:</span>
+    <%= to_area(@subject.area) %>
+  </div>
+  <div class="field-subject">
+    <span class="title-field-subject">Адрес:</span>
+    <%= @subject.address %>
+  </div>
+  <div class="actions-with-subject">
+    <%= link_to edit_icon + " Редактировать",
+        edit_subject_path(@subject), :class => "btn" %>
+    <%= link_to delete_icon + " Удалить",
+    @subject, :method => :delete, :confirm => "Вы уверены?", :class => "btn" %>        
+  </div>
+</div>
