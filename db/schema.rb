@@ -11,7 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
 ActiveRecord::Schema.define(:version => 20120214115425) do
 
   create_table "cities", :force => true do |t|
@@ -64,7 +63,7 @@ ActiveRecord::Schema.define(:version => 20120214115425) do
     t.string   "title"
     t.text     "description"
     t.integer  "user_id"
-    t.date     "deadline"
+    t.datetime "deadline"
     t.boolean  "done"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
