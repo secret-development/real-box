@@ -68,6 +68,18 @@ describe Subject do
         subject.macro.should == :belongs_to
       end
     end
+    
+    describe "typetransaction" do
+      it "should respond to typetransaction" do
+        subject = Subject.new(@attr)
+        subject.should respond_to(:typetransaction)
+      end
+      
+      it "should belongs_to to typetransaction" do
+        subject = Subject.reflect_on_association(:typetransaction)
+        subject.macro.should == :belongs_to
+      end
+    end
   end
 end# == Schema Information
 #

@@ -30,6 +30,8 @@ class Customer < ActiveRecord::Base
       "Редактирование клиента"      
     end    
   end
+  
+  
 end
 # == Schema Information
 #

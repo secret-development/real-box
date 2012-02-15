@@ -4,7 +4,7 @@ class Subject < ActiveRecord::Base
   # associations
   belongs_to :typesubject
   belongs_to :city
-  
+  belongs_to :typetransaction
   # validations:
   validates :typesubject_id, :presence => true
   validates :city_id, :presence => true
