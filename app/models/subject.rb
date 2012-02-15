@@ -5,6 +5,7 @@ class Subject < ActiveRecord::Base
   belongs_to :typesubject
   belongs_to :city
   belongs_to :typetransaction
+  belongs_to :customer
   # validations:
   validates :typesubject_id, :presence => true
   validates :city_id, :presence => true

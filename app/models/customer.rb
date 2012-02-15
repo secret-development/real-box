@@ -3,6 +3,7 @@ class Customer < ActiveRecord::Base
   # associations
   belongs_to :typetransaction
   belongs_to :social_status
+  has_many :subjects, :dependent => :destroy
   #validations
   validates :firstname, :lastname, :presence => true
   #scope
