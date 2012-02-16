@@ -10,6 +10,7 @@ class Customer < ActiveRecord::Base
   scope :real, where(:potentials => false)
   scope :potentials, where(:potentials => true)
   default_scope order("lastname ASC")
+
   
   #permalink
 #  def to_param
