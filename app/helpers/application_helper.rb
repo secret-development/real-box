@@ -34,6 +34,10 @@ module ApplicationHelper
     raw("<i class='icon-plus'></i>")  
   end
   
+  def plus_icon_white
+    raw("<i class='icon-plus icon-white'></i>")  
+  end
+  
   def list_icon
     raw("<i class='icon-list-alt'></i>")    
   end
