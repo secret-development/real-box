@@ -1,7 +1,8 @@
 <h1 class="title-page"><%= @title %></h1>
 <%= flash_msg(flash[:notice]) %>
-<%= link_to plus_icon + "Добавить" , new_customer_path, :class => "btn button-add" %>
-<%= link_to list_icon + 'Потенциальные клиенты',potentials_path, :class => "btn button-add", :id => "potentials-link" %>
+<%= link_to plus_icon + " Добавить" , new_customer_path, :class => "btn button-add" %>
+<%= link_to list_icon + ' Потенциальные клиенты',potentials_path, :class => "btn button-add", :id => "potentials-link" %>
+
 
 <%= form_tag(customers_path, :method => 'get', :id => 'customers_search', :class => 'well form-search')  do %>
   

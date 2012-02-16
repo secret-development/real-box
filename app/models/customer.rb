@@ -41,8 +41,7 @@ class Customer < ActiveRecord::Base
     end
     
   end
-  
-  
+ 
 end
 # == Schema Information
 #
