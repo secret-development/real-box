@@ -35,14 +35,12 @@ class Customer < ActiveRecord::Base
   
   def self.search(search)
     if search
-      where('lastname LIKE ?', "%#{search}%")
+      where('lastname LIKE ? OR firstname LIKE ?', "%#{search}%", "%#{search}%")
     else
       scoped    
-    end
-    
+    end 
   end
-  
-  
+    
 end
 # == Schema Information
 #
