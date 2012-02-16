@@ -9,7 +9,8 @@
       <th>Сот. телефон</th>
       <th>Электронная почта</th>
       <th>Заметка</th>
-      <th>Недвижимость</th>
+      <th>Количество недвижимости</th>
+      <th>Добавить объект</th>
       <th>Действия</th>
       </tr>
     </thead>
@@ -25,6 +26,7 @@
         <td><%= c.phonemobile %></td>
         <td><%= mail_to c.email %></td>
         <td><%= truncate(c.note, :length => 25, :omission => '...') %></td>
+        <td><%= c.subjects.size %></td>
         <td>
           <%= link_to plus_icon, new_subject_path(:customer_id => c.id), :title => "Добавить недвижимость" %>
         </td>
