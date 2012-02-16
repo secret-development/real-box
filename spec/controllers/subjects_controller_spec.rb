@@ -8,8 +8,9 @@ describe SubjectsController do
     city = Factory(:city)
     typesubject = Factory(:typesubject)
     typetransaction = Factory(:typetransaction)
+    customer = Factory(:customer)
     @subject = Factory(:subject, :typesubject => typesubject, :city => city,
-                :typetransaction => typetransaction)
+                :typetransaction => typetransaction, :customer => customer)
   end
   
   it "get 'index'" do
@@ -141,7 +142,9 @@ describe SubjectsController do
       :city_id => 2,
       :price => 100003,
       :area => 80,
-      :address => "Баймагамбетова 15, 23"
+      :address => "Баймагамбетова 15, 23",
+      :customer_id => 2
+      
     }
   end
   
@@ -152,7 +155,9 @@ describe SubjectsController do
       :city_id => nil,
       :price => "swsws",
       :area => 80,
-      :address => "Баймагамбетова 15, 23" 
+      :address => "Баймагамбетова 15, 23",
+      :customer_id => nil
+      
     }  
   end
   
