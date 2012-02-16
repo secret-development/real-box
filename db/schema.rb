@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20120213130651) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "real",               :default => false
+    t.integer  "type_customer_id"
     t.integer  "social_status_id"
     t.string   "permalink"
     t.integer  "typetransaction_id"
@@ -50,6 +51,34 @@ ActiveRecord::Schema.define(:version => 20120213130651) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "subjects", :force => true do |t|
+    t.string   "typesubject"
+    t.string   "cityname"
+    t.string   "township"
+    t.string   "address"
+    t.integer  "price"
+    t.integer  "numbofrooms"
+    t.float    "square"
+    t.float    "kitchensquare"
+    t.float    "livingsquare"
+    t.integer  "floor"
+    t.string   "typestructure"
+    t.integer  "yearofconstruction"
+    t.string   "telephone"
+    t.string   "furniture"
+    t.string   "internet"
+    t.string   "balcony"
+    t.string   "wc"
+    t.string   "layout"
+    t.string   "state"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "subjects", ["numbofrooms"], :name => "index_subjects_on_numbofrooms"
+  add_index "subjects", ["price"], :name => "index_subjects_on_price"
+  add_index "subjects", ["square"], :name => "index_subjects_on_square"
+
   create_table "tasks", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -58,6 +87,12 @@ ActiveRecord::Schema.define(:version => 20120213130651) do
     t.boolean  "done"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "type_customers", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "typesubjects", :force => true do |t|

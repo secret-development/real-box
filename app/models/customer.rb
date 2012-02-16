@@ -8,7 +8,7 @@ class Customer < ActiveRecord::Base
   #scope
   scope :real, where(:real => false)
   scope :potentials, where(:real => true)
-  default_scope order("lastname ASC")
+  #default_scope order("lastname ASC")
   
   #permalink
 #  def to_param

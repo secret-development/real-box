@@ -1,9 +1,10 @@
 # encoding: UTF-8
 class CustomersController < ApplicationController
   respond_to :html
+  helper_method :sort_column, :sort_direction
   
   def index
-    @customers = Customer.real.page(params[:page]).per(10)
+    @customers = Customer.order(sort_column + " " + sort_direction).page(params[:page]).per(6)#real.page(params[:page]).per(10)
     @title = "Клиенты"
     #@potentials = Customer.potentials.all
   end
@@ -48,5 +49,15 @@ class CustomersController < ApplicationController
     @customer.destroy
     flash[:notice] = "Клиент успешно удален"
     redirect_to @customer
+  end
+  
+  private
+  
+  def sort_column
+    Customer.column_names.include?(params[:sort]) ? params[:sort] : "lastname"    
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"    
   end
 end
