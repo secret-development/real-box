@@ -146,6 +146,14 @@ describe User do
       end
     end
     
+    describe "formatted_birthdate" do
+      it "should show birth date in right format" do
+        @user = User.create!(@attr)
+        @user.formatted_birthdate.should ==
+        @user.birth_date.strftime('%d.%m.%Y')
+      end
+    end
+    
   end
   
   describe "task associations" do

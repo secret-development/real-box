@@ -46,6 +46,10 @@ class User < ActiveRecord::Base
     last_name + ' ' + first_name.strip[0] + '.'
   end
   
+  def formatted_birthdate
+    birth_date.strftime('%d.%m.%Y')
+  end
+  
 end
 
 
