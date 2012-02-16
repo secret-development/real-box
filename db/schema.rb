@@ -71,6 +71,12 @@ ActiveRecord::Schema.define(:version => 20120215121645) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "type_customers", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "typesubjects", :force => true do |t|
     t.string   "name"
     t.string   "permalink"
