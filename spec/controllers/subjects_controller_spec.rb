@@ -20,6 +20,11 @@ describe SubjectsController do
   
   it "get new" do
     get :new
+    response.should_not be_success
+  end
+  
+  it "get new" do
+    get :new, :customer_id => @customer
     response.should be_success
   end
   
