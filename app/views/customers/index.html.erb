@@ -30,7 +30,7 @@
         <td><%= mail_to c.email %></td>
         <td><%= truncate(c.note, :length => 25, :omission => '...') %></td>
         <td>
-          <%= link_to plus_icon, new_subject_path(), :title => "Добавить недвижимость" %>
+          <%= link_to plus_icon, new_subject_path(:customer_id => c.id), :title => "Добавить недвижимость" %>
         </td>
         <td class="actions-buttons">
           <%= link_to eye_icon, :controller => 'customers', :action => 'show', :id => c.id %>

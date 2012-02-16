@@ -5,9 +5,9 @@ Crm::Application.routes.draw do
 
   resources :users
   resources :tasks
-  resources :customers do
-    resources :subjects  
-  end
+  resources :customers
+  
+  resources :subjects
   
   resources :cities, :except => [:show]
   resources :type_customers, :except => [:show]
