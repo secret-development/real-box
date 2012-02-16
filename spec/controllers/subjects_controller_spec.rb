@@ -8,9 +8,9 @@ describe SubjectsController do
     city = Factory(:city)
     typesubject = Factory(:typesubject)
     typetransaction = Factory(:typetransaction)
-    customer = Factory(:customer)
+    @customer = Factory(:customer)
     @subject = Factory(:subject, :typesubject => typesubject, :city => city,
-                :typetransaction => typetransaction, :customer => customer)
+                :typetransaction => typetransaction, :customer => @customer)
   end
   
   it "get 'index'" do
@@ -33,14 +33,20 @@ describe SubjectsController do
     response.should be_success
   end
   
+  it "should have session[:customer_id]" do
+    get :new, :customer_id => 3
+    session[:customer_id].should eql("3")
+  end
+  
   describe "POST 'create'" do
     describe "failure" do
       before(:each) do
         @attr = invalid_data
+        session[:customer_id] = @customer.id
       end
       
       it "should render the new page" do
-        post :create, :subject => @attr
+        post :create, :subject => @attr 
         response.should render_template('new')
       end
       
@@ -54,6 +60,7 @@ describe SubjectsController do
     describe "success" do
       before(:each) do
         @attr = valid_data
+        session[:customer_id] = @customer.id
       end
       
       it "should redirect to show page" do
@@ -143,8 +150,7 @@ describe SubjectsController do
       :price => 100003,
       :area => 80,
       :address => "Баймагамбетова 15, 23",
-      :customer_id => 2
-      
+      :customer_id => @customer
     }
   end
   
@@ -156,9 +162,9 @@ describe SubjectsController do
       :price => "swsws",
       :area => 80,
       :address => "Баймагамбетова 15, 23",
-      :customer_id => nil
-      
+      :customer_id => @customer
     }  
+    
   end
   
 end
