@@ -45,6 +45,12 @@ describe Subject do
       subject = Subject.new(@attr)
       subject.should_not be_valid
     end
+    
+    it "should require the customer_id" do
+      @attr[:customer_id] = nil
+      subject = Subject.new(@attr)
+      subject.should_not be_valid
+    end
   end
   
   describe "associations" do
