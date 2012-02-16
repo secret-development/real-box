@@ -9,10 +9,8 @@
       <th>Фамилия</th>
       <th>Имя</th>
       <th>Соц. статус</th>
-      <th>Телефон</th>
+      <th>Дом. телефон</th>
       <th>Сот. телефон</th>
-      <th>Электронная почта</th>
-      <th>Заметка</th>
       <th>Добавить объект</th>
       <th>Действия</th>
     </tr>
@@ -27,8 +25,6 @@
         <td><%= p.social_status.title %></td>
         <td><%= p.phonehome %></td>
         <td><%= p.phonemobile %></td>
-        <td><%= mail_to p.email %></td>
-        <td><%= truncate(p.note, :length => 25, :omission => '...') %></td>
         <td>
           <%= link_to plus_icon, new_subject_path(:customer_id => p.id), 
               :title => "Добавить недвижимость" %>
