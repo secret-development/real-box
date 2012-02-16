@@ -13,7 +13,7 @@ describe Subject do
     @attr = {
       :typesubject_id => 1,
       :city_id => 2,
-      :customer_id => 2,
+      :customer_id => @customer.id,
       :price => 100003,
       :area => 80,
       :address => "Баймагамбетова 15, 23"
@@ -115,4 +115,3 @@ end# == Schema Information
 #  created_at     :datetime        not null
 #  updated_at     :datetime        not null
 #
-
