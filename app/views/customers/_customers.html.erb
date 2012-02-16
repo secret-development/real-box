@@ -5,11 +5,9 @@
       <th><%= sortable "lastname", "Фамилия" %></th>
       <th><%= sortable "firstname", "Имя" %></th>
       <th><%= sortable "social_status_id", "Соц. статус" %></th>
-      <th>Телефон</th>
+      <th>Дом. телефон</th>
       <th>Сот. телефон</th>
-      <th>Электронная почта</th>
-      <th>Заметка</th>
-      <th>Количество недвижимости</th>
+      <th>Количество объектов</th>
       <th>Добавить объект</th>
       <th>Действия</th>
       </tr>
@@ -24,14 +22,12 @@
         <td><%= c.social_status.title %></td>
         <td><%= c.phonehome %></td>
         <td><%= c.phonemobile %></td>
-        <td><%= mail_to c.email %></td>
-        <td><%= truncate(c.note, :length => 25, :omission => '...') %></td>
         <td><%= c.subjects.size %></td>
         <td>
           <%= link_to plus_icon, new_subject_path(:customer_id => c.id), :title => "Добавить недвижимость" %>
         </td>
         <td class="actions-buttons">
-          <%= link_to eye_icon, :controller => 'customers', :action => 'show', :id => c.id %>
+          <%= link_to eye_icon, customer_path(c), :title => "Подробнее..." %>
           <%= link_to edit_icon, edit_customer_path(c) %>
           <%= link_to delete_icon, c, :method => :delete, :confirm => "Вы уверены?" %>
         </td>
