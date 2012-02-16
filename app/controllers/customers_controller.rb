@@ -20,7 +20,7 @@ class CustomersController < ApplicationController
   
   def show
     @customer = Customer.find(params[:id])
-    respond_with @customer    
+    respond_with @customer
   end
   
   def create

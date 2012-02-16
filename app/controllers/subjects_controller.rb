@@ -13,6 +13,7 @@ class SubjectsController < ApplicationController
   end
 
   def new
+    session[:customer_id] = params[:customer_id]
     @subject = Subject.new
     respond_with(@subject)
   end
@@ -23,9 +24,11 @@ class SubjectsController < ApplicationController
   end
   
   def create
-    @subject = Subject.new(params[:subject])
+    @customer = Customer.find(session[:customer_id])
+    @subject = @customer.subjects.build(params[:subject])
     if @subject.save
       flash[:notice] = "Объект успешно создан"
+      session[:customer_id] = nil
       respond_with(@subject, :location => @subject)
     else
       render 'new'
