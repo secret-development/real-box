@@ -9,7 +9,7 @@ class Customer < ActiveRecord::Base
   #scope
   scope :real, where(:potentials => false)
   scope :potentials, where(:potentials => true)
-  default_scope order("lastname ASC")
+  #default_scope order("lastname ASC")
 
   
   #permalink
@@ -33,6 +33,15 @@ class Customer < ActiveRecord::Base
     end    
   end
   
+  def self.search(search)
+    if search
+      where('lastname LIKE ?', "%#{search}%")
+    else
+      scoped    
+    end
+    
+  end
+ 
 end
 # == Schema Information
 #
