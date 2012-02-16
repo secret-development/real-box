@@ -40,7 +40,7 @@ class Customer < ActiveRecord::Base
       scoped    
     end 
   end
-    
+
 end
 # == Schema Information
 #
