@@ -13,9 +13,13 @@ class SubjectsController < ApplicationController
   end
 
   def new
-    session[:customer_id] = params[:customer_id]
-    @subject = Subject.new
-    respond_with(@subject)
+    if params[:customer_id].nil?
+      redirect_to(subjects_path, :alert => "Нет привязанного клиента")
+    else
+      session[:customer_id] = params[:customer_id]
+      @subject = Subject.new
+      respond_with(@subject)      
+    end
   end
   
   def edit
@@ -24,14 +28,18 @@ class SubjectsController < ApplicationController
   end
   
   def create
-    @customer = Customer.find(session[:customer_id])
-    @subject = @customer.subjects.build(params[:subject])
-    if @subject.save
-      flash[:notice] = "Объект успешно создан"
-      session[:customer_id] = nil
-      respond_with(@subject, :location => @subject)
-    else
-      render 'new'
+    begin
+      @customer = Customer.find(session[:customer_id])    
+      @subject = @customer.subjects.build(params[:subject])
+      if @subject.save
+        flash[:notice] = "Объект успешно создан"
+        session[:customer_id] = nil
+        respond_with(@subject, :location => @subject)
+      else
+        render 'new'
+      end
+    rescue ActiveRecord::RecordNotFound
+      redirect_to(subjects_path, :alert => "Что-то пошло не так")
     end
   end
   
