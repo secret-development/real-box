@@ -4,14 +4,14 @@
 <%= link_to list_icon + ' Потенциальные клиенты',potentials_path, :class => "btn button-add", :id => "potentials-link" %>
 
 
-<%= form_tag(customers_path, :method => 'get', :id => 'customers_search', :class => 'well form-search')  do %>
+<%= form_tag(customers_path, :method => 'get', :id => 'customers_search')  do %>
   
   <%= hidden_field_tag :sort, params[:sort] %>
   <%= hidden_field_tag :direction, params[:direction] %>
   
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag 'Поиск', :name => nil, :class => 'btn' %>
-<div id="customer">
+  <%= text_field_tag :search, params[:search], :placeholder => "Поиск ...", :class => "span2" %>
+ 
+<div id="customer" class="well">
   <%= render 'customers' %>
 </div>
 <% end %>
