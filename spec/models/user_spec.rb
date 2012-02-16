@@ -116,6 +116,14 @@ describe User do
       end
     end
     
+    describe "short_name" do
+      it "should combine last_name and first letter of first_name" do
+        @user = User.create!(@attr)
+        @user.short_name.should == @user.last_name + ' ' + 
+        @user.first_name.strip[0] + '.'
+      end
+    end
+    
     describe "legend" do
       it "should write 'Добавление' or 'Редактирование'" do
         @user = User.create!(@attr)
@@ -135,6 +143,14 @@ describe User do
         else
           @user.button_value.should == "Обновить"
         end
+      end
+    end
+    
+    describe "formatted_birthdate" do
+      it "should show birth date in right format" do
+        @user = User.create!(@attr)
+        @user.formatted_birthdate.should ==
+        @user.birth_date.strftime('%d.%m.%Y')
       end
     end
     
@@ -161,7 +177,7 @@ describe User do
   
 end
 
-# == Schema Information
+## == Schema Information
 #
 # Table name: users
 #
@@ -176,3 +192,4 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #
+

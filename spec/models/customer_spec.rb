@@ -18,7 +18,7 @@ describe Customer do
   
   it "must be zero by default and save attributes" do 
     @c = Customer.create(@attr)
-    @c.real?().should be_false
+    @c.potentials?().should be_false
     @c.save.should eq(true)    
   end
   
@@ -45,6 +45,21 @@ describe Customer do
       c = Customer.reflect_on_association(:typetransaction)
       c.macro.should == :belongs_to
     end
+    
+    it "should respond to subjects" do
+      c = Customer.new(@attr)
+      c.should respond_to(:subjects)
+    end
+    
+    it "should has_many :subjects" do
+      c = Customer.reflect_on_association(:subjects)
+      c.macro.should == :has_many
+    end
+    
+    it "should dependent destroy(subjects)" do
+      c = Customer.reflect_on_association(:subjects)
+      c.options[:dependent].should == :destroy
+    end
   end
   
 end
@@ -54,18 +69,18 @@ end
 #
 # Table name: customers
 #
-#  id               :integer(4)      not null, primary key
-#  firstname        :string(255)
-#  lastname         :string(255)
-#  phonehome        :string(255)
-#  phonemobile      :string(255)
-#  email            :string(255)
-#  note             :text
-#  created_at       :datetime        not null
-#  updated_at       :datetime        not null
-#  real             :boolean(1)      default(FALSE)
-#  type_customer_id :integer(4)
-#  social_status_id :integer(4)
-#  permalink        :string(255)
+#  id                 :integer(4)      not null, primary key
+#  firstname          :string(255)
+#  lastname           :string(255)
+#  phonehome          :string(255)
+#  phonemobile        :string(255)
+#  email              :string(255)
+#  note               :text
+#  created_at         :datetime
+#  updated_at         :datetime
+#  real               :boolean(1)      default(FALSE)
+#  social_status_id   :integer(4)
+#  permalink          :string(255)
+#  typetransaction_id :integer(4)
 #
 

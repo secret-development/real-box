@@ -4,7 +4,7 @@
 <%= link_to list_icon + 'Потенциальные клиенты',potentials_path, :class => "btn button-add", :id => "potentials-link" %>
 
 
-<table class="table table-striped table-bordered customer-table">
+<table class="table table-striped table-condensed customers">
   <thead>
     <tr>
       <th>Тип сделки </th>
@@ -15,7 +15,8 @@
       <th>Сот. телефон</th>
       <th>Электронная почта</th>
       <th>Заметка</th>
-      <th>Операции</th>
+      <th>Недвижимость</th>
+      <th>Действия</th>
       </tr>
     </thead>
 
@@ -31,6 +32,9 @@
         <td><%= mail_to c.email %></td>
         <td><%= truncate(c.note, :length => 25, :omission => '...') %></td>
         <td>
+          <%= link_to plus_icon, new_subject_path(:customer_id => c.id), :title => "Добавить недвижимость" %>
+        </td>
+        <td class="actions-buttons">
           <%= link_to eye_icon, :controller => 'customers', :action => 'show', :id => c.id %>
           <%= link_to edit_icon, edit_customer_path(c) %>
           <%= link_to delete_icon, c, :method => :delete, :confirm => "Вы уверены?" %>

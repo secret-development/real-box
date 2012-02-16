@@ -42,8 +42,19 @@ class User < ActiveRecord::Base
     last_name + ' ' + first_name + ' ' + middle_name
   end
   
+  def short_name
+    last_name + ' ' + first_name.strip[0] + '.'
+  end
+  
+  def formatted_birthdate
+    birth_date.strftime('%d.%m.%Y')
+  end
+  
 end
-#TODO: to add notice
+
+
+# TODO: to add notice
+# TODO: avatar
 # == Schema Information
 #
 # Table name: users
@@ -59,3 +70,4 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #
+
