@@ -11,7 +11,8 @@
       <th>Сот. телефон</th>
       <th>Электронная почта</th>
       <th>Заметка</th>
-      <th>Операции</th>
+      <th>Недвижимость</th>
+      <th>Действия</th>
     </tr>
   </thead>
    
@@ -26,6 +27,7 @@
         <td><%= p.phonemobile %></td>
         <td><%= mail_to p.email %></td>
         <td><%= truncate(p.note, :length => 25, :omission => '...') %></td>
+        <td><%= link_to plus_icon, new_subject_path, :title => "Добавить недвижимость" %></td>
         <td>
           <%= link_to eye_icon, customer_path(p) %>
           <%= link_to edit_icon, edit_customer_path(p) %>

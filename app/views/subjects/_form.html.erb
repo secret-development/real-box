@@ -43,11 +43,6 @@
         <%= f.text_field :address, :placeholder => "ул. Ленина 54, дом 32, кв. 5" %>
       </div>
     </div>
-    <div class="control-group">
-      <div class="controls">
-        <%= hidden_field_tag('subject[customer_id]', params[:customer_id] )%>
-      </div>
-    </div>
     <div class="form-actions">
       <%= f.submit @subject.button_value, :class => "btn btn-primary" %>
       <button type="reset" class="btn cancel-form">Отмена</button>
