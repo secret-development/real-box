@@ -3,6 +3,13 @@
   <fieldset>
     <legend><%= @subject.legend_value %></legend>
     <div class="control-group">
+      <%= f.label :typetransaction_id, "Тип сделки:" %>
+      <div class="controls">
+        <%= collection_select(:subject, :typetransaction_id,
+            Typetransaction.all, :id, :name) %>
+      </div>
+    </div>
+    <div class="control-group">
       <%= f.label :city_id, "Город:" %>
       <div class="controls">
         <%= collection_select(:subject, :city_id,
@@ -27,7 +34,7 @@
       <%= f.label :area, "Площадь:" %>
       <div class="controls">
         <%= f.text_field :area, :placeholder => "70" %> 
-        <span class="calc-label">м<sup>2</sup></span>
+        <span class="calc-label">м&sup2;</span>
       </div>
     </div>
     <div class="control-group">

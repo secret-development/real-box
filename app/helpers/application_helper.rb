@@ -62,4 +62,12 @@ module ApplicationHelper
     end
   end
   
+  def to_dollar(object)
+    "#{object} $"
+  end
+  
+  def to_area(object)
+    raw("#{object} м&sup2;")
+  end
+  
 end

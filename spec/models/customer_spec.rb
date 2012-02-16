@@ -45,6 +45,21 @@ describe Customer do
       c = Customer.reflect_on_association(:typetransaction)
       c.macro.should == :belongs_to
     end
+    
+    it "should respond to subjects" do
+      c = Customer.new(@attr)
+      c.should respond_to(:subjects)
+    end
+    
+    it "should has_many :subjects" do
+      c = Customer.reflect_on_association(:subjects)
+      c.macro.should == :has_many
+    end
+    
+    it "should dependent destroy(subjects)" do
+      c = Customer.reflect_on_association(:subjects)
+      c.options[:dependent].should == :destroy
+    end
   end
   
 end

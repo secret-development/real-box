@@ -5,12 +5,15 @@ describe Subject do
   before(:each) do
     @city = Factory(:city)
     @typesubject = Factory(:typesubject)
-    @subject = Factory(:subject, :typesubject => @typesubject, :city => @city)
+    @customer = Factory(:customer)
+    @subject = Factory(:subject, :typesubject => @typesubject, :city => @city, 
+        :customer => @customer)
     
     # valid attributes
     @attr = {
       :typesubject_id => 1,
       :city_id => 2,
+      :customer_id => 2,
       :price => 100003,
       :area => 80,
       :address => "Баймагамбетова 15, 23"
@@ -65,6 +68,30 @@ describe Subject do
       
       it "should belongs_to to city" do
         subject = Subject.reflect_on_association(:city)
+        subject.macro.should == :belongs_to
+      end
+    end
+    
+    describe "typetransaction" do
+      it "should respond to typetransaction" do
+        subject = Subject.new(@attr)
+        subject.should respond_to(:typetransaction)
+      end
+      
+      it "should belongs_to to typetransaction" do
+        subject = Subject.reflect_on_association(:typetransaction)
+        subject.macro.should == :belongs_to
+      end
+    end
+    
+    describe "customer" do
+      it "should respond to customer" do
+        subject = Subject.new(@attr)
+        subject.should respond_to(:customer)
+      end
+      
+      it "should belongs_to :customer" do
+        subject = Subject.reflect_on_association(:customer)
         subject.macro.should == :belongs_to
       end
     end
