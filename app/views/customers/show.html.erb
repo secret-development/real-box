@@ -41,7 +41,7 @@
     <%= to_date(@customer.created_at) %>
   </div>
   <div class="actions-with-customers">
-    <%= link_to "Добавить объект", new_subject_path %>
+    <%= link_to "Добавить объект", new_subject_path() %>
     <%= link_to edit_icon + " Редактировать",
         edit_customer_path(@customer), :class => "btn" %>
     <%= link_to delete_icon + " Удалить",

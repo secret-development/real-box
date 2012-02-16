@@ -25,7 +25,7 @@
         <td><%= truncate(task.description, :length => 50, 
                         :omission => '...') %></td>
         <td><%= link_to task.user.short_name, user_path(task.user) %></td>
-        <td><%= task.deadline.strftime('%d.%m.%Y %H:%M:%S') %></td>
+        <td><%= task.formatted_deadline %></td>
         <td> 
           <div class="btn-group">
             <a class="btn" href="#">
@@ -47,7 +47,7 @@
           </div>
             
         </td>
-        <td><%= task.created_at.strftime('%d.%m.%Y %H:%M:%S') %></td>
+        <td><%= task.formatted_created_at %></td>
         <td>
           <%= link_to eye_icon, task_path(task) %>
           <%= link_to edit_icon, edit_task_path(task) %>
