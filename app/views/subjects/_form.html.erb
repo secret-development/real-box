@@ -1,0 +1,56 @@
+<%= form_for(@subject, :html => {:class => "form-horizontal"}) do |f| %>
+  <%= error_messages_for(@subject) %>
+  <fieldset>
+    <legend><%= @subject.legend_value %></legend>
+    <div class="control-group">
+      <%= f.label :typetransaction_id, "Тип сделки:" %>
+      <div class="controls">
+        <%= collection_select(:subject, :typetransaction_id,
+            Typetransaction.all, :id, :name) %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :city_id, "Город:" %>
+      <div class="controls">
+        <%= collection_select(:subject, :city_id,
+            City.all, :id, :name) %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :typesubject_id, "Тип недвижимости:" %>
+      <div class="controls">
+        <%= collection_select(:subject, :typesubject_id, 
+            Typesubject.all, :id, :name) %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :price, "Цена:" %>
+      <div class="controls">
+        <%= f.text_field :price, :placeholder => "10000" %> 
+        <span class="calc-label">$</span>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :area, "Площадь:" %>
+      <div class="controls">
+        <%= f.text_field :area, :placeholder => "70" %> 
+        <span class="calc-label">м&sup2;</span>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :address, "Адрес:" %>
+      <div class="controls">
+        <%= f.text_field :address, :placeholder => "ул. Ленина 54, дом 32, кв. 5" %>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <%= hidden_field_tag('subject[customer_id]', params[:customer_id] )%>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= f.submit @subject.button_value, :class => "btn btn-primary" %>
+      <button type="reset" class="btn cancel-form">Отмена</button>
+    </div>
+  </fieldset>
+<% end %>

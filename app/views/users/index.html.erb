@@ -11,7 +11,7 @@
           :confirm => "Вы уверены?" %>
     </div>
     <div class="birth_date">
-      <%= user.birth_date.strftime('%d.%m.%Y') %>
+      <%= user.formatted_birthdate %>
     </div>
     <div class="email">
       <%= user.email %>

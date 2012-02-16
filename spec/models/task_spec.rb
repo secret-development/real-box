@@ -96,7 +96,7 @@ describe Task do
       it "should write 'Да' or 'Нет' instead of 'true' or 'false'" do
         @task = Task.create!(@attr)
         if @task.done = true
-          @task.status.should == "Да"
+          @task.status.should == "Да "
         else
           @task.status.should == "Нет"
         end
@@ -126,14 +126,38 @@ describe Task do
       end
     end
     
+    describe "date_for_validation" do
+      it "should be time.now for new_record or created_at if not" do
+        @task = Task.create!(@attr)
+        if @task.new_record?
+          @task.date_for_validation.should == Time.now
+        else
+          @task.date_for_validation.should == @task.created_at
+        end
+      end
+    end
+    
+    describe "formatted_deadline" do
+      it "should show deadline in right format" do
+        @task = Task.create!(@attr)
+        @task.formatted_deadline.should == 
+        @task.deadline.strftime('%d.%m.%Y %H:%M:%S')
+      end
+    end
+    
+    describe "formatted_created_at" do
+      it "should show created_at in right format" do
+        @task = Task.create!(@attr)
+        @task.formatted_created_at.should == 
+        @task.created_at.strftime('%d.%m.%Y %H:%M:%S')
+      end
+    end
+    
   end
   
 end
 
-#TODO: доделать тесты с new_record?
-
 # == Schema Information
-#
 # Table name: tasks
 #
 #  id          :integer(4)      not null, primary key
@@ -145,3 +169,4 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #
+

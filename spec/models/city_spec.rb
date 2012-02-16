@@ -17,13 +17,31 @@ describe City do
       @city = City.new(@attr.merge(:name => "")).should_not be_valid
     end
     
-    # it "should reject name with duplicate" do
-    #               @city = City.create!(@attr)
-    #               city = City.new(@attr)
-    #               city.should_not be_valid
-    #             end
+    it "should reject name with duplicate" do
+      @city = City.create!(@attr)
+      city = City.new(@attr.merge(:name => @attr[:name].upcase))
+      city.should_not be_valid
+    end
     
   end
+  
+  describe "associations" do
+    it "should respond to subjects" do
+      @city = City.new(@attr)
+      @city.should respond_to(:subjects)
+    end
+    
+    it "should has_many subjects" do
+      city = City.reflect_on_association(:subjects)
+      city.macro.should == :has_many
+    end
+    
+    it "should dependent nullify" do
+      city = City.reflect_on_association(:subjects)
+      city.options[:dependent].should == :nullify
+    end
+  end
+  
 end
 # == Schema Information
 #

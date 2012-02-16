@@ -3,6 +3,7 @@ class Typesubject < ActiveRecord::Base
   
   # associations:
   has_many :condition_fields, :dependent => :destroy
+  has_many :subjects, :dependent => :nullify
   
   # validates
   validates :name, :presence => true, 
@@ -30,5 +31,6 @@ end
 #  permalink  :string(255)
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
+#  floor      :boolean(1)
 #
 
