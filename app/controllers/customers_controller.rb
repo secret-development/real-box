@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
   helper_method :sort_column, :sort_direction
   
   def index
-    @customers = Customer.order(sort_column + " " + sort_direction).page(params[:page]).per(6)#real.page(params[:page]).per(10)
+    @customers = Customer.real.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(6)#real.page(params[:page]).per(10)
     @title = "Клиенты"
     #@potentials = Customer.potentials.all
   end
