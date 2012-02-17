@@ -8,4 +8,5 @@ $(function() {
     $.get($("#customers_search").attr("action"), $("#customers_search").serialize(), null, "script");
     return false;
   });
+
 });
