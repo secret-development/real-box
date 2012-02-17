@@ -25,10 +25,11 @@
       <div class="control-group">
         <%= f.label :deadline, "Дедлайн:" %>
         <div class="controls">
-          <%= f.datetime_select :deadline, 
-                            :order => [:day, :month, :year],
-                            :start_year => Time.now.year, 
-                            :end_year => Time.now.year + 3 %>
+          <input id="task_deadline" name="task[deadline]" size="30" type="text" /><script type="text/javascript">
+          //<![CDATA[
+          jQuery(document).ready(function(){$('#task_deadline').datetimepicker({})});
+          //]]>
+          </script>
         </div>
       </div>
       <%= f.hidden_field :done, :value => false %>
