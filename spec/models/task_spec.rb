@@ -137,22 +137,6 @@ describe Task do
       end
     end
     
-    describe "formatted_deadline" do
-      it "should show deadline in right format" do
-        @task = Task.create!(@attr)
-        @task.formatted_deadline.should == 
-        @task.deadline.strftime('%d.%m.%Y %H:%M:%S')
-      end
-    end
-    
-    describe "formatted_created_at" do
-      it "should show created_at in right format" do
-        @task = Task.create!(@attr)
-        @task.formatted_created_at.should == 
-        @task.created_at.strftime('%d.%m.%Y %H:%M:%S')
-      end
-    end
-    
   end
   
 end

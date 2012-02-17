@@ -50,14 +50,6 @@ class Task < ActiveRecord::Base
     end
   end
   
-  def formatted_deadline
-    deadline.strftime('%d.%m.%Y %H:%M:%S')
-  end
-  
-  def formatted_created_at
-    created_at.strftime('%d.%m.%Y %H:%M:%S')
-  end
-  
 end
 
 
