@@ -2,10 +2,14 @@
 class CustomersController < ApplicationController
   respond_to :html
   helper_method :sort_column, :sort_direction
+
+  def all
+    @customers = Customer.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(7)
+  end
   
   def index
     @customers = Customer.real.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(7)#real.page(params[:page]).per(10)
-    @title = "Клиенты"
+    @title = "Действующие клиенты"
     #@potentials = Customer.potentials.all
   end
   
