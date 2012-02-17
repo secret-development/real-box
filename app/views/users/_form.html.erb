@@ -31,9 +31,11 @@
       <div class="control-group">
         <%= f.label :birth_date, "Дата рождения:" %>
         <div class="controls">
-          <%= f.date_select :birth_date, 
-          :start_year => Time.now.year - 60,
-          :end_year => Time.now.year %>
+          <%= f.datepicker :birth_date, :changeYear => true,
+                           :changeMonth => true,
+                           :minDate => '-60y',
+                           :maxDate => '+0y',
+                           :yearRange => '-60y:+0y' %>
         </div>
       </div>
       <div class="control-group">
