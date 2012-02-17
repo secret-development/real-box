@@ -44,7 +44,7 @@ class Task < ActiveRecord::Base
   
   def date_for_validation
     if new_record?
-      Time.now
+      Time.current
     else
       created_at
     end
