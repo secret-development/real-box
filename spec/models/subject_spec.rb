@@ -5,16 +5,32 @@ describe Subject do
   before(:each) do
     @city = Factory(:city)
     @typesubject = Factory(:typesubject)
-    @subject = Factory(:subject, :typesubject => @typesubject, :city => @city)
+    @customer = Factory(:customer)
+    @subject = Factory(:subject, :typesubject => @typesubject, :city => @city, 
+        :customer => @customer)
     
     # valid attributes
     @attr = {
       :typesubject_id => 1,
       :city_id => 2,
+      :customer_id => @customer.id,
       :price => 100003,
       :area => 80,
       :address => "Баймагамбетова 15, 23"
     }
+  end
+  
+  it "should verify_customer_real(potentials = false)" do
+    subject = @subject
+    subject.verify_customer_real
+    subject.customer.potentials.should == false
+  end
+  
+  it "should verify_customer_real(potentials = true)" do
+    @customer[:potentials] = true
+    subject.customer = @customer
+    subject.customer.potentials.should == true
+    
   end
   
   describe "validations" do
@@ -39,6 +55,12 @@ describe Subject do
     
     it "should price the numericality" do
       @attr[:price] = "dededeede"
+      subject = Subject.new(@attr)
+      subject.should_not be_valid
+    end
+    
+    it "should require the customer_id" do
+      @attr[:customer_id] = nil
       subject = Subject.new(@attr)
       subject.should_not be_valid
     end
@@ -68,6 +90,30 @@ describe Subject do
         subject.macro.should == :belongs_to
       end
     end
+    
+    describe "typetransaction" do
+      it "should respond to typetransaction" do
+        subject = Subject.new(@attr)
+        subject.should respond_to(:typetransaction)
+      end
+      
+      it "should belongs_to to typetransaction" do
+        subject = Subject.reflect_on_association(:typetransaction)
+        subject.macro.should == :belongs_to
+      end
+    end
+    
+    describe "customer" do
+      it "should respond to customer" do
+        subject = Subject.new(@attr)
+        subject.should respond_to(:customer)
+      end
+      
+      it "should belongs_to :customer" do
+        subject = Subject.reflect_on_association(:customer)
+        subject.macro.should == :belongs_to
+      end
+    end
   end
 end# == Schema Information
 #
@@ -82,4 +128,3 @@ end# == Schema Information
 #  created_at     :datetime        not null
 #  updated_at     :datetime        not null
 #
-

@@ -1,10 +1,15 @@
 # encoding: UTF-8
 class CustomersController < ApplicationController
   respond_to :html
+  helper_method :sort_column, :sort_direction
+
+  def all
+    @customers = Customer.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(7)
+  end
   
   def index
-    @customers = Customer.real.page(params[:page]).per(10)
-    @title = "Клиенты"
+    @customers = Customer.real.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(7)#real.page(params[:page]).per(10)
+    @title = "Действующие клиенты"
     #@potentials = Customer.potentials.all
   end
   
@@ -20,7 +25,7 @@ class CustomersController < ApplicationController
   
   def show
     @customer = Customer.find(params[:id])
-    respond_with @customer    
+    respond_with @customer
   end
   
   def create
@@ -48,5 +53,15 @@ class CustomersController < ApplicationController
     @customer.destroy
     flash[:notice] = "Клиент успешно удален"
     redirect_to @customer
+  end
+  
+  private
+  
+  def sort_column
+    Customer.column_names.include?(params[:sort]) ? params[:sort] : "lastname"    
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"    
   end
 end

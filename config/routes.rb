@@ -6,9 +6,13 @@ Crm::Application.routes.draw do
   resources :users
   resources :tasks
   resources :customers do
-    
+    get 'all', :on => :collection
   end
+  
+  
+  
   resources :subjects
+  
   resources :cities, :except => [:show]
   resources :type_customers, :except => [:show]
   resources :social_statuses, :except => [:show]

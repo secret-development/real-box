@@ -1,5 +1,6 @@
 class Typetransaction < ActiveRecord::Base
   has_many :customers
+  has_many :subjects
 end
 # == Schema Information
 #

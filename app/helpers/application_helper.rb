@@ -1,6 +1,7 @@
 # encoding:utf-8
 module ApplicationHelper
-          
+  include Icons
+  
   def title
     base_title = "Система: ReHandy"
     if @title
@@ -18,26 +19,12 @@ module ApplicationHelper
     render(:partial => "shared/flashmsg", :locals => {:object => object})
   end
   
-  def edit_icon
-    raw("<i class='icon-pencil'></i>")
-  end
-  
-  def delete_icon
-    raw("<i class='icon-trash'></i>")
-  end
-  
-  def eye_icon
-    raw("<i class='icon-eye-open'></i>")    
-  end
-  
-  def plus_icon
-    raw("<i class='icon-plus'></i>")  
-  end
-  
-  def list_icon
-    raw("<i class='icon-list-alt'></i>")    
-  end
-  
+  def sortable(column, title = nil)
+    title ||= column.titleize
+    direction = (column == sort_column && sort_direction == "asc") ? "desc" : "asc"
+    link_to title, params.merge(:sort => column, :direction => direction, :page => nil)
+  end        
+
   def isset_field(object)
     object.empty? ? "нет данных" : object
   end
@@ -60,6 +47,14 @@ module ApplicationHelper
     else
       "Действующий"
     end
+  end
+  
+  def to_dollar(object)
+    "#{object} $"
+  end
+  
+  def to_area(object)
+    raw("#{object} м&sup2;")
   end
   
 end

@@ -1,4 +1,30 @@
 <h1 class="title-page">Объекты недвижимости</h1>
 <%= flash_msg(flash[:notice]) %>
-<%= link_to plus_icon + "Добавить" , new_subject_path, 
-    :class => "btn button-add" %>
+<table class="table table-striped table-condensed customers">
+  <thead>
+    <tr>
+      <th>Тип сделки</th>
+      <th>Тип объекта</th>
+      <th>Город</th>
+      <th>Цена</th>
+      <th>Площадь</th>
+      <th>Действия</th>
+    </tr>
+    <tbody>
+      <% @subjects.each do |s| %>
+        <tr>
+          <td><%= s.typetransaction.name %></td>
+          <td><%= s.typesubject.name %></td>
+          <td><%= s.city.name %></td>
+          <td><%= to_dollar(s.price) %></td>
+          <td><%= to_area(s.area) %></td>
+          <td class="actions-buttons">
+            <%= link_to eye_icon, subject_path(s), :title => "Подробнее..." %>
+            <%= link_to edit_icon, edit_subject_path(s) %>
+            <%= link_to delete_icon, s, :method => :delete, :confirm => "Вы уверены?" %>
+          </td>
+        </tr>
+      <% end %>      
+    </tbody>
+  </thead>
+</table>

@@ -21,6 +21,11 @@ describe CustomersController do
       get :index
       response.should be_success       
     end
+    
+    it "'add" do
+      get :all
+      response.should be_success
+    end
   
     it "'edit'" do
       get :edit, :id => @customer

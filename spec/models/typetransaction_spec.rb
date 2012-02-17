@@ -24,6 +24,18 @@ describe Typetransaction do
       end
       
     end
+    
+    describe "has_many :subjects" do
+      it "should respond to subjects" do
+        t = Typetransaction.new(@attr)
+        t.should respond_to(:subjects)
+      end
+      
+      it "should has_many :subjects" do
+        t = Typetransaction.reflect_on_association(:subjects)
+        t.macro.should == :has_many
+      end
+    end
   end
 end
 # == Schema Information

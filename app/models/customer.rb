@@ -3,12 +3,14 @@ class Customer < ActiveRecord::Base
   # associations
   belongs_to :typetransaction
   belongs_to :social_status
+  has_many :subjects, :dependent => :destroy
   #validations
   validates :firstname, :lastname, :presence => true
   #scope
   scope :real, where(:potentials => false)
   scope :potentials, where(:potentials => true)
-  default_scope order("lastname ASC")
+  #default_scope order("lastname ASC")
+
   
   #permalink
 #  def to_param
@@ -30,6 +32,16 @@ class Customer < ActiveRecord::Base
       "Редактирование клиента"      
     end    
   end
+  
+  def self.search(search)
+    if search
+      where('lastname LIKE ? OR firstname LIKE ?', "%#{search}%", "%#{search}%")
+    else
+      scoped
+    end 
+  end
+
+
 end
 # == Schema Information
 #
