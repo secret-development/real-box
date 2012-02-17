@@ -5,7 +5,11 @@ Crm::Application.routes.draw do
 
   resources :users
   resources :tasks
-  resources :customers
+  resources :customers do
+    get 'all', :on => :collection
+  end
+  
+  
   
   resources :subjects
   

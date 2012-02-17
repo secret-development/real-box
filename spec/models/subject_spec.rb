@@ -20,6 +20,19 @@ describe Subject do
     }
   end
   
+  it "should verify_customer_real(potentials = false)" do
+    subject = @subject
+    subject.verify_customer_real
+    subject.customer.potentials.should == false
+  end
+  
+  it "should verify_customer_real(potentials = true)" do
+    @customer[:potentials] = true
+    subject.customer = @customer
+    subject.customer.potentials.should == true
+    
+  end
+  
   describe "validations" do
     it "should create new instance with valid attributes" do
       subject = Subject.create!(@attr)

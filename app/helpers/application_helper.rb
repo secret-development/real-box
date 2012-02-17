@@ -1,6 +1,7 @@
 # encoding:utf-8
 module ApplicationHelper
-          
+  include Icons
+  
   def title
     base_title = "Система: ReHandy"
     if @title
@@ -16,30 +17,6 @@ module ApplicationHelper
   
   def flash_msg(object)
     render(:partial => "shared/flashmsg", :locals => {:object => object})
-  end
-  
-  def edit_icon
-    raw("<i class='icon-pencil'></i>")
-  end
-  
-  def delete_icon
-    raw("<i class='icon-trash'></i>")
-  end
-  
-  def eye_icon
-    raw("<i class='icon-eye-open'></i>")    
-  end
-  
-  def plus_icon
-    raw("<i class='icon-plus'></i>")  
-  end
-  
-  def plus_icon_white
-    raw("<i class='icon-plus icon-white'></i>")  
-  end
-  
-  def list_icon
-    raw("<i class='icon-list-alt'></i>")    
   end
   
   def sortable(column, title = nil)

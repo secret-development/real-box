@@ -37,9 +37,10 @@ class Customer < ActiveRecord::Base
     if search
       where('lastname LIKE ? OR firstname LIKE ?', "%#{search}%", "%#{search}%")
     else
-      scoped    
+      scoped
     end 
   end
+
 
 end
 # == Schema Information
