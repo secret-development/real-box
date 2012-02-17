@@ -1,0 +1,36 @@
+#encoding:utf-8
+module Icons  
+  # START icons
+  def edit_icon
+    raw("<i class='icon-pencil'></i>")
+  end
+  
+  def delete_icon
+    raw("<i class='icon-trash'></i>")
+  end
+  
+  def eye_icon
+    raw("<i class='icon-eye-open'></i>")    
+  end
+  
+  def plus_icon
+    raw("<i class='icon-plus'></i>")  
+  end
+  
+  def plus_icon_white
+    raw("<i class='icon-plus icon-white'></i>")  
+  end
+  
+  def list_icon
+    raw("<i class='icon-list-alt'></i>")    
+  end
+  
+  def icon_user
+    raw("<i class='icon-user'></i>")    
+  end
+  
+  def icon_plus_sign
+    raw("<i class='icon-plus-sign'></i>")    
+  end
+  # END ICONS
+end
