@@ -23,3 +23,16 @@
     }
   }
 }
+.links-type-customers{
+  // border:1px solid #ccc;
+  float:right;
+  a{
+    text-decoration:underline;
+    margin-left:15px;
+    font-size:18px;
+    color:#626262;
+    &:hover{
+      color:#858585;  
+    }
+  }
+}
