@@ -2,6 +2,7 @@
 
 class Task < ActiveRecord::Base
   
+  default_scope order('created_at DESC')
   attr_accessible :title, :description, :user_id, :deadline, :done
   belongs_to :user
   
@@ -48,6 +49,14 @@ class Task < ActiveRecord::Base
     else
       created_at
     end
+  end
+  
+  def self.search(search)
+    if search
+      where('title LIKE ? OR deadline LIKE ?', "%#{search}%", "%#{search}%")
+    else
+      scoped
+    end 
   end
   
 end

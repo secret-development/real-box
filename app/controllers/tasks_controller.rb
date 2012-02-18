@@ -3,9 +3,10 @@
 class TasksController < ApplicationController
   
   respond_to :html
+  helper_method :sort_column, :sort_direction
   
   def index
-    @tasks = Task.all
+    @tasks = Task.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(10)
     @title = "Задачи"
   end
 
@@ -51,6 +52,16 @@ class TasksController < ApplicationController
     @task.destroy
     flash[:notice] = "Задача успешно удалена"
     redirect_to tasks_path
+  end
+  
+  private
+  
+  def sort_column
+    Task.column_names.include?(params[:sort]) ? params[:sort] : "title"    
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"    
   end
   
 end
