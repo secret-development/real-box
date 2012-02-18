@@ -63,7 +63,7 @@ describe Task do
     end
     
     it "should reject deadlines that already have passed" do
-      passed_deadline = Time.now - 2.days
+      passed_deadline = Time.current - 2.days
       passed_deadline_task = Task.new(@attr.merge(:deadline => passed_deadline))
       passed_deadline_task.should_not be_valid
     end
@@ -127,29 +127,13 @@ describe Task do
     end
     
     describe "date_for_validation" do
-      it "should be time.now for new_record or created_at if not" do
+      it "should be time.current for new_record or created_at if not" do
         @task = Task.create!(@attr)
         if @task.new_record?
-          @task.date_for_validation.should == Time.now
+          @task.date_for_validation.should == Time.current
         else
           @task.date_for_validation.should == @task.created_at
         end
-      end
-    end
-    
-    describe "formatted_deadline" do
-      it "should show deadline in right format" do
-        @task = Task.create!(@attr)
-        @task.formatted_deadline.should == 
-        @task.deadline.strftime('%d.%m.%Y %H:%M:%S')
-      end
-    end
-    
-    describe "formatted_created_at" do
-      it "should show created_at in right format" do
-        @task = Task.create!(@attr)
-        @task.formatted_created_at.should == 
-        @task.created_at.strftime('%d.%m.%Y %H:%M:%S')
       end
     end
     
