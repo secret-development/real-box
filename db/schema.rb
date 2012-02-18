@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120215121645) do
+ActiveRecord::Schema.define(:version => 20120218063238) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -34,16 +34,23 @@ ActiveRecord::Schema.define(:version => 20120215121645) do
     t.string   "phonemobile"
     t.string   "email"
     t.text     "note"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "potentials",         :default => false
-    t.integer  "type_customer_id"
     t.integer  "social_status_id"
-    t.string   "permalink"
     t.integer  "typetransaction_id"
   end
 
   add_index "customers", ["firstname", "lastname"], :name => "index_rcustomers_on_firstname_and_lastname"
+
+  create_table "districts", :force => true do |t|
+    t.integer  "city_id"
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "districts", ["title"], :name => "index_districts_on_title"
 
   create_table "social_statuses", :force => true do |t|
     t.string   "title"
@@ -71,12 +78,6 @@ ActiveRecord::Schema.define(:version => 20120215121645) do
     t.boolean  "done"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-  end
-
-  create_table "type_customers", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "typesubjects", :force => true do |t|
