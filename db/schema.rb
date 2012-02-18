@@ -85,18 +85,6 @@ ActiveRecord::Schema.define(:version => 20120215121645) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "email"
-    t.string   "last_name"
-    t.string   "first_name"
-    t.string   "middle_name"
-    t.date     "birth_date"
-    t.string   "adress"
-    t.string   "phone"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
   create_table "value_fields", :force => true do |t|
     t.string   "valuefield"
     t.integer  "condition_field_id"

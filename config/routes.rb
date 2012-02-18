@@ -1,11 +1,11 @@
 Crm::Application.routes.draw do
 
-  devise_for :users
+  #devise_for :users
 
   get "potentials/index"
   match "potentials" => "potentials#index", :as => :potentials
 
-  resources :users
+  #resources :users
   resources :tasks
   resources :customers do
     get 'all', :on => :collection
