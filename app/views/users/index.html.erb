@@ -11,7 +11,7 @@
           :confirm => "Вы уверены?" %>
     </div>
     <div class="birth_date">
-      <%= user.formatted_birthdate %>
+      <%= to_formatted_date(user.birth_date) %>
     </div>
     <div class="email">
       <%= user.email %>
