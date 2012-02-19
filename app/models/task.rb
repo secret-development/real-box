@@ -2,7 +2,6 @@
 
 class Task < ActiveRecord::Base
   
-  default_scope order('created_at DESC')
   attr_accessible :title, :description, :user_id, :deadline, :done
   belongs_to :user
   
@@ -63,8 +62,9 @@ end
 
 
 #TODO: file_attachment
-#TODO: data picker
-#TODO: bootstrap collapse (уточнить время)
+#TODO: sortable users (when users will be done)
+#TODO: search
+#TODO: cash
 # == Schema Information
 #
 # Table name: tasks

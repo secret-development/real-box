@@ -70,7 +70,8 @@
 
 /* Interaction states
 ----------------------------------*/
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: 1px solid #ffffff; background: #cce0ee url(ui-bg_glass_100_cce0ee_1x400.png) 50% 50% repeat-x; font-weight: normal; color: #333333; }
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: 1px solid #ffffff; background: #ffffff; font-weight: normal; color: #333333; }
+
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #333333; text-decoration: none; }
 .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: 1px solid #eee; background: #eeeecc url(ui-bg_glass_100_eeeecc_1x400.png) 50% 50% repeat-x; font-weight: normal; color: #000000; }
 .ui-state-hover a, .ui-state-hover a:hover { color: #000000; text-decoration: none; }
@@ -461,7 +462,21 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
  * http://docs.jquery.com/UI/Slider#theming
  */
 .ui-slider { position: relative; text-align: left; }
-.ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 1.2em; height: 1.2em; cursor: default; }
+.ui-slider .ui-slider-handle { 
+  position: absolute; 
+  z-index: 2; 
+  width: 1.2em; 
+  height: 1.2em; 
+  cursor: default; 
+  border: 1px solid #cccccc; 
+  background:#ffffff; 
+  }
+.ui-slider .ui-slider-handle:active{
+  border: 1px solid #006dcc; 
+  background: #006dcc url(ui-bg_glass_45_006dcc_1x400.png) 50% 50% repeat-x; 
+  font-weight: normal; 
+  color: #ffffff;
+}
 .ui-slider .ui-slider-range { position: absolute; z-index: 1; font-size: .7em; display: block; border: 0; background-position: 0 0; }
 
 .ui-slider-horizontal { height: .8em; }
@@ -520,7 +535,48 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-datepicker td { border: 0; padding: 1px; }
 .ui-datepicker td span, .ui-datepicker td a { display: block; padding: .2em; text-align: right; text-decoration: none; }
 .ui-datepicker .ui-datepicker-buttonpane { background-image: none; margin: .7em 0 0 0; padding:0 .2em; border-left: 0; border-right: 0; border-bottom: 0; }
-.ui-datepicker .ui-datepicker-buttonpane button { float: right; margin: .5em .2em .4em; cursor: pointer; padding: .2em .6em .3em .6em; width:auto; overflow:visible; }
+.ui-datepicker .ui-datepicker-buttonpane button { 
+  float: right; 
+  margin: .5em .2em .4em; 
+  cursor: pointer; 
+  padding: .2em .6em .3em .6em; 
+  width:auto; 
+  overflow:visible; 
+  background-color: #006dcc;
+  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+  background-image: linear-gradient(top, #0088cc, #0044cc);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc', endColorstr='#0044cc', GradientType=0);
+  border-color: #0044cc #0044cc #002a80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  color: white;
+  }
+.ui-datepicker .ui-datepicker-buttonpane button:hover{
+  background: #0044cc;
+  border-color: #0044cc #0044cc #002a80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane button.active{
+  background-color: #0044cc;
+  color: rgba(255, 255, 255, 0.75);
+}
+.ui-datepicker .ui-datepicker-buttonpane button:active,
+.ui-datepicker .ui-datepicker-buttonpane button.disabled,
+.ui-datepicker .ui-datepicker-buttonpane button[disabled] {
+  background-color: #0044cc;
+}
+.ui-datepicker .ui-datepicker-buttonpane button:active,
+.ui-datepicker .ui-datepicker-buttonpane button.active {
+  background-color: #003399 \9;
+}
 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current { float:left; }
 
 /* with multiple calendars */
@@ -559,7 +615,9 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
     left: -4px; /*must have*/
     width: 200px; /*must have*/
     height: 200px; /*must have*/
-}/*
+}
+
+/*
  * jQuery UI Progressbar 1.8.17
  *
  * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
