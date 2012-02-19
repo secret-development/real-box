@@ -20,11 +20,11 @@
     <%= raw @task.description %>
   </div>
   <div class="field-task">
-    <span class="title-field">Готово:</span>
-    <%= @task.status %>
-  </div>
-  <div class="field-task">
     <span class="title-field">Дедлайн:</span>
     <%= to_datetime(@task.deadline) %>
+  </div>
+  <div class="field-task">
+    <span class="title-field">Готово:</span>
+    <%= @task.status %>
   </div>
 </div>

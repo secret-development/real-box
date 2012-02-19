@@ -52,7 +52,7 @@ class Task < ActiveRecord::Base
   
   def self.search(search)
     if search
-      where('title LIKE ? OR deadline LIKE ?', "%#{search}%", "%#{search}%")
+      where('title LIKE ?', "%#{search}%")
     else
       scoped
     end 
