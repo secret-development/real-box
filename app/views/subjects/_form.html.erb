@@ -24,6 +24,18 @@
       </div>
     </div>
     <div class="control-group">
+      <%= f.label :district, "Район:" %>
+      <div class="controls">
+        <div class="district-operations">
+          <%= collection_select(:subject, :district_id, District.all, :id, :title,
+          :include_blank => true) %>
+          <div class="title">Нет в списке района? Добавьте самостоятельно</div>
+          <button type="button" id="add-district-button" class="btn btn-info">Добавить район</button>
+        </div>
+        <%= f.text_field :district, :id => "add_district", :placeholder => "Западный" %>  
+      </div>
+    </div>
+    <div class="control-group">
       <%= f.label :price, "Цена:" %>
       <div class="controls">
         <%= f.text_field :price, :placeholder => "10000" %> 

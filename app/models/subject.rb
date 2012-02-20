@@ -1,11 +1,13 @@
 # encoding:utf-8
 
 class Subject < ActiveRecord::Base
+  
   # associations
   belongs_to :typesubject
   belongs_to :city
   belongs_to :typetransaction
   belongs_to :customer
+  belongs_to :district
   # callbacks:
   after_save :verify_customer_real
   after_update :verify_customer_real
@@ -34,6 +36,19 @@ class Subject < ActiveRecord::Base
       cust.update_attributes(:potentials => true)
     end
   end
+  
+  def district=(title)
+    d = District.create(:title => title, :city_id => city_id)
+    self.district_id = d.id
+  end
+  
+  def district
+    unless district_id.nil?
+      d = District.find(district_id)
+      d.title
+    end
+  end
+  
   
 end
 

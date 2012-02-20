@@ -58,7 +58,8 @@ module ApplicationHelper
   end
   
   def to_dollar(object)
-    "#{object} $"
+    number_to_currency(object, :locale => :ru, :precision => 0,
+      :unit => "$ ", :delimiter => " ")
   end
   
   def to_area(object)
