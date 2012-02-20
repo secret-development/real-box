@@ -40,6 +40,14 @@ module ApplicationHelper
   def to_date(object)
     object.to_date
   end
+  
+  def to_formatted_date(object)
+    object.strftime('%d.%m.%Y')
+  end
+  
+  def to_datetime(object)
+    object.strftime('%d.%m.%Y %H:%M:%S')
+  end
 
   def type_customer(object)
     if object == true
@@ -50,7 +58,8 @@ module ApplicationHelper
   end
   
   def to_dollar(object)
-    "#{object} $"
+    number_to_currency(object, :locale => :ru, :precision => 0,
+      :unit => "$ ", :delimiter => " ")
   end
   
   def to_area(object)

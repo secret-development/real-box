@@ -11,7 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120218125703) do
+
+ActiveRecord::Schema.define(:version => 20120220043346) do
+
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -45,16 +47,28 @@ ActiveRecord::Schema.define(:version => 20120218125703) do
 
   add_index "customers", ["firstname", "lastname"], :name => "index_rcustomers_on_firstname_and_lastname"
 
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  create_table "districts", :force => true do |t|
+    t.integer  "city_id"
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+
   create_table "roles_users", :id => false, :force => true do |t|
     t.integer "role_id"
     t.integer "user_id"
   end
+
+  add_index "districts", ["title"], :name => "index_districts_on_title"
+
 
   create_table "social_statuses", :force => true do |t|
     t.string   "title"
@@ -72,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20120218125703) do
     t.datetime "updated_at",         :null => false
     t.integer  "typetransaction_id"
     t.integer  "customer_id"
+    t.integer  "district_id"
   end
 
   create_table "tasks", :force => true do |t|

@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # associations:
   has_and_belongs_to_many :roles
   has_many :tasks, :dependent => :destroy
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
