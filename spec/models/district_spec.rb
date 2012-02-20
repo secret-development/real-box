@@ -26,4 +26,24 @@ describe District do
       district.macro.should == :belongs_to
     end
   end
+  
+  describe "validates" do
+    it "should reject duplicate" do
+      District.create!(@attr)
+      @district = District.new(@attr)
+      @district.should_not be_valid
+    end
+    
+    it "should reject duplicate(case sensitive)" do
+      District.create!(@attr)
+      @district = District.new(@attr.merge(:title => @attr[:title].downcase))
+      @district.should_not be_valid
+    end
+    
+    it "should not reject duplicate with diff city_id" do
+      District.create!(@attr)
+      @district = District.new(@attr.merge(:city_id => 2))
+      @district.should be_valid
+    end
+  end
 end
