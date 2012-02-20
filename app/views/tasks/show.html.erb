@@ -1,18 +1,30 @@
-<div id="task">
-  <h1 class="title-page"><%= @task.title %></h1>
-  <div class="task's user">
+<h1 class="title-page">Информация о задаче</h1>
+<div id="show-task">
+  <h6>Задача № <%= @task.id %></h6>
+  <div class="field-task">
+    <span class="title-field">Суть задачи:</span>
+    <%= @task.title %>
+  </div>
+  <div class="field-task">
+    <span class="title-field">Ответственный:</span>
     <%= link_to @task.user.full_name, user_path(@task.user) %>
   </div>
-  <div class="description">
-    <%= @task.description %>
+  <div class="field-task">
+    <span class="title-field">Дата постановки:</span>
+    <%= to_datetime(@task.created_at) %>
   </div>
-  <div class="deadline">
-    <%= @task.deadline.strftime('%d.%m.%Y %H:%M:%S') %>
+  <div class="field-task">
+    <span class="title-field">Описание задачи:</span>
   </div>
-  <div class="status">
+  <div class="task-desc">
+    <%= raw @task.description %>
+  </div>
+  <div class="field-task">
+    <span class="title-field">Дедлайн:</span>
+    <%= to_datetime(@task.deadline) %>
+  </div>
+  <div class="field-task">
+    <span class="title-field">Готово:</span>
     <%= @task.status %>
-  </div>
-  <div class="created_at">
-    <%= @task.created_at.strftime('%d.%m.%Y %H:%M:%S') %>
   </div>
 </div>
