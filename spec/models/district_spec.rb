@@ -62,5 +62,11 @@ describe District do
       @district = District.new(@attr.merge(:city_id => 2))
       @district.should be_valid
     end
+    
+    it "should reject with blan title" do
+      @attr[:title] = ""
+      @district = District.new(@attr)
+      @district.should_not be_valid
+    end
   end
 end
