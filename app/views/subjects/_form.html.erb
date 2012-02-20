@@ -29,11 +29,13 @@
         <div class="district-operations">
           <%= collection_select(:subject, :district_id, District.all, :id, :title) %>
           <div class="title">Нет в списке района? Добавьте самостоятельно</div>
-          <button type="button" id="add-district-button" class="btn">Добавить район</button>
+          <button type="button" id="add-district-button" class="btn">
+            <%= icon_map + " Добавить район" %>
+          </button>
         </div>
         <%= f.text_field :districtname, :id => "add_district", :placeholder => "Западный" %>
         <button type="button" id="back-district-select" class="btn">
-          Вернуться к списку районов
+          <%= list_icon + " Вернуться к списку районов" %> 
         </button> 
       </div>
     </div>
