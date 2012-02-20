@@ -15,7 +15,7 @@ describe District do
     district = District.create!(@attr)
   end
   
-  describe "associations" do
+  describe "associations with city" do
     it "should respond_to city" do
       district = District.new(@attr)
       district.should respond_to(:city)
@@ -24,6 +24,23 @@ describe District do
     it "should belongs_to :city" do
       district = District.reflect_on_association(:city)
       district.macro.should == :belongs_to
+    end
+  end
+  
+  describe "association with subjects" do
+    it "should respond to subjects" do
+      district = District.new(@attr)
+      district.should respond_to(:subjects)
+    end
+    
+    it "should has_many :subjects" do
+      district = District.reflect_on_association(:subjects)
+      district.macro.should == :has_many
+    end
+    
+    it "should dependent(:nullify)" do
+      district = District.reflect_on_association(:subjects)
+      district.options[:dependent].should == :nullify
     end
   end
   

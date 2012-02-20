@@ -6,6 +6,7 @@ class Subject < ActiveRecord::Base
   belongs_to :city
   belongs_to :typetransaction
   belongs_to :customer
+  belongs_to :district
   # callbacks:
   after_save :verify_customer_real
   after_update :verify_customer_real

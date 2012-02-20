@@ -5,9 +5,10 @@ describe Subject do
   before(:each) do
     @city = Factory(:city)
     @typesubject = Factory(:typesubject)
+    @district = Factory(:district)
     @customer = Factory(:customer)
     @subject = Factory(:subject, :typesubject => @typesubject, :city => @city, 
-        :customer => @customer)
+        :customer => @customer, :district => @district)
     
     # valid attributes
     @attr = {
@@ -16,7 +17,8 @@ describe Subject do
       :customer_id => @customer.id,
       :price => 100003,
       :area => 80,
-      :address => "Баймагамбетова 15, 23"
+      :address => "Баймагамбетова 15, 23",
+      :district_id => 2
     }
   end
   
@@ -111,6 +113,18 @@ describe Subject do
       
       it "should belongs_to :customer" do
         subject = Subject.reflect_on_association(:customer)
+        subject.macro.should == :belongs_to
+      end
+    end
+    
+    describe "district" do
+      it "should respond to district" do
+        subject = Subject.new(@attr)
+        subject.should respond_to(:district)
+      end
+      
+      it "should belongs_to :district" do
+        subject = Subject.reflect_on_association(:district)
         subject.macro.should == :belongs_to
       end
     end
