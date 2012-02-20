@@ -18,6 +18,8 @@ class Subject < ActiveRecord::Base
   validates :city_id, :presence => true
   validates :price, :presence => true, :numericality => true
   validates :customer_id, :presence => true
+  # validates :district_id, :presence => true
+  validates :districtname, :presence => true
   
   def legend_value
     new_record? ? "Добавить объект" : "Редактировать объект"
@@ -37,12 +39,12 @@ class Subject < ActiveRecord::Base
     end
   end
   
-  def district=(title)
+  def districtname=(title)
     d = District.create(:title => title, :city_id => city_id)
     self.district_id = d.id
   end
   
-  def district
+  def districtname
     unless district_id.nil?
       d = District.find(district_id)
       d.title

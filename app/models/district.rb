@@ -4,6 +4,7 @@ class District < ActiveRecord::Base
   belongs_to :city
   has_many :subjects, :dependent => :nullify
   # validations:
+  validates :title, :presence => true
   validates :title, :uniqueness => {
     :scope => [:city_id],
     :case_sensitive => false
