@@ -1,7 +1,19 @@
+#encoding: UTF-8
 class Ability
   include CanCan::Ability
 
   def initialize(user)
+    user ||= User.new
+    
+    if user.role? :admin
+      can :manage, :all
+    elsif user.role? :agent
+      can :manage, [Customer]
+    end
+    
+    def role?(role)
+      return !!self.roles.find_by_name(role.to_s.camelize)
+    end 
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
