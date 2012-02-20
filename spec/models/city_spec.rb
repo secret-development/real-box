@@ -40,6 +40,21 @@ describe City do
       city = City.reflect_on_association(:subjects)
       city.options[:dependent].should == :nullify
     end
+    
+    it "should respond to districts" do
+      @city = City.new(@attr)
+      @city.should respond_to(:districts)
+    end
+    
+    it "should has_many districts" do
+      @city = City.reflect_on_association(:districts)
+      @city.macro.should == :has_many
+    end
+    
+    it "(districts) should dependent destroy" do
+      @city = City.reflect_on_association(:districts)
+      @city.options[:dependent].should == :destroy
+    end
   end
   
 end
