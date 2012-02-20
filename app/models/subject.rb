@@ -18,6 +18,8 @@ class Subject < ActiveRecord::Base
   validates :city_id, :presence => true
   validates :price, :presence => true, :numericality => true
   validates :customer_id, :presence => true
+  validates :district_id, :presence => true
+  validates :district, :presence => true
   
   def legend_value
     new_record? ? "Добавить объект" : "Редактировать объект"

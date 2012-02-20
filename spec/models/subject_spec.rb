@@ -18,7 +18,7 @@ describe Subject do
       :price => 100003,
       :area => 80,
       :address => "Баймагамбетова 15, 23",
-      :district_id => 2
+      :district_id => @district.id
     }
   end
   
@@ -63,6 +63,12 @@ describe Subject do
     
     it "should require the customer_id" do
       @attr[:customer_id] = nil
+      subject = Subject.new(@attr)
+      subject.should_not be_valid
+    end
+    
+    it "should require the district_id" do
+      @attr[:district_id] = nil
       subject = Subject.new(@attr)
       subject.should_not be_valid
     end
