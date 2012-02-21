@@ -60,6 +60,12 @@
           <%= isset_field(@customer.note) %>
         </div>
         <div class="field-customer">
+          <span class="title-field">Последний раз обращался:</span>
+          <span id="last-call-value">
+            <%= to_datetime(@customer.lastcall) %>
+          </span>
+        </div>
+        <div class="field-customer">
           <span class="title-field">Добавлен:</span>
           <%= to_date(@customer.created_at) %>
         </div>
@@ -72,8 +78,8 @@
         </div>  
       </div>
       <div id="man-called">
-        <button id="man-called-but" data-loading-text="loading..." class="btn">
-          Клиент, только что позвонил
+        <button id="man-called-but" class="btn">
+          Клиент только что обратился
         </button>
       </div>
       <div class="clear"></div>
