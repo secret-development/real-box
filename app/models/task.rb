@@ -60,7 +60,6 @@ class Task < ActiveRecord::Base
   
 end
 
-
 #TODO: file_attachment
 #TODO: sortable users (when users will be done)
 #TODO: search
@@ -78,4 +77,3 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #
-
