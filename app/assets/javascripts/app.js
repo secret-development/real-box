@@ -34,25 +34,41 @@ $(document).ready(function() {
   
 });
 
-
 // districts load(subject form)
 $(document).ready(function() {
+  // functions :
+  function disabled_district(){
+    $("#subject_district_id")
+      .attr("disabled", true)
+      .html("<option>Нет района</option>");
+  }
+  
+  function enable_district(){
+    $("#subject_district_id")
+      .attr("disabled", false)
+  }
+  
+  // all districts :
   var districts = $("#subject_district_id").html();
+  
   // first state
-  var city_first = $("#subject_city_id :selected").text();
+  var city_first = $("#subject_city_id :first").text();
   var opt_fir = $(districts).filter("optgroup[label='"+city_first+"']").html();
   $("#subject_district_id").html(opt_fir);
+  if (!opt_fir) {
+    disabled_district();
+  };
   
+  // change city
   $("#subject_city_id").change(function(event) {
     var city = $("#subject_city_id :selected").text();
     var options = $(districts).filter("optgroup[label='"+city+"']").html();
     if (options) {
+      enable_district();
       $("#subject_district_id").html(options);
     }
     else{
-      $("#subject_district_id")
-        .attr("disabled", true)
-        .html("<option>Нет района</option>");
+      disabled_district();
     };
   });
 });
