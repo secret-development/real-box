@@ -28,6 +28,22 @@
   .typetransaction{
     font-weight:bold;
   }
+  #fields-for-customers{
+    float:left;
+  }
+  #man-called{
+    // border:1px solid #ccc;
+    float:right;
+
+    margin-top:100px;
+    margin-right:150px;
+    background:url('phone-call.png') no-repeat 30px 0px;
+    height:180px;
+    #man-called-but{
+      position:relative;
+      top:150px;
+    }
+  }
 }
 .links-type-customers{
   // border:1px solid #ccc;

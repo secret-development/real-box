@@ -14,61 +14,69 @@
   </div>
   <div class="tab-content">
     <div class="tab-pane active" id="1">
-      <div class="field-customer">
-        <span class="title-field">Тип клиента:</span>
-        <span class="typecustomer">
-          <%= type_customer(@customer.potentials) %>
-        </span>
+      <div id="fields-for-customers">
+        <div class="field-customer">
+          <span class="title-field">Тип клиента:</span>
+          <span class="typecustomer">
+            <%= type_customer(@customer.potentials) %>
+          </span>
+        </div>
+        <div class="field-customer">
+          <span class="title-field">Тип сделки:</span>
+          <span class="typetransaction">
+            <%= @customer.typetransaction.name %>
+          </span>
+        </div>
+        <div class="field-customer">
+          <span class="title-field">Имя:</span>
+          <%= isset_field(@customer.firstname) %>
+        </div>
+        <div class="field-customer">
+          <span class="title-field">Фамилия:</span>
+          <%= isset_field(@customer.lastname) %>
+        </div>
+        <div class="field-customer">
+          <span class="title-field">Тип сделки:</span>
+          <%= isset_field(@customer.typetransaction.name) %>
+        </div>
+        <div class="field-customer">
+          <span class="title-field">Социальный статус:</span>
+          <%= isset_field(@customer.social_status.title) %>
+        </div>
+        <div class="field-customer">
+          <span class="title-field">Телефон:</span>
+          <%= isset_field(@customer.phonehome) %>
+        </div>
+        <div class="field-customer">
+          <span class="title-field">Мобильный телефон:</span>
+          <%= isset_field(@customer.phonemobile) %>
+        </div>
+        <div class="field-customer">
+          <span class="title-field">e-mail:</span>
+          <%= isset_mail(@customer.email) %>
+        </div>
+        <div class="field-customer">
+          <span class="title-field">Заметка:</span>
+          <%= isset_field(@customer.note) %>
+        </div>
+        <div class="field-customer">
+          <span class="title-field">Добавлен:</span>
+          <%= to_date(@customer.created_at) %>
+        </div>
+        <div class="actions-with-customers">
+          <%= link_to plus_icon_white + " Добавить недвижимость", new_subject_path(:customer_id => @customer.id), :class => "btn btn-primary" %>
+          <%= link_to edit_icon + " Редактировать",
+              edit_customer_path(@customer), :class => "btn" %>
+          <%= link_to delete_icon + " Удалить",
+          @customer, :method => :delete, :confirm => "Вы уверены?", :class => "btn" %>        
+        </div>  
       </div>
-      <div class="field-customer">
-        <span class="title-field">Тип сделки:</span>
-        <span class="typetransaction">
-          <%= @customer.typetransaction.name %>
-        </span>
+      <div id="man-called">
+        <button id="man-called-but" data-loading-text="loading..." class="btn">
+          Клиент, только что позвонил
+        </button>
       </div>
-      <div class="field-customer">
-        <span class="title-field">Имя:</span>
-        <%= isset_field(@customer.firstname) %>
-      </div>
-      <div class="field-customer">
-        <span class="title-field">Фамилия:</span>
-        <%= isset_field(@customer.lastname) %>
-      </div>
-      <div class="field-customer">
-        <span class="title-field">Тип сделки:</span>
-        <%= isset_field(@customer.typetransaction.name) %>
-      </div>
-      <div class="field-customer">
-        <span class="title-field">Социальный статус:</span>
-        <%= isset_field(@customer.social_status.title) %>
-      </div>
-      <div class="field-customer">
-        <span class="title-field">Телефон:</span>
-        <%= isset_field(@customer.phonehome) %>
-      </div>
-      <div class="field-customer">
-        <span class="title-field">Мобильный телефон:</span>
-        <%= isset_field(@customer.phonemobile) %>
-      </div>
-      <div class="field-customer">
-        <span class="title-field">e-mail:</span>
-        <%= isset_mail(@customer.email) %>
-      </div>
-      <div class="field-customer">
-        <span class="title-field">Заметка:</span>
-        <%= isset_field(@customer.note) %>
-      </div>
-      <div class="field-customer">
-        <span class="title-field">Добавлен:</span>
-        <%= to_date(@customer.created_at) %>
-      </div>
-      <div class="actions-with-customers">
-        <%= link_to plus_icon_white + " Добавить недвижимость", new_subject_path(:customer_id => @customer.id), :class => "btn btn-primary" %>
-        <%= link_to edit_icon + " Редактировать",
-            edit_customer_path(@customer), :class => "btn" %>
-        <%= link_to delete_icon + " Удалить",
-        @customer, :method => :delete, :confirm => "Вы уверены?", :class => "btn" %>        
-      </div>
+      <div class="clear"></div>
     </div>
     <div class="tab-pane" id="2">
       объекты
