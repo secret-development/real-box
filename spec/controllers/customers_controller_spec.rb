@@ -61,6 +61,12 @@ describe CustomersController do
     end     
   end
   
+  describe "POST 'lastcallcustomer'" do
+    it "should update lastcall" do
+
+    end
+  end
+  
   describe "scope should be show potentials and real customers" do
     before(:each) do
       @potential =  {:firstname => "vano", :lastname => "vanov", :phonehome => "1243", :phonemobile => "876965" }
