@@ -40,7 +40,11 @@ class Subject < ActiveRecord::Base
   end
   
   def districtname=(title)
-    d = District.create(:title => title, :city_id => city_id)
+    # d = District.create(:title => title, :city_id => city_id)
+    d = District.find_by_title(title)
+    if d.nil?
+      d = District.create(:title => title, :city_id => city_id)
+    end
     self.district_id = d.id
   end
   

@@ -5,29 +5,29 @@
     <div class="control-group">
       <%= f.label :typetransaction_id, "Тип сделки:" %>
       <div class="controls">
-        <%= collection_select(:subject, :typetransaction_id,
-            Typetransaction.all, :id, :name) %>
+        <%= f.collection_select(:typetransaction_id, Typetransaction.all, 
+            :id, :name) %>
       </div>
     </div>
     <div class="control-group">
       <%= f.label :city_id, "Город:" %>
       <div class="controls">
-        <%= collection_select(:subject, :city_id,
+        <%= f.collection_select(:city_id,
             City.all, :id, :name) %>
       </div>
     </div>
     <div class="control-group">
       <%= f.label :typesubject_id, "Тип недвижимости:" %>
       <div class="controls">
-        <%= collection_select(:subject, :typesubject_id, 
-            Typesubject.all, :id, :name) %>
+        <%= f.collection_select(:typesubject_id, Typesubject.all, :id, :name) %>
       </div>
     </div>
     <div class="control-group">
       <%= f.label :district, "Район:" %>
       <div class="controls">
         <div class="district-operations">
-          <%= collection_select(:subject, :district_id, District.all, :id, :title) %>
+          <%= f.grouped_collection_select(:district_id, 
+              City.order(:name), :districts, :name ,:id, :title) %>
           <div class="title">Нет в списке района? Добавьте самостоятельно</div>
           <button type="button" id="add-district-button" class="btn">
             <%= icon_map + " Добавить район" %>
