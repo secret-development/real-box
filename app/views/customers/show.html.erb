@@ -2,7 +2,15 @@
 <div id="show-customer">
   <div class="field-customer">
     <span class="title-field">Тип клиента:</span>
-    <%= type_customer(@customer.potentials) %>
+    <span class="typecustomer">
+      <%= type_customer(@customer.potentials) %>
+    </span>
+  </div>
+  <div class="field-customer">
+    <span class="title-field">Тип сделки:</span>
+    <span class="typetransaction">
+      <%= @customer.typetransaction.name %>
+    </span>
   </div>
   <div class="field-customer">
     <span class="title-field">Имя:</span>
