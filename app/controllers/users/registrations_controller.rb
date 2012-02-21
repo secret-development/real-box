@@ -1,9 +1,10 @@
 #encoding: UTF-8
-class Users::RegistrationsController < Devise::RegistrationsController
-  before_filter :check_permissions, :only => [:new, :create, :cancel]
-  skip_before_filter :require_no_authentication
- 
+class User::RegistrationsController < Devise::RegistrationsController
+  before_filter :check_permissions, :only => [:new, :create] 
+  
   def check_permissions
     authorize! :create, resource
-  end  
+  end
+
+
 end

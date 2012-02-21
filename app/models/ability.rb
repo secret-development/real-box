@@ -3,17 +3,24 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new
-    
-    if user.role? :admin
+    #user ||= User.new
+    if user.role == "admin"
       can :manage, :all
-    elsif user.role? :agent
-      can :manage, [Customer]
+    elsif user.role == "agent"
+      cannot :destroy, @customer
+      can :read, Task
+      can :update, Customer
+      can :create, Customer
+      can :read, User
     end
+#  can :manage, :all if user.role == "admin"
+#  can :read, :all if user.role == "agent"
+      
+    #else
+      #can :manage, [Customer]
+    #end
+  end
     
-    def role?(role)
-      return !!self.roles.find_by_name(role.to_s.camelize)
-    end 
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
@@ -36,5 +43,5 @@ class Ability
     #   can :update, Article, :published => true
     #
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
-  end
+
 end

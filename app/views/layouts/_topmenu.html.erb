@@ -21,7 +21,7 @@
           <%= link_to "Объекты", subjects_path %>
         </li>
         <li>
-          <%= link_to "Персонал", "#" %>
+          <%= link_to "Персонал", users_path %>
         </li>
         <li>
           <%= link_to "Задачи", tasks_path %>
@@ -38,7 +38,9 @@
       </ul>
       <ul class="nav pull-right">
         <li>
+          <%# if can? :read,  %>
           <%= link_to "Настройки", settings_path %>
+          <%# end %>
         </li>
       </ul>
     </div>

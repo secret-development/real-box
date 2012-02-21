@@ -44,7 +44,7 @@
     <%= link_to plus_icon_white + " Добавить недвижимость", new_subject_path(:customer_id => @customer.id), :class => "btn btn-primary" %>
     <%= link_to edit_icon + " Редактировать",
         edit_customer_path(@customer), :class => "btn" %>
-    <%= link_to delete_icon + " Удалить",
-    @customer, :method => :delete, :confirm => "Вы уверены?", :class => "btn" %>        
+    <% if can? :desrtoy, @customer %><%= link_to delete_icon + " Удалить",
+    @customer, :method => :delete, :confirm => "Вы уверены?", :class => "btn" %><% end %>        
   </div>
 </div>

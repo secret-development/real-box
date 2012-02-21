@@ -1,7 +1,8 @@
 Crm::Application.routes.draw do
 
-  devise_for :users, :controllers => { :regisrations => "users/registrations" }
+  devise_for :users,:controllers => { :registrations => "users" }
   resources :users
+
 
   get "potentials/index"
   match "potentials" => "potentials#index", :as => :potentials
