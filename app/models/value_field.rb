@@ -32,6 +32,3 @@ end
 #  created_at         :datetime        not null
 #  updated_at         :datetime        not null
 #
-
-
-# todo: сделать уникальный ответ для определнного поля
