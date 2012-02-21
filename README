@@ -5,4 +5,4 @@ empty
 # TODO: почитать про attr_accessible и применить
 # TODO: сделать todo(textmate), районы прикрепитьс  помощью автокомлита 258(railscasts)
 
-# todo: убрать пагинацию ajax с customer
+# TODO: убрать пагинацию ajax с customer

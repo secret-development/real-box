@@ -80,10 +80,13 @@ $(document).ready(function() {
     $.ajax({
       url: '/customers/lastcallcustomer',
       type: 'GET',
-      dataType: 'json',
+      dataType: 'xml/json',
       data: {id: customer_id },
       success: function(data, textStatus, xhr) {
-        $("#last-call-value").html(data);
+        $("#last-call-value")
+          .html(data)
+          .hide()
+          .fadeIn('slow');
       }
     });
     

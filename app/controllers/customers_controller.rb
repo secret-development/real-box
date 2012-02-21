@@ -56,10 +56,11 @@ class CustomersController < ApplicationController
   end
   
   def lastcallcustomer
-    @customer = Customer.find(params[:id])
-    @customer.update_attribute(:lastcall, Time.current)
+    customer = Customer.find(params[:id])
+    customer.update_attribute(:lastcall, Time.current)
+    @lastcall = customer.lastcall.strftime('%d.%m.%Y %H:%M:%S')
     respond_to do |format|
-      format.json { render :json => @customer.lastcall}
+      format.json { render :json => @lastcall}
     end
   end
   
