@@ -46,6 +46,14 @@ class User < ActiveRecord::Base
     last_name + ' ' + first_name.strip[0] + '.'
   end
   
+  def self.search(search)
+    if search
+      where('last_name LIKE ?', "%#{search}%")
+    else
+      scoped
+    end 
+  end
+  
 end
 
 
