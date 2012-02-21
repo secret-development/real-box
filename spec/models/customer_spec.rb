@@ -64,7 +64,6 @@ describe Customer do
   
 end
 
-
 # == Schema Information
 #
 # Table name: customers
@@ -78,9 +77,7 @@ end
 #  note               :text
 #  created_at         :datetime
 #  updated_at         :datetime
-#  real               :boolean(1)      default(FALSE)
+#  potentials         :boolean(1)      default(FALSE)
 #  social_status_id   :integer(4)
-#  permalink          :string(255)
 #  typetransaction_id :integer(4)
 #
-

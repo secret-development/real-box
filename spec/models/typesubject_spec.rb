@@ -112,6 +112,7 @@ describe Typesubject do
   end
   
 end
+
 # == Schema Information
 #
 # Table name: typesubjects
@@ -123,4 +124,3 @@ end
 #  updated_at :datetime        not null
 #  floor      :boolean(1)
 #
-

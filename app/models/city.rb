@@ -29,6 +29,7 @@ class City < ActiveRecord::Base
   end
   
 end
+
 # == Schema Information
 #
 # Table name: cities
@@ -38,4 +39,3 @@ end
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
 #
-
