@@ -1,7 +1,5 @@
 class CustomerNowCall < ActiveRecord::Migration
-  def up
-  end
-
-  def down
+  def change
+    add_column :customers, :lastcall, :datetime
   end
 end
