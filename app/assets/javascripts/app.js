@@ -33,3 +33,26 @@ $(document).ready(function() {
   });
   
 });
+
+
+// districts load(subject form)
+$(document).ready(function() {
+  var districts = $("#subject_district_id").html();
+  // first state
+  var city_first = $("#subject_city_id :selected").text();
+  var opt_fir = $(districts).filter("optgroup[label='"+city_first+"']").html();
+  $("#subject_district_id").html(opt_fir);
+  
+  $("#subject_city_id").change(function(event) {
+    var city = $("#subject_city_id :selected").text();
+    var options = $(districts).filter("optgroup[label='"+city+"']").html();
+    if (options) {
+      $("#subject_district_id").html(options);
+    }
+    else{
+      $("#subject_district_id")
+        .attr("disabled", true)
+        .html("<option>Нет района</option>");
+    };
+  });
+});
