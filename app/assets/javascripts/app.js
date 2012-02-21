@@ -76,12 +76,12 @@ $(document).ready(function() {
 // last call customer
 $(document).ready(function() {
   $("#man-called-but").click(function(event) {
-    
+    var customer_id = $(this).attr("data-customer-id");
     $.ajax({
       url: '/customers/lastcallcustomer',
       type: 'GET',
-      dataType: 'xml/json',
-      data: {id: '8'},
+      dataType: 'json',
+      data: {id: customer_id },
       success: function(data, textStatus, xhr) {
         $("#last-call-value").html(data);
       }

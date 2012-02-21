@@ -75,10 +75,11 @@
               edit_customer_path(@customer), :class => "btn" %>
           <%= link_to delete_icon + " Удалить",
           @customer, :method => :delete, :confirm => "Вы уверены?", :class => "btn" %>        
-        </div>  
+        </div>
       </div>
       <div id="man-called">
-        <button id="man-called-but" class="btn">
+        <button id="man-called-but" 
+          class="btn" data-customer-id="<%= @customer.id %>">
           Клиент только что обратился
         </button>
       </div>

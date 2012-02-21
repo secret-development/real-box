@@ -63,9 +63,11 @@
         <%= f.text_area :note, :rows=>3, :placeholder => "О клиенте ..." %>
       </div>
     </div>
-    <div class="control-group">
-      <%= f.hidden_field :lastcall, :value => Time.current %>
-    </div>    
+    <% if @customer.new_record? %>
+      <div class="control-group">
+        <%= f.hidden_field(:lastcall, :value => Time.current) %>
+      </div>
+    <% end %>
     <div class="form-actions">
       <%= f.submit @customer.button_value, :class => "btn btn-primary" %>
       <button type="reset" class="btn cancel-form">Отмена</button>
