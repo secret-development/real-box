@@ -62,8 +62,6 @@ end
 
 #TODO: file_attachment
 #TODO: sortable users (when users will be done)
-#TODO: search
-#TODO: cash
 # == Schema Information
 #
 # Table name: tasks

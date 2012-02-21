@@ -3,9 +3,10 @@
 class UsersController < ApplicationController
   
   respond_to :html
+  helper_method :sort_column, :sort_direction
   
   def index
-    @users = User.all
+    @users = User.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(10)
     @title = "Персонал"
     respond_with @users
   end
@@ -52,6 +53,16 @@ class UsersController < ApplicationController
     @user.destroy
     flash[:notice] = "Персонал успешно удален"
     redirect_to users_path
+  end
+  
+  private
+  
+  def sort_column
+    Task.column_names.include?(params[:sort]) ? params[:sort] : "first_name, last_name, middle_name, email, adress, phone"    
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"    
   end
   
 end
