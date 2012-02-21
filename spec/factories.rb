@@ -7,6 +7,7 @@ Factory.define :customer do |customer|
   customer.email          "vanya@mail.ru"
   customer.potentials     false
   customer.note           "bla-bla-bla"
+  customer.lastcall       Time.now
 end
 
 #Factory.define :type_customer_with_customer, :parent => :type_customer do |type|
