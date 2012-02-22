@@ -86,8 +86,10 @@ $(document).ready(function() {
         console.log(xhr, textStatus);
       },
       success: function(data, textStatus, xhr) {
+        var last = new Date(data);
+        last = last.toLocaleFormat("%d.%m.%Y %H:%M:%S");
         $("#last-call-value")
-                 .html(data)
+                 .html(last)
                  .hide()
                  .fadeIn('slow');
       },
