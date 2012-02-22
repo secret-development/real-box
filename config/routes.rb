@@ -1,9 +1,10 @@
 Crm::Application.routes.draw do
 
+
   get "potentials/index"
   match "potentials" => "potentials#index", :as => :potentials
 
-  resources :users
+  #resources :users
   resources :tasks
   resources :customers do
     get 'all', :on => :collection
@@ -13,7 +14,6 @@ Crm::Application.routes.draw do
   resources :subjects
   
   resources :cities, :except => [:show]
-  resources :type_customers, :except => [:show]
   resources :social_statuses, :except => [:show]
   resources :condition_fields
   resources :value_fields, :except => [:show]

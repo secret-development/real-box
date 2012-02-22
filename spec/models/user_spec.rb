@@ -1,7 +1,9 @@
-##encoding:utf-8
 require 'spec_helper'
 
 describe User do
+<<<<<<< HEAD
+  pending "add some examples to (or delete) #{__FILE__}"
+=======
   
   before(:each) do
     @attr = { 
@@ -167,7 +169,10 @@ describe User do
     
   end
   
+>>>>>>> develop
 end
+<<<<<<< HEAD
+=======
 
 ## == Schema Information
 #
@@ -184,3 +189,4 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #
+>>>>>>> develop

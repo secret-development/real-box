@@ -13,3 +13,4 @@ types_of_transactions = ['Купля', 'Продажа', 'Аренда', 'Съе
 types_of_transactions.each do |t|
   Typetransaction.create(:name => t)
 end
+User.create(email: 'admin@example.com', password: 'password', role: 'admin')

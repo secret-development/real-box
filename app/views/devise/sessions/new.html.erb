@@ -1,0 +1,12 @@
+<div class="span4">
+<h2>Вход</h2>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class =>"well form-inline"}) do |f| %>
+  
+  <%= f.email_field :email, :class => "input-small", :placeholder => "Email" %>
+  
+  <%= f.password_field :password, :class => "input-small", :placeholder => "Пароль" %>
+
+  <%= f.submit "Войти", :class => "btn" %>
+<% end %>
+</div>

@@ -28,8 +28,12 @@
         </td>
         <td class="actions-buttons">
           <%= link_to eye_icon, customer_path(c), :title => "Подробнее..." %>
+          <% if can? :update, @customers %>
           <%= link_to edit_icon, edit_customer_path(c) %>
+          <% end %>
+          <% if can? :destroy, @customers %>          
           <%= link_to delete_icon, c, :method => :delete, :confirm => "Вы уверены?" %>
+          <% end %>
         </td>
         </tr>      
       <% end %>
