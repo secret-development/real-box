@@ -1,9 +1,0 @@
-
-<% @users.each do |u| %>
-  <%= u.email %>
-  <%= u.role %><br/><br /> 
-<% end %>
-<% if can? :new, User %>
-<%= link_to plus_icon + " Добавить" , new_user_path,  :class => "btn button-add" %>
-<% end %>
-

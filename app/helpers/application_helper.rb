@@ -66,7 +66,4 @@ module ApplicationHelper
     raw("#{object} м&sup2;")
   end
   
-  #constatnts
-  ROLES = ["admin", "agent"]
-  
 end

@@ -13,50 +13,7 @@
       </li>
     </ul>
   </div>
-<<<<<<< HEAD
-  <div class="field-customer">
-    <span class="title-field">Имя:</span>
-    <%= isset_field(@customer.firstname) %>
-  </div>
-  <div class="field-customer">
-    <span class="title-field">Фамилия:</span>
-    <%= isset_field(@customer.lastname) %>
-  </div>
-  <div class="field-customer">
-    <span class="title-field">Тип сделки:</span>
-    <%= isset_field(@customer.typetransaction.name) %>
-  </div>
-  <div class="field-customer">
-    <span class="title-field">Социальный статус:</span>
-    <%= isset_field(@customer.social_status.title) %>
-  </div>
-  <div class="field-customer">
-    <span class="title-field">Телефон:</span>
-    <%= isset_field(@customer.phonehome) %>
-  </div>
-  <div class="field-customer">
-    <span class="title-field">Мобильный телефон:</span>
-    <%= isset_field(@customer.phonemobile) %>
-  </div>
-  <div class="field-customer">
-    <span class="title-field">e-mail:</span>
-    <%= isset_mail(@customer.email) %>
-  </div>
-  <div class="field-customer">
-    <span class="title-field">Заметка:</span>
-    <%= isset_field(@customer.note) %>
-  </div>
-  <div class="field-customer">
-    <span class="title-field">Добавлен:</span>
-    <%= to_date(@customer.created_at) %>
-  </div>
-  <div class="actions-with-customers">
-    <%= link_to plus_icon_white + " Добавить недвижимость", new_subject_path(:customer_id => @customer.id), :class => "btn btn-primary" %>
-    <%= link_to edit_icon + " Редактировать",
-        edit_customer_path(@customer), :class => "btn" %>
-    <% if can? :desrtoy, @customer %><%= link_to delete_icon + " Удалить",
-    @customer, :method => :delete, :confirm => "Вы уверены?", :class => "btn" %><% end %>        
-=======
+
   <div class="tab-content">
     <div class="tab-pane active" id="1">
       <div id="fields-for-customers">
@@ -133,6 +90,6 @@
     <div class="tab-pane" id="2">
       объекты
     </div>
->>>>>>> develop
+
   </div>
 </div>
