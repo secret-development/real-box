@@ -7,9 +7,8 @@ Crm::Application.routes.draw do
   resources :tasks 
   resources :customers do
     get 'all', :on => :collection
+    post 'lastcallcustomer', :on => :collection
   end
-  
-  
   
   resources :subjects
   

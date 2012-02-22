@@ -5,7 +5,16 @@ describe CustomersController do
   render_views
   
   before(:each) do
-
+    @attr = {
+      :firstname => "vano", 
+      :lastname => "vanov", 
+      :phonehome => "1243", 
+      :phonemobile => "876965",
+      :email => "sam@mail.ru",
+      :potentials => false,
+      :note => "blabla",
+      :lastcall => Time.now.weeks_ago(1)
+    }
     soc = Factory(:social_status)
     typetr = Factory(:typetransaction)
     @customer = Factory(:customer, :typetransaction => typetr, :social_status => soc)
@@ -59,6 +68,15 @@ describe CustomersController do
       post :create, :customer => @attr
       flash[:notice].should =~ /Клиент успешно сохранен!/
     end     
+  end
+  
+  describe "POST 'lastcallcustomer'" do
+    it "should not create customer" do
+      lambda do
+        post :lastcallcustomer, :id => @customer.id,
+            :lastcall => Time.now
+      end.should_not change(Customer, :count)
+    end
   end
   
   describe "scope should be show potentials and real customers" do

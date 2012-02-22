@@ -55,6 +55,15 @@ class CustomersController < ApplicationController
     redirect_to @customer
   end
   
+  def lastcallcustomer
+    customer = Customer.find(params[:id])
+    customer.update_attribute(:lastcall, Time.current)
+    @lastcall = customer.lastcall.strftime('%d.%m.%Y %H:%M:%S')
+    respond_to do |format|
+      format.json { render :json => @lastcall}
+    end
+  end
+  
   private
   
   def sort_column
@@ -64,4 +73,8 @@ class CustomersController < ApplicationController
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"    
   end
+
+  
 end
+
+# todo: переделать дату формата
