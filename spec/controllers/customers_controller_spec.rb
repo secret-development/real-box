@@ -13,7 +13,7 @@ describe CustomersController do
       :email => "sam@mail.ru",
       :potentials => false,
       :note => "blabla",
-      :lastcall => Time.now
+      :lastcall => Time.now.weeks_ago(1)
     }
     soc = Factory(:social_status)
     typetr = Factory(:typetransaction)
