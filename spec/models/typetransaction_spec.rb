@@ -36,6 +36,18 @@ describe Typetransaction do
         t.macro.should == :has_many
       end
     end
+    
+    describe "has_many :transactions" do
+      it "should respond to transactions" do
+        t = Typetransaction.new(@attr)
+        t.should respond_to(:transactions)
+      end
+      
+      it "should has_many :transactions" do
+        t = Typetransaction.reflect_on_association(:transactions)
+        t.macro.should == :has_many
+      end
+    end
   end
 end
 
@@ -47,4 +59,13 @@ end
 #  name       :string(255)
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
+## == Schema Information
 #
+# Table name: typetransactions
+#
+#  id         :integer(4)      not null, primary key
+#  name       :string(255)
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+

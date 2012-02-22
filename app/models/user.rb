@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
                   :birth_date, :adress, :phone
                   
   has_many :tasks, :dependent => :destroy
+  has_many :transactions
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
