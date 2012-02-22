@@ -12,5 +12,5 @@ require 'spec_helper'
 #   end
 # end
 describe TransactionsHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
 end
