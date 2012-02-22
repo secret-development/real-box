@@ -5,6 +5,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   def check_permissions
     authorize! :create, resource
   end
+  
 
 
 end

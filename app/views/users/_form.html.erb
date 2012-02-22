@@ -1,8 +1,8 @@
 <h2>Sign up</h2>
-<% if can? :new, resource %>
+<%# if can? :new, User%>
   
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<%= form_for @user do |f| %>
+  
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
@@ -19,5 +19,4 @@
   <div><%= f.submit "Зарегистрировать" %></div>
   
 <% end %>
-<%= render "links" %>
-<% end %>
+<%# end %>

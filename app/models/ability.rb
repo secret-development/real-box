@@ -3,9 +3,10 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    #user ||= User.new
+    user ||= User.new
     if user.role == "admin"
       can :manage, :all
+      #can :new, User
     elsif user.role == "agent"
       cannot :destroy, @customer
       can :read, Task
