@@ -80,19 +80,26 @@ $(document).ready(function() {
     $.ajax({
       url: '/customers/lastcallcustomer',
       type: 'POST',
-      dataType: 'xml/json',
+      dataType: 'json',
       data: {id: customer_id },
+      complete: function(xhr, textStatus) {
+        console.log(xhr, textStatus);
+      },
       success: function(data, textStatus, xhr) {
         $("#last-call-value")
-          .html(data)
-          .hide()
-          .fadeIn('slow');
+                 .html(data)
+                 .hide()
+                 .fadeIn('slow');
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        console.log(xhr, textStatus, errorThrown);
       }
     });
-    
   });
-});
+  
 
+  
+});
 
 
 // live search for customer
@@ -122,4 +129,3 @@ $(document).ready(function() {
     return false;
   });
 });
-
