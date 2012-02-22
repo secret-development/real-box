@@ -17,7 +17,7 @@
         <td><%= task.id %></td>
         <td><%= link_to task.title, task_path(task) %></td>
         <td>
-          <%= link_to task.user.short_name, user_path(task.user) %>
+          <%= link_to task.user.last_name, user_path(task.user) %>
         </td>
         <td><%= to_datetime(task.deadline) %></td>
         <td> 
