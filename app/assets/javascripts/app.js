@@ -80,16 +80,54 @@ $(document).ready(function() {
     $.ajax({
       url: '/customers/lastcallcustomer',
       type: 'POST',
-      dataType: 'xml/json',
+      dataType: 'json',
       data: {id: customer_id },
+      complete: function(xhr, textStatus) {
+        console.log(xhr, textStatus);
+      },
       success: function(data, textStatus, xhr) {
+        var last = new Date(data);
+        last = last.toLocaleFormat("%d.%m.%Y %H:%M:%S");
         $("#last-call-value")
-          .html(data)
-          .hide()
-          .fadeIn('slow');
+                 .html(last)
+                 .hide()
+                 .fadeIn('slow');
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        console.log(xhr, textStatus, errorThrown);
       }
     });
-    
+  });
+  
+
+  
+});
+
+
+// live search for customer
+$(document).ready(function() {
+  $('#customer th a').live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  
+  $('#customers_search input').keyup(function(){
+    $.get($("#customers_search").attr("action"), $("#customers_search").serialize(), null, "script");
+    return false;
   });
 });
-// todo: доделать кастомеров id
+
+
+
+// live search for tasks
+$(document).ready(function() {
+  $('#task th a').live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  
+  $('#tasks_search input').keyup(function(){
+    $.get($("#tasks_search").attr("action"), $("#tasks_search").serialize(), null, "script");
+    return false;
+  });
+});
