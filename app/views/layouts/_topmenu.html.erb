@@ -37,10 +37,8 @@
         </li>
       </ul>
       <ul class="nav pull-right">
-        <li>
-          <%# if can? :read,  %>
+        <li id="settings-link">
           <%= link_to "Настройки", settings_path %>
-          <%# end %>
         </li>
         <li>
           <%= link_to 'Выход', destroy_user_session_path, method: :delete  %>

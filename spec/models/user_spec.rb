@@ -171,3 +171,22 @@ describe User do
   
 >>>>>>> develop
 end
+<<<<<<< HEAD
+=======
+
+## == Schema Information
+#
+# Table name: users
+#
+#  id          :integer(4)      not null, primary key
+#  email       :string(255)
+#  last_name   :string(255)
+#  first_name  :string(255)
+#  middle_name :string(255)
+#  birth_date  :date
+#  adress      :string(255)
+#  phone       :string(255)
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#
+>>>>>>> develop

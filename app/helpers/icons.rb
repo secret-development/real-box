@@ -32,5 +32,13 @@ module Icons
   def icon_plus_sign
     raw("<i class='icon-plus-sign'></i>")    
   end
+  
+  def icon_map
+    raw("<i class='icon-map-marker'></i>")
+  end
+  
+  def icon_con_white
+    raw("<i class='icon-cog icon-white'></i>")
+  end
   # END ICONS
 end

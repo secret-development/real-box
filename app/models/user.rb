@@ -18,3 +18,4 @@ class User < ActiveRecord::Base
 #    @accessible_roles = User.role.    
 #  end
 end
+

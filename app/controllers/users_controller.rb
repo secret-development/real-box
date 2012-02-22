@@ -2,6 +2,7 @@
 class UsersController < ApplicationController
   #before_filter :check_permissions, :only => [:new, :create] 
   respond_to :html
+<<<<<<< HEAD
   before_filter :get_user, :only => [:index,:new,:edit]
   #load_and_authorize_resource :only => [:show,:new,:destroy,:edit,:update]  
   
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
 #  def check_permissions
 #    authorize! :create, user
 #  end
+
   
   def index
     @users = User.accessible_by(current_ability, :index)
@@ -35,10 +37,4 @@ class UsersController < ApplicationController
   def get_user
     @current_user = current_user    
   end
-  
-  
-    
-
-  
-  
 end

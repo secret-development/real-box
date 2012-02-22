@@ -105,6 +105,7 @@ describe ConditionField do
   end
   
 end
+
 # == Schema Information
 #
 # Table name: condition_fields
@@ -116,4 +117,3 @@ end
 #  typefield      :string(255)
 #  typesubject_id :integer(4)
 #
-

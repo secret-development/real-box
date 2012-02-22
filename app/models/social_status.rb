@@ -23,6 +23,7 @@ class SocialStatus < ActiveRecord::Base
     order("title ASC")    
   end
 end
+
 # == Schema Information
 #
 # Table name: social_statuses
@@ -32,4 +33,3 @@ end
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
 #
-

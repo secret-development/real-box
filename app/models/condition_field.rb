@@ -48,6 +48,7 @@ class ConditionField < ActiveRecord::Base
   end
   
 end
+
 #
 # Table name: condition_fields
 #
@@ -58,4 +59,3 @@ end
 #  typefield      :string(255)
 #  typesubject_id :integer(4)
 #
-

@@ -3,7 +3,7 @@ module ApplicationHelper
   include Icons
   
   def title
-    base_title = "Система: ReHandy"
+    base_title = "CRM"
     if @title
       "#{base_title} | #{@title}"
     else

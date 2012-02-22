@@ -50,12 +50,18 @@ class Task < ActiveRecord::Base
     end
   end
   
+  def self.search(search)
+    if search
+      where('title LIKE ?', "%#{search}%")
+    else
+      scoped
+    end 
+  end
+  
 end
 
-
 #TODO: file_attachment
-#TODO: data picker
-#TODO: bootstrap collapse (уточнить время)
+#TODO: sortable users (when users will be done)
 # == Schema Information
 #
 # Table name: tasks
@@ -69,4 +75,3 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #
-
