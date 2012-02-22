@@ -4,6 +4,7 @@ class Customer < ActiveRecord::Base
   belongs_to :typetransaction
   belongs_to :social_status
   has_many :subjects, :dependent => :destroy
+  has_many :transactions
   #validations
   validates :firstname, :lastname, :presence => true
   #scope
@@ -60,4 +61,3 @@ end
 #  potentials         :boolean(1)      default(FALSE)
 #  social_status_id   :integer(4)
 #  typetransaction_id :integer(4)
-#

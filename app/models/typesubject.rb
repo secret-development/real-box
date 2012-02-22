@@ -33,4 +33,3 @@ end
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
 #  floor      :boolean(1)
-#
