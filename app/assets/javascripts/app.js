@@ -92,4 +92,34 @@ $(document).ready(function() {
     
   });
 });
-// todo: доделать кастомеров id
+
+
+
+// live search for customer
+$(document).ready(function() {
+  $('#customer th a').live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  
+  $('#customers_search input').keyup(function(){
+    $.get($("#customers_search").attr("action"), $("#customers_search").serialize(), null, "script");
+    return false;
+  });
+});
+
+
+
+// live search for tasks
+$(document).ready(function() {
+  $('#task th a').live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  
+  $('#tasks_search input').keyup(function(){
+    $.get($("#tasks_search").attr("action"), $("#tasks_search").serialize(), null, "script");
+    return false;
+  });
+});
+
