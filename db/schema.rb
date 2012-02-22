@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221131348) do
+ActiveRecord::Schema.define(:version => 20120222133913) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -54,17 +54,6 @@ ActiveRecord::Schema.define(:version => 20120221131348) do
   end
 
   add_index "districts", ["title"], :name => "index_districts_on_title"
-
-  create_table "roles", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "roles_users", :id => false, :force => true do |t|
-    t.integer "role_id"
-    t.integer "user_id"
-  end
 
   create_table "social_statuses", :force => true do |t|
     t.string   "title"
@@ -120,9 +109,12 @@ ActiveRecord::Schema.define(:version => 20120221131348) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "role"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
