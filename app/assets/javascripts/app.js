@@ -72,3 +72,24 @@ $(document).ready(function() {
     };
   });
 });
+
+// last call customer
+$(document).ready(function() {
+  $("#man-called-but").click(function(event) {
+    var customer_id = $(this).attr("data-customer-id");
+    $.ajax({
+      url: '/customers/lastcallcustomer',
+      type: 'POST',
+      dataType: 'xml/json',
+      data: {id: customer_id },
+      success: function(data, textStatus, xhr) {
+        $("#last-call-value")
+          .html(data)
+          .hide()
+          .fadeIn('slow');
+      }
+    });
+    
+  });
+});
+// todo: доделать кастомеров id
