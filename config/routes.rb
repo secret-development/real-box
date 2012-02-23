@@ -5,8 +5,9 @@ Crm::Application.routes.draw do
   get "potentials/index"
   match "potentials" => "potentials#index", :as => :potentials
 
-  #resources :users
+
   resources :tasks
+
   resources :customers do
     get 'all', :on => :collection
     post 'lastcallcustomer', :on => :collection

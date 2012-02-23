@@ -61,6 +61,12 @@ ActiveRecord::Schema.define(:version => 20120222133913) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "statustransactions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "subjects", :force => true do |t|
     t.integer  "typesubject_id"
     t.integer  "city_id"
@@ -82,6 +88,25 @@ ActiveRecord::Schema.define(:version => 20120222133913) do
     t.boolean  "done"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "transactions", :force => true do |t|
+    t.integer  "typetransaction_id"
+    t.integer  "statustransaction_id"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "price"
+    t.integer  "customer_id"
+    t.integer  "user_id"
+    t.boolean  "payment"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  create_table "type_customers", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "typesubjects", :force => true do |t|

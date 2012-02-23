@@ -72,4 +72,3 @@ end
 #  typetransaction_id :integer(4)
 #  customer_id        :integer(4)
 #  district_id        :integer(4)
-#
