@@ -1,4 +1,5 @@
-<%= form_for(@subject, :html => {:class => "form-horizontal"}) do |f| %>
+<%= form_for(@subject, :html => 
+  {:multipart => true,:class => "form-horizontal"}) do |f| %>
   <%= error_messages_for(@subject) %>
   <fieldset>
     <legend><%= @subject.legend_value %></legend>
@@ -70,7 +71,7 @@
       };
       var url = $('#photo_image').attr('rel');
       $('#photo_image').uploadify({
-        'uploader'     : '/assets/uploadify.swf',
+        'uploader'     : 'uploadify.swf',
         'script'       : url,
         'fileDataName' : 'photo[image]',
         'fileExt'      : '*.png;*.jpg;*.gif',
