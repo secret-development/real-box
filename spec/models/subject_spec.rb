@@ -134,6 +134,12 @@ describe Subject do
         subject.macro.should == :belongs_to
       end
     end
+    
+    describe "photos" do
+      it "should respond to photos" do
+        subject = 
+      end
+    end
   end
 end
 
