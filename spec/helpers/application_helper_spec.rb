@@ -4,7 +4,7 @@ require 'spec_helper'
 describe ApplicationHelper do
   
   before(:all) do
-    @default_title = "Система: ReHandy"
+    @default_title = "CRM"
   end
   
   describe "#title" do

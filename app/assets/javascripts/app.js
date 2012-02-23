@@ -82,23 +82,14 @@ $(document).ready(function() {
       type: 'POST',
       dataType: 'json',
       data: {id: customer_id },
-      complete: function(xhr, textStatus) {
-        console.log(xhr, textStatus);
-      },
       success: function(data, textStatus, xhr) {
-        var last = new Date(data);
-        last = last.toLocaleFormat("%d.%m.%Y %H:%M:%S");
         $("#last-call-value")
-                 .html(last)
-                 .hide()
-                 .fadeIn('slow');
-      },
-      error: function(xhr, textStatus, errorThrown) {
-        console.log(xhr, textStatus, errorThrown);
+          .html(data)
+          .effect("highlight", {color: '#676767'}, 1000);
       }
     });
+    
   });
-  
 
   
 });
