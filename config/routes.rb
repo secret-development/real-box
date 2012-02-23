@@ -13,7 +13,9 @@ Crm::Application.routes.draw do
     post 'lastcallcustomer', :on => :collection
   end
   
-  resources :subjects
+  resources :subjects do
+    resources :photos, :only => [:create, :destroy]
+  end
   
   resources :cities, :except => [:show]
   resources :social_statuses, :except => [:show]
