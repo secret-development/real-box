@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :photo do
-    image "MyString"
+    image "cat.png"
   end
 end
