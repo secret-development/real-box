@@ -2,6 +2,7 @@
 class CustomersController < ApplicationController
   respond_to :html
   helper_method :sort_column, :sort_direction
+  #load_and_authorize_resource
 
   def all
     @customers = Customer.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(7)
@@ -20,7 +21,8 @@ class CustomersController < ApplicationController
   
   def edit
     @customer = Customer.find(params[:id])
-    respond_with @customer    
+    respond_with @customer
+    #unauthorized! if cannot? :update, @customer   
   end
   
   def show
@@ -53,6 +55,7 @@ class CustomersController < ApplicationController
     @customer.destroy
     flash[:notice] = "Клиент успешно удален"
     redirect_to @customer
+    unauthorized! if cannot? :destroy, @customer 
   end
   
   def lastcallcustomer

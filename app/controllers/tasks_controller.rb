@@ -53,7 +53,7 @@ class TasksController < ApplicationController
     flash[:notice] = "Задача успешно удалена"
     redirect_to tasks_path
   end
-  
+
   private
   
   def sort_column
