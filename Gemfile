@@ -21,6 +21,10 @@ gem "kaminari", "~> 0.13.0"
 gem 'validates_timeliness', '~> 3.0.2'
 gem 'jquery_datepicker'
 
+# for attachment:
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'flash_cookie_session'
 
 # Authorization
 #gem "cancan", "~> 1.6.7"
