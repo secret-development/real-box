@@ -1,0 +1,63 @@
+<div class="transaction_form">
+  <%= form_for(@transaction, :html => {:class => "form-horizontal"}) do |f| %>
+    <%= error_messages_for(@transaction) %>
+    <fieldset>
+      <legend><%= @transaction.legend %> сделки</legend>
+      <div class="control-group">
+        <%= f.label :name, "Название:" %>
+        <div class="controls">
+          <%= f.text_field :name %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :typetransaction_id, "Тип сделки:" %>
+        <div class="controls">
+          <%= f.collection_select(:typetransaction_id, Typetransaction.all, 
+              :id, :name) %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :statustransaction_id, "Статус сделки:" %>
+        <div class="controls">
+          <%= f.collection_select(:statustransaction_id, Statustransaction.all,
+          :id, :name) %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :customer_id, "Клиент:" %>
+        <div class="controls">
+          <%= f.collection_select(:customer_id, Customer.all, :id, :lastname) %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :user_id, "Ответственный:" %>
+        <div class="controls">
+          <%= f.collection_select(:user_id, User.all, :id, :last_name) %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :price, "Сумма:" %>
+        <div class="controls">
+          <%= f.text_field :price %>
+          <span class="calc-label">$</span>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :payment, "Сделка оплачена:" %>
+        <div class="controls">
+          <%= f.check_box :payment %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :description, "Описание:" %>
+        <div class="controls">
+          <%= f.text_area :description, :rows => "8", :class => "span4" %>
+        </div>
+      </div>
+      <div class="form-actions">
+        <%= f.submit @transaction.button_value, :class => "btn btn-primary" %>
+        <button type="reset" class="btn cancel-form">Отмена</button>
+      </div>
+    </fieldset>
+    <% end %>
+</div>

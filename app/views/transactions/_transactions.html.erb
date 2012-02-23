@@ -1,0 +1,59 @@
+<table class="table table-striped table-condensed transactions">
+  <thead>
+    <tr>
+      <th><%= sortable "id", "#" %></th>
+      <th><%= sortable "name", "Сделка" %></th>
+      <th><%= sortable "typetransaction_id", "Тип сделки" %></th>
+      <th><%= sortable "customer_id", "Клиент" %></th>
+      <th><%= sortable "user_id", "Ответственный" %></th>
+      <th><%= sortable "statustransaction_id", "Статус сделки" %></th>
+      <th><%= sortable "created_at", "Дата" %></th>
+      <th>Оплата</th>
+      <th>Операции</th>
+    </tr>
+  </thead>
+<!-- 
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.id %></td>
+        <td><%= link_to transaction.title, transaction_path(transaction) %></td>
+        <td>
+          <%= link_to transaction.user.last_name, user_path(transaction.user) %>
+        </td>
+        <td><%= to_datetime(transaction.deadline) %></td>
+        <td> 
+          <div class="btn-group">
+            <a class="btn" href="#">
+              <%= transaction.status %>
+            </a>
+            <a class="btn dropdown-toggle" 
+            data-toggle="dropdown" href="#">
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <%= link_to "Задача не выполнена", transaction_path(transaction, 
+                          :transaction => { :done => false }),
+                          :method => :put, 
+                          :confirm => "Вы уверены?" %>
+              <%= link_to "Задача выполнена", transaction_path(transaction, 
+                          :transaction => { :done => true}),
+                          :method => :put, 
+                          :confirm => "Вы уверены?" %>
+            </ul>
+          </div>
+        </td>
+        <td><%= to_datetime(transaction.created_at) %></td>
+        <td>
+          <%= link_to eye_icon, transaction_path(transaction) %>
+          <%= link_to edit_icon, edit_transaction_path(transaction) %>
+          <%= link_to delete_icon, transaction, :method => :delete,
+                      :confirm => "Вы уверены?" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @transactions %>
+
+-->
