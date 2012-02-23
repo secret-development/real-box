@@ -1,6 +1,6 @@
 Crm::Application.routes.draw do
 
-  devise_for :users
+  get "users/new"
 
   get "potentials/index"
   match "potentials" => "potentials#index", :as => :potentials

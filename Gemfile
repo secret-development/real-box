@@ -21,11 +21,9 @@ gem "kaminari", "~> 0.13.0"
 gem 'validates_timeliness', '~> 3.0.2'
 gem 'jquery_datepicker'
 
-# Authentication
-gem "devise", "~> 2.0.4"
 
 # Authorization
-gem "cancan", "~> 1.6.7"
+#gem "cancan", "~> 1.6.7"
 
 # annotate model:
 gem 'annotate', '~> 2.4.1.beta'
