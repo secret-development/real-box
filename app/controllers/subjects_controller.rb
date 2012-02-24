@@ -1,7 +1,7 @@
 # encoding:utf-8
 class SubjectsController < ApplicationController
   respond_to :html
-  
+  before_filter :all_deny
   def index
     @subjects = Subject.all
     respond_with(@subjects)

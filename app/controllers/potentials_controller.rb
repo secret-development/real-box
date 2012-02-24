@@ -1,5 +1,6 @@
 # encoding: UTF-8
 class PotentialsController < ApplicationController
+  before_filter :all_deny 
   respond_to :html
   helper_method :sort_column, :sort_direction
   
