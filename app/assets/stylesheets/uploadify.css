@@ -27,8 +27,8 @@ THE SOFTWARE.
 	border: 2px solid #E5E5E5;
 	font: 11px Verdana, Geneva, sans-serif;
 	margin-top: 5px;
-	padding: 10px;
-	width: 350px;
+	padding: 5px;
+	width: 180px;
 }
 .uploadifyError {
 	background-color: #FDE5DD !important;
