@@ -1,12 +1,12 @@
-<h1>Log in</h1>
+
 <div class="span6">
-<%= form_tag sessions_path, :html => {:class  => "well form-inline"} do %>
-  <%= label_tag :email %>
-  <%= email_field_tag :email %>
+<h1>Вход</h1>
+<%= form_tag(sessions_path, :class => "well form-inline") do %>
   
-  <%= label_tag :password %>
+  <%= email_field_tag :email%>
+  
   <%= password_field_tag :password %>
   
-  <%= submit_tag "Log in", :class => "btn" %>
+  <%= submit_tag "Войти", :class => "btn" %>
 <% end %>
 </div>
