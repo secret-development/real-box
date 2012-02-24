@@ -1,5 +1,6 @@
 # encoding: utf-8
 class ValueFieldsController < ApplicationController
+  before_filter :all_deny
   respond_to :html
   before_filter :load_typesubject, :only => [:index]
   

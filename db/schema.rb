@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120222095022) do
+ActiveRecord::Schema.define(:version => 20120223121400) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -34,12 +34,10 @@ ActiveRecord::Schema.define(:version => 20120222095022) do
     t.string   "phonemobile"
     t.string   "email"
     t.text     "note"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "potentials",         :default => false
-    t.integer  "type_customer_id"
     t.integer  "social_status_id"
-    t.string   "permalink"
     t.integer  "typetransaction_id"
     t.datetime "lastcall"
   end
@@ -54,6 +52,13 @@ ActiveRecord::Schema.define(:version => 20120222095022) do
   end
 
   add_index "districts", ["title"], :name => "index_districts_on_title"
+
+  create_table "photos", :force => true do |t|
+    t.integer  "subject_id"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "social_statuses", :force => true do |t|
     t.string   "title"
@@ -103,12 +108,6 @@ ActiveRecord::Schema.define(:version => 20120222095022) do
     t.datetime "updated_at",           :null => false
   end
 
-  create_table "type_customers", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "typesubjects", :force => true do |t|
     t.string   "name"
     t.string   "permalink"
@@ -125,14 +124,10 @@ ActiveRecord::Schema.define(:version => 20120222095022) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.string   "last_name"
-    t.string   "first_name"
-    t.string   "middle_name"
-    t.date     "birth_date"
-    t.string   "adress"
-    t.string   "phone"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "value_fields", :force => true do |t|

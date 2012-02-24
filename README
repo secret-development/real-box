@@ -2,7 +2,4 @@ empty
 # TODO: 1) запоминать выбранные чекбоксы при поиске
 2) создать конф файл http://railscasts.com/episodes/85-yaml-configuration-file
 # TODO: сделать вывод ошибок
-# TODO: почитать про attr_accessible и применить
-# TODO: сделать todo(textmate), районы прикрепитьс  помощью автокомлита 258(railscasts)
-
-# TODO: убрать пагинацию ajax с customer
+# TODO: сделать mount в photo

@@ -2,13 +2,8 @@
 
 FactoryGirl.define do
   factory :user do
-    id "1"
-    email "MyString@mail.com"
-    last_name "MyString"
-    first_name "MyString"
-    middle_name "MyString"
-    birth_date "2012-01-25"
-    adress "MyString"
-    phone "MyString"
+    email "MyString"
+    password_hash "MyString"
+    password_salt "MyString"
   end
 end

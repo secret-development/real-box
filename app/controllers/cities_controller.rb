@@ -1,6 +1,6 @@
 # encoding:utf-8
 class CitiesController < ApplicationController
-  
+  before_filter :all_deny
   respond_to :html
   
   def index

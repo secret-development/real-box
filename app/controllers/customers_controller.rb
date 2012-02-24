@@ -1,5 +1,6 @@
 # encoding: UTF-8
 class CustomersController < ApplicationController
+  before_filter :all_deny
   respond_to :html
   helper_method :sort_column, :sort_direction
 
@@ -20,7 +21,8 @@ class CustomersController < ApplicationController
   
   def edit
     @customer = Customer.find(params[:id])
-    respond_with @customer    
+    respond_with @customer
+    #unauthorized! if cannot? :update, @customer   
   end
   
   def show
@@ -53,6 +55,7 @@ class CustomersController < ApplicationController
     @customer.destroy
     flash[:notice] = "Клиент успешно удален"
     redirect_to @customer
+    unauthorized! if cannot? :destroy, @customer 
   end
   
   def lastcallcustomer

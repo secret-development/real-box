@@ -1,74 +1,26 @@
-#encoding: UTF-8
+# encoding:utf-8
 class User < ActiveRecord::Base
+  attr_accessor :password
+  attr_accessible :email, :password, :password_confirmation 
+  before_save :encrypt_password
+  validates :password, :confirmation => true
+  validates :password_confirmation, :presence => true
+  validates :email, :uniqueness => true
   
-  attr_accessible :email, :last_name,
-                  :first_name, :middle_name,
-                  :birth_date, :adress, :phone
-                  
-  has_many :tasks, :dependent => :destroy
-  has_many :transactions
+  def encrypt_password
+    if password.present?
+      self.password_salt = BCrypt::Engine.generate_salt
+      self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
+    end    
+  end
   
-  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  
-  validates :adress, :phone, :birth_date, 
-            :presence => true
-  
-  validates :first_name, :last_name, :middle_name,
-            :presence => true,
-            :length => { :maximum => 50 }
-            
-  validates :email, :presence   => true,
-            :format     => { :with => email_regex },
-            :uniqueness => { :case_sensitive => false }
-            
-  scope :forform, reorder("last_name ASC")
-            
-  def button_value
-    if new_record?
-      "Добавить"
+  def self.authenticate(email, password)
+    user = find_by_email(email)
+    if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
+      user
     else
-      "Обновить"  
-    end
-  end
-  
-  def legend
-    if new_record?
-      "Добавление"
-    else
-      "Редактирование"
-    end
-  end
-  
-  def full_name
-    last_name + ' ' + first_name + ' ' + middle_name
-  end
-  
-  def short_name
-    last_name + ' ' + first_name.strip[0] + '.'
-  end
-  
-  def self.search(search)
-    if search
-      where('last_name LIKE ?', "%#{search}%")
-    else
-      scoped
-    end 
+      nil      
+    end        
   end
   
 end
-
-# == Schema Information
-#
-# Table name: users
-#
-#  id          :integer(4)      not null, primary key
-#  email       :string(255)
-#  last_name   :string(255)
-#  first_name  :string(255)
-#  middle_name :string(255)
-#  birth_date  :date
-#  adress      :string(255)
-#  phone       :string(255)
-#  created_at  :datetime        not null
-#  updated_at  :datetime        not null
-#

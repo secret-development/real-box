@@ -1,19 +1,27 @@
 Crm::Application.routes.draw do
 
+  get "sign_in" => "sessions#new", :as => "sign_in"
+  get "sign_out" => "sessions#destroy", :as => "sign_out"
+
+  get "sign_up => " "users/new", :as => "sign_up"
+  resource :users
+  resource :sessions
+
   get "potentials/index"
   match "potentials" => "potentials#index", :as => :potentials
-  
-  resources :users
-  resources :tasks 
+  resources :tasks  
   resources :customers do
     get 'all', :on => :collection
     post 'lastcallcustomer', :on => :collection
   end
   
-  resources :subjects
+  resources :subjects do
+    resources :photos, :only => [:create, :destroy]
+    get "add_photo", :on => :member, :as => :add_photo
+  end
+  
   resources :transactions
   resources :cities, :except => [:show]
-  resources :type_customers, :except => [:show]
   resources :social_statuses, :except => [:show]
   resources :condition_fields
   resources :value_fields, :except => [:show]
