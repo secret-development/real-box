@@ -26,7 +26,7 @@
   </div>
   <div class="actions-with-subject">
     <%= link_to icon_camera_white + " Добавить фотографии", 
-        "#", :class => "btn btn-success" %>
+        add_photo_subject_path(@subject), :class => "btn btn-success" %>
     <%= link_to edit_icon + " Редактировать",
         edit_subject_path(@subject), :class => "btn" %>
     <%= link_to delete_icon + " Удалить",

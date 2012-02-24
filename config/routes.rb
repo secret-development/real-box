@@ -15,6 +15,7 @@ Crm::Application.routes.draw do
   
   resources :subjects do
     resources :photos, :only => [:create, :destroy]
+    get "add_photo", :on => :member, :as => :add_photo
   end
   
   resources :cities, :except => [:show]
