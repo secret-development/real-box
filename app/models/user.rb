@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :email, :password, :password_confirmation 
   before_save :encrypt_password
+  # remember me
+  before_create {generate_token(:auth_token)}
   # validations
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :password, :presence => true,
@@ -26,6 +28,12 @@ class User < ActiveRecord::Base
     else
       nil      
     end        
+  end
+  
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64      
+    end while User.exists?(column => self[column])    
   end
   
 end

@@ -7,6 +7,9 @@
   
   <%= password_field_tag :password %>
   
+  <%= label_tag :remember_me, "Запомнить меня" %>
+  <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+  
   <%= submit_tag "Войти", :class => "btn" %>
 <% end %>
 </div>
