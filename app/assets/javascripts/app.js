@@ -123,3 +123,9 @@ $(document).ready(function() {
   });
 });
 
+// add photo to subject
+$(document).ready(function() {
+
+  
+  
+});

@@ -47,11 +47,13 @@ form{
   float:left;
   min-width:200px;
   margin-bottom:20px;
+  margin-top:20px;
+  margin-right:100px;
 }
 #photos{
   float:left;
-  margin-left:100px;
-  width:70%;
+  margin-top:20px;
+  width:55%;
   h1{
     font-weight:normal;
     margin-bottom:20px;
@@ -60,13 +62,13 @@ form{
 .photo-subject{
   margin-bottom:10px;
   float:left;
-  margin-right:25px;
-  min-width:202px;
-  min-height:150px;
+  margin-right:10px;
+  min-width:160px;
+  min-height:110px;
   .self-photo{
     img{
-      width:180px;
-      height:140px;
+      width:140px;
+      height:100px;
     }
     a{
       margin-left:2px;
@@ -75,5 +77,8 @@ form{
 }
 #back-to-subject{
   clear:both;
-  margin-top:80px;
+  margin-top:50px;
+}
+#subject-photo-complete-msg{
+  display:none;
 }
