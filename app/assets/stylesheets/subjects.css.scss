@@ -41,3 +41,39 @@ form{
     margin-left:10px;
   }
 }
+
+// photos:
+#add-photo-button-form{
+  float:left;
+  min-width:200px;
+  margin-bottom:20px;
+}
+#photos{
+  float:left;
+  margin-left:100px;
+  width:70%;
+  h1{
+    font-weight:normal;
+    margin-bottom:20px;
+  }
+}
+.photo-subject{
+  margin-bottom:10px;
+  float:left;
+  margin-right:25px;
+  min-width:202px;
+  min-height:150px;
+  .self-photo{
+    img{
+      width:180px;
+      height:140px;
+    }
+    a{
+      margin-left:2px;
+    }
+  }
+}
+#back-to-subject{
+  clear:both;
+  margin-top:80px;
+}
