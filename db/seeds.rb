@@ -21,3 +21,5 @@ statuses_of_transactions.each do |s|
   Statustransaction.create(:name => s)
 end
 
+User.create(email: 'admin@example.com', password: 'password')
+
