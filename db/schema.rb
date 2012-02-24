@@ -37,7 +37,9 @@ ActiveRecord::Schema.define(:version => 20120223121400) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "potentials",         :default => false
+    t.integer  "type_customer_id"
     t.integer  "social_status_id"
+    t.string   "permalink"
     t.integer  "typetransaction_id"
     t.datetime "lastcall"
   end
