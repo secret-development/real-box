@@ -59,5 +59,9 @@ class SubjectsController < ApplicationController
     flash[:notice] = "Объект успешно удалён"
     redirect_to subjects_path
   end
+  
+  def add_photo
+    @subject = Subject.find(params[:id])  
+  end
 
 end

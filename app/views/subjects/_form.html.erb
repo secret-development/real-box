@@ -1,4 +1,5 @@
-<%= form_for(@subject, :html => {:class => "form-horizontal"}) do |f| %>
+<%= form_for(@subject, :html => 
+  {:multipart => true,:class => "form-horizontal"}) do |f| %>
   <%= error_messages_for(@subject) %>
   <fieldset>
     <legend><%= @subject.legend_value %></legend>
