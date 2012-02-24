@@ -147,6 +147,12 @@ describe SubjectsController do
     end
   end
   
+  describe "add_photo" do
+    it "should be success" do
+      get 'add_photo'
+      response.should be_success
+    end
+  end
   
   # valid data
   def valid_data
