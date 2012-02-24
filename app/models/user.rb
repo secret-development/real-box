@@ -3,9 +3,14 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :email, :password, :password_confirmation 
   before_save :encrypt_password
-  validates :password, :confirmation => true
-  validates :password_confirmation, :presence => true
-  validates :email, :uniqueness => true
+  # validations
+  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :password, :presence => true,
+                       :confirmation => true,
+                       :length => {:within => 6..20}
+  #validates :password_confirmation, :presence => true
+  validates :email, :uniqueness => { :case_sensitive => false}
+  validates :email, :presence => true, :format => {:with => email_regex}
   
   def encrypt_password
     if password.present?
