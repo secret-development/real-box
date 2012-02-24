@@ -4,7 +4,6 @@
   <fieldset>
     <legend>Добавить фотографии</legend>
   </fieldset>
-  <!-- photos  -->
   <% key = Rails.application.config.session_options[:key] %>
   <script type="text/javascript">
   $(function(){
@@ -29,19 +28,15 @@
      });
   });
   </script>
-  <div id="control-group">
-    <%= label_tag "photos", "Выберите фотографии" %>
-    <div class="controls">
-      <div id="photos">
-        <%= render :partial => "photos/photo", 
-            :collection => @subject.photos %>
-        <% unless @subject.new_record? %>
-          <%= fields_for Photo.new do |f| %>
-            <%= f.file_field :image, :rel => subject_photos_path(@subject) %>
-          <% end %>
-        <% end %>
-      </div>
+  <% unless @subject.new_record? %>
+    <div id="add_photo_button_form">
+      <%= fields_for Photo.new do |f| %>
+        <%= f.file_field :image, :rel => subject_photos_path(@subject) %>
+      <% end %>  
     </div>
+  <% end %>
+  <div id="photos">
+    <%= render :partial => "photos/photo", 
+        :collection => @subject.photos %>
   </div>
-  <!-- end photos -->
 <% end %>

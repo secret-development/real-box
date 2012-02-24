@@ -41,3 +41,28 @@ form{
     margin-left:10px;
   }
 }
+
+// photos:
+#add_photo_button_form{
+  float:left;
+  min-width:200px;
+}
+#photos{
+  float:left;
+  margin-left:100px;
+  width:70%;
+}
+.photo-subject{
+  margin-bottom:10px;
+  float:left;
+  margin-right:25px;
+  .self-photo{
+    img{
+      width:200px;
+      height:150px;
+    }
+    a{
+      margin-left:2px;
+    }
+  }
+}

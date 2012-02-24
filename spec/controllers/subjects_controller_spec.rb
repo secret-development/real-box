@@ -149,7 +149,7 @@ describe SubjectsController do
   
   describe "add_photo" do
     it "should be success" do
-      get 'add_photo'
+      get 'add_photo', :id => @subject
       response.should be_success
     end
   end

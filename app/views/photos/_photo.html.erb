@@ -1,7 +1,8 @@
 <div class="photo-subject">
   <div class="self-photo">
-    <%= image_tag photo.image_url(:thumb) if photo.image? %>
-    <%= link_to "Удалить", subject_photo_path(@subject, photo), 
-        :method => :delete, :confirm => "Вы уверены?", :remote => :true %>
+    <%= image_tag(photo.image_url.to_s) if photo.image? %>
+    <%= link_to delete_icon, subject_photo_path(@subject, photo), 
+        :method => :delete, :confirm => "Вы уверены?", 
+        :remote => :true, :title => "Удалить" %>
   </div>
 </div>
