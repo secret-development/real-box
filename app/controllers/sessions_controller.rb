@@ -7,13 +7,13 @@ class SessionsController < ApplicationController
   end
   
   def create
-    user = User.authenticate(params[:email], params[:password])
-    if user
+    user = User.find_by_email(params[:email])
+    if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to root_url
-      flash[:notice] = "log in!"
+      flash[:notice] = "Вход успешен"
     else
-      flash[:notice] = "Invalid"
+      flash[:notice] = "Неправильный почтовый адрес или пароль!"
       render 'new'
     end    
   end
