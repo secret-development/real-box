@@ -134,25 +134,26 @@ describe Subject do
         subject.macro.should == :belongs_to
       end
     end
+    
+    describe "photos" do
+      it "should respond to photos" do
+        subject = Subject.new(@attr)
+        subject.should respond_to(:photos)
+      end
+      
+      it "should has_many :photos" do
+        subject = Subject.reflect_on_association(:photos)
+        subject.macro.should == :has_many
+      end
+      
+      it "should depent destroy" do
+        subject = Subject.reflect_on_association(:photos)
+        subject.options[:dependent].should == :destroy
+      end
+    end
   end
 end
 
-# == Schema Information
-#
-# Table name: subjects
-#
-#  id                 :integer(4)      not null, primary key
-#  typesubject_id     :integer(4)
-#  city_id            :integer(4)
-#  price              :integer(4)
-#  area               :integer(4)
-#  address            :string(255)
-#  created_at         :datetime        not null
-#  updated_at         :datetime        not null
-#  typetransaction_id :integer(4)
-#  customer_id        :integer(4)
-#  district_id        :integer(4)
-#
 # == Schema Information
 #
 # Table name: subjects
