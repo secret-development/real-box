@@ -2,6 +2,7 @@
 
 class TransactionsController < ApplicationController
   
+  before_filter :all_deny
   respond_to :html
   helper_method :sort_column, :sort_direction
   
@@ -12,9 +13,13 @@ class TransactionsController < ApplicationController
   end
   
   def new
-    @transaction = Transaction.new
-    respond_with @transaction
-    @title = "Добавление сделки"
+    if params[:customer_id].nil?
+      redirect_to(transactions_path, :alert => "Нет привязанного клиента")
+    else
+      session[:customer_id] = params[:customer_id]
+      @transaction = Transaction.new
+      respond_with(@transaction)
+    end
   end
   
   def show
