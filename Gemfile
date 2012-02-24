@@ -22,7 +22,7 @@ gem 'validates_timeliness', '~> 3.0.2'
 gem 'jquery_datepicker'
 
 # for attachment:
-gem 'carrierwave'
+gem 'carrierwave', :git => 'git://github.com/jnicklas/carrierwave.git', :branch => "0.5-stable"
 gem 'mini_magick'
 gem 'flash_cookie_session'
 
