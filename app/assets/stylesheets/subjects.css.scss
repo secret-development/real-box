@@ -8,15 +8,25 @@
   -o-border-radius:5px;
   font-size:15px;
   color:#111111;
-  .field-subject{
-    margin-bottom:20px;
-    .title-field-subject{
-      display: inline-block;
-      min-width:180px;
-      color:#8B8B8B;
+  .subject-info{
+    float:left;
+    width:450px;
+    .field-subject{
+      margin-bottom:20px;
+      .title-field-subject{
+        display: inline-block;
+        min-width:180px;
+        color:#8B8B8B;
+      }
     }
   }
+  .subject-photos{
+    float:left;
+    border:1px solid #ccc;
+    margin-left:50px;
+  }
   .actions-with-subject{
+    clear:both;
     margin:30px 0px 10px 0px;
     a{
       margin-right:7px;

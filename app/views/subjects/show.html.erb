@@ -1,28 +1,37 @@
 <h1 class="title-page">Информация об объекте</h1>
 <div id="show-subject-page">
-  <div class="field-subject">
-    <span class="title-field-subject">Тип сделки:</span>
-    <%= @subject.typetransaction.name %>
+  <div class="subject-info">
+    <div class="field-subject">
+      <span class="title-field-subject">Тип сделки:</span>
+      <%= @subject.typetransaction.name %>
+    </div>
+    <div class="field-subject">
+      <span class="title-field-subject">Город:</span>
+      <%= @subject.city.name %>
+    </div>
+    <div class="field-subject">
+      <span class="title-field-subject">Тип объекта:</span>
+      <%= @subject.typesubject.name %>
+    </div>
+    <div class="field-subject">
+      <span class="title-field-subject">Район:</span>
+      <%= @subject.district.title %>
+    </div>
+    <div class="field-subject">
+      <span class="title-field-subject">Цена:</span>
+      <%= to_dollar(@subject.price) %>
+    </div>
+    <div class="field-subject">
+      <span class="title-field-subject">Площадь:</span>
+      <%= to_area(@subject.area) %>
+    </div>
+    <div class="field-subject">
+      <span class="title-field-subject">Адрес:</span>
+      <%= @subject.address %>
+    </div>
   </div>
-  <div class="field-subject">
-    <span class="title-field-subject">Город:</span>
-    <%= @subject.city.name %>
-  </div>
-  <div class="field-subject">
-    <span class="title-field-subject">Район:</span>
-    <%= @subject.district.title %>
-  </div>
-  <div class="field-subject">
-    <span class="title-field-subject">Цена:</span>
-    <%= to_dollar(@subject.price) %>
-  </div>
-  <div class="field-subject">
-    <span class="title-field-subject">Площадь:</span>
-    <%= to_area(@subject.area) %>
-  </div>
-  <div class="field-subject">
-    <span class="title-field-subject">Адрес:</span>
-    <%= @subject.address %>
+  <div class="subject-photos">
+    ss
   </div>
   <div class="actions-with-subject">
     <%= link_to icon_camera_white + " Добавить фотографии", 
