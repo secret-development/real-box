@@ -1,3 +1,7 @@
+<div class="alert alert-success" id="subject-photo-complete-msg">
+  <a class="close" data-dismiss="alert">×</a>
+  Изображение успешно загрузилось
+</div>
 <%= form_for(@subject, :html => 
   {:multipart => true,:class => "form-horizontal"}) do |f| %>
   <%= error_messages_for(@subject) %>
@@ -24,6 +28,7 @@
       'auto'         : true,
       'onComplete'   : function(e, id, obj, response, data) {
         $('#photos').append(response);
+        $("#subject-photo-complete-msg").show();
        }
      });
   });
@@ -40,6 +45,7 @@
     <%= render :partial => "photos/photo", 
         :collection => @subject.photos %>
   </div>
+  <div class="clear"></div>
   <div id="back-to-subject">
     <%= link_to icon_arrow_left_white + " Вернуться к объекту",
         subject_path(@subject), :class => "btn btn-info" %>

@@ -9,10 +9,7 @@ Crm::Application.routes.draw do
 
   get "potentials/index"
   match "potentials" => "potentials#index", :as => :potentials
-
-
-  resources :tasks
-
+  resources :tasks  
   resources :customers do
     get 'all', :on => :collection
     post 'lastcallcustomer', :on => :collection
@@ -23,6 +20,7 @@ Crm::Application.routes.draw do
     get "add_photo", :on => :member, :as => :add_photo
   end
   
+  resources :transactions
   resources :cities, :except => [:show]
   resources :social_statuses, :except => [:show]
   resources :condition_fields
