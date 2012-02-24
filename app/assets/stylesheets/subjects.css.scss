@@ -43,14 +43,19 @@ form{
 }
 
 // photos:
-#add_photo_button_form{
+#add-photo-button-form{
   float:left;
   min-width:200px;
+  margin-bottom:20px;
 }
 #photos{
   float:left;
   margin-left:100px;
   width:70%;
+  h1{
+    font-weight:normal;
+    margin-bottom:20px;
+  }
 }
 .photo-subject{
   margin-bottom:10px;
@@ -65,4 +70,8 @@ form{
       margin-left:2px;
     }
   }
+}
+#back-to-subject{
+  clear:both;
+  margin-top:80px;
 }

@@ -29,14 +29,19 @@
   });
   </script>
   <% unless @subject.new_record? %>
-    <div id="add_photo_button_form">
+    <div id="add-photo-button-form">
       <%= fields_for Photo.new do |f| %>
         <%= f.file_field :image, :rel => subject_photos_path(@subject) %>
       <% end %>  
     </div>
   <% end %>
   <div id="photos">
+    <h1>Фотографии:</h1>
     <%= render :partial => "photos/photo", 
         :collection => @subject.photos %>
+  </div>
+  <div id="back-to-subject">
+    <%= link_to icon_arrow_left_white + " Вернуться к объекту",
+        subject_path(@subject), :class => "btn btn-info" %>
   </div>
 <% end %>
