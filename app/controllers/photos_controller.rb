@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
   
   before_filter :find_subject
   before_filter :find_or_build_photo
-  # skip_before_filter :verify_authenticity_token
+  skip_before_filter :verify_authenticity_token
   
   def create
     respond_to do |format|
