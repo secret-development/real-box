@@ -40,5 +40,9 @@ module Icons
   def icon_con_white
     raw("<i class='icon-cog icon-white'></i>")
   end
+  
+  def icon_camera_white
+    raw("<i class='icon-camera icon-white'></i>")
+  end
   # END ICONS
 end
