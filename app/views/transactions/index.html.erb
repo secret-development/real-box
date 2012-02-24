@@ -1,7 +1,5 @@
 <h1 class="title-page"><%= @title %></h1>
 <%= flash_msg(flash[:notice]) %>
-<%= link_to plus_icon + 'Добавить', new_transaction_path, 
-    :class => "btn button-add"  %>
 <%= form_tag(transactions_path, :method => 'get', :id => 'transactions_search')  do %>
   <%= hidden_field_tag :sort, params[:sort] %>
   <%= hidden_field_tag :direction, params[:direction] %>

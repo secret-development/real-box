@@ -24,17 +24,11 @@
         </div>
       </div>
       <div class="control-group">
-        <%= f.label :customer_id, "Клиент:" %>
         <div class="controls">
-          <%= f.collection_select(:customer_id, Customer.all, :id, :lastname) %>
+          <%= hidden_field_tag('transaction[customer_id]', @transaction.customer_id.nil? ? params[:customer_id] : @transaction.customer_id ) %>
         </div>
       </div>
-      <div class="control-group">
-        <%= f.label :user_id, "Ответственный:" %>
-        <div class="controls">
-          <%= f.collection_select(:user_id, User.all, :id, :last_name) %>
-        </div>
-      </div>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
       <div class="control-group">
         <%= f.label :price, "Сумма:" %>
         <div class="controls">

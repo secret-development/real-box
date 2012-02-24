@@ -25,8 +25,7 @@
               customer_path(transaction.customer) %>
         </td>
         <td>
-          <%= link_to transaction.user.last_name, 
-              user_path(transaction.user) %>
+          <%= transaction.user.email %>
         </td>
         <td>
           <%= transaction.statustransaction.name %>

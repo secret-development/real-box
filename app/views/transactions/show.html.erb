@@ -20,7 +20,7 @@
   </div>
   <div class="field-transaction">
     <span class="title-field">Ответственный:</span>
-    <%= link_to @transaction.user.short_name, user_path(@transaction.user) %>
+    <%= @transaction.user.email %>
   </div>
   <div class="field-transaction">
     <span class="title-field">Сумма:</span>
