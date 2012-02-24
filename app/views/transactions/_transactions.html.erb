@@ -12,38 +12,49 @@
       <th>Операции</th>
     </tr>
   </thead>
-<!-- 
   <tbody>
     <% @transactions.each do |transaction| %>
       <tr>
         <td><%= transaction.id %></td>
-        <td><%= link_to transaction.title, transaction_path(transaction) %></td>
+        <td><%= link_to transaction.name, transaction_path(transaction) %></td>
         <td>
-          <%= link_to transaction.user.last_name, user_path(transaction.user) %>
+          <%= transaction.typetransaction.name %>
         </td>
-        <td><%= to_datetime(transaction.deadline) %></td>
+        <td>
+          <%= link_to transaction.customer.lastname, 
+              customer_path(transaction.customer) %>
+        </td>
+        <td>
+          <%= link_to transaction.user.last_name, 
+              user_path(transaction.user) %>
+        </td>
+        <td>
+          <%= transaction.statustransaction.name %>
+        </td>
+        <td>
+          <%= to_date(transaction.created_at) %>
+        </td>
         <td> 
           <div class="btn-group">
             <a class="btn" href="#">
-              <%= transaction.status %>
+              <%= transaction.payment_value %>
             </a>
             <a class="btn dropdown-toggle" 
             data-toggle="dropdown" href="#">
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <%= link_to "Задача не выполнена", transaction_path(transaction, 
-                          :transaction => { :done => false }),
+              <%= link_to "Сделка оплачена", transaction_path(transaction, 
+                          :transaction => { :payment => true }),
                           :method => :put, 
                           :confirm => "Вы уверены?" %>
-              <%= link_to "Задача выполнена", transaction_path(transaction, 
-                          :transaction => { :done => true}),
+              <%= link_to "Сделка не оплачена", transaction_path(transaction, 
+                          :transaction => { :payment => false }),
                           :method => :put, 
                           :confirm => "Вы уверены?" %>
             </ul>
           </div>
         </td>
-        <td><%= to_datetime(transaction.created_at) %></td>
         <td>
           <%= link_to eye_icon, transaction_path(transaction) %>
           <%= link_to edit_icon, edit_transaction_path(transaction) %>
@@ -55,5 +66,3 @@
   </tbody>
 </table>
 <%= paginate @transactions %>
-
--->

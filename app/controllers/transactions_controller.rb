@@ -3,9 +3,11 @@
 class TransactionsController < ApplicationController
   
   respond_to :html
+  helper_method :sort_column, :sort_direction
   
   def index
-    @transactions = Transaction.all
+    @transactions = Transaction.search(params[:search]).order(sort_column + 
+    " " + sort_direction).page(params[:page]).per(10)
     @title = "Сделки"
   end
   
@@ -51,6 +53,16 @@ class TransactionsController < ApplicationController
     @transaction.destroy
     flash[:notice] = "Сделка успешно удалена"
     redirect_to transactions_path
+  end
+  
+  private
+  
+  def sort_column
+    Transaction.column_names.include?(params[:sort]) ? params[:sort] : "name"    
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"    
   end
   
 end
