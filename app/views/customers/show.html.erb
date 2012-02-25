@@ -88,7 +88,29 @@
       <div class="clear"></div>
     </div>
     <div class="tab-pane" id="2">
-      объекты
+      <div id="customers-objects">
+        <% @subjects.each do |subject| %>
+          <div class="customer-object">
+            <h3><%= link_to(subject.typesubject.name, subject) %></h3>
+            <div class="field-obj">
+              <span>Город:</span>
+              <%= subject.city.name %>
+            </div>
+            <div class="field-obj">
+              <span>Район:</span>
+              <%= subject.district.title %>
+            </div>
+            <div class="field-obj">
+              <span>Адресс:</span>
+              <%= subject.address %>
+            </div>
+            <div class="field-obj">
+              <span>Цена:</span>
+              <%= to_dollar(subject.price) %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
 
   </div>
