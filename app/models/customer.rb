@@ -42,6 +42,9 @@ class Customer < ActiveRecord::Base
     end 
   end
 
+  def fullname
+    lastname + " " + firstname
+  end
 
 end
 
