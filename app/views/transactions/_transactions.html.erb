@@ -5,10 +5,11 @@
       <th><%= sortable "name", "Сделка" %></th>
       <th><%= sortable "typetransaction_id", "Тип сделки" %></th>
       <th><%= sortable "customer_id", "Клиент" %></th>
-      <th>Номер объекта</th>
+      <th>Объект</th>
       <th><%= sortable "user_id", "Ответственный" %></th>
       <th><%= sortable "statustransaction_id", "Статус сделки" %></th>
       <th><%= sortable "created_at", "Дата" %></th>
+      <th><%= sortable "price", "Сумма" %></th>
       <th>Оплата</th>
       <th>Операции</th>
     </tr>
@@ -26,7 +27,12 @@
               customer_path(transaction.customer) %>
         </td>
         <td>
-          <%= link_to subject_id, subject_path(transaction.subject) %>
+          <% if transaction.subject_id == nil %>
+          Отсутствует
+          <% else %>
+          <%= link_to transaction.subject.address,
+              subject_path(transaction.subject) %>
+          <% end %>
         </td>
         <td>
           <%= transaction.user.email %>
@@ -36,6 +42,9 @@
         </td>
         <td>
           <%= to_date(transaction.created_at) %>
+        </td>
+        <td>
+          <%= transaction.price %>
         </td>
         <td>
           <% if transaction.user_id == current_user.id %> 

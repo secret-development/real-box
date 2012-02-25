@@ -1,8 +1,16 @@
 <div class="transaction_form">
-  <%= form_for(@transaction, :html => {:class => "form-horizontal"}) do |f| %>
+  <%= form_for(@transaction, :html => {:multipart => true, :class => "form-horizontal"}) do |f| %>
     <%= error_messages_for(@transaction) %>
     <fieldset>
       <legend><%= @transaction.legend %> сделки</legend>
+      <div class="control-group">
+        <div class="controls">
+          <%= hidden_field_tag('transaction[customer_id]',
+              @transaction.customer_id.nil? ? params[:customer_id] :
+              @transaction.customer_id ) %>
+        </div>
+      </div>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
       <div class="control-group">
         <%= f.label :name, "Название:" %>
         <div class="controls">
@@ -23,12 +31,6 @@
           :id, :name) %>
         </div>
       </div>
-      <div class="control-group">
-        <div class="controls">
-          <%= hidden_field_tag('transaction[customer_id]', @transaction.customer_id.nil? ? params[:customer_id] : @transaction.customer_id ) %>
-        </div>
-      </div>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
       <% if Customer.find(params[:customer_id]).subjects.size == 0 %>
       <% else  %>
       <div class="control-group">
