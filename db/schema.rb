@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20120225072805) do
     t.boolean  "payment"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+    t.integer  "subject_id"
   end
 
   create_table "typesubjects", :force => true do |t|
