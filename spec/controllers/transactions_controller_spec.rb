@@ -37,17 +37,17 @@ describe TransactionsController do
   end
   
   it "get new" do
-    get :new
+    get :new, :customer_id => @customer
     response.should be_success
   end
   
   it "get show" do
-    get :show, :id => @transaction.id
+    get :show, :id => @transaction
     response.should be_success
   end
 
   it "get edit" do
-    get :edit, :id => @transaction.id
+    get :edit, :id => @transaction, :customer => @customer
     response.should be_success
   end
   
@@ -60,12 +60,14 @@ describe TransactionsController do
       end
       
       it "should render the 'new' page" do
+        request.session[:customer_id] = @customer
         post :create, :transaction => @attr
         response.should render_template('new')
       end
       
       it "should not create a transaction" do
         lambda do
+          request.session[:customer_id] = @customer
           post :create, :transaction => @attr
         end.should_not change(Transaction, :count)
       end
@@ -80,16 +82,19 @@ describe TransactionsController do
       
       it "should create a transaction" do
         lambda do
-          post :create, :transaction => @attr
+          request.session[:customer_id] = @customer
+          post :create, :transaction => @attr, :customer => @customer
         end.should change(Transaction, :count).by(1)
       end
       
       it "should redirect to transactions" do
-        post :create, :transaction => @attr
+        request.session[:customer_id] = @customer
+        post :create, :transaction => @attr, :customer => @customer
         response.should redirect_to transactions_path
       end
             
       it "should have a success message" do
+        request.session[:customer_id] = @customer
         post :create, :transaction => @attr
         flash[:notice].should =~ /Сделка успешно добавлена/i
       end
