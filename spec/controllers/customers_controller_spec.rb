@@ -15,6 +15,7 @@ describe CustomersController do
       :note => "blabla",
       :lastcall => Time.now.weeks_ago(1)
     }
+    controller.stub!(:all_deny)
     soc = Factory(:social_status)
     typetr = Factory(:typetransaction)
     @customer = Factory(:customer, :typetransaction => typetr, :social_status => soc)
