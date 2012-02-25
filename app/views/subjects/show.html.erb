@@ -1,29 +1,58 @@
 <h1 class="title-page">Информация об объекте</h1>
 <div id="show-subject-page">
-  <div class="field-subject">
-    <span class="title-field-subject">Тип сделки:</span>
-    <%= @subject.typetransaction.name %>
+  <div class="subject-info">
+    <div class="field-subject">
+      <span class="title-field-subject">Хозяин:</span>
+      <%= link_to(@subject.customer.fullname, @subject.customer) %>
+    </div>
+    <div class="field-subject">
+      <span class="title-field-subject">Тип сделки:</span>
+      <%= @subject.typetransaction.name %>
+    </div>
+    <div class="field-subject">
+      <span class="title-field-subject">Город:</span>
+      <%= @subject.city.name %>
+    </div>
+    <div class="field-subject">
+      <span class="title-field-subject">Тип объекта:</span>
+      <%= @subject.typesubject.name %>
+    </div>
+    <div class="field-subject">
+      <span class="title-field-subject">Район:</span>
+      <%= @subject.district.title %>
+    </div>
+    <div class="field-subject">
+      <span class="title-field-subject">Цена:</span>
+      <%= to_dollar(@subject.price) %>
+    </div>
+    <div class="field-subject">
+      <span class="title-field-subject">Площадь:</span>
+      <%= to_area(@subject.area) %>
+    </div>
+    <div class="field-subject">
+      <span class="title-field-subject">Адрес:</span>
+      <%= @subject.address %>
+    </div>
+    <div class="field-subject">
+      <span class="title-field-subject">Добавлен:</span>
+      <%= to_date(@subject.created_at) %>
+    </div>
   </div>
-  <div class="field-subject">
-    <span class="title-field-subject">Город:</span>
-    <%= @subject.city.name %>
-  </div>
-  <div class="field-subject">
-    <span class="title-field-subject">Район:</span>
-    <%= @subject.district.title %>
-  </div>
-  <div class="field-subject">
-    <span class="title-field-subject">Цена:</span>
-    <%= to_dollar(@subject.price) %>
-  </div>
-  <div class="field-subject">
-    <span class="title-field-subject">Площадь:</span>
-    <%= to_area(@subject.area) %>
-  </div>
-  <div class="field-subject">
-    <span class="title-field-subject">Адрес:</span>
-    <%= @subject.address %>
-  </div>
+  <!-- photos -->
+  <% if @subject.photos.size > 0 %>
+    <div class="subject-photos">
+      <div id="main-subject-photo">
+        <%= link_to(image_tag(@subject.photos.first.image_url(:thumb)), @subject.photos.first.image_url) %>
+      </div>
+      <div id="subject-photos-thumbs">
+        <% @subject.photos.each do |p| %>
+          <%= link_to(image_tag(p.image_url(:thumb)), p.image_url) %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <!--end photos-->
+  <div class="clear"></div>
   <div class="actions-with-subject">
     <%= link_to icon_camera_white + " Добавить фотографии", 
         add_photo_subject_path(@subject), :class => "btn btn-success" %>

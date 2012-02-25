@@ -59,3 +59,23 @@
     }
   }
 }
+#customers-objects{
+  padding:5px;
+  .customer-object{
+    border-bottom:1px solid #eee;
+    padding-bottom:20px;
+    h3{
+      margin-bottom:5px;
+    }
+    margin-bottom:20px;
+    .field-obj{
+      margin-left:10px;
+      margin-bottom:5px;
+      font-size:12px;
+      span{
+        display:inline-block;
+        min-width:140px;
+      }
+    }
+  }
+}

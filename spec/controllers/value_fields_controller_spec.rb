@@ -5,6 +5,7 @@ describe ValueFieldsController do
   render_views
   
   before(:each) do
+    controller.stub!(:all_deny)
     @typesubject = Factory(:typesubject)
     @conditionfield = Factory(:condition_field, :typesubject => @typesubject)
     @valuefield = Factory(:value_field, :condition_field => @conditionfield)

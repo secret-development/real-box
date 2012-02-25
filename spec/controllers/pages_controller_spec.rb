@@ -4,6 +4,10 @@ require 'spec_helper'
 describe PagesController do
   render_views
   
+  before(:each) do
+    controller.stub!(:all_deny)
+  end
+  
   describe "GET to root_path" do
     it "should success" do
       get :index

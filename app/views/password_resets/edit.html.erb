@@ -1,0 +1,6 @@
+<h1>Сброс пароля</h1>
+<%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+  <%= f.password_field :password %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.submit 'Изменить' %>    
+<% end %>

@@ -5,6 +5,7 @@ describe TransactionsController do
   render_views
   
   before(:each) do
+    controller.stub!(:all_deny)
     @transaction = Factory(:transaction)
     @user = Factory(:user)
   end

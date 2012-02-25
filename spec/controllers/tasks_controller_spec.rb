@@ -6,6 +6,7 @@ describe TasksController do
   render_views
 
   before(:each) do
+    controller.stub!(:all_deny)
     @task = Factory(:task)
     @user = Factory(:user)
   end

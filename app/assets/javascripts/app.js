@@ -123,9 +123,37 @@ $(document).ready(function() {
   });
 });
 
-// add photo to subject
+//subjects-photo
 $(document).ready(function() {
+  $("#subject-photos-thumbs a").click(function(event) {
+    var big_pic = $(this).attr('href');
+    var thumb_pic = $(this).children().attr('src');
+    $("#main-subject-photo a").attr('href', big_pic);
+    $("#main-subject-photo a img").attr('src', thumb_pic)
+    $("#subject-photos-thumbs").find("A.stActive").removeClass("stActive");
+    $(this).addClass("stActive");
+    return false;
+  });
 
-  
-  
+  // fancybox
+  $("#main-subject-photo a").click(function(event) {
+    var piclist = [];
+    var curindex = 0;
+    $("#subject-photos-thumbs a").each(function(idx) {
+      piclist.push(this.href);
+      if($(this).hasClass("stActive")) curindex=idx;
+    });
+    console.log(curindex);
+    $.fancybox(piclist, {
+        'padding'           : 0,
+        'margin'            : 0,
+        'centerOnScroll'    : true,
+        'transitionIn'      : 'none',
+        'transitionOut'     : 'none',
+        'type'              : 'image',
+        'changeFade'        : 0,
+        'index'             : curindex
+    });
+    return false;
+  });
 });
