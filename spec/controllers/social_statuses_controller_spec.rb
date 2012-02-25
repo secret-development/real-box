@@ -5,8 +5,11 @@ describe SocialStatusesController do
   render_views
   
   before(:each) do
+    # start auth
+    @user = Factory(:user)
+    test_log_in(@user)
+    # end auth
     @socialstatus = Factory(:social_status)
-    controller.stub!(:all_deny)
   end
   
   it "GET 'new'" do

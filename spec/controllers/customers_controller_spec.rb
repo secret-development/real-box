@@ -5,6 +5,10 @@ describe CustomersController do
   render_views
   
   before(:each) do
+    # start auth
+    @user = Factory(:user)
+    test_log_in(@user)
+    # end auth
     @attr = {
       :firstname => "vano", 
       :lastname => "vanov", 
@@ -15,7 +19,6 @@ describe CustomersController do
       :note => "blabla",
       :lastcall => Time.now.weeks_ago(1)
     }
-    controller.stub!(:all_deny)
     soc = Factory(:social_status)
     typetr = Factory(:typetransaction)
     @customer = Factory(:customer, :typetransaction => typetr, :social_status => soc)
