@@ -1,16 +1,16 @@
 # encoding:utf-8
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :email, :password, :password_confirmation, :password_reset_token, :password_reset_sent_at
   #encript password before save
   before_save :encrypt_password
   # remember me
   before_create { generate_token(:auth_token) }
   # validations
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :password, :presence => true,
-                       :confirmation => true,
-                       :length => {:within => 6..20}
+  validates :password,# :presence => true,
+                       :confirmation => true
+                       #:length => {:within => 6..20}
   #validates :password_confirmation, :presence => true
   validates :email, :uniqueness => { :case_sensitive => false}
   validates :email, :presence => true, :format => {:with => email_regex}
