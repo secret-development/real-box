@@ -18,6 +18,7 @@ describe Transaction do
       :description  => "MyText",
       :price  => 1000,
       :customer_id => 4,
+      :subject_id => 1,
       :user_id => 2,
       :payment =>  false
     }
@@ -47,6 +48,10 @@ describe Transaction do
     
     it "should require customer_id" do
       req_presence_sub(:customer_id).should_not be_valid
+    end
+    
+    it "should require subject_id" do
+      req_presence_sub(:subject_id).should_not be_valid
     end
     
     it "should require user_id " do
@@ -131,6 +136,20 @@ describe Transaction do
     
     it "should belongs_to customer" do
       t = Transaction.reflect_on_association(:customer)
+      t.macro.should == :belongs_to
+    end
+    
+  end
+  
+  describe "subjects associations" do
+    
+    it "should respond to subject" do
+      @transaction = Transaction.new(@attr)
+      @transaction.should respond_to(:subject)
+    end
+    
+    it "should belongs_to subject" do
+      t = Transaction.reflect_on_association(:subject)
       t.macro.should == :belongs_to
     end
     

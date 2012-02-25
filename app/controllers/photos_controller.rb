@@ -1,5 +1,6 @@
 # encoding: utf-8
 class PhotosController < ApplicationController
+
   before_filter :find_subject
   before_filter :find_or_build_photo
   skip_before_filter :verify_authenticity_token
