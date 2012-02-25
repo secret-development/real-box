@@ -31,8 +31,13 @@
           :id, :name) %>
         </div>
       </div>
-      <% if Customer.find(params[:customer_id]).subjects.size == 0 %>
-      <% else  %>
+      <div class="control-group">
+        <div class="controls">
+          <%= hidden_field_tag('transaction[customer_id]', @transaction.customer_id.nil? ? params[:customer_id] : @transaction.customer_id ) %>
+        </div>
+      </div>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <% unless Customer.find(params[:customer_id]).subjects.size == 0 %>
       <div class="control-group">
         <%= f.label :subject_id, "Объект сделки" %>
         <div class="controls">

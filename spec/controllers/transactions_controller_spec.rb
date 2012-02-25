@@ -5,9 +5,30 @@ describe TransactionsController do
   render_views
   
   before(:each) do
-    controller.stub!(:all_deny)
-    @transaction = Factory(:transaction)
+    # start auth
     @user = Factory(:user)
+    test_log_in(@user)
+    # end auth
+
+    # customer
+    soc = Factory(:social_status)
+    typetr = Factory(:typetransaction)
+    @customer = Factory(:customer, :typetransaction => typetr, :social_status => soc)
+    # end customer
+    
+    @typetransaction = Factory(:typetransaction)
+    @statustransaction = Factory(:statustransaction)
+    
+    # subject
+    city = Factory(:city)
+    typesubject = Factory(:typesubject)
+    typetransaction = Factory(:typetransaction)
+    district = Factory(:district)
+    @subject = Factory(:subject, :typesubject => typesubject, :city => city,
+                :typetransaction => typetransaction, :customer => @customer, :district => district)
+    # end subject
+    
+    @transaction = Factory(:transaction, :typetransaction => @typetransaction, :statustransaction => @statustransaction, :customer => @customer, :user => @user, :subject => @subject)
   end
   
   it "get index" do
@@ -152,14 +173,14 @@ describe TransactionsController do
   
   def valid_data
     {
-      :typetransaction_id => 1,
-      :statustransaction_id => 1,
+      :typetransaction_id => @typetransaction.id,
+      :statustransaction_id => @statustransaction.id,
       :name => "MyTransaction",
       :description => "MyDescription",
       :price => 1000,
-      :customer_id => 4,
-      :subject_id => 4,
-      :user_id => 2,
+      :customer_id => @customer.id,
+      :subject_id => @subject.id,
+      :user_id => @user.id,
       :payment => true
     }
   end
