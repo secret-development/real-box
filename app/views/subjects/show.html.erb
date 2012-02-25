@@ -2,6 +2,10 @@
 <div id="show-subject-page">
   <div class="subject-info">
     <div class="field-subject">
+      <span class="title-field-subject">Хозяин:</span>
+      <%= link_to(@subject.customer.fullname, @subject.customer) %>
+    </div>
+    <div class="field-subject">
       <span class="title-field-subject">Тип сделки:</span>
       <%= @subject.typetransaction.name %>
     </div>
@@ -28,6 +32,10 @@
     <div class="field-subject">
       <span class="title-field-subject">Адрес:</span>
       <%= @subject.address %>
+    </div>
+    <div class="field-subject">
+      <span class="title-field-subject">Добавлен:</span>
+      <%= to_date(@subject.created_at) %>
     </div>
   </div>
   <!-- photos -->
