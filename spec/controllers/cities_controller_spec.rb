@@ -5,6 +5,7 @@ describe CitiesController do
   render_views
   
   before(:each) do
+    controller.stub!(:all_deny)
     @city = Factory(:city)
   end
   
