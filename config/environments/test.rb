@@ -36,4 +36,7 @@ Crm::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
+  #rspec test actionmailer
+  config.action_mailer.default_url_options = {:host => "www.example.com"}
 end

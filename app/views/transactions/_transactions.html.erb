@@ -5,6 +5,7 @@
       <th><%= sortable "name", "Сделка" %></th>
       <th><%= sortable "typetransaction_id", "Тип сделки" %></th>
       <th><%= sortable "customer_id", "Клиент" %></th>
+      <th>Номер объекта</th>
       <th><%= sortable "user_id", "Ответственный" %></th>
       <th><%= sortable "statustransaction_id", "Статус сделки" %></th>
       <th><%= sortable "created_at", "Дата" %></th>
@@ -25,6 +26,9 @@
               customer_path(transaction.customer) %>
         </td>
         <td>
+          <%= link_to subject_id, subject_path(transaction.subject) %>
+        </td>
+        <td>
           <%= transaction.user.email %>
         </td>
         <td>
@@ -33,7 +37,8 @@
         <td>
           <%= to_date(transaction.created_at) %>
         </td>
-        <td> 
+        <td>
+          <% if transaction.user_id == current_user.id %> 
           <div class="btn-group">
             <a class="btn" href="#">
               <%= transaction.payment_value %>
@@ -53,6 +58,9 @@
                           :confirm => "Вы уверены?" %>
             </ul>
           </div>
+          <% else %>
+          <%= transaction.payment_value %>
+          <% end %>
         </td>
         <td>
           <%= link_to eye_icon, transaction_path(transaction) %>
