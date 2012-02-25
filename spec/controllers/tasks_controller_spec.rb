@@ -6,6 +6,7 @@ describe TasksController do
   render_views
   
   before(:each) do
+    
     # start auth
     @user = Factory(:user)
     test_log_in(@user)

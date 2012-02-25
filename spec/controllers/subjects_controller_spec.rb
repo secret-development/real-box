@@ -5,7 +5,10 @@ describe SubjectsController do
   render_views
   
   before(:each) do
-    controller.stub!(:all_deny)
+    # start auth
+    @user = Factory(:user)
+    test_log_in(@user)
+    # end auth
     city = Factory(:city)
     typesubject = Factory(:typesubject)
     typetransaction = Factory(:typetransaction)

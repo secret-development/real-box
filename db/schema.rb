@@ -97,20 +97,6 @@ ActiveRecord::Schema.define(:version => 20120225072805) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "transactions", :force => true do |t|
-    t.integer  "typetransaction_id"
-    t.integer  "statustransaction_id"
-    t.string   "name"
-    t.text     "description"
-    t.integer  "price"
-    t.integer  "customer_id"
-    t.integer  "user_id"
-    t.boolean  "payment"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-    t.integer  "subject_id"
-  end
-
   create_table "type_customers", :force => true do |t|
     t.string   "title"
     t.datetime "created_at", :null => false
