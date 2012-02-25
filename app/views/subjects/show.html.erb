@@ -31,8 +31,16 @@
     </div>
   </div>
   <div class="subject-photos">
-    ss
+    <div id="main-subject-photo">
+      <%= link_to(image_tag(@subject.photos.first.image_url(:thumb)), @subject.photos.first.image_url) %>
+    </div>
+    <div id="subject-photos-thumbs">
+      <% @subject.photos.each do |p| %>
+        <%= link_to(image_tag(p.image_url(:thumb)), p.image_url) %>
+      <% end %>
+    </div>
   </div>
+  <div class="clear"></div>
   <div class="actions-with-subject">
     <%= link_to icon_camera_white + " Добавить фотографии", 
         add_photo_subject_path(@subject), :class => "btn btn-success" %>
