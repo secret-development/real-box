@@ -7,6 +7,7 @@ describe TypesubjectsController do
   
   
   before(:each) do
+    controller.stub!(:all_deny)
     @typesubject = Factory(:typesubject)
   end
   

@@ -5,6 +5,7 @@ describe SubjectsController do
   render_views
   
   before(:each) do
+    controller.stub!(:all_deny)
     city = Factory(:city)
     typesubject = Factory(:typesubject)
     typetransaction = Factory(:typetransaction)
