@@ -11,6 +11,7 @@ describe TasksController do
     controller.stub!(:current_user).and_return(@current_user)
     @task = Factory(:task)
     @user = Factory(:user)
+    @task = Factory(:task, :user => @user)
   end
   
   it "get show" do
