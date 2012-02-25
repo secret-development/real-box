@@ -9,7 +9,6 @@
       <th>Сот. телефон</th>
       <th>Количество объектов</th>
       <th>Добавить объект</th>
-      <th>Заключить сделку</th>
       <th>Действия</th>
       </tr>
     </thead>
@@ -26,10 +25,6 @@
         <td><%= c.subjects.size %></td>
         <td>
           <%= link_to plus_icon, new_subject_path(:customer_id => c.id), :title => "Добавить недвижимость" %>
-        </td>
-        <td>
-          <%= link_to list_icon, new_transaction_path(:customer_id => c.id),
-              :title => "Заключить сделку" %>
         </td>
         <td class="actions-buttons">
           <%= link_to eye_icon, customer_path(c), :title => "Подробнее..." %>

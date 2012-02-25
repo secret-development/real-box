@@ -5,7 +5,10 @@ describe PagesController do
   render_views
   
   before(:each) do
-    controller.stub!(:all_deny)
+    # start auth
+    @user = Factory(:user)
+    test_log_in(@user)
+    # end auth
   end
   
   describe "GET to root_path" do

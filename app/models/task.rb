@@ -61,7 +61,7 @@ class Task < ActiveRecord::Base
 end
 
 #TODO: file_attachment
-#TODO: sortable users (when users will be done)
+#TODO: created_at DESC
 # == Schema Information
 #
 # Table name: tasks
