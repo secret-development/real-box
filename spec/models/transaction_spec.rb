@@ -50,10 +50,6 @@ describe Transaction do
       req_presence_sub(:customer_id).should_not be_valid
     end
     
-    it "should require subject_id" do
-      req_presence_sub(:subject_id).should_not be_valid
-    end
-    
     it "should require user_id " do
       req_presence_sub(:user_id).should_not be_valid
     end

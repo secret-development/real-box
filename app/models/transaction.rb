@@ -17,7 +17,7 @@ class Transaction < ActiveRecord::Base
   validates :description, 
             :presence => true,
             :length => { :maximum => 800 }
-  validates :user_id, :typetransaction_id, :subject_id, 
+  validates :user_id, :typetransaction_id, 
             :statustransaction_id, :customer_id,
             :presence => true
   validates :price, 

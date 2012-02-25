@@ -23,6 +23,15 @@
     <%= @transaction.user.email %>
   </div>
   <div class="field-transaction">
+    <span class="title-field">Объект сделки</span>
+    <% if @transaction.subject_id == nil %>
+      Отсутствует
+    <% else %>
+      <%= link_to @transaction.subject.address,
+          subject_path(@transaction.subject) %>
+    <% end %>
+  </div>
+  <div class="field-transaction">
     <span class="title-field">Сумма:</span>
     <%= @transaction.price %> $
   </div>
