@@ -6,6 +6,7 @@ describe SocialStatusesController do
   
   before(:each) do
     @socialstatus = Factory(:social_status)
+    controller.stub!(:all_deny)
   end
   
   it "GET 'new'" do
