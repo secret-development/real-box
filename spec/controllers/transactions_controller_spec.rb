@@ -158,6 +158,7 @@ describe TransactionsController do
       :description => "MyDescription",
       :price => 1000,
       :customer_id => 4,
+      :subject_id => 4,
       :user_id => 2,
       :payment => true
     }
@@ -171,6 +172,7 @@ describe TransactionsController do
       :description => "",
       :price => 1000,
       :customer_id => "",
+      :subject_id => "",
       :user_id => 2,
       :payment => "payment"
     }

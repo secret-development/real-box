@@ -9,6 +9,7 @@ class Subject < ActiveRecord::Base
   belongs_to :customer
   belongs_to :district
   has_many :photos, :dependent => :destroy
+  has_many :transactions
   
   # callbacks:
   after_save :verify_customer_real
