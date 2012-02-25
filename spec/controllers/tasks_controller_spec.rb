@@ -6,9 +6,7 @@ describe TasksController do
   render_views
 
   before(:each) do
-    @current_user = mock_model(User, :id => 1)
     controller.stub!(:all_deny)
-    controller.stub!(:current_user).and_return(@current_user)
     @task = Factory(:task)
     @user = Factory(:user)
     @task = Factory(:task, :user => @user)
