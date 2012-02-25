@@ -131,7 +131,7 @@ $(document).ready(function() {
     $("#main-subject-photo a").attr('href', big_pic);
     $("#main-subject-photo a img").attr('src', thumb_pic)
     $("#subject-photos-thumbs").find("A.stActive").removeClass("stActive");
-    $(this).parent().addClass("stActive");
+    $(this).addClass("stActive");
     return false;
   });
 
