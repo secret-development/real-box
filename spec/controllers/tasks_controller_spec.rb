@@ -9,6 +9,7 @@ describe TasksController do
     controller.stub!(:all_deny)
     @task = Factory(:task)
     @user = Factory(:user)
+    @task = Factory(:task, :user => @user)
   end
   
   it "get show" do
