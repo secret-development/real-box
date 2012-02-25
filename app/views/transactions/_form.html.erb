@@ -29,8 +29,7 @@
         </div>
       </div>
       <%= f.hidden_field :user_id, :value => current_user.id %>
-      <% if Customer.find(params[:customer_id]).subjects.size == 0 %>
-      <% else  %>
+      <% unless Customer.find(params[:customer_id]).subjects.size == 0 %>
       <div class="control-group">
         <%= f.label :subject_id, "Объект сделки" %>
         <div class="controls">

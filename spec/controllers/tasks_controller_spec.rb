@@ -4,10 +4,13 @@ require 'spec_helper'
 
 describe TasksController do
   render_views
-
+  
   before(:each) do
-    controller.stub!(:all_deny)
+    # start auth
     @user = Factory(:user)
+    test_log_in(@user)
+    # end auth
+    
     @task = Factory(:task, :user => @user)
   end
   
