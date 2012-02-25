@@ -27,6 +27,7 @@ class CustomersController < ApplicationController
   
   def show
     @customer = Customer.find(params[:id])
+    @subjects = @customer.subjects
     respond_with @customer
   end
   
