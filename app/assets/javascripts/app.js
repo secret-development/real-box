@@ -125,9 +125,9 @@ $(document).ready(function() {
 
 //subjects-photo
 $(document).ready(function() {
-  $("#subject-photos-thumbs a img").click(function(event) {
-    var big_pic = $(this).parent().attr('href');
-    var thumb_pic = $(this).attr('src');
+  $("#subject-photos-thumbs a").click(function(event) {
+    var big_pic = $(this).attr('href');
+    var thumb_pic = $(this).children().attr('src');
     $("#main-subject-photo a").attr('href', big_pic);
     $("#main-subject-photo a img").attr('src', thumb_pic)
     $("#subject-photos-thumbs").find("A.stActive").removeClass("stActive");
