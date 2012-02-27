@@ -1,5 +1,6 @@
 # encoding:utf-8
 class PasswordResetsController < ApplicationController
+  layout 'devise'
   def new
   end
   
