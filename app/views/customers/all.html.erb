@@ -3,8 +3,9 @@
 <%= link_to plus_icon + " Добавить" , new_customer_path, :class => "btn button-add" %>
 
 <div class="links-type-customers">
-  <%= link_to 'Действующие клиенты', customers_path %>
-  <%= link_to 'Потенциальные клиенты',potentials_path %>  
+  <%= link_to 'все клиенты', all_customers_path %>
+  <%= link_to 'действующие клиенты', customers_path %>
+  <%= link_to 'потенциальные клиенты', potentials_path %>
 </div>
 
 <%= form_tag(all_customers_path, :method => 'get', :id => 'customers_search')  do %>
