@@ -157,6 +157,24 @@ $(document).ready(function() {
   });
 });
 
+
+// validation user new
+$(document).ready(function() { 
+  $('#user-new').validate({
+    rules:{
+      "user[email]":{required: true, email: true},
+      "user[password]":{required:true, minlength: 7},
+      "user[password_confirmation]":{required:true, equalTo:"#user[password]"},    
+    },
+    messages:{
+      "user[email]": "Введите почтовый адрес!",
+      "user[password]": "Пароль не менее 8ми  символов!",
+      "user[password_confirmation]": "Пароли не совпадают!"    
+    }
+    
+  });
+});
+
 // subject -> floor
 $(document).ready(function() {
   if ($("form").find("#exist-floor-subject").length != 0) {
