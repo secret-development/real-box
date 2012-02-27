@@ -143,7 +143,6 @@ $(document).ready(function() {
       piclist.push(this.href);
       if($(this).hasClass("stActive")) curindex=idx;
     });
-    console.log(curindex);
     $.fancybox(piclist, {
         'padding'           : 0,
         'margin'            : 0,
@@ -157,6 +156,7 @@ $(document).ready(function() {
     return false;
   });
 });
+
 
 // validation user new
 $(document).ready(function() { 
@@ -191,5 +191,43 @@ $(document).ready(function() {
         minlength: "Пароль не менее 7ми символов!"
       },    
     }
+    
+  });
+});
+
+// subject -> floor
+$(document).ready(function() {
+  if ($("form").find("#exist-floor-subject").length != 0) {
+    $("#floor-subject-block :input").attr("disabled", true);
+  };
+  
+  $("#subject_typesubject_id").change(function(event) {
+    var typesubject_id = $(this).attr("value");
+    $.ajax({
+      url: '/subjects/findtypesubject',
+      type: 'POST',
+      dataType: 'json',
+      data: {id: typesubject_id},
+      success: function(data, textStatus, xhr) {
+        if((data['floor'] == true) && ($("form").find("#exist-floor-subject").length == 0)){
+          $("#floor-subject-block :input").removeAttr('disabled');
+          $("#floor-subject-block").slideDown('fast');
+        }
+        else if((data['floor'] == false) && ($("form").find("#exist-floor-subject").length != 0)){
+          
+          $("#exist-floor-subject")
+            .slideUp('fast')
+            .remove();
+          
+          $("#floor-subject-block :input").attr('disabled', true);
+          $("#floor-subject-block").slideUp('fast');
+        }
+        else if(data['floor'] == false){
+          $("#floor-subject-block :input").attr('disabled', true);
+          $("#floor-subject-block").slideUp('fast');
+        }
+      }
+    });
+    
   });
 });
