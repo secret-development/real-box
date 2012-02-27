@@ -1,5 +1,5 @@
 <h1>Создание нового агента</h1>
-<%= form_for @user do |f| %>
+<%= form_for(@user, :html => {:class => "well", :id => "user-new"}) do |f| %>
   <%= error_messages_for(@user) %>
   <%= f.label :email %>
   <%= f.email_field :email %>

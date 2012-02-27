@@ -157,3 +157,14 @@ $(document).ready(function() {
     return false;
   });
 });
+
+// validation user new
+$(document).ready(function() { 
+  $('#user-new').validate({
+    rules:{
+      "user[email]":{required: true, email: true},
+      "user[password]":{required:true},
+      "user[password_confirmation]":{equalTo:"#user[password]"},    
+    }
+  });
+});
