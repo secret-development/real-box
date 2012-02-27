@@ -10,11 +10,11 @@ describe SubjectsController do
     test_log_in(@user)
     # end auth
     city = Factory(:city)
-    typesubject = Factory(:typesubject)
+    @typesubject = Factory(:typesubject)
     typetransaction = Factory(:typetransaction)
     @customer = Factory(:customer)
     @district = Factory(:district)
-    @subject = Factory(:subject, :typesubject => typesubject, :city => city,
+    @subject = Factory(:subject, :typesubject => @typesubject, :city => city,
                 :typetransaction => typetransaction, :customer => @customer, :district => @district)
   end
   
@@ -161,26 +161,28 @@ describe SubjectsController do
   # valid data
   def valid_data
     {
-      :typesubject_id => 1,
+      :typesubject_id => @typesubject.id,
       :city_id => 2,
       :price => 100003,
       :district_id => @district.id,
       :area => 80,
       :address => "Баймагамбетова 15, 23",
-      :customer_id => @customer
+      :customer_id => @customer,
+      :floor => 5
     }
   end
   
   # invalid data
   def invalid_data
     {
-      :typesubject_id => 2,
+      :typesubject_id => @typesubject.id,
       :city_id => nil,
       :price => "swsws",
       :district_id => @district.id,
       :area => 80,
       :address => "Баймагамбетова 15, 23",
-      :customer_id => @customer
+      :customer_id => @customer,
+      :floor => 6
     }  
     
   end
