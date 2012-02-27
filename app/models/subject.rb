@@ -15,6 +15,8 @@ class Subject < ActiveRecord::Base
   after_save :verify_customer_real
   after_update :verify_customer_real
   after_destroy :verify_customer_real
+  before_save :nill_floor
+  before_update :nill_floor
   
   # validations:
   validates :typesubject_id, :presence => true
@@ -29,6 +31,12 @@ class Subject < ActiveRecord::Base
       false
     else
       typesubject.floor == true  
+    end
+  end
+  
+  def nill_floor
+    if typesubject.floor == false
+      self.floor = nil
     end
   end
 
