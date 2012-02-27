@@ -23,6 +23,11 @@ class Subject < ActiveRecord::Base
   validates :customer_id, :presence => true
   # validates :district_id, :presence => true
   validates :districtname, :presence => true
+
+  # custom validate methods
+  
+  # end custom validate methods
+
   
   def legend_value
     new_record? ? "Добавить объект" : "Редактировать объект"

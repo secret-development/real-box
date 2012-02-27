@@ -6,4 +6,5 @@ FactoryGirl.define do
     permalink "cottage"
     floor true
   end
+
 end

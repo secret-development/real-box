@@ -12,8 +12,8 @@ describe Subject do
     
     # valid attributes
     @attr = {
-      :typesubject_id => 1,
-      :city_id => 2,
+      :typesubject_id => @typesubject.id,
+      :city_id => @city.id,
       :customer_id => @customer.id,
       :price => 100003,
       :area => 80,
