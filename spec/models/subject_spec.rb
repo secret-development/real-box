@@ -10,6 +10,9 @@ describe Subject do
     @subject = Factory(:subject, :typesubject => @typesubject, :city => @city, 
         :customer => @customer, :district => @district)
     
+    # typesubject without floor
+    @withourfloor = Factory(:withourfloor)
+    
     # valid attributes
     @attr = {
       :typesubject_id => @typesubject.id,
@@ -78,6 +81,16 @@ describe Subject do
     describe "validation floor" do
       it "should require floor if typesubject.floor == true" do
         subject = Subject.new(@attr)
+        if subject.typesubject.floor == true
+          subject.floor = nil
+          subject.should_not be_valid
+        end
+      end
+      
+      it "should be valid if typesubject.floor == false" do
+        subject = Subject.new(@attr.merge(:typesubject_id => @withourfloor.id))
+        subject.floor = nil
+        subject.should be_valid
       end
     end
     
@@ -179,4 +192,3 @@ end
 #  customer_id        :integer(4)
 #  district_id        :integer(4)
 #
-
