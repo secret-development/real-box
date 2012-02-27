@@ -5,7 +5,10 @@ describe ConditionFieldsController do
   render_views
   
   before(:each) do
-    controller.stub!(:all_deny)
+    # start auth
+    @user = Factory(:user)
+    test_log_in(@user)
+    # end auth
     typesubject = Factory(:typesubject)
     @conditionfield = Factory(:condition_field, :typesubject => typesubject)
   end

@@ -3,7 +3,7 @@ class SubjectsController < ApplicationController
   respond_to :html
   before_filter :all_deny
   def index
-    @subjects = Subject.all
+    @subjects = Subject.page(params[:page]).per(20)
     respond_with(@subjects)
   end
   
