@@ -161,15 +161,35 @@ $(document).ready(function() {
 // validation user new
 $(document).ready(function() { 
   $('#user-new').validate({
-    rules:{
-      "user[email]":{required: true, email: true},
-      "user[password]":{required:true, minlength: 7},
-      "user[password_confirmation]":{required:true, equalTo:"#user[password]"},    
+    rules: {
+      "user[email]": {
+        required: true, 
+        email: true,
+      },
+      "user[password]": {
+        required: true, 
+        minlength: 7,
+      },
+      "user[password_confirmation]": {
+        required: true, 
+        minlength: 7, 
+        equalTo: '#password',
+      },    
     },
-    messages:{
-      "user[email]": "Введите почтовый адрес!",
-      "user[password]": "Пароль не менее 8ми  символов!",
-      "user[password_confirmation]": "Пароли не совпадают!"    
+    messages: {
+      "user[email]": {
+        email: "Введите почтовый адрес!",
+        required: "Введите почтовый адрес!",
+      },
+      "user[password]": { 
+        minlength: "Пароль не менее 7ми  символов!",
+        required: "Введите пароль!",
+      },
+      "user[password_confirmation]": {
+        equalTo: "Пароли не совпадают!",
+        required: "Введите пароль!",
+        minlength: "Пароль не менее 7ми символов!"
+      },    
     }
   });
 });
