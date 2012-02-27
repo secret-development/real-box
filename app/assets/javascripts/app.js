@@ -157,3 +157,58 @@ $(document).ready(function() {
     return false;
   });
 });
+
+
+// validation user new
+$(document).ready(function() { 
+  $('#user-new').validate({
+    rules:{
+      "user[email]":{required: true, email: true},
+      "user[password]":{required:true, minlength: 7},
+      "user[password_confirmation]":{required:true, equalTo:"#user[password]"},    
+    },
+    messages:{
+      "user[email]": "Введите почтовый адрес!",
+      "user[password]": "Пароль не менее 8ми  символов!",
+      "user[password_confirmation]": "Пароли не совпадают!"    
+    }
+    
+  });
+});
+
+// subject -> floor
+$(document).ready(function() {
+  if ($("form").find("#exist-floor-subject").length != 0) {
+    $("#floor-subject-block :input").attr("disabled", true);
+  };
+  
+  $("#subject_typesubject_id").change(function(event) {
+    var typesubject_id = $(this).attr("value");
+    $.ajax({
+      url: '/subjects/findtypesubject',
+      type: 'POST',
+      dataType: 'json',
+      data: {id: typesubject_id},
+      success: function(data, textStatus, xhr) {
+        if((data['floor'] == true) && ($("form").find("#exist-floor-subject").length == 0)){
+          $("#floor-subject-block :input").removeAttr('disabled');
+          $("#floor-subject-block").slideDown('fast');
+        }
+        else if((data['floor'] == false) && ($("form").find("#exist-floor-subject").length != 0)){
+          
+          $("#exist-floor-subject")
+            .slideUp('fast')
+            .remove();
+          
+          $("#floor-subject-block :input").attr('disabled', true);
+          $("#floor-subject-block").slideUp('fast');
+        }
+        else if(data['floor'] == false){
+          $("#floor-subject-block :input").attr('disabled', true);
+          $("#floor-subject-block").slideUp('fast');
+        }
+      }
+    });
+    
+  });
+});

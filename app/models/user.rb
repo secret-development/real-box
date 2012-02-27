@@ -1,7 +1,7 @@
 # encoding:utf-8
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :email, :password, :password_confirmation, :password_reset_token, :password_reset_sent_at
+  attr_accessible :email, :password, :password_confirmation, :password_reset_token, :password_reset_sent_at, :role
   #encript password before save
   before_save :encrypt_password
   # remember me

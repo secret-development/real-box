@@ -15,14 +15,31 @@ class Subject < ActiveRecord::Base
   after_save :verify_customer_real
   after_update :verify_customer_real
   after_destroy :verify_customer_real
+  before_save :nill_floor
+  before_update :nill_floor
   
   # validations:
   validates :typesubject_id, :presence => true
   validates :city_id, :presence => true
   validates :price, :presence => true, :numericality => true
   validates :customer_id, :presence => true
-  # validates :district_id, :presence => true
   validates :districtname, :presence => true
+  validates :floor, :presence => true, :if => :floor?
+
+  def floor?
+    if typesubject.nil?
+      false
+    else
+      typesubject.floor == true  
+    end
+  end
+  
+  def nill_floor
+    if typesubject.floor == false
+      self.floor = nil
+    end
+  end
+
   
   def legend_value
     new_record? ? "Добавить объект" : "Редактировать объект"

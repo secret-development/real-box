@@ -1,0 +1,6 @@
+<h1>Персонал</h1>
+<%= link_to 'Создать нового пользователя', new_user_path, :class => "btn"  %> <br />
+<% if current_user %>
+ Вы вошли как <i><%= current_user.email %></i>
+  
+<% end -%>
