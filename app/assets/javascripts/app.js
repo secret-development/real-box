@@ -163,8 +163,13 @@ $(document).ready(function() {
   $('#user-new').validate({
     rules:{
       "user[email]":{required: true, email: true},
-      "user[password]":{required:true},
-      "user[password_confirmation]":{equalTo:"#user[password]"},    
+      "user[password]":{required:true, minlength: 7},
+      "user[password_confirmation]":{required:true, equalTo:"#user[password]"},    
+    },
+    messages:{
+      "user[email]": "Введите почтовый адрес!",
+      "user[password]": "Пароль не менее 8ми  символов!",
+      "user[password_confirmation]": "Пароли не совпадают!"    
     }
   });
 });
