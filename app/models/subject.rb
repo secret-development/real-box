@@ -21,12 +21,16 @@ class Subject < ActiveRecord::Base
   validates :city_id, :presence => true
   validates :price, :presence => true, :numericality => true
   validates :customer_id, :presence => true
-  # validates :district_id, :presence => true
   validates :districtname, :presence => true
+  validates :floor, :presence => true, :if => :floor?
 
-  # custom validate methods
-  
-  # end custom validate methods
+  def floor?
+    if typesubject.nil?
+      false
+    else
+      typesubject.floor == true  
+    end
+  end
 
   
   def legend_value

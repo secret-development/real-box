@@ -18,7 +18,8 @@ describe Subject do
       :price => 100003,
       :area => 80,
       :address => "Баймагамбетова 15, 23",
-      :district_id => @district.id
+      :district_id => @district.id,
+      :floor => 1
     }
   end
   
@@ -72,6 +73,14 @@ describe Subject do
       subject = Subject.new(@attr)
       subject.should_not be_valid
     end
+    
+    # floor
+    describe "validation floor" do
+      it "should require floor if typesubject.floor == true" do
+        subject = Subject.new(@attr)
+      end
+    end
+    
   end
   
   describe "associations" do
