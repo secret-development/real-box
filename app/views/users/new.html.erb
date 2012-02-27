@@ -1,13 +1,36 @@
-<h1>Создание нового агента</h1>
-<%= form_for @user do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  
-  <%= f.submit "Create" %>  
+<%= form_for(@user, :html => {:class => "form-horizontal", :id => "user-new"}) do |f| %>
+  <fieldset>
+    <%= error_messages_for(@user) %>
+    <legend>Создание нового агента</legend>
+    
+    <div class="control-group">
+      <%= f.label :email %>
+      <div class="controls">
+      <%= f.email_field :email %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :password %>
+      <div class="controls">
+      <%= f.password_field :password %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :password_confirmation %>
+      <div class="controls">
+      <%= f.password_field :password_confirmation %>
+      </div>
+    </div>  
+    <div class="control-group">
+      <%= f.label :role, "Администратор" %>
+      <div class="controls">
+      <%= f.check_box :role %>
+      </div>
+    </div>  
+    <div class="form-actions"> 
+      <%= f.submit "Создать", :class => "btn btn-primary" %>
+      <button type="reset" class="btn cancel-form">Отмена</button>
+    </div>
+  </fieldset>  
 <% end %>
