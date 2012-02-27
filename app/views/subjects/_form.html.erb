@@ -40,6 +40,16 @@
         </button> 
       </div>
     </div>
+    <!-- floor -->
+    <% if floor?(@subject) %>
+      <div class="control-group">
+        <%= f.label :floor, "Этаж:" %>
+        <div class="controls">
+          <%= f.text_field :floor, :placeholder => "9" %> 
+        </div>
+      </div>
+    <% end %>
+    <!-- end floor -->
     <div class="control-group">
       <%= f.label :price, "Цена:" %>
       <div class="controls">
