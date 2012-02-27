@@ -143,7 +143,6 @@ $(document).ready(function() {
       piclist.push(this.href);
       if($(this).hasClass("stActive")) curindex=idx;
     });
-    console.log(curindex);
     $.fancybox(piclist, {
         'padding'           : 0,
         'margin'            : 0,
