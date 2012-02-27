@@ -21,6 +21,14 @@
       <span class="title-field-subject">Район:</span>
       <%= @subject.district.title %>
     </div>
+    <!-- floor -->
+    <% if floor?(@subject) %>
+    <div class="field-subject">
+      <span class="title-field-subject">Этаж:</span>
+      <%= @subject.floor %>
+    </div>
+    <% end %>
+    <!-- end floor -->
     <div class="field-subject">
       <span class="title-field-subject">Цена:</span>
       <%= to_dollar(@subject.price) %>
