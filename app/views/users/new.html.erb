@@ -1,5 +1,6 @@
 <h1>Создание нового агента</h1>
 <%= form_for @user do |f| %>
+  <%= error_messages_for(@user) %>
   <%= f.label :email %>
   <%= f.email_field :email %>
   
@@ -8,6 +9,9 @@
   
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
+  
+  <%= f.label :role, "Администратор" %>
+  <%= f.check_box :role %>
   
   <%= f.submit "Create" %>  
 <% end %>

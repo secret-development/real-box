@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(params[:user])
+    @user = User.create(params[:user])
     if @user.save
       flash[:notice] = "Successfully"
       respond_with(@user, :location => users_path)
