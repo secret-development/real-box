@@ -63,5 +63,11 @@ class SubjectsController < ApplicationController
   def add_photo
     @subject = Subject.find(params[:id])  
   end
-
+  
+  def findtypesubject
+    @typesubject = Typesubject.find(params[:id])
+    respond_to do |format|
+      format.json { render :json => @typesubject.to_json}
+    end
+  end
 end

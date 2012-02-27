@@ -20,7 +20,8 @@ Crm::Application.routes.draw do
   
   resources :subjects do
     resources :photos, :only => [:create, :destroy]
-    get "add_photo", :on => :member, :as => :add_photo
+    get 'add_photo', :on => :member, :as => :add_photo
+    post 'findtypesubject', :on => :collection
   end
   
   resources :transactions
