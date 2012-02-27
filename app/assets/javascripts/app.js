@@ -168,8 +168,12 @@ $(document).ready(function() {
     },
     messages:{
       "user[email]": "Введите почтовый адрес!",
-      "user[password]": "Пароль не менее 8ми  символов!",
-      "user[password_confirmation]": "Пароли не совпадают!"    
+      "user[password]": { 
+        minlength : "Пароль не менее 8ми  символов!",
+        required : "Введите пароль!"},
+      "user[password_confirmation]": {
+        equalTo :"Пароли не совпадают!",
+        required : "Введите пароль!"},    
     }
   });
 });
