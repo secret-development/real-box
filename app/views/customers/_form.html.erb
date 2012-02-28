@@ -27,18 +27,19 @@
     <div class="control-group">
       <%= f.label :phonehome, "Телефон:" %>
       <div class="controls">
-        <input type="text" name="area_code" id="area_code" maxlength="3" size="3"> - 
-        <input type="text" name="mobilephone1" id="mobilephone1" 
-        maxlength="3" size="3"> - 
-        <input type="text" name="mobilephone2" id="mobilephone2" 
-        maxlength="4" size="5">
+        <%= f.text_field :phonehome %>
       </div>
     </div>
     
     <div class="control-group">
       <%= f.label :phonemobile, "Сотовый телефон:" %>
       <div class="controls">
-        <%= f.text_field :phonemobile %>
+        <span class="phone-area-start">+7</span>
+        <input type="text" name="area_code" id="area_code" maxlength="3" class="input-phone-area" placeholder="775"> - 
+        <input type="text" name="mobilephone1" id="mobilephone1" 
+        maxlength="3" class="input-phone-area" placeholder="674"> - 
+        <input type="text" name="mobilephone2" id="mobilephone2" 
+        maxlength="4" class="input-phone-area" placeholder="8724">
       </div>
     </div>
     
