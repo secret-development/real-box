@@ -211,3 +211,11 @@ $(document).ready(function() {
     
   });
 });
+
+
+// customer -> mobile phone fields(autotab)
+$(document).ready(function() {
+  $('#area_code, #mobilephone1, #mobilephone2')
+    .autotab_magic()
+    .autotab_filter('numeric');
+});
