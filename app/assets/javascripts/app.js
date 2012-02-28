@@ -231,7 +231,7 @@ $(document).ready(function() {
     
   });
 });
-
+// validation session new
 $(document).ready(function() {
   $('#session-new').validate({
     rules: {
@@ -252,7 +252,7 @@ $(document).ready(function() {
     }
   })
 });
-
+// validation password reset
 $(document).ready(function(){
   $('#password-reset').validate({
     rules : {
