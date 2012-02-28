@@ -22,6 +22,7 @@
       <div class="controls">
         <%= f.collection_select(:typesubject_id, Typesubject.all, :id, :name) %>
         <hr>
+        <%= @subject.typesubject.find_values %>
       </div>
     </div>
     <div class="control-group">

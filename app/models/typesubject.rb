@@ -1,5 +1,7 @@
 # encoding:utf-8
 class Typesubject < ActiveRecord::Base
+  
+  attr_accessor :fields
 
   # associations:
   has_many :condition_fields, :dependent => :destroy
@@ -21,7 +23,41 @@ class Typesubject < ActiveRecord::Base
   def button_value
     new_record? ? "Добавить" : "Редактировать"
   end
+  
+  
+  def find_conditions
+    if condition_fields.size > 0
+      @fields = {}
+      condition_fields.each do |c|
+        @fields[c.namefield] = {}
+      end
+      return @fields
+    end
+  end
+  
+  def find_typefield
+    conditions = find_conditions
+    condition_fields.each do |c|
+      conditions[c.namefield] = {:typefield => c.typefield}
+    end
+    return conditions
+  end
+  
+  def find_values
+    conditions = find_typefield
+    condition_fields.each do |c|
+      conditions[c.namefield][:value] = []
+      if c.value_fields.size > 0
+        c.value_fields.each do |v|
+          conditions[c.namefield][:value] << v.valuefield
+        end        
+      else
+        conditions[c.namefield].delete(:value)
+      end
 
+    end
+    return conditions
+  end
   
 end
 
