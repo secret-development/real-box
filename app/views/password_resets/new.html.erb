@@ -1,8 +1,15 @@
-<h1>Password Reset</h1>
-<%= flash_msg(flash[:notice]) %>
-<%= form_tag password_resets_path, :method => :post do %>
-  <%= email_field_tag :email, params[:email] %>
-  
-  <%= submit_tag 'Reset Password' %>
+<%= form_tag(password_resets_path, :method => :post, :class => "well form-inline", :id => "password-reset") do %>
+  <fieldset>
+  <%= flash_msg(flash[:notice]) %>
+  <legend>Восстановление пароля</legend>
+  <div class="control-group">
+  <div class="controls">
+    <%= email_field_tag :email, params[:email], :placeholder => "Введите ваш почтовый адрес ..." %>
+  </div>
+  </div>
+  <div class="form-actions">
+  <%= submit_tag 'Восстановить', :class => "btn" %>
+  </div>
+  </fieldset>
 <% end %>
 
