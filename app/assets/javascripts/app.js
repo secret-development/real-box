@@ -251,5 +251,21 @@ $(document).ready(function() {
       "password" : "Поле не должно быть пустым!",
     }
   })
+});
 
+$(document).ready(function(){
+  $('#password-reset').validate({
+    rules : {
+      "email" : {
+        required : true,
+        email : true,
+      }
+    },
+    messages : {
+      "email" : {
+        required : "Введите почтовый адрес",
+        email : "Введите корректный почтовый адрес!",
+      }
+    }  
+  })
 });
