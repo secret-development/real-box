@@ -12,6 +12,8 @@ class Customer < ActiveRecord::Base
   scope :potentials, where(:potentials => true)
   #default_scope order("lastname ASC")
 
+  attr_accessor :
+
   
   #permalink
 #  def to_param
