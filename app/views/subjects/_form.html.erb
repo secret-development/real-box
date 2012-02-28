@@ -21,7 +21,6 @@
       <%= f.label :typesubject_id, "Тип недвижимости:" %>
       <div class="controls">
         <%= f.collection_select(:typesubject_id, Typesubject.all, :id, :name) %>
-        <%= @subject.typesubject.build_result %>
         <hr>
       </div>
     </div>
