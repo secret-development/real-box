@@ -218,4 +218,5 @@ $(document).ready(function() {
   $('#area_code, #phonemobile1, #phonemobile2')
     .autotab_magic()
     .autotab_filter('numeric');
+  $('#customer_phonehome').autotab_filter('numeric');
 });
