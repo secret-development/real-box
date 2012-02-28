@@ -12,11 +12,26 @@ class Customer < ActiveRecord::Base
   scope :potentials, where(:potentials => true)
   #default_scope order("lastname ASC")
 
+  attr_accessor :area_code, :phonemobile1, :phonemobile2
+  
+  # callbacks
+  before_save :phonemobile_merge
+  before_update :phonemobile_merge
   
   #permalink
 #  def to_param
 #    permalink    
 #  end
+  
+  def phonemobile_merge
+    if (@area_code.blank? || @phonemobile1.blank? || @phonemobile2.blank?)
+      if new_record?
+        self.phonemobile = ""  
+      end
+    else
+      self.phonemobile = "+7 #{@area_code} #{@phonemobile1} #{@phonemobile2}" 
+    end
+  end
   
   def button_value
     if new_record?
