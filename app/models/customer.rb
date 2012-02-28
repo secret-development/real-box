@@ -22,9 +22,15 @@ class Customer < ActiveRecord::Base
 #  def to_param
 #    permalink    
 #  end
-
+  
   def phonemobile_merge
-    self.phonemobile = "+7 #{@area_code} #{@phonemobile1} #{@phonemobile2}" 
+    if (@area_code.blank? || @phonemobile1.blank? || @phonemobile2.blank?)
+      if new_record?
+        self.phonemobile = ""  
+      end
+    else
+      self.phonemobile = "+7 #{@area_code} #{@phonemobile1} #{@phonemobile2}" 
+    end
   end
   
   def button_value

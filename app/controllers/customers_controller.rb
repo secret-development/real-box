@@ -4,8 +4,6 @@ class CustomersController < ApplicationController
   respond_to :html
   helper_method :sort_column, :sort_direction
 
-
-
   
   def all
     @customers = Customer.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
