@@ -2,7 +2,7 @@
 class UsersController < ApplicationController
   before_filter :all_deny 
   respond_to :html
-  
+  load_and_authorize_resource
   def new
     @user = User.new
   end

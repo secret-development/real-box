@@ -4,7 +4,9 @@
   <%= u.role %> <br />
 <% end %>
 <div class="form-actions">
-<%= link_to 'Создать нового пользователя', new_user_path, :class => "btn"  %> <br />
+<% if can? :new, @users %>  
+  <%= link_to 'Создать нового пользователя', new_user_path, :class => "btn"  %> <br />
+<% end %>
 </div>
 <% if current_user %>
  Вы вошли как <i><%= current_user.email %></i>
