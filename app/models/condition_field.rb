@@ -1,5 +1,6 @@
 # encoding:utf-8
 class ConditionField < ActiveRecord::Base
+  
   # associations:
   has_many :value_fields, :dependent => :destroy
   belongs_to :typesubject

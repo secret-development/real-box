@@ -1,6 +1,8 @@
 # encoding:utf-8
 class Typesubject < ActiveRecord::Base
   
+  attr_accessor :fields
+
   # associations:
   has_many :condition_fields, :dependent => :destroy
   has_many :subjects, :dependent => :nullify
@@ -21,6 +23,8 @@ class Typesubject < ActiveRecord::Base
   def button_value
     new_record? ? "Добавить" : "Редактировать"
   end
+
+  
 end
 
 # == Schema Information
