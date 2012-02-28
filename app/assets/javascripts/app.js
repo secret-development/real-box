@@ -231,3 +231,25 @@ $(document).ready(function() {
     
   });
 });
+
+$(document).ready(function() {
+  $('#session-new').validate({
+    rules: {
+      "email": {
+        required : true,
+        email : true,
+      },
+      "password" : {
+        required : true,
+      }
+    },
+    messages : {
+      "email" : {
+        required : "Поле не должно быть пустым!",
+        email : "Введите корректный почтовый адрес!",
+      },
+      "password" : "Введите пароль!",
+    }
+  })
+
+});

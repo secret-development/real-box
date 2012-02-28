@@ -1,17 +1,29 @@
 
 <div class="span6">
-<h1>Вход</h1>
-<%= form_tag(sessions_path, :class => "well form-inline") do %>
-  <%= flash_msg(flash[:notice]) %> 
-  <%= email_field_tag :email, params[:email]%>
+<%= form_tag(sessions_path, :class => "well form-inline", :id => "session-new") do %>
+  <fieldset>
+  <%= flash_msg(flash[:notice]) %>
+  <legend>Вход</legend>
+  <div class="control-group"> 
+    <%= email_field_tag :email, params[:email]%>
+  </div>
   
-  <%= password_field_tag :password %>
+  <div class="control-group">  
+    <%= password_field_tag :password %>
+  </div>
   
-  <%= link_to 'Забыли пароль', new_password_resets_path %>
+  <div class="control-group">
+    <%= link_to 'Забыли пароль?', new_password_resets_path %>
+  </div>
   
-  <%= label_tag :remember_me, "Запомнить меня" %>
-  <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+  <div class="control-group">
+    <%= label_tag :remember_me, "Запомнить меня" %>
+    <%= check_box_tag :remember_me, 1, params[:remember_me] %>    
+  </div>
   
-  <%= submit_tag "Войти", :class => "btn" %>
+  <div class="form-actions">
+    <%= submit_tag "Войти", :class => "btn" %>
+  </div>
+  </fieldset>
 <% end %>
 </div>
