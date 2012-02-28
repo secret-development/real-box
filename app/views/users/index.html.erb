@@ -1,5 +1,11 @@
 <h1>Персонал</h1>
+<% @users.each do |u| %>
+  <%= u.email %>
+  <%= u.role %> <br />
+<% end %>
+<div class="form-actions">
 <%= link_to 'Создать нового пользователя', new_user_path, :class => "btn"  %> <br />
+</div>
 <% if current_user %>
  Вы вошли как <i><%= current_user.email %></i>
   
