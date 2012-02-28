@@ -23,5 +23,11 @@ class ApplicationController < ActionController::Base
         redirect_to sign_in_path
       end
     end
+    
+    def settings_deny
+      unless current_user.role?
+        redirect_to root_path
+      end            
+    end
         
 end

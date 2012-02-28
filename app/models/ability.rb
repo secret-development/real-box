@@ -7,10 +7,13 @@ class Ability
       can :manage, :all
       can :update, SocialStatus
       can :delete, SocialStatus
-      can :create, SocialStatus  
+      can :create, SocialStatus
+      can :update, Task
+      can :delete, Task
+      can :create, Task  
     else
       can :read, :all
-         
+   
     end
     # Define abilities for the passed in user here. For example:
     #
