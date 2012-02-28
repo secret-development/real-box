@@ -4,12 +4,13 @@ class CustomersController < ApplicationController
   respond_to :html
   helper_method :sort_column, :sort_direction
 
+  
   def all
-    @customers = Customer.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(7)
+    @customers = Customer.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
   end
   
   def index
-    @customers = Customer.real.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(7)#real.page(params[:page]).per(10)
+    @customers = Customer.real.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)#real.page(params[:page]).per(10)
     @title = "Действующие клиенты"
     #@potentials = Customer.potentials.all
   end
@@ -76,6 +77,10 @@ class CustomersController < ApplicationController
   
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"    
+  end
+  
+  def page_paginate
+    5
   end
 
   

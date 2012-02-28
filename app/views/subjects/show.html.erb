@@ -1,4 +1,4 @@
-<h1 class="title-page">Информация об объекте</h1>
+<h1 class="title-page"><%= link_to "Объекты недвижимости", subjects_path %> → Информация об объекте</h1>
 <div id="show-subject-page">
   <div class="subject-info">
     <div class="field-subject">
@@ -21,6 +21,14 @@
       <span class="title-field-subject">Район:</span>
       <%= @subject.district.title %>
     </div>
+    <!-- floor -->
+    <% if floor?(@subject) %>
+    <div class="field-subject">
+      <span class="title-field-subject">Этаж:</span>
+      <%= @subject.floor %>
+    </div>
+    <% end %>
+    <!-- end floor -->
     <div class="field-subject">
       <span class="title-field-subject">Цена:</span>
       <%= to_dollar(@subject.price) %>

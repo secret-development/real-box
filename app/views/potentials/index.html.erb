@@ -3,8 +3,9 @@
 <%= link_to plus_icon + " Добавить" , new_customer_path, :class => "btn button-add" %>
 
 <div class="links-type-customers">
-  <%= link_to 'Все клиенты', all_customers_path %>
-  <%= link_to 'Действующие клиенты', customers_path %>  
+  <%= link_to 'все клиенты', all_customers_path %>
+  <%= link_to 'действующие клиенты', customers_path %>
+  <%= link_to 'потенциальные клиенты', potentials_path %>
 </div>
 
 <%= form_tag(potentials_path, :method => 'get', :id => 'customers_search')  do %>
@@ -13,7 +14,7 @@
   
   <%= text_field_tag :search, params[:search], :placeholder => "Поиск ...", :class => "span3" %>
  
-  <div id="customer" class="well">
+  <div id="customer">
     <%= render 'potentials' %>
   </div>
 <% end %>
