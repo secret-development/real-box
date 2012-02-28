@@ -1,7 +1,9 @@
 <h1 class="title-page"><%= @title %></h1>
 <%= flash_msg(flash[:notice]) %>
+<% if can? :create, @tasks %>
 <%= link_to plus_icon + 'Добавить', new_task_path, 
     :class => "btn button-add"  %>
+<% end %>
 <%= form_tag(tasks_path, :method => 'get', :id => 'tasks_search')  do %>
   <%= hidden_field_tag :sort, params[:sort] %>
   <%= hidden_field_tag :direction, params[:direction] %>
@@ -12,3 +14,4 @@
       <%= render 'tasks' %>
     </div>
 <% end %>
+
