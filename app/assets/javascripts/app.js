@@ -231,7 +231,7 @@ $(document).ready(function() {
     
   });
 });
-<<<<<<< HEAD
+
 // validation session new
 $(document).ready(function() {
   $('#session-new').validate({
