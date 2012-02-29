@@ -47,4 +47,12 @@ class User < ActiveRecord::Base
     UserMailer.password_reset(self).deliver    
   end
   
+  def legend_value
+    if new_record?
+      "Добавление нового сотрудника"
+    else
+      "Изменение"      
+    end
+  end
+  
 end

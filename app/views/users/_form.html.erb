@@ -1,7 +1,7 @@
 <%= form_for(@user, :html => {:class => "form-horizontal", :id => "user-new"}) do |f| %>
   <fieldset>
     <%= error_messages_for(@user) %>
-    <legend>Создание нового агента</legend>
+    <legend> <%= @user.legend_value %></legend>
     <div class="control-group">
       <%= f.label :lastname, "Фамилия" %>
       <div class="controls">
