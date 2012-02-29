@@ -69,5 +69,19 @@ describe User do
     end  
   
   end
+  
+  describe "test methods" do
+    it "legend value for new" do
+      @user = User.new(@attr)
+      @user.legend_value.should == "Добавление нового сотрудника"      
+    end
+    
+    it "legend value for update" do
+      @update = User.create!(@attr)
+      @update.firstname = "Ваня"
+      @update.legend_value.should == "Изменение"      
+    end
+    
+  end
     
 end
