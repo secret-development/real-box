@@ -6,7 +6,13 @@
   <table class="table table-bordered table-striped table-condensed cv-table">
     <thead>
       <tr class="valuefield-typesubject-title">
-        <th colspan="3"><%= t.name %></th>
+        <th colspan="3">
+          <%= t.name %>
+          <div class="value-title-in-table">
+            <%= link_to "Значения", value_fields_path+"##{t.id}", 
+              :target => "_blank" %>
+          </div>
+        </th>
       </tr>
     </thead>
     <tbody>

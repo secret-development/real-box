@@ -12,7 +12,7 @@ class Customer < ActiveRecord::Base
   scope :potentials, where(:potentials => true)
   #default_scope order("lastname ASC")
 
-  attr_accessor :area_code, :phonemobile1, :phonemobile2
+  attr_writer :area_code, :phonemobile1, :phonemobile2
   
   # callbacks
   before_save :phonemobile_merge
@@ -30,6 +30,24 @@ class Customer < ActiveRecord::Base
       end
     else
       self.phonemobile = "+7 #{@area_code} #{@phonemobile1} #{@phonemobile2}" 
+    end
+  end
+  
+  def area_code
+    unless phonemobile.nil?
+      phonemobile.split(' ').second
+    end
+  end
+  
+  def phonemobile1
+    unless phonemobile.nil?
+      phonemobile.split(' ').third
+    end
+  end
+  
+  def phonemobile2
+    unless phonemobile.nil?
+      phonemobile.split(' ').fourth
     end
   end
   
