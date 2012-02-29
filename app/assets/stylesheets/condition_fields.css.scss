@@ -1,3 +1,15 @@
-// Place all the styles related to the ConditionFields controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.value-title-in-table{
+  font-size:11px;
+  display: inline-block;
+  float:right;
+  a{
+    background:#E6E6E6;
+    color:#818181;
+    padding:3px;
+    text-decoration:none;
+    &:hover{
+      background:#C1C1C1;
+      color:#656565;
+    }
+  }
+}
