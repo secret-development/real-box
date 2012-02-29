@@ -111,6 +111,49 @@ describe Typesubject do
     end
   end
   
+  describe "fields" do
+    before(:each) do
+      @conditionfield = Factory(:condition_field, :typesubject => @typesubject)
+      @valuefield = Factory(:value_field, :condition_field => @conditionfield)
+      @attr2 = {
+        :namefield => "Состояние",
+        :typefield => "select",
+        :typesubject_id => @typesubject
+      }
+      @attr3 = {
+        :valuefield => "Нет",
+        :condition_field_id => @conditionfield
+      }
+    end
+    
+    it "should find conditions" do
+      new_typesubejct_with_conditions
+      conditions = @typesubject_test.find_conditions
+      conditions.first[0].should =~ /состояние/i
+    end
+    
+    it "should find typefield" do
+      new_typesubejct_with_conditions
+      conditions = @typesubject_test.find_typefield
+      conditions[@attr2[:namefield]][:typefield].should =~ /select/i
+    end
+    
+    it "should find_values" do
+      new_typesubejct_with_conditions
+      conditions = @typesubject_test.find_values
+      v = conditions[@attr2[:namefield]]
+      v[:value][0].should =~ /нет/i
+      # conditions[@attr2[:namefield][:values]].should =~ /нет/i
+    end
+    
+    def new_typesubejct_with_conditions
+      @typesubject_test = Typesubject.new(@attr)
+      @conditionfield_test = @typesubject_test.condition_fields.build(@attr2)
+      @valuefield = @conditionfield_test.value_fields.build(@attr3)
+      return @typesubject_test
+    end
+  end
+  
 end
 
 # == Schema Information
@@ -134,4 +177,3 @@ end
 #  updated_at :datetime        not null
 #  floor      :boolean(1)
 #
-

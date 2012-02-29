@@ -278,5 +278,9 @@ $(document).ready(function() {
     .autotab_magic()
     .autotab_filter('numeric');
   $('#customer_phonehome').autotab_filter('numeric');
-
+  
+  $('#ad-house, #ad-flat')
+    .autotab_magic()
+    .autotab_filter('numeric');
+  
 });
