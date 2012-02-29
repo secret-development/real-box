@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params[:user])
     if @user.save
-      flash[:notice] = "Successfully"
+      flash[:notice] = "Сотрудник создан"
       respond_with(@user, :location => users_path)
     else
       render 'new'      
@@ -27,6 +27,16 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])    
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "Данные изменены"
+      respond_with(@user, :location => users_path)
+    else
+      render 'edit'      
+    end    
   end
   
   def destroy
