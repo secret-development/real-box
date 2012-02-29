@@ -4,7 +4,7 @@
     <th>Фамилия</th>
     <th>Имя</th>
     <th>Почтовый адрес</th>
-    <th></th>
+    <th>Просмотр</th>
   </thead>
   <tbody>
     <% @users.each do |u| %>
@@ -12,7 +12,7 @@
       <td><%= u.lastname %></td>
       <td><%= u.firstname %></td>
       <td><%= u.email %></td>
-      <td></td>
+      <td><%= link_to eye_icon, user_path(u) %></td>
     </tr>
     <% end %>
   </tbody>
