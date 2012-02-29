@@ -2,22 +2,35 @@
   <fieldset>
     <%= error_messages_for(@user) %>
     <legend>Создание нового агента</legend>
+    <div class="control-group">
+      <%= f.label :lastname, "Фамилия" %>
+      <div class="controls">
+        <%= f.text_field :lastname %>
+      </div>
+    </div>
     
     <div class="control-group">
-      <%= f.label :email %>
+      <%= f.label :firstname, "Имя" %>
+      <div class="controls">
+        <%= f.text_field :firstname %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :email, "Почтовый адрес" %>
       <div class="controls">
       <%= f.email_field :email %>
       </div>
     </div>
     
     <div class="control-group">
-      <%= f.label :password %>
+      <%= f.label :password, "Пароль" %>
       <div class="controls">
       <%= f.password_field :password, :id => "password" %>
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :password_confirmation %>
+      <%= f.label :password_confirmation, "Повторите пароль" %>
       <div class="controls">
       <%= f.password_field :password_confirmation %>
       </div>
