@@ -13,6 +13,7 @@ class Ability
       can :create, Task  
     else
       can :read, :all
+      can :update, User, :id => user.id
    
     end
     # Define abilities for the passed in user here. For example:
