@@ -45,6 +45,11 @@ describe User do
       not_lastname = User.new(@attr.merge(:lastname => ""))
       not_lastname.should_not be_valid    
     end
+    
+    it "should require firstname" do
+      not_firstname = User.new(@attr.merge(:firstname => ""))
+      not_firstname.should_not be_valid      
+    end
       
   end
   
