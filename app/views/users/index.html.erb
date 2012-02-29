@@ -1,16 +1,14 @@
 <h1>Персонал</h1>
 <table class="table table-striped">
   <thead>
-    <th>Фамилия</th>
-    <th>Имя</th>
+    <th>Фамилия Имя</th>
     <th>Почтовый адрес</th>
     <th>Просмотр</th>
   </thead>
   <tbody>
     <% @users.each do |u| %>
     <tr>
-      <td><%= u.lastname %></td>
-      <td><%= u.firstname %></td>
+      <td><%= u.lastname %> <%= u.firstname %></td>
       <td><%= u.email %></td>
       <td><%= link_to eye_icon, user_path(u) %></td>
     </tr>
