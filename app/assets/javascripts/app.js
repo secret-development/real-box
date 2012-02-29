@@ -174,6 +174,12 @@ $(document).ready(function() {
         required: true, 
         minlength: 7, 
         equalTo: '#password',
+      },
+      "user[lastname]" : {
+        required: true
+      },
+      "user[firstname]" : {
+        required: true
       },    
     },
     messages: {
@@ -189,7 +195,13 @@ $(document).ready(function() {
         equalTo: "Пароли не совпадают!",
         required: "Введите пароль!",
         minlength: "Пароль не менее 7ми символов!"
-      },    
+      },
+      "user[lastname]": {
+        required: "Введите фамилию!",
+      },
+      "user[firstname]": {
+        required: "Введите имя!",
+      }, 
     }
     
   });
@@ -253,9 +265,9 @@ $(document).ready(function() {
     }
   })
 });
-// validation password reset
+// validation send to email
 $(document).ready(function(){
-  $('#password-reset').validate({
+  $('#send-to-email').validate({
     rules : {
       "email" : {
         required : true,
@@ -279,4 +291,32 @@ $(document).ready(function() {
     .autotab_filter('numeric');
   $('#customer_phonehome').autotab_filter('numeric');
 
+});
+
+//validation reset password
+$(document).ready(function(){
+  $('#password-reset').validate({
+    rules :{
+      "user[password]" : {
+        required: true,
+        minlength: 7, 
+      },
+      "user[password_confirmation]" : {
+        required: true,
+        minlength: 7,
+        equalTo: '#confirm',
+      },
+    },
+    messages :{
+      "user[password]": { 
+        minlength: "Пароль не менее 7ми  символов!",
+        required: "Введите пароль!",
+      },
+      "user[password_confirmation]": {
+        equalTo: "Пароли не совпадают!",
+        required: "Введите пароль!",
+        minlength: "Пароль не менее 7ми символов!"
+      },  
+    }
+  })
 });

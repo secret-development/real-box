@@ -1,0 +1,49 @@
+<%= form_for(@user, :html => {:class => "form-horizontal", :id => "user-new"}) do |f| %>
+  <fieldset>
+    <%= error_messages_for(@user) %>
+    <legend> <%= @user.legend_value %></legend>
+    <div class="control-group">
+      <%= f.label :lastname, "Фамилия" %>
+      <div class="controls">
+        <%= f.text_field :lastname %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :firstname, "Имя" %>
+      <div class="controls">
+        <%= f.text_field :firstname %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :email, "Почтовый адрес" %>
+      <div class="controls">
+      <%= f.email_field :email %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :password, "Пароль" %>
+      <div class="controls">
+      <%= f.password_field :password, :id => "password" %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :password_confirmation, "Повторите пароль" %>
+      <div class="controls">
+      <%= f.password_field :password_confirmation %>
+      </div>
+    </div>  
+    <div class="control-group">
+      <%= f.label :role, "Администратор" %>
+      <div class="controls">
+      <%= f.check_box :role %>
+      </div>
+    </div>  
+    <div class="form-actions"> 
+      <%= f.submit "Создать", :class => "btn btn-primary" %>
+      <button type="reset" class="btn cancel-form">Отмена</button>
+    </div>
+  </fieldset>  
+<% end %>

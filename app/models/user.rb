@@ -1,7 +1,9 @@
 # encoding:utf-8
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :email, :password, :password_confirmation, :password_reset_token, :password_reset_sent_at, :role
+  attr_accessible :email, :password, :password_confirmation, 
+                  :password_reset_token, :password_reset_sent_at, 
+                  :role, :lastname, :firstname
   #encript password before save
   before_save :encrypt_password
   # remember me
@@ -14,6 +16,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, :presence => true, :on => :create
   validates :email, :uniqueness => { :case_sensitive => false}
   validates :email, :presence => true, :format => {:with => email_regex}
+  validates :lastname, :firstname, :presence => true, :on => :create
   
   def encrypt_password
     if password.present?
@@ -42,6 +45,14 @@ class User < ActiveRecord::Base
     self.password_reset_sent_at = Time.zone.now
     save!
     UserMailer.password_reset(self).deliver    
+  end
+  
+  def legend_value
+    if new_record?
+      "Добавление нового сотрудника"
+    else
+      "Изменение"      
+    end
   end
   
 end

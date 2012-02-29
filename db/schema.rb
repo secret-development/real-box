@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227053803) do
+ActiveRecord::Schema.define(:version => 20120229033610) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -136,6 +136,8 @@ ActiveRecord::Schema.define(:version => 20120227053803) do
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.boolean  "role"
+    t.string   "firstname"
+    t.string   "lastname"
   end
 
   create_table "value_fields", :force => true do |t|
