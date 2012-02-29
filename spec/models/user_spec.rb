@@ -1,3 +1,4 @@
+# encoding:utf-8
 require 'spec_helper'
 
 describe User do
@@ -5,7 +6,9 @@ describe User do
     @attr = {
       :email => "agent@mail.ru",
       :password => "password",
-      :password_confirmation => "password"
+      :password_confirmation => "password",
+      :lastname => "Петров",
+      :firstname => "Петр",
     }
   end 
   
