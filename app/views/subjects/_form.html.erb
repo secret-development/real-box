@@ -21,8 +21,12 @@
       <%= f.label :typesubject_id, "Тип недвижимости:" %>
       <div class="controls">
         <%= f.collection_select(:typesubject_id, Typesubject.all, :id, :name) %>
+        <!-- tmp -->
         <hr>
-        <%= @subject.typesubject.find_values %>
+        <% unless @subject.new_record? %>
+          <%= @subject.typesubject.find_values %>
+        <% end %>
+        <!-- tmp -->
       </div>
     </div>
     <div class="control-group">
