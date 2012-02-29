@@ -70,7 +70,7 @@ describe User do
   
   end
   
-  describe "test methods" do
+  describe "test help methods" do
     it "legend value for new" do
       @user = User.new(@attr)
       @user.legend_value.should == "Добавление нового сотрудника"      
