@@ -56,7 +56,7 @@ class Typesubject < ActiveRecord::Base
       end
 
     end
-    return conditions
+    @fields = conditions
   end
   
 end
