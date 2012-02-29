@@ -174,6 +174,12 @@ $(document).ready(function() {
         required: true, 
         minlength: 7, 
         equalTo: '#password',
+      },
+      "user[lastname]" : {
+        required: true
+      },
+      "user[firstname]" : {
+        required: true
       },    
     },
     messages: {
@@ -189,7 +195,13 @@ $(document).ready(function() {
         equalTo: "Пароли не совпадают!",
         required: "Введите пароль!",
         minlength: "Пароль не менее 7ми символов!"
-      },    
+      },
+      "user[lastname]": {
+        required: "Введите фамилию!",
+      },
+      "user[firstname]": {
+        required: "Введите имя!",
+      }, 
     }
     
   });
