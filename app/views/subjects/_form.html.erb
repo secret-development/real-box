@@ -22,10 +22,13 @@
       <div class="controls">
         <%= f.collection_select(:typesubject_id, Typesubject.all, :id, :name) %>
         <!-- tmp -->
-        <hr>
         <% unless @subject.new_record? %>
-          <%= @subject.typesubject.find_values %>
-        <% end %>
+          <br><br>
+          <pre>
+            <%= @subject.typesubject.find_values %>
+          </pre>
+          <% params[:find_values] = @subject.typesubject.find_values %>
+        <% end %>  
         <!-- tmp -->
       </div>
     </div>
