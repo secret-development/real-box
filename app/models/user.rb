@@ -6,6 +6,11 @@ class User < ActiveRecord::Base
                   :role, :lastname, :firstname, :phonehome, :phonemobile
   #encript password before save
   before_save :encrypt_password
+  
+  attr_writer :area_code, :phonemobile1, :phonemobile2
+  before_save :phonemobile_merge
+  before_update :phonemobile_merge
+  
   # remember me
   before_create { generate_token(:auth_token) }
   # validations
@@ -70,6 +75,38 @@ class User < ActiveRecord::Base
     else
       "Изменить"      
     end    
+  end
+  
+  def legend_password
+    "Изменение пароля"    
+  end
+  
+    def phonemobile_merge
+    if (@area_code.blank? || @phonemobile1.blank? || @phonemobile2.blank?)
+      if new_record?
+        self.phonemobile = ""  
+      end
+    else
+      self.phonemobile = "+7 #{@area_code} #{@phonemobile1} #{@phonemobile2}" 
+    end
+  end
+  
+  def area_code
+    unless phonemobile.nil?
+      phonemobile.split(' ').second
+    end
+  end
+  
+  def phonemobile1
+    unless phonemobile.nil?
+      phonemobile.split(' ').third
+    end
+  end
+  
+  def phonemobile2
+    unless phonemobile.nil?
+      phonemobile.split(' ').fourth
+    end
   end
   
 end

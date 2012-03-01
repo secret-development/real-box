@@ -1,4 +1,4 @@
-<%= form_for(@user, :action => "add_info") do |f| %>
+<%= form_for(@user, :action => "add_info", :html => {:class => "form-horizontal"}) do |f| %>
     <fieldset>
        <%= error_messages_for(@user) %>
        <legend><%= @user.legend_value %></legend>
@@ -27,7 +27,10 @@
       <div class="control-group">
         <%= f.label :phonemobile, "Сот. телефон" %>
         <div class="controls">
-          <%= f.text_field :phonemobile %>
+          <span class="phone-area-start">+7</span>
+          <%= f.text_field :area_code, :id =>"area_code", :maxlength => 3, :class => "input-mphone" %> - 
+          <%= f.text_field :phonemobile1, :id => "phonemobile1", :maxlength => 3, :class => "input-mphone" %> -
+          <%= f.text_field :phonemobile2, :id => "phonemobile2", :maxlength => 4, :class => "input-mphone" %>
         </div>
       </div>
     
