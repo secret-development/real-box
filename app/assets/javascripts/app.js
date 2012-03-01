@@ -333,7 +333,6 @@ $(document).ready(function() {
   $("#subject_typesubject_id").change(function(event) {
     // initialize
     var typesubject_id = $(this).attr('value');
-    console.log(typesubject_id);
     // end initialize
     
     // ajax
