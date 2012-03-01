@@ -173,6 +173,23 @@ describe Subject do
         subject.options[:dependent].should == :destroy
       end
     end
+    
+    describe "properties" do
+      it "shoould respond to properties" do
+        subject = Subject.new(@attr)
+        subject.should respond_to(:properties)
+      end
+      
+      it "should has_many :properties" do
+        subject = Subject.reflect_on_association(:properties)
+        subject.macro.should == :has_many
+      end
+      
+      it "should dependent destroy" do
+        subject = Subject.reflect_on_association(:properties)
+        subject.options[:dependent].should == :destroy
+      end
+    end
   end
 end
 

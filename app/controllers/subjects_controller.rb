@@ -2,6 +2,7 @@
 class SubjectsController < ApplicationController
   respond_to :html
   before_filter :all_deny
+  
   def index
     @subjects = Subject.page(params[:page]).per(20)
     respond_with(@subjects)
@@ -64,10 +65,21 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])  
   end
   
+  # AJAX -> subject -> floor
   def findtypesubject
     @typesubject = Typesubject.find(params[:id])
     respond_to do |format|
       format.json { render :json => @typesubject.to_json}
     end
   end
+  
+  # AJAX -> subject -> change typesubject
+  def load_attr
+    typesubject = Typesubject.find(params[:id])
+    @attr = typesubject.find_values
+    respond_to do |format|
+      format.json { render :json => @attr.to_json }
+    end
+  end
+    
 end

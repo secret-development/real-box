@@ -20,6 +20,7 @@ Crm::Application.routes.draw do
     resources :photos, :only => [:create, :destroy]
     get 'add_photo', :on => :member, :as => :add_photo
     post 'findtypesubject', :on => :collection
+    post 'load_attr', :on => :collection
   end
   
   resources :transactions
