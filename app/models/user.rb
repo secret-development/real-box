@@ -51,8 +51,16 @@ class User < ActiveRecord::Base
     if new_record?
       "Добавление нового сотрудника"
     else
-      "Изменение"      
+      "Изменение анкетных данных"      
     end
+  end
+  
+  def label_value
+    if new_record?
+      "Введите пароль"
+    else
+      "Введите новый пароль"      
+    end    
   end
   
 end

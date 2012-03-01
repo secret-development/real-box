@@ -13,7 +13,9 @@
       <td><%= u.email %></td>
       <td class="actions-buttons">
         <%= link_to eye_icon, user_path(u) %>
-        <%= link_to edit_icon, edit_user_path(u) %>
+        <% if can? :update, @users %>
+          <%= link_to edit_icon, edit_user_path(u) %>
+        <% end %>
         <%= link_to delete_icon, user_path(u), method: :delete, confirm: "Вы уверены?"  %>
       </td>
     </tr>

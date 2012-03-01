@@ -24,7 +24,7 @@
     </div>
     
     <div class="control-group">
-      <%= f.label :password, "Пароль" %>
+      <%= f.label :password, @user.label_value %>
       <div class="controls">
       <%= f.password_field :password, :id => "password" %>
       </div>
@@ -34,13 +34,16 @@
       <div class="controls">
       <%= f.password_field :password_confirmation %>
       </div>
-    </div>  
+    </div>
+    <% if current_user.role? %>  
     <div class="control-group">
       <%= f.label :role, "Администратор" %>
       <div class="controls">
       <%= f.check_box :role %>
       </div>
-    </div>  
+    </div>
+    <% else %>
+    <% end %>  
     <div class="form-actions"> 
       <%= f.submit "Создать", :class => "btn btn-primary" %>
       <button type="reset" class="btn cancel-form">Отмена</button>
