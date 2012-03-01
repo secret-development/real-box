@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :email, :password, :password_confirmation, 
                   :password_reset_token, :password_reset_sent_at, 
-                  :role, :lastname, :firstname
+                  :role, :lastname, :firstname, :phonehome, :phonemobile
   #encript password before save
   before_save :encrypt_password
   # remember me
