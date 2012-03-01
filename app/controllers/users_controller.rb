@@ -46,4 +46,9 @@ class UsersController < ApplicationController
     flash[:notice] = "Сотрудник удален"
   end
   
+  def add_info
+    @user = User.find(params[:id])
+    respond_with(@user, :location => current_user)    
+  end
+  
 end
