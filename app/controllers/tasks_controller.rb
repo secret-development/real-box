@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   before_filter :all_deny
   respond_to :html
   helper_method :sort_column, :sort_direction
+  load_and_authorize_resource
   
   def index
     @tasks = Task.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(10)
