@@ -79,7 +79,7 @@ describe User do
     it "legend value for update" do
       @update = User.create!(@attr)
       @update.firstname = "Ваня"
-      @update.legend_value.should == "Изменение"      
+      @update.legend_value.should == "Изменение анкетных данных"      
     end
     
   end
