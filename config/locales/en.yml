@@ -9,3 +9,7 @@ en:
       next: "Следующий"
       previous: "Предыдущий"
       truncate: "..."
+
+  unauthorized: 
+    manage:
+      all: "Действия запрещены!"

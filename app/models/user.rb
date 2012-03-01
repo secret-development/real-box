@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :email, :password, :password_confirmation, 
                   :password_reset_token, :password_reset_sent_at, 
-                  :role, :lastname, :firstname
+                  :role, :lastname, :firstname, :phonehome, :phonemobile
   #encript password before save
   before_save :encrypt_password
   # remember me
@@ -11,12 +11,13 @@ class User < ActiveRecord::Base
   # validations
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :password,# :presence => true,
-                       :confirmation => true
-                       #:length => {:within => 6..20}
-  validates :password_confirmation, :presence => true, :on => :create
+                       :confirmation => true,
+                       :length => {:within => 6..20}, :on => :create
+  validates :password_confirmation, :presence => true, :on => :create#, :on => :update
   validates :email, :uniqueness => { :case_sensitive => false}
   validates :email, :presence => true, :format => {:with => email_regex}
   validates :lastname, :firstname, :presence => true, :on => :create
+  validates :phonehome, :phonemobile, :numericality => { :only_integer => true }, :allow_blank => true
   
   def encrypt_password
     if password.present?
@@ -51,8 +52,24 @@ class User < ActiveRecord::Base
     if new_record?
       "Добавление нового сотрудника"
     else
-      "Изменение"      
+      "Изменение анкетных данных"      
     end
+  end
+  
+  def label_value
+    if new_record?
+      "Введите пароль"
+    else
+      "Введите новый пароль"      
+    end    
+  end
+  
+  def button_value
+    if new_record?
+      "Создать"
+    else
+      "Изменить"      
+    end    
   end
   
 end
