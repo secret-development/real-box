@@ -28,6 +28,6 @@ class SessionsController < ApplicationController
     #session[:user_id] = nil
     cookies.delete(:auth_token)
     redirect_to sign_in_path
-    flash[:notice] = "Successfully"    
+    flash[:notice] = "Вы вышли из системы"    
   end
 end
