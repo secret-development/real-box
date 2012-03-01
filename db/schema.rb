@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120301045653) do
+ActiveRecord::Schema.define(:version => 20120301090048) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -37,7 +37,9 @@ ActiveRecord::Schema.define(:version => 20120301045653) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "potentials",         :default => false
+    t.integer  "type_customer_id"
     t.integer  "social_status_id"
+    t.string   "permalink"
     t.integer  "typetransaction_id"
     t.datetime "lastcall"
   end
@@ -107,6 +109,20 @@ ActiveRecord::Schema.define(:version => 20120301045653) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "transactions", :force => true do |t|
+    t.integer  "typetransaction_id"
+    t.integer  "statustransaction_id"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "price"
+    t.integer  "customer_id"
+    t.integer  "user_id"
+    t.boolean  "payment"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.integer  "subject_id"
+  end
+
   create_table "typesubjects", :force => true do |t|
     t.string   "name"
     t.string   "permalink"
@@ -133,6 +149,8 @@ ActiveRecord::Schema.define(:version => 20120301045653) do
     t.boolean  "role"
     t.string   "firstname"
     t.string   "lastname"
+    t.string   "phonemobile"
+    t.string   "phonehome"
   end
 
   create_table "value_fields", :force => true do |t|

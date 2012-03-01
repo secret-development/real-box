@@ -3,18 +3,20 @@
 <table class="table table-striped">
   <thead>
     <th>Фамилия Имя</th>
-    <th>Почтовый адрес</th>
     <th>Действия</th>
   </thead>
   <tbody>
     <% @users.each do |u| %>
     <tr>
       <td><%= u.lastname %> <%= u.firstname %></td>
-      <td><%= u.email %></td>
       <td class="actions-buttons">
         <%= link_to eye_icon, user_path(u) %>
-        <%= link_to edit_icon, edit_user_path(u) %>
+        <% if can? :update, @users %>  
+          <%= link_to edit_icon, edit_user_path(u) %>
+        <% end %>
+        <% if can? :destroy, @users %>  
         <%= link_to delete_icon, user_path(u), method: :delete, confirm: "Вы уверены?"  %>
+        <% end %>
       </td>
     </tr>
     <% end %>
@@ -26,7 +28,4 @@
   <%= link_to 'Создать нового пользователя', new_user_path, :class => "btn"  %> <br />
 <% end %>
 </div>
-<% if current_user %>
- Вы вошли как <i><%= current_user.email %></i>
-  
-<% end -%>
+

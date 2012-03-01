@@ -1,6 +1,5 @@
 # encoding:utf-8
-class SessionsController < ApplicationController
-  #before_filter :all 
+class SessionsController < ApplicationController 
   respond_to :html
   layout 'devise'
   def new
