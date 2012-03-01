@@ -82,6 +82,6 @@ class SubjectsController < ApplicationController
     else
       @attr = @subject.typesubject.find_values  
     end
-    
   end
+  
 end

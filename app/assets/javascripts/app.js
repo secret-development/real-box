@@ -1,12 +1,9 @@
-$(document).ready(function() {
-  
+$(document).ready(function() {  
   //  cancel button
   $(".cancel-form").click(function(){
     javascript:history.go(-1);
   });
-
 });
-
 
 $(document).ready(function() {
   // districts(subject form)
