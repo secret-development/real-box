@@ -123,6 +123,8 @@ ActiveRecord::Schema.define(:version => 20120229091632) do
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.boolean  "role"
+    t.string   "firstname"
+    t.string   "lastname"
   end
 
   create_table "value_fields", :force => true do |t|

@@ -1,7 +1,21 @@
+# encoding:utf-8
 class Ability
   include CanCan::Ability
 
   def initialize(user)
+    if user.role?
+      can :manage, :all
+      can :update, SocialStatus
+      can :delete, SocialStatus
+      can :create, SocialStatus
+      can :update, Task
+      can :delete, Task
+      can :create, Task  
+    else
+      can :read, :all
+      can :update, User, :id => user.id
+   
+    end
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

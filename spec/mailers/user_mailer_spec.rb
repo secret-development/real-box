@@ -3,17 +3,14 @@ require "spec_helper"
 
 describe UserMailer do
   describe "password_reset" do
-    let(:user) {Factory(:user, :password_reset_token => "anything") }
+    let(:user) { Factory(:user, :password_reset_token => "anything") }
     let(:mail) { UserMailer.password_reset(user) }
 
-    it "renders the headers" do
-      mail.subject.should eq("Password reset")
-      mail.to.should eq(["agent@mail.ru"])
+    it "send user password reset url" do
+      mail.subject.should eq("Password Reset")
+      mail.to.should eq([user.email])
       mail.from.should eq(["from@example.com"])
-    end
-
-    it "renders the body" do
-      mail.body.encoded.should match("Чтобы сбросить ваш пароль нажмите на ссылку ниже")
+      mail.body.encoded.should match(edit_password_resets_path(user.password_reset_token))
     end
   end
 
