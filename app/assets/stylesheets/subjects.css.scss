@@ -117,3 +117,19 @@ form{
 #floor-subject-block{
   display:none;
 }
+
+// address
+#ad-street{
+  width:110px;
+}
+#ad-house{
+  width:40px;
+}
+#ad-flat{
+  width:40px;
+}
+.address-fields{
+  input{
+    margin-right:5px;
+  }
+}
