@@ -75,13 +75,11 @@ class SubjectsController < ApplicationController
   
   # AJAX -> subject -> change typesubject
   def load_attr
-    @subject = Subject.find(params[:id])
-    if @subject.new_record?
-      first = Typesubject.first
-      first = find_values
-    else
-      @attr = @subject.typesubject.find_values  
+    typesubject = Typesubject.find(params[:id])
+    @attr = typesubject.find_values
+    respond_to do |format|
+      format.json { render :json => @attr.to_json }
     end
   end
-  
+    
 end
