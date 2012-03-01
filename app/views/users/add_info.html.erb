@@ -1,35 +1,40 @@
 <%= form_for(@user, :action => "add_info") do |f| %>
-    <div class="control-group">
-      <%= f.label :lastname, "Фамилия" %>
-      <div class="controls">
-        <%= f.text_field :lastname %>
-      </div>
-    </div>
+    <fieldset>
+       <%= error_messages_for(@user) %>
+       <legend><%= @user.legend_value %></legend>
     
-    <div class="control-group">
-      <%= f.label :firstname, "Имя" %>
-      <div class="controls">
-        <%= f.text_field :firstname %>
+      <div class="control-group">
+        <%= f.label :lastname, "Фамилия" %>
+        <div class="controls">
+          <%= f.text_field :lastname %>
+        </div>
       </div>
-    </div>
     
-    <div class="control-group">
-      <%= f.label :phonehome, "Дом. телефон" %>
-      <div class="controls">
-        <%= f.text_field :phonehome %>
+      <div class="control-group">
+        <%= f.label :firstname, "Имя" %>
+        <div class="controls">
+          <%= f.text_field :firstname %>
+        </div>
       </div>
-    </div>
     
-    <div class="control-group">
-      <%= f.label :phonemobile, "Сот. телефон" %>
-      <div class="controls">
-        <%= f.text_field :phonemobile %>
+      <div class="control-group">
+        <%= f.label :phonehome, "Дом. телефон" %>
+        <div class="controls">
+          <%= f.text_field :phonehome %>
+        </div>
       </div>
-    </div>
     
-    <div class="form-actions"> 
-      <%= f.submit @user.button_value, :class => "btn btn-primary" %>
-      <button type="reset" class="btn cancel-form">Отмена</button>
-    </div>
+      <div class="control-group">
+        <%= f.label :phonemobile, "Сот. телефон" %>
+        <div class="controls">
+          <%= f.text_field :phonemobile %>
+        </div>
+      </div>
+    
+      <div class="form-actions"> 
+        <%= f.submit @user.button_value, :class => "btn btn-primary" %>
+        <button type="reset" class="btn cancel-form">Отмена</button>
+      </div>
+    </fieldset>
 <% end %>
 <%= link_to 'Изменить пароль', edit_user_path(current_user)  %>
