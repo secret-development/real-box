@@ -1,0 +1,65 @@
+<h1 class="title-page">Информация о сделке</h1>
+<%= flash_msg(flash[:notice]) %>
+<div id="show-transaction">
+  <h6>Сделка № <%= @transaction.id %></h6>
+  <div class="field-transaction">
+    <span class="title-field">Сделка:</span>
+    <%= @transaction.name %>
+  </div>
+  <div class="field-transaction">
+    <span class="title-field">Тип сделки:</span>
+    <%= @transaction.typetransaction.name %>
+  </div>
+  <div class="field-transaction">
+    <span class="title-field">Ответственный:</span>
+    <%= link_to(@transaction.user.email, user_path(@transaction.user)) %>
+  </div>
+  <div class="field-transaction">
+    <span class="title-field">Клиент:</span>
+    <%= link_to(@transaction.customer.lastname,
+                customer_path(@transaction.customer)) %>
+  </div>
+  <div class="field-transaction">
+    <span class="title-field">Описание сделки:</span>
+  </div>
+  <div class="transaction-desc">
+    <%= raw @transaction.description %>
+  </div>
+  <div class="field-transaction">
+    <span class="title-field">Объект сделки:</span>
+    <% if @transaction.subject == nil %>
+      Отсутствует
+    <% else %>
+      <%= link_to(@transaction.subject.address,
+          subject_path(@transaction.subject)) %>
+    <% end %>
+  </div>
+  <div class="field-transaction">
+    <span class="title-field">Сумма:</span>
+    <%= to_dollar(@transaction.price) %>
+  </div>
+  <div class="field-transaction">
+    <span class="title-field">Оплата:</span>
+    <% if @transaction.payment == true %>
+    <%= link_to edit_icon + ' ' + @transaction.payment_value, 
+        transaction_path(@transaction, :transaction => {:payment => false}),
+        :method => :put, :confirm => "Вы уверены?", :title => "Изменить" %>
+    <% else  %>
+    <%= link_to edit_icon + ' ' + @transaction.payment_value, 
+        transaction_path(@transaction, :transaction => {:payment => true}),
+        :method => :put, :confirm => "Вы уверены?", :title => "Изменить" %>
+    <% end %>
+  </div>
+  <div class="field-transaction">
+    <span class="title-field">Дата:</span>
+    <%= to_formatted_date(@transaction.created_at) %>
+  </div>
+  <div class="clear"></div>
+  <div class="actions-with-transaction">
+    <%= link_to edit_icon + " Редактировать",
+        edit_transaction_path(@transaction), :class => "btn" %>
+    <%= link_to delete_icon + " Удалить",
+        @transaction, :method => :delete, 
+        :confirm => "Вы уверены?", :class => "btn" %>        
+  </div>
+</div>
