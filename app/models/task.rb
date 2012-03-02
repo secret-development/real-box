@@ -19,43 +19,27 @@ class Task < ActiveRecord::Base
   validates_inclusion_of :done, :in => [true, false]
   
   def status
-    if done == true
-      "Да "
-    else
-      "Нет"
-    end
+    done == true ? "Да " : "Нет"
   end
   
   def button_value
-    if new_record?
-      "Добавить"
-    else
-      "Обновить"  
-    end
+    new_record? ? "Добавить" : "Обновить"
   end
   
   def legend
-    if new_record?
-      "Добавление"
-    else
-      "Редактирование"
-    end
+    new_record? ? "Добавление" : "Редактирование"
   end
   
   def date_for_validation
-    if new_record?
-      Time.current
-    else
-      created_at
-    end
+    new_record? ? Time.current : created_at
   end
   
   def self.search(search)
     if search
-      where('title LIKE ?', "%#{search}%")
+      where('title LIKE ?', "%#{search}%") 
     else
       scoped
-    end 
+    end
   end
   
 end
