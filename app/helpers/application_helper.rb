@@ -66,4 +66,12 @@ module ApplicationHelper
     raw("#{object} м&sup2;")
   end
   
+  
+  # form builder:
+  def attr(attr)
+    @attr = attr
+  end
+  
+  
+  
 end

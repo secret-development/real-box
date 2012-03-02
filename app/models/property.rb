@@ -2,11 +2,18 @@
 class Property < ActiveRecord::Base
   # validations
   validates :subject_id, :presence => true
-  validates :condition, :presence => true
-  validates :value, :presence => true
+  # validates :condition, :presence => true
+  # validates :value, :presence => true
   
   # associations
   belongs_to :subject
   
-  attr_accessible :condition, :value, :subject_id
+  
+  def legend_value
+    new_record? ? "Добавить доп.инфорацию" : "Редактировать доп.информацию"
+  end
+  
+  def button_value
+    new_record? ? "Добавить" : "Редактировать"
+  end
 end
