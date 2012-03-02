@@ -1,12 +1,20 @@
-<h1>Информация о сотруднике</h1>
-<%= @user.lastname %>
-<%= @user.firstname %>
-<%= @user.email %>
-<%= @user.phonehome %>
-<%= @user.phonemobile %>
-<% if current_user.id == @user.id %>
-<%= link_to 'Изменить профиль', add_info_user_path(current_user)  %>
-<%= link_to 'Изменить пароль', edit_user_path(current_user) %>
+<div id="show-users">
+  <legend>Информация о сотруднике:</legend>
+  <div class="info-user">
+    <%= @user.lastname %>
+    <%= @user.firstname %>
+  </div>
+  <legend>Контактная информация:</legend>
+  <div class="info-user">
+    <%= @user.email %>
+    <%= @user.phonehome %>
+    <%= @user.phonemobile %>
+  </div>
   
+  <div class="actions-users">
+    <% if current_user.id == @user.id || current_user.role? %>
+    <%= link_to 'Изменить профиль', add_info_user_path(current_user)  %>
+    <%= link_to 'Изменить пароль', edit_user_path(current_user) %>
+  </div>  
 <% end %>
-
+</div>
