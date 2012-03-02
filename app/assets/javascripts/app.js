@@ -338,3 +338,11 @@ $(document).ready(function(){
     }
   })
 });
+
+// users mobile phone autotab
+$(document).ready(function(){
+  $('#area_code, #phonemobile1, #phonemobile2')
+    .autotab_magic()
+    .autotab_filter('numeric');
+    $('#user_phonemobile').autotab_filter('numeric');
+});

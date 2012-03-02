@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = "Данные изменены"
-      respond_with(@user, :location => users_path)
+      respond_with(@user)
     else
       render 'edit'      
     end    
