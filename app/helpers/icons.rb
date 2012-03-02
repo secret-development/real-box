@@ -48,5 +48,13 @@ module Icons
   def icon_arrow_left_white
     raw("<i class='icon-arrow-left icon-white'></i>")
   end
+  
+  def icon_user
+    raw("<i class='icon-user'></i>")    
+  end
+  
+  def icon_off
+    raw("<i class='icon-off'></i>")    
+  end
   # END ICONS
 end
