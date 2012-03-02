@@ -1,0 +1,16 @@
+<%= form_for([@subject, @property], :html => {:class => "form-horizontal"}) do |f| %>
+  <%= error_messages_for(@property) %>
+  <fieldset>
+    <legend><%= @property.legend_value %></legend>
+  </fieldset>
+  <%= render :partial => "attr", :locals => {:f => f, :attr => @attr} %>
+  <div class="control-group">
+    <div class="controls">
+      <%= hidden_field_tag('property[subject_id]', @property.subject_id.nil? ? params[:subject_id] : @property.subject_id ) %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit @property.button_value, :class => "btn btn-primary" %>
+    <button type="reset" class="btn cancel-form">Отмена</button>
+  </div>
+<% end %>
