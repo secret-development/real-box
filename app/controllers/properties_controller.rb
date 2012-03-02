@@ -51,3 +51,4 @@ class PropertiesController < ApplicationController
     end
     
 end
+# todo: протестировать
