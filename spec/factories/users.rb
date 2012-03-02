@@ -1,9 +1,12 @@
-# Read about factories at http://github.com/thoughtbot/factory_girl
+# encoding:utf-8
 
 FactoryGirl.define do
   factory :user do
     email "agent@mail.ru"
     password "MyString"
     password_confirmation "MyString"
+    lastname "Иванов"
+    firstname "Иван"
+    role true
   end
 end

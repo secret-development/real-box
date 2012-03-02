@@ -22,7 +22,7 @@ body{
 // title page, example: "Настройки"
 .title-page{
  font-size: 26px;
- margin-bottom: 10px;
+ margin:10px 0px 20px 0px;
  font-weight: normal;
 }
 
@@ -69,4 +69,19 @@ body{
 #settings-link{
   background:url('config_icon.png') no-repeat 0px 12px;
   padding-left:9px;
+}
+
+// class for mobile phone fields:
+.input-mphone{
+  width:40px;
+}
+.phone-area-start{
+  color:#898989;
+  margin-right:5px;
+}
+
+// class for address(subects) fields:
+.address-label{
+  color:#898989;
+  font-size:11px;
 }

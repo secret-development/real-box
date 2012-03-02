@@ -18,7 +18,7 @@
     <% @customers.each do |c| %>
        <tr>
         <td><%= c.typetransaction.name %></td>
-        <td> <%= c.lastname %></td>
+        <td><%= link_to(c.lastname,c) %></td>
         <td><%= c.firstname %></td>
         <td><%= c.social_status.title %></td>
         <td><%= c.phonehome %></td>

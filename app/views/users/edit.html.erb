@@ -2,7 +2,7 @@
   <fieldset>
     <%= error_messages_for(@user) %>
     <legend> <%= @user.legend_value %></legend>
-    <div class="control-group">
+    <!--<div class="control-group">
       <%= f.label :lastname, "Фамилия" %>
       <div class="controls">
         <%= f.text_field :lastname %>
@@ -28,7 +28,7 @@
       <div class="controls">
         <%= f.text_field :phonemobile %>
       </div>
-    </div>
+    </div>-->
     
     <div class="control-group">
       <%= f.label :email, "Почтовый адрес" %>
@@ -59,8 +59,12 @@
     <% else %>
     <% end %>  
     <div class="form-actions"> 
-      <%= f.submit "Создать", :class => "btn btn-primary" %>
+      <%= f.submit @user.button_value, :class => "btn btn-primary" %>
       <button type="reset" class="btn cancel-form">Отмена</button>
     </div>
   </fieldset>  
 <% end %>
+<% if can? :update, @user %>
+<%= link_to 'Изменить анкетные данные', add_info_user_path(@user)  %>
+  
+<% end -%>

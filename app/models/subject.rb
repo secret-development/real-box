@@ -17,6 +17,8 @@ class Subject < ActiveRecord::Base
   after_destroy :verify_customer_real
   before_save :nill_floor
   before_update :nill_floor
+  before_save :full_address
+  before_update :full_address
   
   # validations:
   validates :typesubject_id, :presence => true
@@ -25,6 +27,43 @@ class Subject < ActiveRecord::Base
   validates :customer_id, :presence => true
   validates :districtname, :presence => true
   validates :floor, :presence => true, :if => :floor?
+  
+  attr_writer :street, :house, :flat
+
+  def full_address
+    if(@street.blank? || @house.blank? || @flat.blank?)
+      if new_record?
+        self.address = "Адресс неизвестен"
+      end
+    else
+      self.address = "ул. #{@street}, дом #{@house}, кв. #{@flat}"
+      fill_src_if_any
+    end
+  end
+  
+  def street
+    unless street_src.nil?
+      street_src
+    end
+  end
+  
+  def house
+    unless house_src.nil?
+      house_src
+    end
+  end
+  
+  def flat
+    unless flat_src.nil?
+      flat_src
+    end
+  end
+  
+  def fill_src_if_any
+    self.street_src = @street
+    self.house_src = @house
+    self.flat_src = @flat
+  end
 
   def floor?
     if typesubject.nil?

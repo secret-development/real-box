@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to sign_in_path, :alert => exception.message    
+    redirect_to root_path, :alert => exception.message    
   end
   
   def current_ability
@@ -22,6 +22,12 @@ class ApplicationController < ActionController::Base
       unless current_user#User.find_by_id(session[:user_id])
         redirect_to sign_in_path
       end
+    end
+    
+    def settings_deny
+      unless current_user.role?
+        redirect_to root_path
+      end            
     end
         
 end

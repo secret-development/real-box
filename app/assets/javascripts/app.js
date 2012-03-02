@@ -157,7 +157,6 @@ $(document).ready(function() {
       piclist.push(this.href);
       if($(this).hasClass("stActive")) curindex=idx;
     });
-    console.log(curindex);
     $.fancybox(piclist, {
         'padding'           : 0,
         'margin'            : 0,
@@ -176,15 +175,47 @@ $(document).ready(function() {
 // validation user new
 $(document).ready(function() { 
   $('#user-new').validate({
-    rules:{
-      "user[email]":{required: true, email: true},
-      "user[password]":{required:true, minlength: 7},
-      "user[password_confirmation]":{required:true, equalTo:"#user[password]"},    
+    rules: {
+      "user[email]": {
+        required: true, 
+        email: true,
+      },
+      "user[password]": {
+        required: true, 
+        minlength: 7,
+      },
+      "user[password_confirmation]": {
+        required: true, 
+        minlength: 7, 
+        equalTo: '#password',
+      },
+      "user[lastname]" : {
+        required: true
+      },
+      "user[firstname]" : {
+        required: true
+      },    
     },
-    messages:{
-      "user[email]": "Введите почтовый адрес!",
-      "user[password]": "Пароль не менее 8ми  символов!",
-      "user[password_confirmation]": "Пароли не совпадают!"    
+    messages: {
+      "user[email]": {
+        email: "Введите почтовый адрес!",
+        required: "Введите почтовый адрес!",
+      },
+      "user[password]": { 
+        minlength: "Пароль не менее 7ми  символов!",
+        required: "Введите пароль!",
+      },
+      "user[password_confirmation]": {
+        equalTo: "Пароли не совпадают!",
+        required: "Введите пароль!",
+        minlength: "Пароль не менее 7ми символов!"
+      },
+      "user[lastname]": {
+        required: "Введите фамилию!",
+      },
+      "user[firstname]": {
+        required: "Введите имя!",
+      }, 
     }
     
   });
@@ -225,4 +256,85 @@ $(document).ready(function() {
     });
     
   });
+});
+
+// validation session new
+$(document).ready(function() {
+  $('#session-new').validate({
+    rules: {
+      "email": {
+        required : true,
+        email : true,
+      },
+      "password" : {
+        required : true,
+      }
+    },
+    messages : {
+      "email" : {
+        required : "Поле не должно быть пустым!",
+        email : "Введите корректный почтовый адрес!",
+      },
+      "password" : "Поле не должно быть пустым!",
+    }
+  })
+});
+// validation send to email
+$(document).ready(function(){
+  $('#send-to-email').validate({
+    rules : {
+      "email" : {
+        required : true,
+        email : true,
+      }
+    },
+    messages : {
+      "email" : {
+        required : "Введите почтовый адрес",
+        email : "Введите корректный почтовый адрес!",
+      }
+    }  
+  })
+});
+
+
+// customer -> mobile phone fields(autotab)
+$(document).ready(function() {
+  $('#area_code, #phonemobile1, #phonemobile2')
+    .autotab_magic()
+    .autotab_filter('numeric');
+  $('#customer_phonehome').autotab_filter('numeric');
+  
+  $('#ad-house, #ad-flat')
+    .autotab_magic()
+    .autotab_filter('numeric');
+  
+});
+
+//validation reset password
+$(document).ready(function(){
+  $('#password-reset').validate({
+    rules :{
+      "user[password]" : {
+        required: true,
+        minlength: 7, 
+      },
+      "user[password_confirmation]" : {
+        required: true,
+        minlength: 7,
+        equalTo: '#confirm',
+      },
+    },
+    messages :{
+      "user[password]": { 
+        minlength: "Пароль не менее 7ми  символов!",
+        required: "Введите пароль!",
+      },
+      "user[password_confirmation]": {
+        equalTo: "Пароли не совпадают!",
+        required: "Введите пароль!",
+        minlength: "Пароль не менее 7ми символов!"
+      },  
+    }
+  })
 });
