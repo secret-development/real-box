@@ -4,7 +4,7 @@
 <%= @user.email %>
 <%= @user.phonehome %>
 <%= @user.phonemobile %>
-<% if current_user.id == @user.id %>
+<% if current_user.id == @user.id || current_user.role? %>
 <%= link_to 'Изменить профиль', add_info_user_path(current_user)  %>
 <%= link_to 'Изменить пароль', edit_user_path(current_user) %>
   
