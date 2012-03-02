@@ -51,10 +51,12 @@
         <td>
           <%= link_to eye_icon, task_path(task) %>
           <% if can? :update, task %>
-          <%= link_to edit_icon, edit_task_path(task) %>
+            <%= link_to edit_icon, edit_task_path(task) %>
           <% end %>
-          <%= link_to delete_icon, task, :method => :delete,
+          <% if can? :destroy, task %>
+            <%= link_to delete_icon, task, :method => :delete,
                       :confirm => "Вы уверены?" %>
+          <% end %>
         </td>
       </tr>
     <% end %>
