@@ -1,3 +1,14 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#show-users{
+  .info-user{
+    background-color:#fcfcfc;
+    font-size: 16px;
+    margin: 5px;
+    padding: 5px;
+    h4{
+      margin-top: 15px;
+    }
+  }
+  #actions-users{
+    margin-top: 30px;
+  }
+}
