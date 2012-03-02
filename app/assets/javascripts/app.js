@@ -123,6 +123,20 @@ $(document).ready(function() {
   });
 });
 
+// live search for tasks
+$(document).ready(function() {
+  $('#transaction th a').live("click", function() {
+    $.getScript(this.href);
+    return false;
+  })
+  
+  $('#transactions_search input').keyup(function(){
+    $.get($("#transactions_search").attr("action"), $("#transactions_search").serialize(), null, "script");
+    return false;
+  })
+})
+
+
 //subjects-photo
 $(document).ready(function() {
   $("#subject-photos-thumbs a").click(function(event) {
