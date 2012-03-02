@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   # remember me
   before_create { generate_token(:auth_token) }
   # validations
+  
+  has_many :transactions
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :password,# :presence => true,
                        :confirmation => true

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227081144) do
+ActiveRecord::Schema.define(:version => 20120301102043) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -95,9 +95,9 @@ ActiveRecord::Schema.define(:version => 20120227081144) do
   create_table "transactions", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "typetransaction_id"
+    t.integer  "customer_id"
     t.integer  "user_id"
-    t.integer  "cutomer_id"
+    t.integer  "typetransaction_id"
     t.integer  "subject_id"
     t.integer  "price"
     t.boolean  "payment"
