@@ -93,48 +93,61 @@ describe Task do
     
     describe "done methods" do
       
-      it "should write 'Да' or 'Нет' instead of 'true' or 'false'" do
-        @task = Task.create!(@attr)
-        if @task.done = true
-          @task.status.should == "Да "
-        else
-          @task.status.should == "Нет"
-        end
+      it "should write 'Да ' if done true" do
+        @task = Task.new(:task => @attr, :done => true )
+        @task.status.should == "Да "
+      end
+      
+      it "should write 'Нет' if done false" do
+        @task = Task.new(@attr)
+        @task.status.should == "Нет"
       end
       
     end
     
     describe "legend" do
-      it "should write 'Добавление' or 'Редактирование'" do
-        @task = Task.create!(@attr)
-        if @task.new_record?
-          @task.legend.should == "Добавление"
-        else
-          @task.legend.should == "Редактирование"
-        end
+      
+      it "should write 'Добавление' if new record" do
+        @task = Task.new(@attr)
+        @task.legend.should == "Добавление"
       end
+      
+      it "should write 'Редактирование' if it is not" do
+        @task = Task.new(@attr)
+        @task.save
+        @task.legend.should == "Редактирование"
+      end
+      
     end
     
     describe "button_value" do
-      it "should write 'Добавить' or 'Обновить'" do
-        @task = Task.create!(@attr)
-        if @task.new_record?
-          @task.button_value.should == "Добавить"
-        else
-          @task.button_value.should == "Обновить"
-        end
+      
+      it "should write 'Добавить' if new record" do
+        @task = Task.new(@attr)
+        @task.button_value.should == "Добавить"
       end
+      
+      it "should write 'Обновить' if it is not" do
+        @task = Task.new(@attr)
+        @task.save
+        @task.button_value.should == "Обновить"
+      end
+      
     end
     
     describe "date_for_validation" do
-      it "should be time.current for new_record or created_at if not" do
-        @task = Task.create!(@attr)
-        if @task.new_record?
-          @task.date_for_validation.should == Time.current
-        else
-          @task.date_for_validation.should == @task.created_at
-        end
+      
+      it "should be time.current if new_record" do
+        @task = Task.new(@attr)
+        @task.date_for_validation.to_s.should == Time.current.to_s
       end
+      
+      it "should be created_at if it is not" do
+        @task = Task.new(@attr)
+        @task.save
+        @task.date_for_validation.to_s.should == @task.created_at.to_s
+      end
+      
     end
     
   end
