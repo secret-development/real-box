@@ -145,6 +145,20 @@ describe Subject do
       end
     end
     
+    describe "transaction" do
+      
+      it "should respond to transaction" do
+        subject = Subject.new(@attr)
+        subject.should respond_to(:transaction)
+      end
+      
+      it "should has_one transaction" do
+        subject = Subject.reflect_on_association(:transaction)
+        subject.macro.should == :has_one
+      end
+      
+    end
+    
     describe "district" do
       it "should respond to district" do
         subject = Subject.new(@attr)
