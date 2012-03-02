@@ -5,10 +5,10 @@ class User < ActiveRecord::Base
                   :password_reset_token, :password_reset_sent_at, 
                   :role, :lastname, :firstname, :phonehome, :phonemobile
   #encript password before save
-  before_save :encrypt_password
+  before_save :encrypt_password, :phonemobile_merge
   
   attr_writer :area_code, :phonemobile1, :phonemobile2
-  before_save :phonemobile_merge
+  #before_save :phonemobile_merge
   before_update :phonemobile_merge
   
   # remember me
