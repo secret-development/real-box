@@ -60,6 +60,10 @@ class TransactionsController < ApplicationController
     redirect_to transactions_path
   end
   
+  def add_document
+    @transaction = Transaction.find(params[:id])
+  end
+  
   private
   
   def sort_column
