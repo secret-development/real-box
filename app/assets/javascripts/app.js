@@ -120,6 +120,20 @@ $(document).ready(function() {
   });
 });
 
+// live search for tasks
+$(document).ready(function() {
+  $('#transaction th a').live("click", function() {
+    $.getScript(this.href);
+    return false;
+  })
+  
+  $('#transactions_search input').keyup(function(){
+    $.get($("#transactions_search").attr("action"), $("#transactions_search").serialize(), null, "script");
+    return false;
+  })
+})
+
+
 //subjects-photo
 $(document).ready(function() {
   $("#subject-photos-thumbs a").click(function(event) {
@@ -353,4 +367,12 @@ $(document).ready(function() {
   });
   
   
+});
+
+// users mobile phone autotab
+$(document).ready(function(){
+  $('#area_code, #phonemobile1, #phonemobile2')
+    .autotab_magic()
+    .autotab_filter('numeric');
+    $('#user_phonemobile').autotab_filter('numeric');
 });

@@ -57,7 +57,6 @@ class CustomersController < ApplicationController
     @customer.destroy
     flash[:notice] = "Клиент успешно удален"
     redirect_to @customer
-    unauthorized! if cannot? :destroy, @customer 
   end
   
   def lastcallcustomer
