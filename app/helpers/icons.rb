@@ -45,8 +45,33 @@ module Icons
     raw("<i class='icon-camera icon-white'></i>")
   end
   
+  def icon_camera_black
+    raw("<i class='icon-camera'></i>")
+  end
+  
   def icon_arrow_left_white
     raw("<i class='icon-arrow-left icon-white'></i>")
+  end
+  
+
+  def icon_info_sign
+    raw("<i class='icon-info-sign icon-white'></i>")
+  end
+  
+  def icon_user
+    raw("<i class='icon-user'></i>")    
+  end
+  
+  def icon_off
+    raw("<i class='icon-off'></i>")    
+  end
+  
+  def icon_chevron_right
+    raw("<i class='icon-chevron-right'></i>")
+  end
+  
+  def icon_share_alt_white
+    raw("<i class='icon-share-alt icon-white'></i>")
   end
   # END ICONS
 end

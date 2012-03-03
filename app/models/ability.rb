@@ -5,16 +5,18 @@ class Ability
   def initialize(user)
     if user.role?
       can :manage, :all
-      can :update, SocialStatus
-      can :delete, SocialStatus
-      can :create, SocialStatus
-      can :update, Task
-      can :delete, Task
-      can :create, Task
-      can :update, User, :id => user.id
-      #cannot :update, User  
+#      can :update, SocialStatus
+#      can :delete, SocialStatus
+#      can :create, SocialStatus
+#      can :update, Task
+#      can :delete, Task
+#      can :create, Task
+#      can :update, User, :id => user.id 
     else
       can :read, :all
+      can :create, Task
+      can :update, Task, :user_id => user.id
+      can :destroy, Task, :user_id => user.id
       can :update, User, :id => user.id
       can :add_info, User, :id => user.id   
     end

@@ -23,10 +23,6 @@
         <%= f.collection_select(:typesubject_id, Typesubject.all, :id, :name) %>
         <!-- tmp -->
         <% unless @subject.new_record? %>
-          <br><br>
-          <pre>
-            <%= @subject.typesubject.find_values %>
-          </pre>
           <% params[:find_values] = @subject.typesubject.find_values %>
         <% end %>  
         <!-- tmp -->
@@ -96,6 +92,7 @@
     <div class="control-group">
       <div class="controls">
         <%= hidden_field_tag('subject[customer_id]', @subject.customer_id.nil? ? params[:customer_id] : @subject.customer_id ) %>
+        <div id="subject-id" data-subject-id="<%= @subject.new_record? ? nil : @subject.id  %>"></div>
       </div>
     </div>
     <div class="form-actions">

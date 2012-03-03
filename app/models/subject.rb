@@ -9,6 +9,7 @@ class Subject < ActiveRecord::Base
   belongs_to :customer
   belongs_to :district
   has_many :photos, :dependent => :destroy
+  has_many :properties, :dependent => :destroy
   has_one :transaction, :dependent => :nullify, :autosave => true
   
   # callbacks:
