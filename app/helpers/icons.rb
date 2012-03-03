@@ -65,5 +65,13 @@ module Icons
   def icon_off
     raw("<i class='icon-off'></i>")    
   end
+  
+  def icon_chevron_right
+    raw("<i class='icon-chevron-right'></i>")
+  end
+  
+  def icon_share_alt_white
+    raw("<i class='icon-share-alt icon-white'></i>")
+  end
   # END ICONS
 end

@@ -67,9 +67,12 @@ module ApplicationHelper
   end
   
   
-  # form builder:
-  def attr(attr)
-    @attr = attr
+  def properties_zero?(object)
+    if object.properties.size > 0
+      false
+    else
+      true
+    end
   end
   
   

@@ -11,6 +11,10 @@
   </div>
   <div class="form-actions">
     <%= f.submit @property.button_value, :class => "btn btn-primary" %>
-    <button type="reset" class="btn cancel-form">Отмена</button>
+    <% if properties_zero?(@subject) %>
+      <%= link_to icon_share_alt_white + " Пропустить", @subject, :class => "btn btn-info" %>
+    <% else %>
+      <button type="reset" class="btn cancel-form">Отмена</button>    
+    <% end %>
   </div>
 <% end %>
