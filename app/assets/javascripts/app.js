@@ -1,12 +1,9 @@
-$(document).ready(function() {
-  
+$(document).ready(function() {  
   //  cancel button
   $(".cancel-form").click(function(){
     javascript:history.go(-1);
   });
-
 });
-
 
 $(document).ready(function() {
   // districts(subject form)
@@ -221,43 +218,6 @@ $(document).ready(function() {
   });
 });
 
-// subject -> floor
-$(document).ready(function() {
-  if ($("form").find("#exist-floor-subject").length != 0) {
-    $("#floor-subject-block :input").attr("disabled", true);
-  };
-  
-  $("#subject_typesubject_id").change(function(event) {
-    var typesubject_id = $(this).attr("value");
-    $.ajax({
-      url: '/subjects/findtypesubject',
-      type: 'POST',
-      dataType: 'json',
-      data: {id: typesubject_id},
-      success: function(data, textStatus, xhr) {
-        if((data['floor'] == true) && ($("form").find("#exist-floor-subject").length == 0)){
-          $("#floor-subject-block :input").removeAttr('disabled');
-          $("#floor-subject-block").slideDown('fast');
-        }
-        else if((data['floor'] == false) && ($("form").find("#exist-floor-subject").length != 0)){
-          
-          $("#exist-floor-subject")
-            .slideUp('fast')
-            .remove();
-          
-          $("#floor-subject-block :input").attr('disabled', true);
-          $("#floor-subject-block").slideUp('fast');
-        }
-        else if(data['floor'] == false){
-          $("#floor-subject-block :input").attr('disabled', true);
-          $("#floor-subject-block").slideUp('fast');
-        }
-      }
-    });
-    
-  });
-});
-
 // validation session new
 $(document).ready(function() {
   $('#session-new').validate({
@@ -337,6 +297,76 @@ $(document).ready(function(){
       },  
     }
   })
+});
+
+// subject -> floor
+$(document).ready(function() {
+  if ($("form").find("#exist-floor-subject").length != 0) {
+    $("#floor-subject-block :input").attr("disabled", true);
+  };
+  
+  $("#subject_typesubject_id").change(function(event) {
+    var typesubject_id = $(this).attr("value");
+    $.ajax({
+      url: '/subjects/findtypesubject',
+      type: 'POST',
+      dataType: 'json',
+      data: {id: typesubject_id},
+      success: function(data, textStatus, xhr) {
+        if((data['floor'] == true) && ($("form").find("#exist-floor-subject").length == 0)){
+          $("#floor-subject-block :input").removeAttr('disabled');
+          $("#floor-subject-block").slideDown('fast');
+        }
+        else if((data['floor'] == false) && ($("form").find("#exist-floor-subject").length != 0)){
+          
+          $("#exist-floor-subject")
+            .slideUp('fast')
+            .remove();
+          
+          $("#floor-subject-block :input").attr('disabled', true);
+          $("#floor-subject-block").slideUp('fast');
+        }
+        else if(data['floor'] == false){
+          $("#floor-subject-block :input").attr('disabled', true);
+          $("#floor-subject-block").slideUp('fast');
+        }
+      }
+    });
+    
+  });
+});
+
+
+// subject -> change subject (load attr)
+$(document).ready(function() {
+  
+  // если в дальнейшем будет зависеть от subject
+  // var subject_id = $("#subject-id").attr("data-subject-id");
+  // console.log(subject_id);
+  
+  $("#subject_typesubject_id").change(function(event) {
+    // initialize
+    var typesubject_id = $(this).attr('value');
+    // end initialize
+    
+    // ajax
+    $.ajax({
+      url: '/subjects/load_attr',
+      type: 'POST',
+      dataType: 'json',
+      data: {id: typesubject_id},
+      success: function(data, textStatus, xhr) {
+        console.log(data);
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        alert("Упс...что-то пошло не так.")
+      }
+    });
+    // end ajax
+    
+  });
+  
+  
 });
 
 // users mobile phone autotab
