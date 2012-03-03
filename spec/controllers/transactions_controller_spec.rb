@@ -162,6 +162,15 @@ describe TransactionsController do
     
   end
   
+  describe "add_document" do
+    
+    it "should be success" do
+      get 'add_document', :id => @transaction
+      response.should be_success
+    end
+    
+  end
+  
   #valid_data
   def valid_data
     {

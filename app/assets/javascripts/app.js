@@ -120,7 +120,7 @@ $(document).ready(function() {
   });
 });
 
-// live search for tasks
+// live search for transactions
 $(document).ready(function() {
   $('#transaction th a').live("click", function() {
     $.getScript(this.href);
@@ -168,7 +168,39 @@ $(document).ready(function() {
   });
 });
 
-
+//transactions-document
+$(document).ready(function() {
+  $("#transaction-documents-thumbs a").click(function(event) {
+    var big_pic = $(this).attr('href');
+    var thumb_pic = $(this).children().attr('src');
+    $("#main-transaction-document a").attr('href', big_pic);
+    $("#main-transaction-document a img").attr('src', thumb_pic)
+    $("#transaction-documents-thumbs").find("A.stActive").removeClass("stActive");
+    $(this).addClass("stActive");
+    return false;
+  });
+  
+   // fancybox
+  $("#main-transaction-document a").click(function(event) {
+    var piclist = [];
+    var curindex = 0;
+    $("#transaction-documents-thumbs a").each(function(idx) {
+      piclist.push(this.href);
+      if($(this).hasClass("stActive")) curindex=idx;
+    });
+    $.fancybox(piclist, {
+        'padding'           : 0,
+        'margin'            : 0,
+        'centerOnScroll'    : true,
+        'transitionIn'      : 'none',
+        'transitionOut'     : 'none',
+        'changeFade'        : 0,
+        'index'             : curindex
+    });
+    return false;
+  });
+});
+  
 // validation user new
 $(document).ready(function() { 
   $('#user-new').validate({
