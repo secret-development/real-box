@@ -40,23 +40,25 @@
   </div>
   <div class="field-transaction">
     <span class="title-field">Оплата:</span>
-    <% if @transaction.payment == true %>
-    <%= link_to edit_icon + ' ' + @transaction.payment_value, 
-        transaction_path(@transaction, :transaction => {:payment => false}),
-        :method => :put, :confirm => "Вы уверены?", :title => "Изменить" %>
-    <% else  %>
-    <%= link_to edit_icon + ' ' + @transaction.payment_value, 
-        transaction_path(@transaction, :transaction => {:payment => true}),
-        :method => :put, :confirm => "Вы уверены?", :title => "Изменить" %>
-    <% end %>
+    <%= @transaction.payment_value %>
   </div>
   <div class="field-transaction">
     <span class="title-field">Дата:</span>
     <%= to_formatted_date(@transaction.created_at) %>
   </div>
+  <% unless @transaction.documents.size == 0 %>
+  <div class="field-transaction">
+    <span class="title-field">Прикрепленные документы:</span>
+  </div>
+  <div class="doc-field">
+    <% @transaction.documents.each do |d| %>
+      <%= link_to d.doc_identifier, d.doc_url.to_s.encode %><br />
+    <% end %>
+  </div>
+  <% end %>
   <div class="clear"></div>
   <div class="actions-with-transaction">
-    <%= link_to icon_camera_white + " Добавить документ", 
+    <%= link_to list_icon + " Прикрепить документ", 
         add_document_transaction_path(@transaction), 
         :class => "btn btn-success" %>
     <%= link_to edit_icon + " Редактировать",

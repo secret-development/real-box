@@ -1,7 +1,4 @@
-<div class="alert alert-success" id="transaction-document-complete-msg">
-  <a class="close" data-dismiss="alert">×</a>
-  Документ успешно загружен
-</div>
+<%= flash_msg(flash[:notice]) %>
 <%= form_for(@transaction, :html => 
   {:multipart => true,:class => "form-horizontal"}) do |f| %>
   <%= error_messages_for(@transaction) %>
@@ -21,7 +18,7 @@
       'uploader'     : '/assets/uploadify.swf',
       'script'       : url,
       'fileDataName' : 'document[doc]',
-      'fileExt'      : '*.png;*.jpg;*.gif;*.jpeg;*.doc;*.docx;*.dotx;*.dot;*.rtf;*.xml;*.txt;*.xlsx;*.xls;*.xltx;*.xlt;*.csv;*.htm;*.pdf',
+      'fileExt'      : '*.png;*.jpg;*.gif;*.jpeg;*.doc;*.docx;*.dotx;*.dot;*.rtf;*.xml;*.txt;*.xlsx;*.xls;*.xltx;*.xlt;*.csv;*.htm;*.pdf;*.lpdf',
       'cancelImg'    : '/assets/cancel.png',
       'multi'        : true,
       'scriptData'   : upload_params,

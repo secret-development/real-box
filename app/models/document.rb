@@ -6,5 +6,3 @@ class Document < ActiveRecord::Base
   mount_uploader :doc, DocumentUploader
   
 end
-
-#TODO: javascripts uploading documents <- handle this

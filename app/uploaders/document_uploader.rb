@@ -1,14 +1,12 @@
-# encoding: utf-8
+#encoding: UTF-8
 
 class DocumentUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  #include CarrierWave::RMagick
+  include CarrierWave::MiniMagick
 
-  # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
-  # include Sprockets::Helpers::RailsHelper
-  # include Sprockets::Helpers::IsolatedHelper
+  CarrierWave::SanitizedFile.sanitize_regexp = /[^a-zA-Zа-яА-ЯёЁ0-9\.\-\+_]/u
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -28,6 +26,9 @@ class DocumentUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
   
+  before :store, :remember_cache_id
+  after :store, :delete_tmp_dir
+  
   def remember_cache_id(new_file)
     @cache_id_was = cache_id
   end
@@ -40,7 +41,7 @@ class DocumentUploader < CarrierWave::Uploader::Base
   
 
   # Process files as they are uploaded:
-  process :resize_to_fill => [800, 600]
+  process :resize_to_fill => [150, 150]
   #
   # def scale(width, height)
   #   # do something
@@ -48,13 +49,13 @@ class DocumentUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fit => [50, 50]
+    process :resize_to_fit => [400, 300]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
-    %w(jpg jpeg gif png doc docx dotx dot rtf xml txt xlsx xls xltx xlt csv htm pdf)
+    %w(jpg jpeg gif png doc docx dotx dot rtf xml txt xlsx xls xltx xlt csv htm pdf lpdf)
   end
 
   # Override the filename of the uploaded files:
