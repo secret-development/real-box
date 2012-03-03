@@ -2,8 +2,8 @@
 class Property < ActiveRecord::Base
   # validations
   validates :subject_id, :presence => true
-  # validates :condition, :presence => true
-  # validates :value, :presence => true
+  validates :condition, :presence => true
+  validates :value, :presence => true
   
   # associations
   belongs_to :subject

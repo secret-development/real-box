@@ -23,15 +23,15 @@ describe Property do
       property.should_not be_valid
     end
     
-    # it "should condition require" do
-    #   property = Property.new(@attr.merge(:condition => nil))
-    #   property.should_not be_valid
-    # end
-    # 
-    # it "should value require" do
-    #   property = Property.new(@attr.merge(:value => nil))
-    #   property.should_not be_valid
-    # end
+    it "should condition require" do
+      property = Property.new(@attr.merge(:condition => nil))
+      property.should_not be_valid
+    end
+    
+    it "should value require" do
+      property = Property.new(@attr.merge(:value => nil))
+      property.should_not be_valid
+    end
   end
   
   describe "associations" do
