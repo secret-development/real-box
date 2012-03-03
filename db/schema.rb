@@ -11,7 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120301090048) do
+
+ActiveRecord::Schema.define(:version => 20120302113610) do
+
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -52,6 +54,13 @@ ActiveRecord::Schema.define(:version => 20120301090048) do
   end
 
   add_index "districts", ["title"], :name => "index_districts_on_title"
+
+  create_table "documents", :force => true do |t|
+    t.integer  "transaction_id"
+    t.string   "doc"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "photos", :force => true do |t|
     t.integer  "subject_id"

@@ -7,6 +7,7 @@ class Transaction < ActiveRecord::Base
   belongs_to :customer
   belongs_to :subject
   belongs_to :typetransaction
+  has_many :documents, :dependent => :destroy
   
   #validations
   validates :user_id, :customer_id, :typetransaction_id,
