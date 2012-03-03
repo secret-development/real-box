@@ -1,0 +1,7 @@
+<div class="transaction-document">
+  <div class="self-document" id="document_<%= document.id %>">
+    <%= image_tag(document.doc_url.to_s.encode) if document.doc? %>
+    <%= link_to delete_icon, transaction_document_path(@transaction, document), 
+        :method => :delete, :remote => :true, :title => "Удалить" %>
+  </div>
+</div>

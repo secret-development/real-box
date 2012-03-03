@@ -157,6 +157,25 @@ describe Transaction do
       
     end
     
+    describe "document associations" do
+      
+      it "should respond to document" do
+        @transaction = Transaction.new(@attr)
+        @transaction.should respond_to(:documents)
+      end
+      
+      it "should has_many documents" do
+        t = Transaction.reflect_on_association(:documents)
+        t.macro.should == :has_many
+      end
+      
+      it "should depend destroy" do
+        t = Transaction.reflect_on_association(:documents)
+        t.options[:dependent].should == :destroy
+      end
+      
+    end
+    
   end
   
   describe "helper methods" do
