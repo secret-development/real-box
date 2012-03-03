@@ -10,7 +10,7 @@ class Property < ActiveRecord::Base
   
   
   def legend_value
-    new_record? ? "Добавить доп.инфорацию" : "Редактировать доп.информацию"
+    new_record? ? "Добавить доп.информацию" : "Редактировать доп.информацию"
   end
   
   def button_value
