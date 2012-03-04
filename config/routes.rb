@@ -26,7 +26,10 @@ Crm::Application.routes.draw do
     post 'load_attr', :on => :collection
   end
   
-  resources :transactions
+  resources :transactions do
+    resources :documents, :only => [:create, :destroy]
+    get 'add_document', :on => :member, :as => :add_document
+  end
   resources :cities, :except => [:show]
   resources :social_statuses, :except => [:show]
   resources :condition_fields
