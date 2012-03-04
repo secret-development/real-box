@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
         cookies[:auth_token] = user.auth_token
       end
       #session[:user_id] = user.id
-      flash[:notice] = "Вход успешен"
+      flash[:notice] = "Добро пожаловать"
       redirect_to root_url
     else
       flash[:notice] = "Неправильный почтовый адрес или пароль!"
