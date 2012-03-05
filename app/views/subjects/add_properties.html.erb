@@ -2,7 +2,7 @@
   <%= error_messages_for(@subject) %>
   <fieldset>
     <legend>Добавить дополнительные данные</legend>
-    <% @attr.map do |key, value| %>
+    <% @attr.each do |key, value| %>
       <%= f.simple_fields_for :properties do |p| %>
         <%= property_builder(p,key,value) %>
         <%= hidden_builder(p,key,value) %>

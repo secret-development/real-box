@@ -12,7 +12,7 @@ class Subject < ActiveRecord::Base
   has_one :transaction, :dependent => :nullify, :autosave => true
   
   has_many :properties, :dependent => :destroy
-  accepts_nested_attributes_for :properties
+  accepts_nested_attributes_for :properties, :reject_if => lambda {|a| a[:value].blank? }
   
   
   # callbacks:

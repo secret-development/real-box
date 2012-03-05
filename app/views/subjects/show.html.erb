@@ -2,8 +2,12 @@
 <div id="show-subject-page">
   <div class="subject-info">
     <div class="field-subject">
-      <span class="title-field-subject">Хозяин:</span>
+      <span class="title-field-subject"><b>Хозяин:</b></span>
       <%= link_to(@subject.customer.fullname, @subject.customer) %>
+    </div>
+    <div class="field-subject">
+      <span class="title-field-subject"><b>Тип объекта:</b></span>
+      <b><%= @subject.typesubject.name %></b>
     </div>
     <div class="field-subject">
       <span class="title-field-subject">Тип сделки:</span>
@@ -12,10 +16,6 @@
     <div class="field-subject">
       <span class="title-field-subject">Город:</span>
       <%= @subject.city.name %>
-    </div>
-    <div class="field-subject">
-      <span class="title-field-subject">Тип объекта:</span>
-      <%= @subject.typesubject.name %>
     </div>
     <div class="field-subject">
       <span class="title-field-subject">Район:</span>
