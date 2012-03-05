@@ -97,26 +97,25 @@ module ApplicationHelper
   end
   
   def textfield_build(form, key, value)
-    form.input :value, :label => key
+    form.input :value, :label => "#{key}:"
   end
   
   def select_build(form,key,value)
-    form.input :value, :label => key, :as => :select, :collection => 
+    form.input :value, :label => "#{key}:", :as => :select, :collection => 
       value[:value].map { |v| v}, :include_blank => false
   end
   
   def checkbox_build(form,key,value)
-    form.input :value, :label => key, :as => :check_boxes, :collection => 
+    form.input :value, :label => "#{key}:", :as => :check_boxes, :collection => 
       value[:value].map { |v| v}, :include_blank => false
   end
   
   def radio_build(form,key,value)
-    form.input :value, :label => key, :as => :radio_buttons, :collection => 
-      value[:value].map { |v| v}, :include_blank => false
+    form.input :value, :label => "#{key}:", :as => :radio_buttons, :collection => value[:value].map { |v| v}, :include_blank => false
   end
   
   def textarea_build(form,key,value)
-    form.input :value, :label => key, :as => :text, :input_html => { :rows => 4 }
+    form.input :value, :label => "#{key}:", :as => :text, :input_html => { :rows => 4 }
   end
   
   
