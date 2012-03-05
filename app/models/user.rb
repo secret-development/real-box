@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   #association
   has_many :transactions
   has_many :customers
+  has_many :tasks
+  has_many :subjects
   # validations
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :password,# :presence => true,

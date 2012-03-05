@@ -11,6 +11,7 @@ class Subject < ActiveRecord::Base
   has_many :photos, :dependent => :destroy
   has_many :properties, :dependent => :destroy
   has_one :transaction, :dependent => :nullify, :autosave => true
+  belongs_to :user
   
   # callbacks:
   after_save :verify_customer_real
