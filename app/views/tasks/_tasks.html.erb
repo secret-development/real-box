@@ -62,7 +62,7 @@
           <%= task.user.lastname %>
         </td>
         <td><%= to_datetime(task.deadline) %></td>
-        <td> 
+        <td> <% if !task.admin? %>
           <div class="btn-group">
             <a class="btn" href="#">
               <%= task.status %>
@@ -84,6 +84,9 @@
               <% end %>
             </ul>
           </div>
+          <% else %>
+            <%= task.status %>
+          <% end %>
         </td>
         <td><%= to_datetime(task.created_at) %></td>
         <td>
