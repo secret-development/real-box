@@ -11,9 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20120302113610) do
-
+ActiveRecord::Schema.define(:version => 20120305065628) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -44,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20120302113610) do
     t.string   "permalink"
     t.integer  "typetransaction_id"
     t.datetime "lastcall"
+    t.integer  "user_id"
   end
 
   add_index "customers", ["firstname", "lastname"], :name => "index_rcustomers_on_firstname_and_lastname"

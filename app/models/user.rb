@@ -13,9 +13,11 @@ class User < ActiveRecord::Base
   
   # remember me
   before_create { generate_token(:auth_token) }
-  # validations
   
+  #association
   has_many :transactions
+  has_many :customers
+  # validations
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :password,# :presence => true,
                        :confirmation => true,
