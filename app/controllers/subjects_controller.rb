@@ -4,7 +4,7 @@ class SubjectsController < ApplicationController
   before_filter :all_deny
   
   def index
-    @subjects = Subject.page(params[:page]).per(20)
+    @subjects = Subject.page(params[:page]).per(15)
     respond_with(@subjects)
   end
   
