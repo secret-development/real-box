@@ -19,14 +19,14 @@ describe PropertiesController do
     @property = Factory(:property, :subject => @subject)
   end
   
-  it "get new" do
-    get :new, :subject_id => @subject
-    response.should be_success
-  end
-  
-  it "get edit" do
-    get :edit, :subject_id => @subject, :id => @property.id
-    response.should be_success
-  end
-  
+  # it "get new" do
+  #     get :new, :subject_id => @subject
+  #     response.should be_success
+  #   end
+  #   
+  #   it "get edit" do
+  #     get :edit, :subject_id => @subject, :id => @property.id
+  #     response.should be_success
+  #   end
+    
 end
