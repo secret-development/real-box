@@ -77,6 +77,13 @@ class SubjectsController < ApplicationController
     end
   end
   
+  def edit_properties
+    @subject = Subject.find(params[:id])
+    if @subject.properties.size == 0
+      redirect_to(@subject, :notice => "Запрещенное действие")
+    end
+  end
+  
   def add_photo
     @subject = Subject.find(params[:id])  
   end
