@@ -1,4 +1,4 @@
-<%= form_for([@subject, @property], :html => {:class => "form-horizontal"}) do |f| %>
+<%= simple_form_for([@subject, @property], :html => {:class => "form-horizontal"}) do |f| %>
   <%= error_messages_for(@property) %>
   <fieldset>
     <legend><%= @property.legend_value %></legend>
@@ -12,9 +12,14 @@
   <div class="form-actions">
     <%= f.submit @property.button_value, :class => "btn btn-primary" %>
     <% if properties_zero?(@subject) %>
-      <%= link_to icon_share_alt_white + " Пропустить", @subject, :class => "btn btn-info" %>
+      <%= link_to icon_share_alt_white + " Пропустить", @subject, :class => "btn btn-info property-cancel" %>
     <% else %>
       <button type="reset" class="btn cancel-form">Отмена</button>    
     <% end %>
   </div>
+  <!-- tmp -->
+  <% unless @subject.new_record? %>
+    <% params[:find_values] = @subject.typesubject.find_values %>
+  <% end %>  
+  <!-- tmp -->
 <% end %>

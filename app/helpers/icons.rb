@@ -58,6 +58,10 @@ module Icons
     raw("<i class='icon-info-sign icon-white'></i>")
   end
   
+  def icon_info_sign_black
+    raw("<i class='icon-info-sign'></i>")
+  end
+  
   def icon_user
     raw("<i class='icon-user'></i>")    
   end

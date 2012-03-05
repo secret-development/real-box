@@ -1,3 +1,16 @@
-<%= @attr.each do |key, value| %>
-  <%= value[:value] %>
+<% @attr.each do |key, value| %>
+  <% case value[:typefield] %>
+    <% when "textfield" %>
+      <%= f.hidden_field(:condition1, :value => key) %>
+      <%= f.input :value, :label => key, :required => false %>
+    <% when 'select' %>
+    
+    <% when 'checkbox' %>
+  
+    <% when 'radio' %>
+      <%= f.hidden_field(:condition1, :value => key) %>
+      <%= f.input :value, :collection => value[:value], :as => :radio,
+          :required => false, :label => key %>
+    <% when 'textarea' %>
+  <% end %>
 <% end %>
