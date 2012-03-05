@@ -3,6 +3,10 @@ class SubjectsController < ApplicationController
   respond_to :html
   before_filter :all_deny
   
+  before_filter :load_type_subject, :only => :add_properties
+  before_filter :load_attr, :only => :add_properties
+  
+  
   def index
     @subjects = Subject.page(params[:page]).per(15)
     respond_with(@subjects)
@@ -60,6 +64,18 @@ class SubjectsController < ApplicationController
     flash[:notice] = "Объект успешно удалён"
     redirect_to subjects_path
   end
+
+
+  # more methods
+  
+  def add_properties
+    @subject = Subject.find(params[:id])
+    qty = @attr.size
+    3.times do
+      @subject.properties.build
+    end
+    
+  end
   
   def add_photo
     @subject = Subject.find(params[:id])  
@@ -81,5 +97,21 @@ class SubjectsController < ApplicationController
       format.json { render :json => @attr.to_json }
     end
   end
+  
+  private
+    
+    def load_type_subject
+      @subject = load_subject
+      @typesubject = Typesubject.find(@subject.typesubject_id)
+    end
+    
+    def load_subject
+      @subject = Subject.find(params[:id])
+    end
+    
+    def load_attr
+      typesubject = load_type_subject
+      @attr = typesubject.find_values
+    end
     
 end

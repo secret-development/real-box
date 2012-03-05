@@ -11,6 +11,9 @@ class Subject < ActiveRecord::Base
   has_many :photos, :dependent => :destroy
   has_many :properties, :dependent => :destroy
   has_one :transaction, :dependent => :nullify, :autosave => true
+
+  accepts_nested_attributes_for :properties
+  
   
   # callbacks:
   after_save :verify_customer_real

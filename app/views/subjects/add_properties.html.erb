@@ -1,0 +1,16 @@
+<%= simple_form_for(@subject, :html => {:class => "form-horizontal"}) do |f| %>
+  <%= error_messages_for(@subject) %>
+  <fieldset>
+    <legend>Добавить дополнительные данные</legend>
+    <%= f.simple_fields_for :properties do |p| %>
+      <% @attr.map do |key, value| %>
+        <%= property_builder(p,key,value) %>
+        <%= hidden_builder(p,key,value) %>
+      <% end %>
+    <% end %>
+    <div class="form-actions">
+      <%= f.submit "Добавить", :class => "btn btn-primary" %>
+      <button type="reset" class="btn cancel-form">Отмена</button>
+    </div>
+  </fieldset>
+<% end %>

@@ -1,6 +1,7 @@
 # encoding:utf-8
 module ApplicationHelper
   include Icons
+  require 'simple_form'
   
   def title
     base_title = "CRM"
@@ -74,5 +75,49 @@ module ApplicationHelper
       true
     end
   end
+  
+  # form builder
+  def property_builder(f, key, value)
+    case value[:typefield]
+    when "textfield"
+      textfield_build(f, key, value)
+    when "select"
+      select_build(f, key, value)
+    when "checkbox"
+      checkbox_build(f, key, value)
+    when "radio"
+      radio_build(f, key, value)
+    when "textarea"
+      textarea_build(f, key, value)
+    end
+  end
+  
+  def hidden_builder(f, key, value)
+    f.input :condition, :as => :hidden, :input_html => { :value => key }
+  end
+  
+  def textfield_build(form, key, value)
+    form.input :value, :label => key
+  end
+  
+  def select_build(form,key,value)
+    form.input :value, :label => key, :as => :select, :collection => 
+      value[:value].map { |v| v}, :include_blank => false
+  end
+  
+  def checkbox_build(form,key,value)
+    form.input :value, :label => key, :as => :check_boxes, :collection => 
+      value[:value].map { |v| v}, :include_blank => false
+  end
+  
+  def radio_build(form,key,value)
+    form.input :value, :label => key, :as => :radio_buttons, :collection => 
+      value[:value].map { |v| v}, :include_blank => false
+  end
+  
+  def textarea_build(form,key,value)
+    form.input :value, :label => key, :as => :text, :input_html => { :rows => 4 }
+  end
+  
   
 end
