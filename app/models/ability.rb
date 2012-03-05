@@ -15,8 +15,8 @@ class Ability
     else
       can :read, :all
       can :create, Task
-      can :update, Task, :user_id => user.id
-      can :destroy, Task, :user_id => user.id
+      can :update, Task, :admin => false, :user_id => user.id
+      can :destroy, Task, :admin => false, :user_id => user.id
       can :update, User, :id => user.id
       can :add_info, User, :id => user.id   
     end
