@@ -2,10 +2,16 @@
   <%= error_messages_for(@subject) %>
   <fieldset>
     <legend>Добавить дополнительные данные</legend>
-    <% @attr.each do |key, value| %>
+    <% if @subject.properties.size > 0 %>
       <%= f.simple_fields_for :properties do |p| %>
-        <%= property_builder(p,key,value) %>
-        <%= hidden_builder(p,key,value) %>
+
+      <% end %>
+    <% else %>
+      <% @attr.each do |key, value| %>
+        <%= f.simple_fields_for :properties do |p| %>
+          <%= property_builder(p,key,value) %>
+          <%= hidden_builder(p,key,value) %>
+        <% end %>
       <% end %>
     <% end %>
     <div class="form-actions">
@@ -14,3 +20,8 @@
     </div>
   </fieldset>
 <% end %>
+<!-- tmp -->
+<% unless @subject.new_record? %>
+  <% params[:find_values] = @attr %>
+<% end %>  
+<!-- tmp -->

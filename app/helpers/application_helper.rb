@@ -105,10 +105,10 @@ module ApplicationHelper
       value[:value].map { |v| v}, :include_blank => false
   end
   
-  def checkbox_build(form,key,value)
-    form.input :value, :label => "#{key}:", :as => :check_boxes, :collection => 
-      value[:value].map { |v| v}, :include_blank => false
-  end
+  # def checkbox_build(form,key,value)
+  #   form.input :value, :label => "#{key}:", :as => :check_boxes, :collection => 
+  #     value[:value].map { |v| v}, :include_blank => false
+  # end
   
   def radio_build(form,key,value)
     form.input :value, :label => "#{key}:", :as => :radio_buttons, :collection => value[:value].map { |v| v}, :include_blank => false

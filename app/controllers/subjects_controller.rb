@@ -70,7 +70,10 @@ class SubjectsController < ApplicationController
   
   def add_properties
     @subject = Subject.find(params[:id])
-    @subject.properties.build
+    unless @subject.properties.size > 0
+      @subject.properties.build
+    end
+    
   end
   
   def add_photo
