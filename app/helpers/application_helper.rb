@@ -92,8 +92,12 @@ module ApplicationHelper
     end
   end
   
-  def hidden_builder(f, key, value)
+  def hidden_builder_cond(f, key, value)
     f.input :condition, :as => :hidden, :input_html => { :value => key }
+  end
+  
+  def hidden_builder_type(f, key, value)
+    f.input :typefield, :as => :hidden, :input_html => { :value => key }
   end
   
   def textfield_build(form, key, value)

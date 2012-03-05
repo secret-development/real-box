@@ -2,18 +2,13 @@
   <%= error_messages_for(@subject) %>
   <fieldset>
     <legend>Добавить дополнительные данные</legend>
-    <% if @subject.properties.size > 0 %>
-      <%= f.simple_fields_for :properties do |p| %>
-
-      <% end %>
-    <% else %>
       <% @attr.each do |key, value| %>
         <%= f.simple_fields_for :properties do |p| %>
           <%= property_builder(p,key,value) %>
-          <%= hidden_builder(p,key,value) %>
+          <%= hidden_builder_cond(p,key,value) %>
+          <%= hidden_builder_type(p,value[:typefield],value) %>
         <% end %>
       <% end %>
-    <% end %>
     <div class="form-actions">
       <%= f.submit "Добавить", :class => "btn btn-primary" %>
       <button type="reset" class="btn cancel-form">Отмена</button>

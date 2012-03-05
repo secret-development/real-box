@@ -70,10 +70,11 @@ class SubjectsController < ApplicationController
   
   def add_properties
     @subject = Subject.find(params[:id])
-    unless @subject.properties.size > 0
+    if @subject.properties.size > 0
+      redirect_to(@subject, :notice => "Запрещенное действие")
+    else
       @subject.properties.build
     end
-    
   end
   
   def add_photo
