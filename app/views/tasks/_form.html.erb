@@ -15,7 +15,16 @@
           <%= f.text_area :description, :rows => "8", :class => "span4" %>  
         </div>
       </div>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <% if current_user.role? %>
+      <div class="control-group">
+        <%= f.label :user_id, "Ответственный" %>
+        <div class="controls">
+          <%= f.collection_select(:user_id, User.all, :id, :lastname) %>
+        </div>
+      </div>
+      <% else %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+      <% end %>
       <div class="control-group">
         <%= f.label :deadline, "Дедлайн:" %>
         <div class="controls">
