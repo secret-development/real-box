@@ -8,6 +8,8 @@ class Property < ActiveRecord::Base
   # associations
   belongs_to :subject
   
+  attr_accessible :subject_id, :condition, :value, :typefield
+  
   
   # def legend_value
   #   new_record? ? "Добавить доп.информацию" : "Редактировать доп.информацию"

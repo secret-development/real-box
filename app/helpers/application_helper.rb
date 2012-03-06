@@ -106,7 +106,7 @@ module ApplicationHelper
   
   def select_build(form,key,value)
     form.input :value, :label => "#{key}:", :as => :select, :collection => 
-      value[:value].map { |v| v}, :include_blank => false
+      value[:value].map { |v| v}, :include_blank => true
   end
   
   # def checkbox_build(form,key,value)
@@ -115,7 +115,7 @@ module ApplicationHelper
   # end
   
   def radio_build(form,key,value)
-    form.input :value, :label => "#{key}:", :as => :radio_buttons, :collection => value[:value].map { |v| v}, :include_blank => false
+    form.input :value, :label => "#{key}:", :as => :radio_buttons, :collection => value[:value].map { |v| v}, :include_blank => true
   end
   
   def textarea_build(form,key,value)

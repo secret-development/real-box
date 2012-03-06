@@ -3,8 +3,8 @@ class SubjectsController < ApplicationController
   respond_to :html
   before_filter :all_deny
   
-  before_filter :load_type_subject, :only => :add_properties
-  before_filter :load_attr, :only => :add_properties
+  before_filter :load_type_subject, :only => [:add_properties,:edit_properties]
+  before_filter :load_attr, :only => [:add_properties,:edit_properties]
   
   
   def index
