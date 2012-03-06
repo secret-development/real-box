@@ -15,7 +15,7 @@
     <% @subjects.each do |s| %>
       <tr>
         <td><%= s.typetransaction.name %></td>
-        <td><%= s.typesubject.name %></td>
+        <td><%= link_to(s.typesubject.name, s) %></td>
         <td><%= s.city.name %></td>
         <td><%= to_dollar(s.price) %></td>
         <td><%= to_area(s.area) %></td>

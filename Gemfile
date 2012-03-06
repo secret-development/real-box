@@ -34,6 +34,7 @@ gem "cancan", "~> 1.6.7"
 
 # annotate model:
 gem 'annotate', '~> 2.4.1.beta'
+gem 'simple_form'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
