@@ -2,9 +2,7 @@
   <%= error_messages_for(@customer) %>
   <fieldset>
     <legend><%= @customer.legend_value %></legend>
-    <div class="control-group">
-      <%= f.hidden_field(:user_id, :value => current_user.id) %>
-    </div>
+    <%= f.hidden_field(:user_id, :value => current_user.id) %>
     <div class="control-group">
       <%= f.label :typetransaction_id, "Тип сделки:" %>
       <div class="controls">

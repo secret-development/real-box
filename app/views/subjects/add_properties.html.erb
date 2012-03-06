@@ -17,12 +17,9 @@
       <% end %>
     <div class="form-actions">
       <%= f.submit "Добавить", :class => "btn btn-primary" %>
-      <button type="reset" class="btn cancel-form">Отмена</button>
+      <% if properties_zero?(@subject) %>
+        <%= link_to icon_share_alt_white + " Пропустить", @subject, :class => "btn btn-info property-cancel" %>
+      <% end %>
     </div>
   </fieldset>
 <% end %>
-<!-- tmp -->
-<% unless @subject.new_record? %>
-  <% params[:find_values] = @attr %>
-<% end %>  
-<!-- tmp -->
