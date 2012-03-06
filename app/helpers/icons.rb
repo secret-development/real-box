@@ -77,5 +77,9 @@ module Icons
   def icon_edit
     raw("<i class='icon-edit'></i>")    
   end
+  
+  def icon_info
+    raw("<i class='icon-info-sign'></i>")    
+  end
   # END ICONS
 end
