@@ -39,7 +39,7 @@ class SubjectsController < ApplicationController
       if @subject.save
         flash[:notice] = "Объект успешно создан"
         session[:customer_id] = nil
-        respond_with(@subject, :location => @subject)
+        respond_with(@subject, :location => add_properties_subject_path(@subject))
       else
         render 'new'
       end
