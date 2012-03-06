@@ -5,9 +5,9 @@
      <%= f.simple_fields_for :properties do |p| %>
         <% case p.object.typefield %>
         <% when "select" %>
-          <%= p.input :value, :label => "#{p.object.condition}:", :as => :select, :collection => @attr[p.object.condition][:value].map { |v| v}, :include_blank => true %>
+          <%= p.input :value, :label => "#{p.object.condition}:", :as => :select, :collection => @attr[p.object.condition][:value].map { |v| v}, :include_blank => false %>
         <% when "radio" %>
-          <%= p.input :value, :label => "#{p.object.condition};", :as => :radio_buttons, :collection => @attr[p.object.condition][:value].map { |v| v}, :include_blank => true%>
+          <%= p.input :value, :label => "#{p.object.condition};", :as => :radio_buttons, :collection => @attr[p.object.condition][:value].map { |v| v}, :include_blank => false %>
         <% when "textfield" %>
           <%= p.input :value, :label => "#{p.object.condition}:" %>
         <% when "textarea" %>
