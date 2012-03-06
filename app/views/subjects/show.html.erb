@@ -46,6 +46,21 @@
       <span class="title-field-subject">Добавлен:</span>
       <%= to_date(@subject.created_at) %>
     </div>
+    <% unless properties_zero?(@subject) %>
+      <div id="properties-info">
+        <h5>
+          Дополнительная информация:
+        </h5>
+        <% @subject.properties.each do |p| %>
+          <div class="field-property">
+            <span class="title-field-property">
+              <%= p.condition %>:
+            </span>
+            <%= p.value %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
   <!-- photos -->
   <% if @subject.photos.size > 0 %>
@@ -63,13 +78,24 @@
   <!--end photos-->
   <div class="clear"></div>
   <div class="actions-with-subject">
-    <%= link_to "Дополнительная информация",
-      add_properties_subject_path(@subject) %>
-    <%= link_to icon_camera_black + " Добавить фотографии", 
-        add_photo_subject_path(@subject), :class => "btn" %>
+    <!-- main actions -->
     <%= link_to edit_icon + " Редактировать",
         edit_subject_path(@subject), :class => "btn" %>
     <%= link_to delete_icon + " Удалить",
-    @subject, :method => :delete, :confirm => "Вы уверены?", :class => "btn" %>        
+    @subject, :method => :delete, :confirm => "Вы уверены?", :class => "btn" %>
+    <!-- end main actions -->
+    <!-- properties -->
+    <% if properties_zero?(@subject) %>
+      <%= link_to icon_info_sign_black + 
+        " Добавить дополнительную информацию",
+        add_properties_subject_path(@subject), :class => "btn" %>
+    <% else %>
+      <%= link_to icon_info_sign_black + 
+        " Редактировать дополнительную информацию",
+        add_properties_subject_path(@subject), :class => "btn" %>
+    <% end %>
+    <!-- end properties -->
+    <%= link_to icon_camera_black + " Добавить фотографии", 
+        add_photo_subject_path(@subject), :class => "btn" %>
   </div>
 </div>
