@@ -4,6 +4,9 @@
   <fieldset>
     <legend><%= @subject.legend_value %></legend>
     <div class="control-group">
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+    </div>
+    <div class="control-group">
       <%= f.label :typetransaction_id, "Тип сделки:" %>
       <div class="controls">
         <%= f.collection_select(:typetransaction_id, Typetransaction.all, 
@@ -21,11 +24,6 @@
       <%= f.label :typesubject_id, "Тип недвижимости:" %>
       <div class="controls">
         <%= f.collection_select(:typesubject_id, Typesubject.all, :id, :name) %>
-        <!-- tmp -->
-        <% unless @subject.new_record? %>
-          <% params[:find_values] = @subject.typesubject.find_values %>
-        <% end %>  
-        <!-- tmp -->
       </div>
     </div>
     <div class="control-group">

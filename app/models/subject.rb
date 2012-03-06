@@ -9,8 +9,12 @@ class Subject < ActiveRecord::Base
   belongs_to :customer
   belongs_to :district
   has_many :photos, :dependent => :destroy
-  has_many :properties, :dependent => :destroy
   has_one :transaction, :dependent => :nullify, :autosave => true
+  belongs_to :user
+  
+  has_many :properties, :dependent => :destroy
+  accepts_nested_attributes_for :properties, :reject_if => lambda {|a| a[:value].blank? }
+  
   
   # callbacks:
   after_save :verify_customer_real

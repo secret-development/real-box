@@ -1,7 +1,7 @@
 <div class="navbar navbar-fixed-top" id="main-menu">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "NorthSouth", root_path, :class => "brand" %>
+      <%= link_to "CRM", root_path, :class => "brand" %>
       <ul class="nav">
         <li classs="active">
           <%= link_to "Поиск", root_path %>
@@ -46,10 +46,10 @@
             <%= current_user.firstname %> <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to icon_user + 'Показать профиль', user_path(current_user) %></li>
-            <li><%= link_to 'Изменить профиль', add_info_user_path(current_user) %></li>
-            <li><%= link_to 'Изменить пароль', edit_user_path(current_user) %></li>
-            <li><%= link_to icon_off + 'Выход', sign_out_path %></li>
+            <li><%= link_to icon_user + ' Показать профиль', user_path(current_user) %></li>
+            <li><%= link_to icon_edit + ' Изменить профиль', add_info_user_path(current_user) %></li>
+            <li><%= link_to icon_lock_black + ' Изменить пароль', edit_user_path(current_user) %></li>
+            <li><%= link_to icon_off + ' Выход', sign_out_path %></li>
           </ul>
         </li>
       </ul>

@@ -347,37 +347,37 @@ $(document).ready(function() {
 });
 
 
-// subject -> change subject (load attr)
-$(document).ready(function() {
-  
-  // если в дальнейшем будет зависеть от subject
-  // var subject_id = $("#subject-id").attr("data-subject-id");
-  // console.log(subject_id);
-  
-  $("#subject_typesubject_id").change(function(event) {
-    // initialize
-    var typesubject_id = $(this).attr('value');
-    // end initialize
-    
-    // ajax
-    $.ajax({
-      url: '/subjects/load_attr',
-      type: 'POST',
-      dataType: 'json',
-      data: {id: typesubject_id},
-      success: function(data, textStatus, xhr) {
-        console.log(data);
-      },
-      error: function(xhr, textStatus, errorThrown) {
-        alert("Упс...что-то пошло не так.")
-      }
-    });
-    // end ajax
-    
-  });
-  
-  
-});
+// // subject -> change subject (load attr)
+// $(document).ready(function() {
+//   
+//   // если в дальнейшем будет зависеть от subject
+//   // var subject_id = $("#subject-id").attr("data-subject-id");
+//   // console.log(subject_id);
+//   
+//   $("#subject_typesubject_id").change(function(event) {
+//     // initialize
+//     var typesubject_id = $(this).attr('value');
+//     // end initialize
+//     
+//     // ajax
+//     $.ajax({
+//       url: '/subjects/load_attr',
+//       type: 'POST',
+//       dataType: 'json',
+//       data: {id: typesubject_id},
+//       success: function(data, textStatus, xhr) {
+//         console.log(data);
+//       },
+//       error: function(xhr, textStatus, errorThrown) {
+//         alert("Упс...что-то пошло не так.")
+//       }
+//     });
+//     // end ajax
+//     
+//   });
+//   
+//   
+// });
 
 // users mobile phone autotab
 $(document).ready(function(){

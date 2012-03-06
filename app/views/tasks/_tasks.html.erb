@@ -14,14 +14,55 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
+        <% if  current_user.role? && task.admin? %>
         <td><%= task.id %></td>
         <td><%= link_to task.title, task_path(task) %></td>
         <td>
-          <%= task.user.email %>
+          <%= task.user.lastname %>
         </td>
         <td><%= to_datetime(task.deadline) %></td>
+        <td> 
+          <div class="btn-group">
+            <a class="btn" href="#">
+              <%= task.status %>
+            </a>
+            <a class="btn dropdown-toggle" 
+            data-toggle="dropdown" href="#">
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <% if can? :update, task %>
+              <%= link_to "Задача не выполнена", task_path(task, 
+                          :task => { :done => false }),
+                          :method => :put, 
+                          :confirm => "Вы уверены?" %>
+              <%= link_to "Задача выполнена", task_path(task, 
+                          :task => { :done => true}),
+                          :method => :put, 
+                          :confirm => "Вы уверены?" %>
+              <% end %>
+            </ul>
+          </div>
+        </td>
+        <td><%= to_datetime(task.created_at) %></td>
         <td>
-          <% if task.user.id == current_user.id %> 
+          <%= link_to eye_icon, task_path(task) %>
+          <% if can? :update, task %>
+            <%= link_to edit_icon, edit_task_path(task) %>
+          <% end %>
+          <% if can? :destroy, task %>
+            <%= link_to delete_icon, task, :method => :delete,
+                      :confirm => "Вы уверены?" %>
+          <% end %>
+        </td>
+        <% elsif !current_user.role? && current_user.id == task.user_id %>
+                <td><%= task.id %></td>
+        <td><%= link_to task.title, task_path(task) %></td>
+        <td>
+          <%= task.user.lastname %>
+        </td>
+        <td><%= to_datetime(task.deadline) %></td>
+        <td> <% if !task.admin? %>
           <div class="btn-group">
             <a class="btn" href="#">
               <%= task.status %>
@@ -44,7 +85,7 @@
             </ul>
           </div>
           <% else %>
-          <%= task.status %>
+            <%= task.status %>
           <% end %>
         </td>
         <td><%= to_datetime(task.created_at) %></td>
@@ -58,6 +99,7 @@
                       :confirm => "Вы уверены?" %>
           <% end %>
         </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

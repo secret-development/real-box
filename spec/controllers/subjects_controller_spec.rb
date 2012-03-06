@@ -67,7 +67,7 @@ describe SubjectsController do
       end
     end
     
-    describe "success" do
+    describe "success without condition_fields" do
       before(:each) do
         @attr = valid_data
         session[:customer_id] = @customer.id
@@ -75,7 +75,7 @@ describe SubjectsController do
       
       it "should redirect to show page" do
         post :create, :subject => @attr
-        response.should redirect_to(new_subject_property_path(assigns(:subject)))
+        response.should redirect_to(assigns(:subject))
       end
       
       it "should create a subject" do
@@ -87,6 +87,20 @@ describe SubjectsController do
       it "should have a success message" do
         post :create, :subject => @attr
         flash[:notice].should =~ /Объект успешно создан/i
+      end
+    end
+    
+    describe "success when condition_fields > 0" do
+      before(:each) do
+        @typesubject_with_cond = Factory(:withcond)
+        @condition = Factory(:condition_field, :typesubject => @typesubject_with_cond)
+        @attr = properties_data
+        session[:customer_id] = @customer.id
+      end
+      
+      it "should redirect to add_properties" do
+        post :create, :subject => @attr
+        response.should redirect_to(add_properties_subject_path(assigns(:subject)))
       end
     end
   end
@@ -183,8 +197,20 @@ describe SubjectsController do
       :address => "Баймагамбетова 15, 23",
       :customer_id => @customer,
       :floor => 6
-    }  
-    
+    }   
+  end
+  
+  def properties_data
+    {
+      :typesubject_id => @typesubject_with_cond.id,
+      :city_id => 2,
+      :price => 100003,
+      :district_id => @district.id,
+      :area => 80,
+      :address => "Баймагамбетова 15, 23",
+      :customer_id => @customer,
+      :floor => 5
+    }
   end
   
 end

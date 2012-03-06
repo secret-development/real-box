@@ -22,7 +22,11 @@ module Icons
   end
   
   def list_icon
-    raw("<i class='icon-list-alt icon-white'></i>")    
+    raw("<i class='icon-list-alt'></i>")    
+  end
+  
+  def list_icon_white
+    raw("<i class='icon-list-alt icon-white'></i>")
   end
   
   def icon_user
@@ -58,6 +62,10 @@ module Icons
     raw("<i class='icon-info-sign icon-white'></i>")
   end
   
+  def icon_info_sign_black
+    raw("<i class='icon-info-sign'></i>")
+  end
+  
   def icon_user
     raw("<i class='icon-user'></i>")    
   end
@@ -72,6 +80,18 @@ module Icons
   
   def icon_share_alt_white
     raw("<i class='icon-share-alt icon-white'></i>")
+  end
+  
+  def icon_edit
+    raw("<i class='icon-edit'></i>")    
+  end
+  
+  def icon_info
+    raw("<i class='icon-info-sign'></i>")    
+  end
+  
+  def icon_lock_black
+    raw("<i class='icon-lock'></i>")
   end
   # END ICONS
 end

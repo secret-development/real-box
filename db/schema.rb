@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120302113610) do
+ActiveRecord::Schema.define(:version => 20120305124824) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20120302113610) do
     t.string   "permalink"
     t.integer  "typetransaction_id"
     t.datetime "lastcall"
+    t.integer  "user_id"
   end
 
   add_index "customers", ["firstname", "lastname"], :name => "index_rcustomers_on_firstname_and_lastname"
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20120302113610) do
     t.integer  "subject_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "typefield"
   end
 
   create_table "social_statuses", :force => true do |t|
@@ -98,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20120302113610) do
     t.string   "street_src"
     t.string   "house_src"
     t.string   "flat_src"
+    t.integer  "user_id"
   end
 
   create_table "tasks", :force => true do |t|
@@ -108,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20120302113610) do
     t.boolean  "done"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.boolean  "admin"
   end
 
   create_table "transactions", :force => true do |t|

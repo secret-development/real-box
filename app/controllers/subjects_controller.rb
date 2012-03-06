@@ -3,8 +3,12 @@ class SubjectsController < ApplicationController
   respond_to :html
   before_filter :all_deny
   
+  before_filter :load_type_subject, :only => :add_properties
+  before_filter :load_attr, :only => :add_properties
+  
+  
   def index
-    @subjects = Subject.page(params[:page]).per(20)
+    @subjects = Subject.page(params[:page]).per(15)
     respond_with(@subjects)
   end
   
@@ -33,9 +37,13 @@ class SubjectsController < ApplicationController
       @customer = Customer.find(session[:customer_id])    
       @subject = @customer.subjects.build(params[:subject])
       if @subject.save
-        flash[:notice] = "Объект успешно создан"
         session[:customer_id] = nil
-        respond_with(@subject, :location => new_subject_property_path(@subject))
+        if @subject.typesubject.condition_fields.size > 0
+          respond_with(@subject, :location => add_properties_subject_path(@subject))
+        else
+          flash[:notice] = "Объект успешно создан"
+          respond_with(@subject)
+        end
       else
         render 'new'
       end
@@ -60,6 +68,14 @@ class SubjectsController < ApplicationController
     flash[:notice] = "Объект успешно удалён"
     redirect_to subjects_path
   end
+
+
+  # more methods
+  
+  def add_properties
+    @subject = Subject.find(params[:id])
+    @subject.properties.build
+  end
   
   def add_photo
     @subject = Subject.find(params[:id])  
@@ -74,12 +90,34 @@ class SubjectsController < ApplicationController
   end
   
   # AJAX -> subject -> change typesubject
-  def load_attr
-    typesubject = Typesubject.find(params[:id])
-    @attr = typesubject.find_values
-    respond_to do |format|
-      format.json { render :json => @attr.to_json }
+  # def load_attr
+  #   typesubject = Typesubject.find(params[:id])
+  #   @attr = typesubject.find_values
+  #   respond_to do |format|
+  #     format.json { render :json => @attr.to_json }
+  #   end
+  # end
+  
+  private
+    
+    def load_type_subject
+      @subject = load_subject
+      @typesubject = Typesubject.find(@subject.typesubject_id)
     end
-  end
+    
+    def load_subject
+      @subject = Subject.find(params[:id])
+    end
+    
+    def load_attr
+      subject = load_subject
+      typesubject = load_type_subject
+      if typesubject.condition_fields.size > 0
+        @attr = typesubject.find_values  
+      else
+        redirect_to subject_path(subject), 
+          :alert => "Дополнительные поля для данного типа недвижимости не указаны в настройках"
+      end
+    end
     
 end
