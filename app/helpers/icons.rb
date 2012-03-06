@@ -89,5 +89,9 @@ module Icons
   def icon_info
     raw("<i class='icon-info-sign'></i>")    
   end
+  
+  def icon_lock_black
+    raw("<i class='icon-lock'></i>")
+  end
   # END ICONS
 end
