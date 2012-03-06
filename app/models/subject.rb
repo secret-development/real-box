@@ -34,6 +34,8 @@ class Subject < ActiveRecord::Base
   validates :floor, :presence => true, :if => :floor?
   
   attr_writer :street, :house, :flat
+  
+  default_scope order("created_at DESC")
 
   def full_address
     if(@street.blank? || @house.blank? || @flat.blank?)
