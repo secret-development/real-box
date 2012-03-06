@@ -2,8 +2,9 @@
 
 class Task < ActiveRecord::Base
   
-  attr_accessible :title, :description, :user_id, :deadline, :done
+  attr_accessible :title, :description, :user_id, :deadline, :done, :admin
   belongs_to :user
+  
   
   validates :user_id,
             :presence => true

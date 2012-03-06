@@ -28,7 +28,7 @@ describe UsersController do
       response.should be_success      
     end
     
-    it "GET 'show'" do
+    it "GET 'index'" do
       get :index
       response.should be_success      
     end
