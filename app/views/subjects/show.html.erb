@@ -46,6 +46,21 @@
       <span class="title-field-subject">Добавлен:</span>
       <%= to_date(@subject.created_at) %>
     </div>
+    <% unless properties_zero?(@subject) %>
+      <div id="properties-info">
+        <h5>
+          Дополнительная информация:
+        </h5>
+        <% @subject.properties.each do |p| %>
+          <div class="field-property">
+            <span class="title-field-property">
+              <%= p.condition %>:
+            </span>
+            <%= p.value %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
   <!-- photos -->
   <% if @subject.photos.size > 0 %>
