@@ -1,9 +1,14 @@
 <h1 class="title-page"><%= link_to "Объекты недвижимости", subjects_path %> → Информация об объекте</h1>
+<%= flash_msg(flash[:notice]) %>
 <div id="show-subject-page">
   <div class="subject-info">
     <div class="field-subject">
-      <span class="title-field-subject">Хозяин:</span>
+      <span class="title-field-subject"><b>Хозяин:</b></span>
       <%= link_to(@subject.customer.fullname, @subject.customer) %>
+    </div>
+    <div class="field-subject">
+      <span class="title-field-subject"><b>Тип объекта:</b></span>
+      <b><%= @subject.typesubject.name %></b>
     </div>
     <div class="field-subject">
       <span class="title-field-subject">Тип сделки:</span>
@@ -12,10 +17,6 @@
     <div class="field-subject">
       <span class="title-field-subject">Город:</span>
       <%= @subject.city.name %>
-    </div>
-    <div class="field-subject">
-      <span class="title-field-subject">Тип объекта:</span>
-      <%= @subject.typesubject.name %>
     </div>
     <div class="field-subject">
       <span class="title-field-subject">Район:</span>
@@ -62,14 +63,8 @@
   <!--end photos-->
   <div class="clear"></div>
   <div class="actions-with-subject">
-    <% if @subject.properties.size > 0 %>
-      <%= link_to icon_info_sign + " Редактировать доп.информацию", 
-        edit_subject_property_path(@subject), :class => "btn btn-primary" %>
-    <% else %>
-      <%= link_to icon_info_sign + " Добавить доп.информацию", 
-        new_subject_property_path(@subject), :class => "btn btn-primary" %>
-    <% end %>
-    
+    <%= link_to "Дополнительная информация",
+      add_properties_subject_path(@subject) %>
     <%= link_to icon_camera_black + " Добавить фотографии", 
         add_photo_subject_path(@subject), :class => "btn" %>
     <%= link_to edit_icon + " Редактировать",

@@ -75,7 +75,7 @@ describe SubjectsController do
       
       it "should redirect to show page" do
         post :create, :subject => @attr
-        response.should redirect_to(new_subject_property_path(assigns(:subject)))
+        response.should redirect_to(assigns(:subject))
       end
       
       it "should create a subject" do

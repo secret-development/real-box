@@ -22,7 +22,6 @@ class ConditionField < ActiveRecord::Base
     {
       "выпадающий список" => "select",
       "радио кнопки" => "radio",
-      "чекбоксы" => "checkbox",
       "текстовое поле" => "textfield",
       "большое текстовое поле" => "textarea" 
     }

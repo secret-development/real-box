@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305082147) do
+ActiveRecord::Schema.define(:version => 20120305124824) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -37,9 +37,7 @@ ActiveRecord::Schema.define(:version => 20120305082147) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "potentials",         :default => false
-    t.integer  "type_customer_id"
     t.integer  "social_status_id"
-    t.string   "permalink"
     t.integer  "typetransaction_id"
     t.datetime "lastcall"
     t.integer  "user_id"
@@ -76,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20120305082147) do
     t.integer  "subject_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "typefield"
   end
 
   create_table "social_statuses", :force => true do |t|

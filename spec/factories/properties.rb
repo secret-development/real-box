@@ -1,6 +1,8 @@
-# Read about factories at http://github.com/thoughtbot/factory_girl
+# encoding:utf-8
 
 FactoryGirl.define do
   factory :property do
+    condition "Интернет"
+    value "Да"
   end
 end
