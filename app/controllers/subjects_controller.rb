@@ -37,9 +37,13 @@ class SubjectsController < ApplicationController
       @customer = Customer.find(session[:customer_id])    
       @subject = @customer.subjects.build(params[:subject])
       if @subject.save
-        flash[:notice] = "Объект успешно создан"
         session[:customer_id] = nil
-        respond_with(@subject, :location => add_properties_subject_path(@subject))
+        if @subject.typesubject.condition_fields.size > 0
+          respond_with(@subject, :location => add_properties_subject_path(@subject))
+        else
+          flash[:notice] = "Объект успешно создан"
+          respond_with(@subject)
+        end
       else
         render 'new'
       end
