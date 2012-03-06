@@ -22,7 +22,11 @@ module Icons
   end
   
   def list_icon
-    raw("<i class='icon-list-alt icon-white'></i>")    
+    raw("<i class='icon-list-alt'></i>")    
+  end
+  
+  def list_icon_white
+    raw("<i class='icon-list-alt icon-white'></i>")
   end
   
   def icon_user
