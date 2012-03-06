@@ -76,7 +76,7 @@ module ApplicationHelper
     end
   end
   
-  # form builder
+  # form builder for add_properties(if properties == 0)
   def property_builder(f, key, value)
     case value[:typefield]
     when "textfield"
@@ -105,21 +105,58 @@ module ApplicationHelper
   end
   
   def select_build(form,key,value)
-    form.input :value, :label => "#{key}:", :as => :select, :collection => 
-      value[:value].map { |v| v}, :include_blank => false
+    form.input :value, :label => "#{key}:", :as => :select, 
+    :collection => value[:value].map { |v| v}, :include_blank => false
   end
   
-  # def checkbox_build(form,key,value)
-  #   form.input :value, :label => "#{key}:", :as => :check_boxes, :collection => 
-  #     value[:value].map { |v| v}, :include_blank => false
-  # end
-  
   def radio_build(form,key,value)
-    form.input :value, :label => "#{key}:", :as => :radio_buttons, :collection => value[:value].map { |v| v}, :include_blank => false
+    form.input :value, :label => "#{key}:", :as => :radio_buttons, 
+      :collection => value[:value].map { |v| v}, :include_blank => false
   end
   
   def textarea_build(form,key,value)
-    form.input :value, :label => "#{key}:", :as => :text, :input_html => { :rows => 4 }
+    form.input :value, :label => "#{key}:", :as => :text, 
+      :input_html => { :rows => 4 }
+  end
+  
+  # def checkbox_build(form,key,value)
+  #   form.input :value, :label => "#{key}:", :as => :check_boxes, 
+  #     :collection => value[:value].map { |v| v}, :include_blank => false
+  # end
+  
+  # form builder for add_properties(if properties > 0)
+  def property_edit(f, attributes, typefield)
+    case typefield
+    when "select"
+      select_edit(f, attributes)
+    when "radio"
+      radio_edit(f, attributes)
+    when "textfield"
+      textfield_edit(f, attributes)
+    when "textarea"
+      textarea_edit(f, attributes)
+    end
+  end
+  
+  def select_edit(f, attributes)
+    f.input :value, :label => "#{f.object.condition}:", :as => :select,
+      :collection => attributes[f.object.condition][:value].map {|v| v},
+      :include_blank => false
+  end
+  
+  def radio_edit(f, attributes)
+    f.input :value, :label => "#{f.object.condition}:", :as => :radio_buttons,
+      :collection => attributes[p.object.condition][:value].map { |v| v},
+      :include_blank => false
+  end 
+      
+  def textfield_edit(f, attributes)
+     f.input :value, :label => "#{f.object.condition}:"
+  end 
+      
+  def textarea_edit(f, attributes)
+    f.input :value, :label => "#{f.object.condition}:", :as => :text,
+      :input_html => { :rows => 4 }
   end
   
   
