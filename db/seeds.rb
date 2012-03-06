@@ -15,4 +15,3 @@ types_of_transactions.each do |t|
 end
 
 User.create(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :role => true, :lastname => "Иванов", :firstname => "Иван")
-
