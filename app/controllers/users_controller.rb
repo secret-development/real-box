@@ -48,7 +48,12 @@ class UsersController < ApplicationController
   
   def add_info
     @user = User.find(params[:id])
-    respond_with(@user, :location => current_user)    
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "Данные изменены"
+      respond_with(@user, :location => current_user)
+    else
+      render 'add_info' 
+    end
   end
   
 end

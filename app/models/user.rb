@@ -3,13 +3,15 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :email, :password, :password_confirmation, 
                   :password_reset_token, :password_reset_sent_at, 
-                  :role, :lastname, :firstname, :phonehome, :phonemobile
+                  :role, :lastname, :firstname, :phonehome, :phonemobile,
+                  :area_code, :phonemobile1, :phonemobile2
   #encript password before save
-  before_save :encrypt_password, :phonemobile_merge
+  before_save :encrypt_password
   
+  
+  # phone:
   attr_writer :area_code, :phonemobile1, :phonemobile2
-  #before_save :phonemobile_merge
-  before_update :phonemobile_merge
+  before_validation :phonemobile_merge
   
   # remember me
   before_create { generate_token(:auth_token) }
@@ -28,7 +30,7 @@ class User < ActiveRecord::Base
   validates :email, :uniqueness => { :case_sensitive => false}
   validates :email, :presence => true, :format => {:with => email_regex}
   validates :lastname, :firstname, :presence => true, :on => :create
-  validates :phonehome, :phonemobile, :numericality => { :only_integer => true }, :allow_blank => true
+  validates :phonemobile, :presence => true
   
   def encrypt_password
     if password.present?
@@ -87,14 +89,9 @@ class User < ActiveRecord::Base
     "Изменение пароля"    
   end
   
-    def phonemobile_merge
-    if (@area_code.blank? || @phonemobile1.blank? || @phonemobile2.blank?)
-      if new_record?
-        self.phonemobile = ""  
-      end
-    else
-      self.phonemobile = "+7 #{@area_code} #{@phonemobile1} #{@phonemobile2}" 
-    end
+  # phone:
+  def phonemobile_merge
+    self.phonemobile = "+7 #{@area_code} #{@phonemobile1} #{@phonemobile2}"
   end
   
   def area_code

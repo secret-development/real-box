@@ -6,15 +6,24 @@
   </div>
   <legend>Контактная информация:</legend>
   <div class="info-user">
-    <%= @user.email %>
-    <%= @user.phonehome %>
-    <%= @user.phonemobile %>
+    <div class="field-info-user">
+      <span>E-mail:</span>
+      <%= @user.email %>
+    </div>
+    <div class="field-info-user">
+      <span>Домашний телефон:</span>
+      <%= @user.phonehome %>  
+    </div>
+    <div class="field-info-user">
+      <span>Сотовый телефон:</span>
+      <%= @user.phonemobile %>
+    </div>
   </div>
-  
-  <div class="actions-users">
-    <% if current_user.id == @user.id || current_user.role? %>
-    <%= link_to 'Изменить профиль', add_info_user_path(current_user)  %>
-    <%= link_to 'Изменить пароль', edit_user_path(current_user) %>
-  </div>  
-<% end %>
+
+  <% if current_user.id == @user.id || current_user.role? %>  
+    <div class="actions-users">
+      <%= link_to 'Изменить профиль', add_info_user_path(current_user)  %>
+      <%= link_to 'Изменить пароль', edit_user_path(current_user) %>
+    </div>
+  <% end %>
 </div>
