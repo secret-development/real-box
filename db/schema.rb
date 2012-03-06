@@ -37,9 +37,12 @@ ActiveRecord::Schema.define(:version => 20120305124824) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "potentials",         :default => false
+    t.integer  "type_customer_id"
     t.integer  "social_status_id"
+    t.string   "permalink"
     t.integer  "typetransaction_id"
     t.datetime "lastcall"
+    t.integer  "user_id"
   end
 
   add_index "customers", ["firstname", "lastname"], :name => "index_rcustomers_on_firstname_and_lastname"
@@ -97,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20120305124824) do
     t.string   "street_src"
     t.string   "house_src"
     t.string   "flat_src"
+    t.integer  "user_id"
   end
 
   create_table "tasks", :force => true do |t|
@@ -107,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20120305124824) do
     t.boolean  "done"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.boolean  "admin"
   end
 
   create_table "transactions", :force => true do |t|

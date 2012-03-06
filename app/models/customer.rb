@@ -5,6 +5,7 @@ class Customer < ActiveRecord::Base
   belongs_to :social_status
   has_many :subjects, :dependent => :destroy
   has_many :transactions
+  belongs_to :user
   #validations
   validates :firstname, :lastname, :presence => true
   #scope
