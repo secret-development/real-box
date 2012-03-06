@@ -9,6 +9,7 @@ describe User do
       :password_confirmation => "password",
       :lastname => "Петров",
       :firstname => "Петр",
+      :phonemobile => "+7 777 747 4343"
     }
   end 
   

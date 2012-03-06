@@ -14,7 +14,8 @@ describe UsersController do
                 :firstname => "Анатолий",
                 :email => "gor@mail.ru",
                 :password => "password",
-                :password_confirmation => "password"
+                :password_confirmation => "password",
+                :phonemobile => "+7 777 747 4343"
       }
     end
 

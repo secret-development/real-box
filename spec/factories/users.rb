@@ -8,5 +8,6 @@ FactoryGirl.define do
     lastname "Иванов"
     firstname "Иван"
     role true
+    phonemobile "+7 777 474 4343"
   end
 end
