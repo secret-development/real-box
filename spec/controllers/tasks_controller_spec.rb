@@ -68,9 +68,9 @@ describe TasksController do
         end.should change(Task, :count).by(1)
       end
       
-      it "should redirect to the tasks" do
+      it "should redirect to the task page" do
         post :create, :task => @attr
-        response.should redirect_to tasks_path
+        response.should redirect_to(task_path(assigns(:task)))
       end
       
       it "should have a success message" do

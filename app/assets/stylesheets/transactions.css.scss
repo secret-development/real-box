@@ -3,20 +3,34 @@
   top: 5px;
 }
 .doc-field{
-  background:#eeeeee;
   -webkit-border-radius:10px;
   -moz-border-radius:10px;
   border-radius:10px;
-  -o-border-radius:10px;
-  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.1); /* Для Firefox */
-  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1); /* Для Safari и Chrome */
-  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Параметры тени */
   padding: 15px;
   margin: 15px 15px 25px 0px;
   width: 400px;
-  line-height: 1.5;
+  line-height: 1.5;  
+  .document-image{
+    margin: 0px 10px 5px 0px;
+    .document-name {
+      position: relative;
+      bottom:10px;
+    }
+  }
 }
 #show-transaction{
+  h8{
+    text-decoration: underline;
+    font-size: 20px;
+    position: relative;
+    top: 10px;
+    color: #8B8B8B;
+  }
+  h6{
+    padding-bottom: 15px;
+    text-decoration: underline;
+    color:#000;
+  }
   background:#F9F9F9;
   padding:10px;
   border:1px solid #eee;
@@ -50,11 +64,7 @@
     width: 400px;
     line-height: 1.5;
   }
-  h6{
-    padding-bottom: 15px;
-    text-decoration: underline;
-    color:#000;
-  }
+  
   .actions-with-transactions{
     margin:30px 0px 10px 0px;
     a{
@@ -74,4 +84,30 @@
       color:#858585;  
     }
   }
+}
+#documents{
+  width: 800px;
+  margin-top: 20px;
+  #add-document-button-form{
+    margin: 20px 0 20px 10px;
+    
+  }
+  .document-transaction{
+    .document-image{
+      margin:10px;
+      .document-name {
+        position: relative;
+        bottom:10px;
+        font-size:20px;
+      }
+      .document-delete {
+        position: relative;
+        bottom: 12px;
+        margin-left: 10px;
+      }
+    }
+  }
+}
+#transaction-document-complete-msg{
+  display: none;
 }

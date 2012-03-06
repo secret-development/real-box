@@ -32,7 +32,7 @@ class TasksController < ApplicationController
     @task = Task.new(params[:task])
     if @task.save
       flash[:notice] = "Задача успешно добавлена"
-      redirect_to tasks_path
+      respond_with(@task)
     else
       render 'new'
     end
