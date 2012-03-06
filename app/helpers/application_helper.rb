@@ -124,40 +124,43 @@ module ApplicationHelper
   #     :collection => value[:value].map { |v| v}, :include_blank => false
   # end
   
+  # end # form builder for add_properties(if properties == 0)
+  
   # form builder for add_properties(if properties > 0)
-  def property_edit(f, attributes, typefield)
-    case typefield
+  def property_edit(p, attributes)
+    case p.object.typefield
     when "select"
-      select_edit(f, attributes)
+      select_edit(p, attributes)
     when "radio"
-      radio_edit(f, attributes)
+      radio_edit(p, attributes)
     when "textfield"
-      textfield_edit(f, attributes)
+      textfield_edit(p)
     when "textarea"
-      textarea_edit(f, attributes)
+      textarea_edit(p)
     end
   end
   
-  def select_edit(f, attributes)
-    f.input :value, :label => "#{f.object.condition}:", :as => :select,
-      :collection => attributes[f.object.condition][:value].map {|v| v},
+  def select_edit(p, attributes)
+    p.input :value, :label => "#{p.object.condition}:", :as => :select,
+      :collection => attributes[p.object.condition][:value].map {|v| v},
       :include_blank => false
   end
   
-  def radio_edit(f, attributes)
-    f.input :value, :label => "#{f.object.condition}:", :as => :radio_buttons,
+  def radio_edit(p, attributes)
+    p.input :value, :label => "#{p.object.condition}:", :as => :radio_buttons,
       :collection => attributes[p.object.condition][:value].map { |v| v},
       :include_blank => false
   end 
       
-  def textfield_edit(f, attributes)
-     f.input :value, :label => "#{f.object.condition}:"
+  def textfield_edit(p)
+     p.input :value, :label => "#{p.object.condition}:"
   end 
       
-  def textarea_edit(f, attributes)
-    f.input :value, :label => "#{f.object.condition}:", :as => :text,
+  def textarea_edit(p)
+    p.input :value, :label => "#{p.object.condition}:", :as => :text,
       :input_html => { :rows => 4 }
   end
   
+  # end form builder for add_properties(if properties > 0)
   
 end
