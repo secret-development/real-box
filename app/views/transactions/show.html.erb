@@ -20,12 +20,6 @@
                 customer_path(@transaction.customer)) %>
   </div>
   <div class="field-transaction">
-    <span class="title-field">Описание сделки:</span>
-  </div>
-  <div class="transaction-desc">
-    <%= raw @transaction.description %>
-  </div>
-  <div class="field-transaction">
     <span class="title-field">Объект сделки:</span>
     <% if @transaction.subject == nil %>
       Отсутствует
@@ -46,25 +40,38 @@
     <span class="title-field">Дата:</span>
     <%= to_formatted_date(@transaction.created_at) %>
   </div>
-  <% unless @transaction.documents.size == 0 %>
   <div class="field-transaction">
-    <span class="title-field">Прикрепленные документы:</span>
+    <span class="title-field">Описание сделки:</span>
   </div>
+  <div class="transaction-desc">
+    <%= raw @transaction.description %>
+  </div>
+  <% unless @transaction.documents.size == 0 %>
+   <h8>Прикрепленные документы:</h8>
   <div class="doc-field">
     <% @transaction.documents.each do |d| %>
-      <%= link_to d.doc_identifier, d.doc_url.to_s.encode %><br />
+      <div class="document-image">
+        <%= image_tag(d.detect_format) %>
+        <span class="document-name"> 
+          <%= link_to d.doc_identifier, d.doc_url.to_s.encode %>
+        </span>
+      </div>
     <% end %>
   </div>
   <% end %>
   <div class="clear"></div>
   <div class="actions-with-transaction">
-    <%= link_to list_icon + " Прикрепить документ", 
-        add_document_transaction_path(@transaction), 
-        :class => "btn btn-success" %>
-    <%= link_to edit_icon + " Редактировать",
-        edit_transaction_path(@transaction), :class => "btn" %>
-    <%= link_to delete_icon + " Удалить",
-        @transaction, :method => :delete, 
-        :confirm => "Вы уверены?", :class => "btn" %>        
+    <div class="field-transaction">
+      <span class="title-field">
+        <%= link_to list_icon + " Прикрепить документ", 
+            add_document_transaction_path(@transaction), 
+            :class => "btn" %>
+      </span>
+      <%= link_to edit_icon + " Редактировать",
+          edit_transaction_path(@transaction), :class => "btn" %>
+      <%= link_to delete_icon + " Удалить",
+          @transaction, :method => :delete, 
+          :confirm => "Вы уверены?", :class => "btn" %>
+    </div>
   </div>
 </div>

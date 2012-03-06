@@ -1,10 +1,15 @@
-<%= flash_msg(flash[:notice]) %>
+<div class="alert alert-success" id="transaction-document-complete-msg">
+  <a class="close" data-dismiss="alert">×</a>
+  Документ загружен успешно
+</div>
 <%= form_for(@transaction, :html => 
   {:multipart => true,:class => "form-horizontal"}) do |f| %>
   <%= error_messages_for(@transaction) %>
   <fieldset>
     <legend>Добавить документ</legend>
   </fieldset>
+  <div id="documents" class="well">
+    <h1>Документы:</h1>
   <% key = Rails.application.config.session_options[:key] %>
   <script type="text/javascript">
   $(function(){
@@ -18,7 +23,7 @@
       'uploader'     : '/assets/uploadify.swf',
       'script'       : url,
       'fileDataName' : 'document[doc]',
-      'fileExt'      : '*.png;*.jpg;*.gif;*.jpeg;*.doc;*.docx;*.dotx;*.dot;*.rtf;*.xml;*.txt;*.xlsx;*.xls;*.xltx;*.xlt;*.csv;*.htm;*.pdf;*.lpdf',
+      'fileExt'      : '*.png;*.jpg;*.gif;*.jpeg;*.bmp;*.doc;*.docx;*.dotx;*.dot;*.rtf;*.xml;*.txt;*.xlsx;*.xls;*.xltx;*.xlt;*.csv;*.htm;*.html;*.ppt;*.pptx;*.pdf;*.lpdf',
       'cancelImg'    : '/assets/cancel.png',
       'multi'        : true,
       'scriptData'   : upload_params,
@@ -33,14 +38,13 @@
   <% unless @transaction.new_record? %>
     <div id="add-document-button-form">
       <%= fields_for Document.new do |f| %>
-        <%= f.file_field :doc, :rel => transaction_documents_path(@transaction) %>
+        <%= f.file_field :doc, 
+            :rel => transaction_documents_path(@transaction) %>
       <% end %>  
     </div>
   <% end %>
-  <div id="documents">
-    <h1>Документы:</h1>
-    <%= render :partial => "documents/document", 
-        :collection => @transaction.documents %>
+  <%= render :partial => "documents/document", 
+      :collection => @transaction.documents %>
   </div>
   <div class="clear"></div>
   <div id="back-to-transaction">

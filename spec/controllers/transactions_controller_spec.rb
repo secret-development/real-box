@@ -75,9 +75,9 @@ describe TransactionsController do
         @attr = valid_data
       end
       
-      it "should redirect to transactions2 page" do
+      it "should redirect to transaction page" do
         post :create, :transaction => @attr
-        response.should redirect_to(transactions_path)
+        response.should redirect_to(transaction_path(assigns(:transaction)))
       end
       
       it "should create a transaction" do
