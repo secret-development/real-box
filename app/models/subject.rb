@@ -118,8 +118,7 @@ class Subject < ActiveRecord::Base
       d.title
     end
   end
-  
-  
+    
 end
 
 # == Schema Information
