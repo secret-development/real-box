@@ -1,7 +1,15 @@
-<div class="transaction-document">
+<div class="document-transaction">
   <div class="self-document" id="document_<%= document.id %>">
-    <%= image_tag(document.doc_url.to_s.encode) if document.doc? %>
-    <%= link_to delete_icon, transaction_document_path(@transaction, document), 
-        :method => :delete, :remote => :true, :title => "Удалить" %>
+    <div class="document-image">
+      <%= image_tag(document.detect_format) if document.doc? %>
+      <span class="document-name">
+        <%= document.doc_identifier.to_s.encode %>
+      </span>
+      <span class="document-delete">
+        <%= link_to delete_icon, 
+            transaction_document_path(@transaction, document), 
+            :method => :delete, :remote => :true, :title => "Удалить" %>
+      </span>
+    </div>
   </div>
 </div>

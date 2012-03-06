@@ -12,4 +12,10 @@ FactoryGirl.define do
     permalink "dacha"
     floor false
   end
+  
+  factory :withcond, :class => Typesubject do
+    name "Квартира"
+    permalink "flat"
+    floor true
+  end
 end

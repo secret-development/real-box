@@ -21,7 +21,7 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(params[:transaction])
     if @transaction.save
       flash[:notice] = "Сделка успешно добавлена"
-      redirect_to transactions_path
+      respond_with(@transaction)
     else
       render 'new'
     end
