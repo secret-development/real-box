@@ -106,8 +106,14 @@ class SubjectsController < ApplicationController
     end
     
     def load_attr
+      subject = load_subject
       typesubject = load_type_subject
-      @attr = typesubject.find_values
+      if typesubject.condition_fields.size > 0
+        @attr = typesubject.find_values  
+      else
+        redirect_to subject_path(subject), 
+          :alert => "Дополнительные поля для данного типа недвижимости не указаны в настройках"
+      end
     end
     
 end
