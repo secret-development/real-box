@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
   
   # phone:
   attr_writer :area_code, :phonemobile1, :phonemobile2
-  before_validation :phonemobile_merge
+  before_save :phonemobile_merge
+  before_update :phonemobile_merge
   
   # remember me
   before_create { generate_token(:auth_token) }
