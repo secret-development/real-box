@@ -69,7 +69,7 @@ module ApplicationHelper
   
   
   def properties_zero?(object)
-    if object.properties.size > 0
+    if object.properties.size > 1
       false
     else
       true
@@ -106,7 +106,7 @@ module ApplicationHelper
   
   def select_build(form,key,value)
     form.input :value, :label => "#{key}:", :as => :select, :collection => 
-      value[:value].map { |v| v}, :include_blank => true
+      value[:value].map { |v| v}, :include_blank => false
   end
   
   # def checkbox_build(form,key,value)
@@ -115,7 +115,7 @@ module ApplicationHelper
   # end
   
   def radio_build(form,key,value)
-    form.input :value, :label => "#{key}:", :as => :radio_buttons, :collection => value[:value].map { |v| v}, :include_blank => true
+    form.input :value, :label => "#{key}:", :as => :radio_buttons, :collection => value[:value].map { |v| v}, :include_blank => false
   end
   
   def textarea_build(form,key,value)

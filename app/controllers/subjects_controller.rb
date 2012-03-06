@@ -3,8 +3,8 @@ class SubjectsController < ApplicationController
   respond_to :html
   before_filter :all_deny
   
-  before_filter :load_type_subject, :only => [:add_properties,:edit_properties]
-  before_filter :load_attr, :only => [:add_properties,:edit_properties]
+  before_filter :load_type_subject, :only => :add_properties
+  before_filter :load_attr, :only => :add_properties
   
   
   def index
@@ -70,18 +70,7 @@ class SubjectsController < ApplicationController
   
   def add_properties
     @subject = Subject.find(params[:id])
-    if @subject.properties.size > 0
-      redirect_to(@subject, :notice => "Запрещенное действие")
-    else
-      @subject.properties.build
-    end
-  end
-  
-  def edit_properties
-    @subject = Subject.find(params[:id])
-    if @subject.properties.size == 0
-      redirect_to(@subject, :notice => "Запрещенное действие")
-    end
+    @subject.properties.build
   end
   
   def add_photo

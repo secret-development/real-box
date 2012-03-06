@@ -63,13 +63,8 @@
   <!--end photos-->
   <div class="clear"></div>
   <div class="actions-with-subject">
-    <% if properties_zero?(@subject) %>
-      <%= link_to "Добавить доп. информацию",
-        add_properties_subject_path(@subject) %>
-    <% else %>
-      <%= link_to "Редактировать доп. информацию",
-        edit_properties_subject_path(@model) %>
-    <% end %>
+    <%= link_to "Дополнительная информация",
+      add_properties_subject_path(@subject) %>
     <%= link_to icon_camera_black + " Добавить фотографии", 
         add_photo_subject_path(@subject), :class => "btn" %>
     <%= link_to edit_icon + " Редактировать",
