@@ -24,7 +24,7 @@ gem 'jquery_datepicker'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
 # for attachment:
-gem 'carrierwave'
+gem 'carrierwave', :git => 'git://github.com/jnicklas/carrierwave.git', :branch => "0.5-stable"
 gem 'mini_magick'
 gem 'flash_cookie_session'
 
