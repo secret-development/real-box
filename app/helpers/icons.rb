@@ -73,5 +73,9 @@ module Icons
   def icon_share_alt_white
     raw("<i class='icon-share-alt icon-white'></i>")
   end
+  
+  def icon_edit
+    raw("<i class='icon-edit'></i>")    
+  end
   # END ICONS
 end

@@ -47,7 +47,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><%= link_to icon_user + 'Показать профиль', user_path(current_user) %></li>
-            <li><%= link_to 'Изменить профиль', add_info_user_path(current_user) %></li>
+            <li><%= link_to icon_edit + 'Изменить профиль', add_info_user_path(current_user) %></li>
             <li><%= link_to 'Изменить пароль', edit_user_path(current_user) %></li>
             <li><%= link_to icon_off + 'Выход', sign_out_path %></li>
           </ul>
