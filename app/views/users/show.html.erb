@@ -1,10 +1,14 @@
 <div id="show-users">
   <legend>Информация о сотруднике:</legend>
   <div class="info-user">
-    <%= @user.lastname %>
-    <%= @user.firstname %>
+    <div class="user-name">
+      <span class="user-name-title">Фамилия:</span> <%= @user.lastname %>
+    </div>
+    <div class="user-name">
+      <span class="user-name-title">Имя:</span> <%= @user.firstname %>
+    </div>
   </div>
-  <legend>Контактная информация:</legend>
+  <legend class="contacts-user-title">Контактная информация:</legend>
   <div class="info-user">
     <div class="field-info-user">
       <span>E-mail:</span>
@@ -22,8 +26,10 @@
 
   <% if current_user.id == @user.id || current_user.role? %>  
     <div class="actions-users">
-      <%= link_to 'Изменить профиль', add_info_user_path(current_user)  %>
-      <%= link_to 'Изменить пароль', edit_user_path(current_user) %>
+      <%= link_to icon_edit + ' Изменить профиль', add_info_user_path(current_user),
+          :class => "btn"%>
+      <%= link_to icon_lock_black + ' Изменить пароль', 
+            edit_user_path(current_user), :class => "btn" %>
     </div>
   <% end %>
 </div>
