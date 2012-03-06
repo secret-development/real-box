@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateSocialStatuses < ActiveRecord::Migration
   def change
     create_table :social_statuses do |t|

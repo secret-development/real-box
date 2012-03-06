@@ -1,4 +1,4 @@
-# encoding:utf-8
+# -*- encoding : utf-8 -*-
 class UsersController < ApplicationController
   before_filter :all_deny 
   respond_to :html

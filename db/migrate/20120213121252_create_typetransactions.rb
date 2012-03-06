@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateTypetransactions < ActiveRecord::Migration
   def change
     create_table :typetransactions do |t|

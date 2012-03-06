@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateProperties < ActiveRecord::Migration
   def change
     create_table :properties do |t|

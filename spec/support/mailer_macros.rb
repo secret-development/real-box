@@ -1,4 +1,4 @@
-# encoding:utf-8
+# -*- encoding : utf-8 -*-
 module  MailerMacros
   def last_email
     ActionMailer::Base.deliveries.last    

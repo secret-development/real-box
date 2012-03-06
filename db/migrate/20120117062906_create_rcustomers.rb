@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateRcustomers < ActiveRecord::Migration
   def change
     create_table :rcustomers do |t|

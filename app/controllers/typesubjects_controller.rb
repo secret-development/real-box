@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 class TypesubjectsController < ApplicationController
   before_filter :all_deny
   respond_to :html
