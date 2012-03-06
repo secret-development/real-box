@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   respond_to :html
   layout 'devise'
   def new
+    @title = "Вход"
   end
   
   def create
