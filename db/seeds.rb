@@ -8,6 +8,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # type of transaction:
+
 Typetransaction.delete_all
 types_of_transactions = ['Купля', 'Продажа', 'Аренда', 'Съем', 'Обмен']
 types_of_transactions.each do |t|
