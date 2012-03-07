@@ -1,5 +1,7 @@
 <div id="social-status">
-  <h1 class="title-page">Социальные статусы</h1>
+  <h1 class="title-page">
+    <%= link_to "Настройки", settings_path %> → Социальные статусы
+  </h1>  
   <%= flash_msg(flash[:notice]) %>
   <% if can? :create, @socialstatuses %>
     <%= link_to plus_icon + 'Добавить', new_social_status_path, :class => "btn button-add" %>

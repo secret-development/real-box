@@ -1,4 +1,6 @@
-<h1 class="title-page">Значение для полей</h1>
+<h1 class="title-page">
+  <%= link_to "Настройки", settings_path %> → Значения для полей
+</h1>
 <%= flash_msg(flash[:notice]) %>
 <%= link_to plus_icon + "Добавить" , new_value_field_path, 
     :class => "btn button-add" %>
