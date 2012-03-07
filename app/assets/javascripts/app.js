@@ -106,6 +106,17 @@ $(document).ready(function() {
 });
 
 
+// live search for subject
+//$(document).ready(function(){
+//  $('#subjects').tablesorter();
+//});
+$(document).ready(function() {
+  $('#subjects th a, #subjects .paginate a').live('click', function(){
+    $.getScript(this.href);  
+    return false;  
+  });
+});
+
 
 // live search for tasks
 $(document).ready(function() {

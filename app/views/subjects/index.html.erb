@@ -1,31 +1,12 @@
 <h1 class="title-page">Объекты недвижимости</h1>
 <%= flash_msg(flash[:notice]) %>
-<table class="table table-striped table-condensed customers">
-  <thead>
-    <tr>
-      <th>Тип сделки</th>
-      <th>Тип объекта</th>
-      <th>Город</th>
-      <th>Цена</th>
-      <th>Площадь</th>
-      <th>Действия</th>
-    </tr>
-  </thead>  
-  <tbody>
-    <% @subjects.each do |s| %>
-      <tr>
-        <td><%= s.typetransaction.name %></td>
-        <td><%= link_to(s.typesubject.name, s) %></td>
-        <td><%= s.city.name %></td>
-        <td><%= to_dollar(s.price) %></td>
-        <td><%= to_area(s.area) %></td>
-        <td class="actions-buttons">
-          <%= link_to eye_icon, subject_path(s), :title => "Подробнее..." %>
-          <%= link_to edit_icon, edit_subject_path(s) %>
-          <%= link_to delete_icon, s, :method => :delete, :confirm => "Вы уверены?" %>
-        </td>
-      </tr>
-    <% end %>     
-  </tbody>
-</table>
-<%= paginate @subjects %>
+<%= form_tag subjects_path, :method => 'get'  do %>
+  
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  
+<div id="subjects">
+<%= render 'subjects' %>
+</div>  
+<% end %>
+
