@@ -13,6 +13,9 @@ describe Subject do
     # typesubject without floor
     @withourfloor = Factory(:withourfloor)
     
+    # properties
+    @properties = Factory(:property, :subject => @subject)
+    
     # valid attributes
     @attr = {
       :typesubject_id => @typesubject.id,
@@ -211,7 +214,17 @@ describe Subject do
       end
     end
   end
+  
+  describe "remove properties if typesubject change" do
 
+    it "should remove properties" do
+      subject = @subject
+      subject.typesubject_id = @withourfloor.id
+      subject.save
+      subject.properties.should == []
+    end
+  end
+  
 end
 
 # == Schema Information
