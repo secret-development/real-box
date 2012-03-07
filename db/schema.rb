@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305124824) do
+ActiveRecord::Schema.define(:version => 20120307090027) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -34,12 +34,10 @@ ActiveRecord::Schema.define(:version => 20120305124824) do
     t.string   "phonemobile"
     t.string   "email"
     t.text     "note"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "potentials",         :default => false
-    t.integer  "type_customer_id"
     t.integer  "social_status_id"
-    t.string   "permalink"
     t.integer  "typetransaction_id"
     t.datetime "lastcall"
     t.integer  "user_id"
@@ -71,12 +69,10 @@ ActiveRecord::Schema.define(:version => 20120305124824) do
   end
 
   create_table "properties", :force => true do |t|
-    t.string   "condition"
-    t.string   "value"
-    t.integer  "subject_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "typefield"
+    t.string  "condition"
+    t.string  "value"
+    t.integer "subject_id"
+    t.string  "typefield"
   end
 
   create_table "social_statuses", :force => true do |t|
@@ -91,8 +87,8 @@ ActiveRecord::Schema.define(:version => 20120305124824) do
     t.integer  "price"
     t.integer  "area"
     t.string   "address"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.integer  "typetransaction_id"
     t.integer  "customer_id"
     t.integer  "district_id"
@@ -101,6 +97,7 @@ ActiveRecord::Schema.define(:version => 20120305124824) do
     t.string   "house_src"
     t.string   "flat_src"
     t.integer  "user_id"
+    t.boolean  "active",             :default => true
   end
 
   create_table "tasks", :force => true do |t|
@@ -125,12 +122,6 @@ ActiveRecord::Schema.define(:version => 20120305124824) do
     t.boolean  "payment"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-  end
-
-  create_table "type_customers", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "typesubjects", :force => true do |t|

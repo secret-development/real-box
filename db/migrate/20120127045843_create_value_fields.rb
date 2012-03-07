@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateValueFields < ActiveRecord::Migration
   def change
     create_table :value_fields do |t|

@@ -1,4 +1,4 @@
-# encoding:utf-8
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe Subject do
@@ -22,7 +22,8 @@ describe Subject do
       :area => 80,
       :address => "Баймагамбетова 15, 23",
       :district_id => @district.id,
-      :floor => 1
+      :floor => 1,
+      :active => true
     }
   end
   
@@ -37,6 +38,11 @@ describe Subject do
     subject.customer = @customer
     subject.customer.potentials.should == true
     
+  end
+  
+  it "should active == true" do
+    subject = Subject.create(@attr.merge(:active => nil))
+    subject.active == true
   end
   
   describe "validations" do

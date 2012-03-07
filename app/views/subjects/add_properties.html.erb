@@ -17,9 +17,7 @@
       <% end %>
     <div class="form-actions">
       <%= f.submit "Добавить", :class => "btn btn-primary" %>
-      <% if properties_zero?(@subject) %>
-        <%= link_to icon_share_alt_white + " Пропустить", @subject, :class => "btn btn-info property-cancel" %>
-      <% end %>
+      <%= link_to icon_share_alt_white + " Пропустить", @subject, :class => "btn btn-info property-cancel" %>
     </div>
   </fieldset>
 <% end %>

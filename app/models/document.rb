@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #encoding: UTF-8
 
 class Document < ActiveRecord::Base
@@ -32,5 +33,3 @@ class Document < ActiveRecord::Base
   end
   
 end
-
-# TODO: грузятся только jpg, jpeg, png, gif, txt <== РАЗОБРАТЬСЯ

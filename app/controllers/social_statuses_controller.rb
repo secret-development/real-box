@@ -1,20 +1,21 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 class SocialStatusesController < ApplicationController
   before_filter :all_deny 
   respond_to :html
   load_and_authorize_resource
-  
-  def new
-    @socialstatus = SocialStatus.new
-    @title = "Добавление социального статуса"
-    respond_with @socialstatus    
-  end
   
   def index
     @socialstatuses = SocialStatus.all
     @title = "Социальные статусы"
     respond_with @socialstatuses    
   end
+  
+  def new
+    @socialstatus = SocialStatus.new
+    @title = "Добавление социального статуса"
+    respond_with @socialstatus    
+  end
+
   
   def edit
     @socialstatus = SocialStatus.find(params[:id])

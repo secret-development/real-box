@@ -1,4 +1,6 @@
-<h1 class="title-page">Типы недвижимости</h1>
+<h1 class="title-page">
+  <%= link_to "Настройки", settings_path %> → Типы недвижимости
+</h1>
 <%= flash_msg(flash[:notice]) %>
 <%= link_to plus_icon + "Добавить" , new_typesubject_path, 
     :class => "btn button-add" %>

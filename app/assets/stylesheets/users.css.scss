@@ -1,11 +1,35 @@
 #show-users{
   .info-user{
-    background-color:#fafafa;
-    font-size: 16px;
-    margin: 10px;
-    padding: 5px;
+    margin-top:-5px;
+    .user-name{
+      margin-left:20px;
+      margin-bottom:10px;
+      .user-name-title{
+        font-weight:bold;
+        display:inline-block;
+        width:120px;
+      }
+    }
+    .field-info-user{
+       margin-bottom:15px;
+       color:#717171;
+       margin-left:20px;
+       span{
+         font-weight:bold;
+         color:#000;
+         display:inline-block;
+         min-width:150px;         
+       }
+     }
   }
-  #actions-users{
-    margin-top: 30px;
+  .actions-users{
+    margin-top: 40px;
+    margin-left:5px;
+    a{
+      margin-right:15px;
+    }
+  }
+  .contacts-user-title{
+    margin-top:30px;
   }
 }

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #encoding:utf-8
 module Icons  
   # START icons

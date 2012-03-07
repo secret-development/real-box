@@ -1,4 +1,4 @@
-# encoding:utf-8
+# -*- encoding : utf-8 -*-
 # Read about factories at http://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
@@ -7,5 +7,6 @@ FactoryGirl.define do
     area 73
     address "Абая 165, 8"
     floor 7
+    active true
   end
 end

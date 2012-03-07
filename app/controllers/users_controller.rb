@@ -1,10 +1,20 @@
-# encoding:utf-8
+# -*- encoding : utf-8 -*-
 class UsersController < ApplicationController
+
   before_filter :all_deny 
   respond_to :html
   load_and_authorize_resource
+
+  def index
+    @users = User.all    
+    @title = "Персонал"
+    respond_with(@users)
+  end
+  
   def new
     @user = User.new
+    @title = "Добавление сотрудника"
+    respond_with(@user)
   end
   
   def create
@@ -17,16 +27,16 @@ class UsersController < ApplicationController
     end    
   end
   
-  def index
-    @users = User.all    
-  end
-  
   def show
     @user = User.find(params[:id])
+    @title = "Информация о сотруднике"
+    respond_with(@user)
   end
   
   def edit
     @user = User.find(params[:id])    
+    @title = "Редактирование информации"
+    respond_with(@user)
   end
   
   def update
@@ -48,7 +58,8 @@ class UsersController < ApplicationController
   
   def add_info
     @user = User.find(params[:id])
-    respond_with(@user, :location => current_user)    
+    @title = "Анкетные данные"
+    respond_with(@user)
   end
   
 end

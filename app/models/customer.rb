@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 class Customer < ActiveRecord::Base
   # associations
   belongs_to :typetransaction

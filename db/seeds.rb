@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -8,6 +8,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # type of transaction:
+
 Typetransaction.delete_all
 types_of_transactions = ['Купля', 'Продажа', 'Аренда', 'Съем', 'Обмен']
 types_of_transactions.each do |t|
@@ -15,4 +16,3 @@ types_of_transactions.each do |t|
 end
 
 User.create(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :role => true, :lastname => "Иванов", :firstname => "Иван")
-
