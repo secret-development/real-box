@@ -7,5 +7,6 @@ FactoryGirl.define do
     area 73
     address "Абая 165, 8"
     floor 7
+    active true
   end
 end
