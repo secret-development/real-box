@@ -3,7 +3,7 @@
     <div class="document-image">
       <%= image_tag(document.detect_format) if document.doc? %>
       <span class="document-name">
-        <%= document.doc_identifier.to_s.encode %>
+        <%= document.doc_identifier %>
       </span>
       <span class="document-delete">
         <%= link_to delete_icon, 
