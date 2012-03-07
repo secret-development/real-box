@@ -123,7 +123,6 @@ module ApplicationHelper
   #   form.input :value, :label => "#{key}:", :as => :check_boxes, 
   #     :collection => value[:value].map { |v| v}, :include_blank => false
   # end
-  
   # end # form builder for add_properties(if properties == 0)
   
   # form builder for add_properties(if properties > 0)
@@ -159,8 +158,23 @@ module ApplicationHelper
   def textarea_edit(p)
     p.input :value, :label => "#{p.object.condition}:", :as => :text,
       :input_html => { :rows => 4 }
+  end  
+  # end form builder for add_properties(if properties > 0)
+  
+  def active_subject?(object)
+    if object.active == true
+      image_tag('active.png', :title => "Активна")
+    else
+      image_tag('busy.png', :title => "Не активна")
+    end
   end
   
-  # end form builder for add_properties(if properties > 0)
+  def active_subject_text?(object)
+    if object.active == true
+      "Активна"
+    else
+      "Не активна"
+    end
+  end
   
 end

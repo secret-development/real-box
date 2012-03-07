@@ -1,4 +1,4 @@
-<h1 class="title-page">Информация о сделке</h1>
+<h1 class="title-page"><%= link_to "Сделки", transactions_path %> → Информация о сделке</h1>
 <%= flash_msg(flash[:notice]) %>
 <div id="show-transaction">
   <h6>Сделка № <%= @transaction.id %></h6>
