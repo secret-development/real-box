@@ -11,6 +11,10 @@
       <b><%= @subject.typesubject.name %></b>
     </div>
     <div class="field-subject">
+      <span class="title-field-subject"><b>Статус:</b></span>
+      <b><%= active_subject_text?(@subject) %></b>
+    </div>
+    <div class="field-subject">
       <span class="title-field-subject">Тип сделки:</span>
       <%= @subject.typetransaction.name %>
     </div>

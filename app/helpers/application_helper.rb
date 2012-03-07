@@ -169,4 +169,12 @@ module ApplicationHelper
     end
   end
   
+  def active_subject_text?(object)
+    if object.active == true
+      "Активна"
+    else
+      "Не активна"
+    end
+  end
+  
 end
