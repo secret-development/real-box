@@ -33,5 +33,3 @@ class Document < ActiveRecord::Base
   end
   
 end
-
-# TODO: грузятся только jpg, jpeg, png, gif, txt <== РАЗОБРАТЬСЯ

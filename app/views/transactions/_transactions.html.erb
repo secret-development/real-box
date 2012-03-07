@@ -53,7 +53,7 @@
             <%= t.payment_value %>
           <% end %>
         </td>
-        <td>
+        <td class="actions-buttons">
           <%= link_to eye_icon, transaction_path(t), :title => "Просмотр" %>
           <%= link_to edit_icon, edit_transaction_path(t), 
               :title => "Редактировать" %>
