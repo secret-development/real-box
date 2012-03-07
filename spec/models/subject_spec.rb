@@ -211,6 +211,7 @@ describe Subject do
       end
     end
   end
+
 end
 
 # == Schema Information

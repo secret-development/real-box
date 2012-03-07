@@ -4,5 +4,6 @@ FactoryGirl.define do
   factory :property do
     condition "Интернет"
     value "Да"
+    typefield "select"
   end
 end
