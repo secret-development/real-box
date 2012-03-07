@@ -7,6 +7,11 @@ class TransactionsController < ApplicationController
   before_filter :all_deny
   helper_method :sort_column, :sort_direction
   
+  def index
+    @transactions = Transaction.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(10)
+    @title = "Сделки"
+  end
+  
   def new
     begin
       @customer = Customer.find(params[:customer_id])
@@ -34,11 +39,6 @@ class TransactionsController < ApplicationController
     respond_with @transaction
   end
   
-  def index
-    @transactions = Transaction.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(10)
-    @title = "Сделки"
-  end
-  
   def edit
     @transaction = Transaction.find(params[:id])
     @title = "Редактирование сделки"
@@ -63,6 +63,7 @@ class TransactionsController < ApplicationController
   
   def add_document
     @transaction = Transaction.find(params[:id])
+    @title = "Добавление документов"
   end
   
   private

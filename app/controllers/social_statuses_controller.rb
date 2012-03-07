@@ -4,17 +4,18 @@ class SocialStatusesController < ApplicationController
   respond_to :html
   load_and_authorize_resource
   
-  def new
-    @socialstatus = SocialStatus.new
-    @title = "Добавление социального статуса"
-    respond_with @socialstatus    
-  end
-  
   def index
     @socialstatuses = SocialStatus.all
     @title = "Социальные статусы"
     respond_with @socialstatuses    
   end
+  
+  def new
+    @socialstatus = SocialStatus.new
+    @title = "Добавление социального статуса"
+    respond_with @socialstatus    
+  end
+
   
   def edit
     @socialstatus = SocialStatus.find(params[:id])
