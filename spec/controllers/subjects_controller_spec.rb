@@ -182,7 +182,8 @@ describe SubjectsController do
       :area => 80,
       :address => "Баймагамбетова 15, 23",
       :customer_id => @customer,
-      :floor => 5
+      :floor => 5,
+      :price_currency => "доллар"
     }
   end
   
