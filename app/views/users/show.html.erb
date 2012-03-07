@@ -26,10 +26,10 @@
 
   <% if current_user.id == @user.id || current_user.role? %>  
     <div class="actions-users">
-      <%= link_to icon_edit + ' Изменить профиль', add_info_user_path(current_user),
+      <%= link_to icon_edit + ' Изменить профиль', add_info_user_path(@user),
           :class => "btn"%>
       <%= link_to icon_lock_black + ' Изменить пароль', 
-            edit_user_path(current_user), :class => "btn" %>
+            edit_user_path(@user), :class => "btn" %>
     </div>
   <% end %>
 </div>

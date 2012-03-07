@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   validates :email, :uniqueness => { :case_sensitive => false}
   validates :email, :presence => true, :format => {:with => email_regex}
   validates :lastname, :firstname, :presence => true, :on => :create
-  validates :phonemobile, :presence => true
+  # validates :phonemobile, :presence => true
   
   def encrypt_password
     if password.present?
@@ -92,7 +92,13 @@ class User < ActiveRecord::Base
   
   # phone:
   def phonemobile_merge
-    self.phonemobile = "+7 #{@area_code} #{@phonemobile1} #{@phonemobile2}"
+    if (@area_code.blank? || @phonemobile1.blank? || @phonemobile2.blank?)
+      if new_record?
+        self.phonemobile = ""
+      end
+    else
+      self.phonemobile = "+7 #{@area_code} #{@phonemobile1} #{@phonemobile2}"
+    end
   end
   
   def area_code
