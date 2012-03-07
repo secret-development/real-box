@@ -1,4 +1,4 @@
-# encoding:utf-8
+# -*- encoding : utf-8 -*-
 class SubjectsController < ApplicationController
   respond_to :html
   before_filter :all_deny
@@ -8,12 +8,14 @@ class SubjectsController < ApplicationController
   
   
   def index
+    @title = "Объекты"
     @subjects = Subject.page(params[:page]).per(15)
     respond_with(@subjects)
   end
   
   def show
     @subject = Subject.find(params[:id])
+    @title = @subject.typesubject.name
     respond_with(@subject)
   end
 
@@ -21,6 +23,7 @@ class SubjectsController < ApplicationController
     if params[:customer_id].nil?
       redirect_to(subjects_path, :alert => "Нет привязанного клиента")
     else
+      @title = "Новый объект"
       session[:customer_id] = params[:customer_id]
       @subject = Subject.new
       respond_with(@subject)      
@@ -29,6 +32,7 @@ class SubjectsController < ApplicationController
   
   def edit
     @subject = Subject.find(params[:id])
+    @title = "Редактирование объекта"
     respond_with(@subject)
   end
   
@@ -74,11 +78,13 @@ class SubjectsController < ApplicationController
   
   def add_properties
     @subject = Subject.find(params[:id])
+    @title = "Дополнительная информация"
     @subject.properties.build
   end
   
   def add_photo
-    @subject = Subject.find(params[:id])  
+    @subject = Subject.find(params[:id])
+    @title = "Фотографии"
   end
   
   # AJAX -> subject -> floor

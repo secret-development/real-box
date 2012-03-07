@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -34,12 +34,10 @@ ActiveRecord::Schema.define(:version => 20120305124824) do
     t.string   "phonemobile"
     t.string   "email"
     t.text     "note"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "potentials",         :default => false
-    t.integer  "type_customer_id"
     t.integer  "social_status_id"
-    t.string   "permalink"
     t.integer  "typetransaction_id"
     t.datetime "lastcall"
     t.integer  "user_id"
@@ -125,12 +123,6 @@ ActiveRecord::Schema.define(:version => 20120305124824) do
     t.boolean  "payment"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-  end
-
-  create_table "type_customers", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "typesubjects", :force => true do |t|

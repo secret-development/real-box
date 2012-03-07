@@ -1,4 +1,4 @@
-# encoding:utf-8
+# -*- encoding : utf-8 -*-
 class UsersController < ApplicationController
   before_filter :all_deny 
   respond_to :html
@@ -48,7 +48,6 @@ class UsersController < ApplicationController
   
   def add_info
     @user = User.find(params[:id])
-    respond_with(@user, :location => current_user)    
   end
   
 end
