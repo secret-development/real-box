@@ -8,5 +8,6 @@ FactoryGirl.define do
     address "Абая 165, 8"
     floor 7
     active true
+    price_currency "доллар"
   end
 end
