@@ -2,14 +2,14 @@
 class SubjectsController < ApplicationController
   respond_to :html
   before_filter :all_deny
-  
+  helper_method :sort_column, :sort_direction
   before_filter :load_type_subject, :only => :add_properties
   before_filter :load_attr, :only => :add_properties
   
   
   def index
     @title = "Объекты"
-    @subjects = Subject.page(params[:page]).per(15)
+    @subjects = Subject.order(sort_column + " " + sort_direction).page(params[:page]).per(2)
     respond_with(@subjects)
   end
   
@@ -124,6 +124,14 @@ class SubjectsController < ApplicationController
         redirect_to subject_path(subject), 
           :alert => "Дополнительные поля для данного типа недвижимости не указаны в настройках"
       end
+    end
+  
+    def sort_column
+      Subject.column_names.include?(params[:sort]) ? params[:sort] : "typetransaction_id"    
+    end
+  
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"    
     end
     
 end
