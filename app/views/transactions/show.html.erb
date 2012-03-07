@@ -47,7 +47,8 @@
     <%= raw @transaction.description %>
   </div>
   <% unless @transaction.documents.size == 0 %>
-   <h8>Прикрепленные документы:</h8>
+   <h8><%= link_to "Прикрепленные документы:",
+                    add_document_transaction_path(@transaction) %></h8>
   <div class="doc-field">
     <% @transaction.documents.each do |d| %>
       <div class="document-image">
@@ -61,17 +62,8 @@
   <% end %>
   <div class="clear"></div>
   <div class="actions-with-transaction">
-    <div class="field-transaction">
-      <span class="title-field">
-        <%= link_to list_icon + " Прикрепить документ", 
-            add_document_transaction_path(@transaction), 
-            :class => "btn" %>
-      </span>
-      <%= link_to edit_icon + " Редактировать",
-          edit_transaction_path(@transaction), :class => "btn" %>
-      <%= link_to delete_icon + " Удалить",
-          @transaction, :method => :delete, 
-          :confirm => "Вы уверены?", :class => "btn" %>
-    </div>
+    <%= link_to list_icon + " Прикрепить документ", 
+        add_document_transaction_path(@transaction), 
+        :class => "btn" %>
   </div>
 </div>
