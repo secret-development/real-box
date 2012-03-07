@@ -1,4 +1,4 @@
-# encoding:utf-8
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe User do
@@ -9,6 +9,7 @@ describe User do
       :password_confirmation => "password",
       :lastname => "Петров",
       :firstname => "Петр",
+      :phonemobile => "+7 777 747 4343"
     }
   end 
   

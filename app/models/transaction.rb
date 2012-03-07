@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #encoding: UTF-8
 
 class Transaction < ActiveRecord::Base
@@ -45,5 +46,3 @@ class Transaction < ActiveRecord::Base
   end
   
 end
-
-#TODO: add admin

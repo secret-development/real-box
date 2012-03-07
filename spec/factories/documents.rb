@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #encdoing: UTF-8
 # Read about factories at http://github.com/thoughtbot/factory_girl
 

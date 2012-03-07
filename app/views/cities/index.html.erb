@@ -1,6 +1,8 @@
 <div id="cities">
+  <h1 class="title-page">
+    <%= link_to "Настройки", settings_path %> → Города
+  </h1>
   <%= flash_msg(flash[:notice]) %>
-  <h1 class="title-page">Города</h1>
   <ul id="cities-list">
     <% @cities.each do |city| %>
       <li>

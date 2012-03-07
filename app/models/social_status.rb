@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 class SocialStatus < ActiveRecord::Base
   validates :title, :presence => true, :uniqueness => { :case_sensitive => false }
   has_many :customers, :dependent => :destroy

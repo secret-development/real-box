@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Crm::Application.routes.draw do
 
   get "sign_in" => "sessions#new", :as => "sign_in"
