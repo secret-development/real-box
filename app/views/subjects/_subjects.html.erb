@@ -6,6 +6,7 @@
       <th><%= sortable "city_id", "Город" %></th>
       <th><%= sortable "price", "Цена" %></th>
       <th>Площадь</th>
+      <th>Статус</th>
       <th>Действия</th>
     </tr>
   </thead>  
@@ -17,6 +18,7 @@
         <td><%= s.city.name %></td>
         <td><%= to_dollar(s.price) %></td>
         <td><%= to_area(s.area) %></td>
+        <td><%= active_subject?(s) %></td>
         <td class="actions-buttons">
           <%= link_to eye_icon, subject_path(s), :title => "Подробнее..." %>
           <%= link_to edit_icon, edit_subject_path(s) %>
