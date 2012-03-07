@@ -1,6 +1,4 @@
-  <%= hidden_field_tag :sort, params[:sort] %>
-  <%= hidden_field_tag :direction, params[:direction] %>
-<table class="table table-striped table-condensed subjects">
+<table class="table table-striped table-condensed" id="subject-sort">
   <thead>
     <tr>
       <th><%= sortable "typetransaction_id", "Тип сделки" %></th>
@@ -25,7 +23,8 @@
           <%= link_to delete_icon, s, :method => :delete, :confirm => "Вы уверены?" %>
         </td>
       </tr>
-    <% end %>     
+    <% end %>    
   </tbody>
 </table>
-<%= paginate @subjects %>
+<%= paginate @subjects %> 
+

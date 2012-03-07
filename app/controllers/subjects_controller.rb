@@ -8,7 +8,7 @@ class SubjectsController < ApplicationController
   
   
   def index
-    @subjects = Subject.order(sort_column + " " + sort_direction).page(params[:page]).per(15)
+    @subjects = Subject.order(sort_column + " " + sort_direction).page(params[:page]).per(2)
     respond_with(@subjects)
   end
   

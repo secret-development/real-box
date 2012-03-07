@@ -107,10 +107,13 @@ $(document).ready(function() {
 
 
 // live search for subject
+//$(document).ready(function(){
+//  $('#subjects').tablesorter();
+//});
 $(document).ready(function(){
-  $('#subject th a, #subject .paginate a').live("click", function() {
-    $.getScript(this.href);
-    return false;
+  $('#subject-sort th a, #subject-sort .paginate a').live("click", function(){
+  $.getScript(this.href);
+  return false;
   });
 });
 
