@@ -4,7 +4,6 @@
     <fieldset>
       <legend><%= @transaction.legend %></legend>
       <div class="control-group">
-        <%= f.hidden_field :user_id, :value => current_user.id %>
         <% @customer = @transaction.customer if @customer.nil? %>
         <%= f.hidden_field :customer_id, :value => @customer.id %>
       </div>
@@ -27,6 +26,18 @@
           <%= f.text_area :description, :rows => "8", :class => "span4" %>
         </div>
       </div>
+      <% if current_user.role? %>
+      <div class="control-group">
+        <%= f.label :user_id, "Ответственный" %>
+        <div class="controls">
+          <%= f.collection_select(:user_id, User.all, :id, :lastname) %>
+        </div>
+      </div>
+      <%= f.hidden_field :admin, :value => true %>
+      <% else %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :admin, :value => false %>
+      <% end %>
       <div class="control-group">
         <%= f.label :subject_id, "Объект сделки:" %>
         <div class="controls">
