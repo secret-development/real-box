@@ -2,6 +2,7 @@
 class PasswordResetsController < ApplicationController
   layout 'devise'
   def new
+    @title = "Восстановление пароля"
   end
   
   def create
