@@ -17,6 +17,8 @@ class Subject < ActiveRecord::Base
   
   
   # callbacks:
+  before_update :check_typesubject
+  
   after_save :verify_customer_real
   after_update :verify_customer_real
   after_destroy :verify_customer_real
@@ -116,6 +118,15 @@ class Subject < ActiveRecord::Base
     unless district_id.nil?
       d = District.find(district_id)
       d.title
+    end
+  end
+  
+  def check_typesubject
+    if self.typesubject_id_changed?
+      properties = Property.where(:subject_id => self.id)
+      properties.each do |p|
+        p.destroy
+      end
     end
   end
     
