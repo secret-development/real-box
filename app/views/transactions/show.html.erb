@@ -54,7 +54,7 @@
       <div class="document-image">
         <%= image_tag(d.detect_format) %>
         <span class="document-name"> 
-          <%= link_to d.doc_identifier, d.doc_url.to_s.encode %>
+          <%= link_to d.doc_identifier, d.doc_url %>
         </span>
       </div>
     <% end %>
