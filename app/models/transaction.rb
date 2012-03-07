@@ -45,5 +45,3 @@ class Transaction < ActiveRecord::Base
   end
   
 end
-
-#TODO: add admin
