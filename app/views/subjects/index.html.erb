@@ -1,11 +1,11 @@
 <h1 class="title-page">Объекты недвижимости</h1>
 <%= flash_msg(flash[:notice]) %>
-<%= form_tag subjects_path, :method => 'get'  do %>
+<%= form_tag(subjects_path, :method => 'get')  do %>
   
   <%= hidden_field_tag :sort, params[:sort] %>
   <%= hidden_field_tag :direction, params[:direction] %>
   
-<div id="subjects">
+<div id="subjects-sort">
 <%= render 'subjects' %>
 </div>  
 <% end %>
