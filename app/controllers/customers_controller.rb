@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 class CustomersController < ApplicationController
   before_filter :all_deny
   respond_to :html
@@ -7,6 +7,7 @@ class CustomersController < ApplicationController
   
   def all
     @customers = Customer.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
+    @title = "Все клиенты"
   end
   
   def index
@@ -17,11 +18,13 @@ class CustomersController < ApplicationController
   
   def new
     @customer = Customer.new
-    respond_with @customer    
+    @title = "Добавление клиента"
+    respond_with @customer 
   end
   
   def edit
     @customer = Customer.find(params[:id])
+    @title = "Редактирование клиента"
     respond_with @customer
     #unauthorized! if cannot? :update, @customer   
   end
@@ -29,6 +32,7 @@ class CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @subjects = @customer.subjects
+    @title = @customer.fullname
     respond_with @customer
   end
   

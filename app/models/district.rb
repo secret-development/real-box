@@ -1,4 +1,4 @@
-# encoding:utf-8
+# -*- encoding : utf-8 -*-
 class District < ActiveRecord::Base
   # associations:
   belongs_to :city

@@ -1,3 +1,3 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 module CustomersHelper
 end

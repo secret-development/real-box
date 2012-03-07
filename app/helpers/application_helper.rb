@@ -1,4 +1,4 @@
-# encoding:utf-8
+# -*- encoding : utf-8 -*-
 module ApplicationHelper
   include Icons
   require 'simple_form'

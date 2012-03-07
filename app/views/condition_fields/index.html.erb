@@ -1,4 +1,6 @@
-<h1 class="title-page">Дополнительные поля объектов</h1>
+<h1 class="title-page">
+  <%= link_to "Настройки", settings_path %> → Дополнительные поля объектов
+</h1>
 <%= flash_msg(flash[:notice]) %>
 <%= link_to plus_icon + "Добавить" , new_condition_field_path, 
     :class => "btn button-add" %>

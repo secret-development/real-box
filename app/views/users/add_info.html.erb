@@ -25,15 +25,19 @@
       </div>
     
       <div class="control-group">
-        <%= f.label :phonemobile, "Сот. телефон" %>
+        <%= f.label :phonemobile, "Сотовый телефон:" %>
         <div class="controls">
           <span class="phone-area-start">+7</span>
-          <%= f.text_field :area_code, :id =>"area_code", :maxlength => 3, :class => "input-mphone" %> - 
-          <%= f.text_field :phonemobile1, :id => "phonemobile1", :maxlength => 3, :class => "input-mphone" %> -
-          <%= f.text_field :phonemobile2, :id => "phonemobile2", :maxlength => 4, :class => "input-mphone" %>
+          <%= f.text_field :area_code, :id => "area_code", :maxlength => 3,
+              :class => "input-mphone", :placeholder => "775" %> - 
+          <%= f.text_field :phonemobile1, :id => "phonemobile1", 
+              :maxlength => 3, :class => "input-mphone", :placeholder => "674"%> - 
+          <%= f.text_field :phonemobile2, :id => "phonemobile2",
+              :maxlength => "4", :class => "input-mphone", 
+              :placeholder => "8724"%>
         </div>
       </div>
-    
+      
       <div class="form-actions"> 
         <%= f.submit @user.button_value, :class => "btn btn-primary" %>
         <button type="reset" class="btn cancel-form">Отмена</button>

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ChangeDataTypeForTaskDeadline < ActiveRecord::Migration
   def up
     change_table :tasks do |t|

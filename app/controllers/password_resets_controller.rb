@@ -1,7 +1,8 @@
-# encoding:utf-8
+# -*- encoding : utf-8 -*-
 class PasswordResetsController < ApplicationController
   layout 'devise'
   def new
+    @title = "Восстановление пароля"
   end
   
   def create
@@ -13,6 +14,7 @@ class PasswordResetsController < ApplicationController
   
   def edit
     @user = User.find_by_password_reset_token!(params[:id])    
+    @title = "Изменение пароля"
   end
   
   def update

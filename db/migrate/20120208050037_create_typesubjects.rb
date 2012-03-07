@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateTypesubjects < ActiveRecord::Migration
   def change
     create_table :typesubjects do |t|
