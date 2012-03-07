@@ -34,8 +34,19 @@ class Subject < ActiveRecord::Base
   validates :customer_id, :presence => true
   validates :districtname, :presence => true
   validates :floor, :presence => true, :if => :floor?
+  validates :price_currency, :presence => true
   
   attr_writer :street, :house, :flat
+
+
+  def price_cur
+    {
+      "тенге" => "тенге",
+      "доллар" => "доллар",
+      "евро" => "евро",
+      "рубль" => "рубль"
+    }
+  end
 
   def full_address
     if(@street.blank? || @house.blank? || @flat.blank?)
@@ -47,6 +58,7 @@ class Subject < ActiveRecord::Base
       fill_src_if_any
     end
   end
+  
   
   def street
     unless street_src.nil?
