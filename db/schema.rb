@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305124824) do
+ActiveRecord::Schema.define(:version => 20120307090027) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -87,8 +87,8 @@ ActiveRecord::Schema.define(:version => 20120305124824) do
     t.integer  "price"
     t.integer  "area"
     t.string   "address"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.integer  "typetransaction_id"
     t.integer  "customer_id"
     t.integer  "district_id"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(:version => 20120305124824) do
     t.string   "house_src"
     t.string   "flat_src"
     t.integer  "user_id"
+    t.boolean  "active",             :default => true
   end
 
   create_table "tasks", :force => true do |t|
