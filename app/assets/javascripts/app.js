@@ -110,10 +110,10 @@ $(document).ready(function() {
 //$(document).ready(function(){
 //  $('#subjects').tablesorter();
 //});
-$(document).ready(function(){
-  $('#subject-sort th a, #subject-sort .paginate a').live("click", function(){
-  $.getScript(this.href);
-  return false;
+$(document).ready(function() {
+  $('#subjects th a, #subjects .paginate a').live('click', function(){
+    $.getScript(this.href);  
+    return false;  
   });
 });
 
