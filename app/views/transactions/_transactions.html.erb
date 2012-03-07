@@ -16,26 +16,22 @@
   <tbody>
     <% @transactions.each do |t| %>
       <tr>
-        <td><%= t.id %></td>
-        <td><%= link_to t.name, transaction_path(t) %></td>
-        <td><%= t.typetransaction.name %></td>
-        <td>
-          <%= link_to t.user.email, user_path(t.user) %>
-        </td>
-        <td>
-          <%= link_to t.customer.lastname, customer_path(t.customer) %>
-        </td>
-        <td><%= to_formatted_date(t.created_at) %></td>
-        <td>
-          <% if t.subject == nil %>
-            Отсутствует
-          <% else %>
-            <%= link_to t.subject.address, subject_path(t.subject) %>
-          <% end %>
-        </td>
-        <td><%= to_dollar(t.price) %></td>
-        <td>
-          <% if t.user.id == current_user.id %> 
+        <% if current_user.role? %>
+          <td><%= t.id %></td>
+          <td><%= t.name %></td>
+          <td><%= t.typetransaction.name %></td>
+          <td><%= link_to t.user.lastname, user_path(t.user) %></td>
+          <td><%= link_to t.customer.lastname, customer_path(t.customer) %></td>
+          <td><%= to_formatted_date(t.created_at) %></td>
+          <td>
+            <% if t.subject_id == nil %>
+              Отсутствует
+            <% else %>
+              <%= t.subject.address %>
+            <% end %>
+          </td>
+          <td><%= to_dollar(t.price) %></td>
+          <td>
             <% if t.payment == true %>
               <%= link_to edit_icon + ' ' + t.payment_value, 
                   transaction_path(t, 
@@ -49,9 +45,6 @@
                   :method => :put, :confirm => "Вы уверены?", 
                   :title => "Изменить" %>
             <% end %>
-          <% else %>
-            <%= t.payment_value %>
-          <% end %>
         </td>
         <td class="actions-buttons">
           <%= link_to eye_icon, transaction_path(t), :title => "Просмотр" %>
@@ -60,6 +53,54 @@
           <%= link_to delete_icon, t, :method => :delete,
                       :confirm => "Вы уверены?" %>
         </td>
+          </td>
+          <td class="actions-buttons">
+            <%= link_to eye_icon, transaction_path(t) %>
+            <%= link_to edit_icon, edit_transaction_path(t) %>
+            <%= link_to delete_icon, t, :method => :delete,
+                        :confirm => "Вы уверены?" %>
+          </td>
+        <% elsif t.user_id == current_user.id %>
+          <td><%= t.id %></td>
+          <td><%= t.name %></td>
+          <td><%= t.typetransaction.name %></td>
+          <td><%= link_to t.user.lastname, user_path(t.user) %></td>
+          <td><%= link_to t.customer.lastname, customer_path(t.customer) %></td>
+          <td><%= to_formatted_date(t.created_at) %></td>
+          <td>
+            <% if t.subject_id == nil %>
+              Отсутствует
+            <% else %>
+              <%= t.subject.address %>
+            <% end %>
+          </td>
+          <td><%= to_dollar(t.price) %></td>
+          <td>
+            <% if t.payment == true %>
+              <%= link_to edit_icon + ' ' + t.payment_value, 
+                  transaction_path(t, 
+                  :transaction => {:payment => false}),
+                  :method => :put, :confirm => "Вы уверены?", 
+                  :title => "Изменить" %>
+            <% else  %>
+              <%= link_to edit_icon + ' ' + t.payment_value, 
+                  transaction_path(t, 
+                  :transaction => {:payment => true}),
+                  :method => :put, :confirm => "Вы уверены?", 
+                  :title => "Изменить" %>
+            <% end %>
+          </td>
+          <td class="actions-buttons">
+            <%= link_to eye_icon, transaction_path(t) %>
+            <% if can? :update, t %>
+              <%= link_to edit_icon, edit_transaction_path(t) %>
+            <% end %>
+            <% if can? :destroy, t %>
+              <%= link_to delete_icon, t, :method => :delete,
+                          :confirm => "Вы уверены?" %>
+            <% end %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
