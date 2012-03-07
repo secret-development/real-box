@@ -5,7 +5,7 @@ class CreateProperties < ActiveRecord::Migration
       t.string :condition
       t.string :value
       t.integer :subject_id
-      t.timestamps
+      t.string :typefield
     end
   end
 end
