@@ -11,9 +11,9 @@
           <% end %>
         <% end %>
       <% else %>
-      <%= f.simple_fields_for :properties do |p| %>
-        <%= property_edit(p, @attr) %>
-      <% end %>
+        <%= f.simple_fields_for :properties do |p| %>
+          <%= property_edit(p, @attr) %>
+        <% end %>
       <% end %>
     <div class="form-actions">
       <%= f.submit "Добавить", :class => "btn btn-primary" %>
