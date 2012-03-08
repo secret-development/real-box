@@ -399,5 +399,11 @@ $(document).ready(function(){
 });
 
 
+// what type?(condition fields)
+$(document).ready(function() {
+  $("#what-type-input").fancybox();
+});
+
 
 // subject -> price formating function
+
