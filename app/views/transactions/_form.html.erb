@@ -55,12 +55,16 @@
           <%= f.text_field :price %>
         </div>
       </div>
-      <div class="control-group">
-        <%= f.label :payment, "Оплата:" %>
-        <div class="controls">
-          <%= f.check_box :payment %>
+      <% if @transaction.new_record? %>
+        <%= f.hidden_field :payment, :value => false %>
+      <% else %>
+        <div class="control-group">
+          <%= f.label :payment, "Оплата:" %>
+          <div class="controls">
+            <%= f.check_box :payment %>
+          </div>
         </div>
-      </div>
+      <% end %>
       <div class="form-actions">
         <%= f.submit @transaction.button_value, :class => "btn btn-primary" %>
         <button-type="reset" class="btn cancel-form">Отмена</button>
