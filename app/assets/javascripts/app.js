@@ -397,3 +397,7 @@ $(document).ready(function(){
     .autotab_filter('numeric');
     $('#user_phonemobile').autotab_filter('numeric');
 });
+
+
+
+// subject -> price formating function
