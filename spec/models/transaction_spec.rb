@@ -1,11 +1,11 @@
 # -*- encoding : utf-8 -*-
-#encoding: UTF-8
 
 require 'spec_helper'
 
 describe Transaction do
   
   before(:each) do
+
     @user = Factory(:user)
     @city = Factory(:city)
     @typesubject = Factory(:typesubject)
@@ -14,10 +14,20 @@ describe Transaction do
     @typetransaction = Factory(:typetransaction)
     @subject = Factory(:subject, :typesubject => @typesubject, :city => @city, 
         :customer => @customer, :district => @district)
+
     @transaction = Factory(:transaction, :typetransaction => @typetransaction,
                     :user => @user, :customer => @customer,
                     :subject => @subject)
     
+    # price_currency
+    @pricecur = {
+      "тенге" => "тенге",
+      "доллар" => "доллар",
+      "евро" => "евро",
+      "рубль" => "рубль"
+    }
+    
+    # attr
     @attr = {
       :name => "name",
       :description => "description",
@@ -26,7 +36,9 @@ describe Transaction do
       :user_id => @user.id,
       :customer_id => @customer.id,
       :subject_id => @subject.id,
-      :typetransaction_id => @typetransaction.id
+      :typetransaction_id => @typetransaction.id,
+      :price_currency => @pricecur["доллар"]
+      
     }
     
   end
@@ -90,6 +102,11 @@ describe Transaction do
     it "price should be a number" do
       @attr[:price] = "string-price"
       @transaction = Transaction.new(@attr)
+      @transaction.should_not be_valid
+    end
+    
+    it "should require price_currency" do
+      @transaction = Transaction.new(@attr.merge(:price_currency => nil))
       @transaction.should_not be_valid
     end
     
