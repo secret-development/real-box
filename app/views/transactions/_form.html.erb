@@ -6,7 +6,6 @@
       <div class="control-group">
         <% @customer = @transaction.customer if @customer.nil? %>
         <%= f.hidden_field :customer_id, :value => @customer.id %>
-        <%= f.hidden_field :payment, :value => false %>
       </div>
       <div class="control-group">
         <%= f.label :typetransaction_id, "Тип сделки:" %>
@@ -56,6 +55,16 @@
           <%= f.text_field :price %>
         </div>
       </div>
+      <% if @transaction.new_record? %>
+        <%= f.hidden_field :payment, :value => false %>
+      <% else %>
+        <div class="control-group">
+          <%= f.label :payment, "Оплата:" %>
+          <div class="controls">
+            <%= f.check_box :payment %>
+          </div>
+        </div>
+      <% end %>
       <div class="form-actions">
         <%= f.submit @transaction.button_value, :class => "btn btn-primary" %>
         <button-type="reset" class="btn cancel-form">Отмена</button>
