@@ -13,6 +13,14 @@ describe Subject do
     # typesubject without floor
     @withourfloor = Factory(:withourfloor)
     
+    # price_currency
+    @pricecur = {
+      "тенге" => "тенге",
+      "доллар" => "доллар",
+      "евро" => "евро",
+      "рубль" => "рубль"
+    }
+    
     # properties
     @properties = Factory(:property, :subject => @subject)
     
@@ -26,7 +34,8 @@ describe Subject do
       :address => "Баймагамбетова 15, 23",
       :district_id => @district.id,
       :floor => 1,
-      :active => true
+      :active => true,
+      :price_currency => @pricecur["доллар"]
     }
   end
   
@@ -100,6 +109,13 @@ describe Subject do
         subject = Subject.new(@attr.merge(:typesubject_id => @withourfloor.id))
         subject.floor = nil
         subject.should be_valid
+      end
+    end
+    
+    describe "validate price currency" do
+      it "should require price_currency" do
+        subject = Subject.new(@attr.merge(:price_currency => nil))
+        subject.should_not be_valid
       end
     end
     

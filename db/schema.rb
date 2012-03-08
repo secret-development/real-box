@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120307090027) do
+ActiveRecord::Schema.define(:version => 20120307115337) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(:version => 20120307090027) do
     t.string   "flat_src"
     t.integer  "user_id"
     t.boolean  "active",             :default => true
+    t.string   "price_currency"
   end
 
   create_table "tasks", :force => true do |t|
