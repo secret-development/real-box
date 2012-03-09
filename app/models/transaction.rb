@@ -60,12 +60,6 @@ class Transaction < ActiveRecord::Base
     end
   end
   
-  def self.total_on
-    where("date(created_at) = ?", date).sum(:price)    
-  end
-  
-end
-
   def check_active_subject
     if subject_id != nil
       if payment == true
