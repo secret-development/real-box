@@ -48,6 +48,16 @@ describe SubjectsController do
     session[:customer_id].should eql("3")
   end
   
+  it "get active" do
+    get :active
+    response.should be_success
+  end
+  
+  it "get inactive" do
+    get :inactive
+    response.should be_success
+  end
+  
   describe "POST 'create'" do
     describe "failure" do
       before(:each) do

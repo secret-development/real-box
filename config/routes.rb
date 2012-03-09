@@ -25,6 +25,9 @@ Crm::Application.routes.draw do
     get 'add_photo', :on => :member, :as => :add_photo
     post 'findtypesubject', :on => :collection
     post 'load_attr', :on => :collection
+    # scopes:
+    get 'active', :on => :collection
+    get 'inactive', :on => :collection
   end
   
   resources :transactions do
