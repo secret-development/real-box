@@ -66,6 +66,14 @@ module ApplicationHelper
     raw("#{object} м&sup2;")
   end
   
+  def properties_views_zero?(object)
+    if object.properties.size > 0
+      false
+    else
+      true
+    end    
+  end
+  
   
   def properties_zero?(object)
     if object.properties.size > 1

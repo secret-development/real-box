@@ -94,5 +94,9 @@ module Icons
   def icon_lock_black
     raw("<i class='icon-lock'></i>")
   end
+  
+  def icon_home_black
+    raw("<i class='icon-home'></i>")
+  end
   # END ICONS
 end
