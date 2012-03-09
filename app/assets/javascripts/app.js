@@ -415,3 +415,12 @@ $(document).ready(function() {
   });
 });
 
+// transaction -> price formating function
+$(document).ready(function() {
+  $("#transaction_price").priceFormat({
+    prefix: '',
+    centsLimit: 0,
+    centsSeparator: '',
+    thousandsSeparator: ' '
+  });
+});
