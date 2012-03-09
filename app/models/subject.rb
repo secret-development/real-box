@@ -27,6 +27,8 @@ class Subject < ActiveRecord::Base
   before_save :full_address
   before_update :full_address
   
+  before_validation :format_price
+  
   # validations:
   validates :typesubject_id, :presence => true
   validates :city_id, :presence => true
@@ -52,12 +54,16 @@ class Subject < ActiveRecord::Base
   end
 
   def full_address
-    if(@street.blank? || @house.blank? || @flat.blank?)
+    if(@street.blank? || @house.blank?)
       if new_record?
         self.address = "Адресс неизвестен"
       end
     else
-      self.address = "ул. #{@street}, дом #{@house}, кв. #{@flat}"
+      if @flat.blank?
+        self.address = "ул. #{@street}, дом #{@house}"
+      else
+        self.address = "ул. #{@street}, дом #{@house}, кв. #{@flat}"
+      end
       fill_src_if_any
     end
   end
@@ -144,7 +150,11 @@ class Subject < ActiveRecord::Base
       end
     end
   end
-    
+
+  def format_price
+    self.price = price_before_type_cast.to_s.gsub(/\s/, '').to_i
+  end
+  
 end
 
 # == Schema Information
