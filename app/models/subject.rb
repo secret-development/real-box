@@ -27,6 +27,8 @@ class Subject < ActiveRecord::Base
   before_save :full_address
   before_update :full_address
   
+  before_validation :format_price
+  
   # validations:
   validates :typesubject_id, :presence => true
   validates :city_id, :presence => true
@@ -144,7 +146,11 @@ class Subject < ActiveRecord::Base
       end
     end
   end
-    
+
+  def format_price
+    self.price = price_before_type_cast.gsub(/\s/, '').to_i
+  end
+  
 end
 
 # == Schema Information

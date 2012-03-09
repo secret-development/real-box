@@ -406,12 +406,13 @@ $(document).ready(function() {
 
 
 // subject -> price formating function
-$(document).ready(function() {
+
+
+$(function(){
   $('#subject_price').priceFormat({
     prefix: '',
     centsLimit: 0,
     centsSeparator: '',
     thousandsSeparator: ' '
   });
-});
-
+})
