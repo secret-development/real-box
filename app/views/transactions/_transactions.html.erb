@@ -30,19 +30,22 @@
           </td>
           <td><%= price_currency(t) %></td>
           <td>
-            <% if t.payment == true %>
-              <%= link_to edit_icon + ' ' + t.payment_value, 
-                  transaction_path(t, 
-                  :transaction => {:payment => false}),
-                  :method => :put, :confirm => "Вы уверены?", 
-                  :title => "Изменить" %>
-            <% else  %>
-              <%= link_to edit_icon + ' ' + t.payment_value, 
-                  transaction_path(t, 
-                  :transaction => {:payment => true}),
-                  :method => :put, :confirm => "Вы уверены?", 
-                  :title => "Изменить" %>
-            <% end %>
+            <div class="btn-group">
+              <a class="btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+                <%= t.payment_short %>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <%= link_to "Сделка не оплачена", transaction_path(t, 
+                            :transaction => { :payment => false }),
+                            :method => :put, 
+                            :confirm => "Вы уверены?" %>
+                <%= link_to "Сделка оплачена", transaction_path(t, 
+                            :transaction => { :payment => true}),
+                            :method => :put, 
+                            :confirm => "Вы уверены?" %>
+              </ul>
+            </div>
         </td>
         <td class="actions-buttons">
           <%= link_to eye_icon, transaction_path(t), :title => "Просмотр" %>
@@ -66,29 +69,28 @@
           </td>
           <td><%= to_dollar(t) %></td>
           <td>
-            <% if t.payment == true %>
-              <%= link_to edit_icon + ' ' + t.payment_value, 
-                  transaction_path(t, 
-                  :transaction => {:payment => false}),
-                  :method => :put, :confirm => "Вы уверены?", 
-                  :title => "Изменить" %>
-            <% else  %>
-              <%= link_to edit_icon + ' ' + t.payment_value, 
-                  transaction_path(t, 
-                  :transaction => {:payment => true}),
-                  :method => :put, :confirm => "Вы уверены?", 
-                  :title => "Изменить" %>
-            <% end %>
+            <div class="btn-group">
+              <a class="btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+                <%= t.payment_short %>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <%= link_to "Сделка не оплачена", transaction_path(t, 
+                            :transaction => { :payment => false }),
+                            :method => :put, 
+                            :confirm => "Вы уверены?" %>
+                <%= link_to "Сделка оплачена", transaction_path(t, 
+                            :transaction => { :payment => true}),
+                            :method => :put, 
+                            :confirm => "Вы уверены?" %>
+              </ul>
+            </div>
           </td>
           <td class="actions-buttons">
             <%= link_to eye_icon, transaction_path(t) %>
-            <% if can? :update, t %>
-              <%= link_to edit_icon, edit_transaction_path(t) %>
-            <% end %>
-            <% if can? :destroy, t %>
-              <%= link_to delete_icon, t, :method => :delete,
-                          :confirm => "Вы уверены?" %>
-            <% end %>
+            <%= link_to edit_icon, edit_transaction_path(t) %>
+            <%= link_to delete_icon, t, :method => :delete,
+                        :confirm => "Вы уверены?" %>
           </td>
         <% end %>
       </tr>
