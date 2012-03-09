@@ -54,12 +54,16 @@ class Subject < ActiveRecord::Base
   end
 
   def full_address
-    if(@street.blank? || @house.blank? || @flat.blank?)
+    if(@street.blank? || @house.blank?)
       if new_record?
         self.address = "Адресс неизвестен"
       end
     else
-      self.address = "ул. #{@street}, дом #{@house}, кв. #{@flat}"
+      if @flat.blank?
+        self.address = "ул. #{@street}, дом #{@house}"
+      else
+        self.address = "ул. #{@street}, дом #{@house}, кв. #{@flat}"
+      end
       fill_src_if_any
     end
   end
@@ -148,7 +152,7 @@ class Subject < ActiveRecord::Base
   end
 
   def format_price
-    self.price = price_before_type_cast.gsub(/\s/, '').to_i
+    self.price = price_before_type_cast.to_s.gsub(/\s/, '').to_i
   end
   
 end

@@ -79,7 +79,7 @@ class Transaction < ActiveRecord::Base
   end
   
   def format_price
-    self.price = price_before_type_cast.gsub(/\s/, '').to_i
+    self.price = price_before_type_cast.to_s.gsub(/\s/, '').to_i
   end
   
 end
