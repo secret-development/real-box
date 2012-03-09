@@ -31,6 +31,8 @@ gem 'flash_cookie_session'
 
 # Authorization
 gem "cancan", "~> 1.6.7"
+# charts
+gem "lazy_high_charts", "~> 1.1.5"
 # annotate model:
 gem 'annotate', '~> 2.4.1.beta'
 gem 'simple_form'
