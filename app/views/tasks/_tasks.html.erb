@@ -23,11 +23,9 @@
         <td><%= to_datetime(task.deadline) %></td>
         <td> 
           <div class="btn-group">
-            <a class="btn" href="#">
+            <a class="btn-small dropdown-toggle" 
+              data-toggle="dropdown" href="#">
               <%= task.status %>
-            </a>
-            <a class="btn dropdown-toggle" 
-            data-toggle="dropdown" href="#">
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
@@ -64,11 +62,9 @@
         <td><%= to_datetime(task.deadline) %></td>
         <td> <% if !task.admin? %>
           <div class="btn-group">
-            <a class="btn" href="#">
+            <a class="btn-small dropdown-toggle" 
+              data-toggle="dropdown" href="#">
               <%= task.status %>
-            </a>
-            <a class="btn dropdown-toggle" 
-            data-toggle="dropdown" href="#">
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
