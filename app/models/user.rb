@@ -119,4 +119,8 @@ class User < ActiveRecord::Base
     end
   end
   
+  def fullname
+    lastname + " " + firstname
+  end
+  
 end

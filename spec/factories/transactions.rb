@@ -5,7 +5,7 @@ FactoryGirl.define do
   factory :transaction do
     name "MyString"
     description "MyText"
-    price 1
+    price 100000
     payment false
     price_currency "доллар"
   end

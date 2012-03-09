@@ -3,20 +3,24 @@
 <div id="show-transaction">
   <h6>Сделка № <%= @transaction.id %></h6>
   <div class="field-transaction">
-    <span class="title-field">Сделка:</span>
-    <%= @transaction.name %>
+    <span class="title-field"><b>Сделка:</b></span>
+    <b><%= @transaction.name %></b>
   </div>
   <div class="field-transaction">
-    <span class="title-field">Тип сделки:</span>
-    <%= @transaction.typetransaction.name %>
+    <span class="title-field"><b>Тип сделки:</b></span>
+    <b><%= @transaction.typetransaction.name %></b>
+  </div>
+  <div class="field-transaction">
+    <span class="title-field"><b>Оплата:</b></span>
+    <b><%= @transaction.payment_value %></b>
   </div>
   <div class="field-transaction">
     <span class="title-field">Ответственный:</span>
-    <%= link_to(@transaction.user.email, user_path(@transaction.user)) %>
+    <%= link_to(@transaction.user.fullname, user_path(@transaction.user)) %>
   </div>
   <div class="field-transaction">
     <span class="title-field">Клиент:</span>
-    <%= link_to(@transaction.customer.lastname,
+    <%= link_to(@transaction.customer.fullname,
                 customer_path(@transaction.customer)) %>
   </div>
   <div class="field-transaction">
@@ -31,10 +35,6 @@
   <div class="field-transaction">
     <span class="title-field">Сумма:</span>
     <%= price_currency(@transaction) %>
-  </div>
-  <div class="field-transaction">
-    <span class="title-field">Оплата:</span>
-    <%= @transaction.payment_value %>
   </div>
   <div class="field-transaction">
     <span class="title-field">Дата:</span>
