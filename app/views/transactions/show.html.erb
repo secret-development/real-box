@@ -62,6 +62,15 @@
   <% end %>
   <div class="clear"></div>
   <div class="actions-with-transaction">
+    <% if current_user.role? || @transaction.user_id == current_user.id %>
+    <%= link_to edit_icon + " Редактировать",
+        edit_transaction_path(@transaction), 
+        :class => "btn" %>
+    <%= link_to delete_icon + " Удалить",
+        @transaction, :method => :delete,
+        :confirm => "Вы уверены?",
+        :class => "btn" %>
+    <% end %>
     <%= link_to list_icon + " Прикрепить документ", 
         add_document_transaction_path(@transaction), 
         :class => "btn" %>

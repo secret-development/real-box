@@ -46,6 +46,10 @@ class Transaction < ActiveRecord::Base
     payment == true ? "Сделка оплачена" : "Сделка не оплачена"
   end
   
+  def payment_short
+    payment == true ? "Да " : "Нет"
+  end
+  
   def legend
     new_record? ? "Добавление" : "Редактирование"
   end
