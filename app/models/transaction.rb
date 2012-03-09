@@ -26,6 +26,7 @@ class Transaction < ActiveRecord::Base
   
   # callbacks
   after_update :check_active_subject
+  before_save :check_active_subject
   before_validation :format_price
   
   # price currency
@@ -78,7 +79,7 @@ class Transaction < ActiveRecord::Base
   end
   
   def format_price
-    self.price = price_before_type_cast.to_s.gsub(/\s/, '').to_i
+    self.price = price_before_type_cast.to_s.gsub(/\s/, '')
   end
   
 end
