@@ -203,14 +203,24 @@ describe Transaction do
     
     describe "payment methods" do
       
-      it "should write 'Да ' if payment is true" do
+      it "should write 'Сделка оплачена' if payment is true" do
         @transaction = Transaction.new(:payment => true)
         @transaction.payment_value.should eql("Сделка оплачена")
       end
       
-      it "should write 'Нет' if payment is false" do
+      it "should write 'Сделка не оплачена' if payment is false" do
         @transaction = Transaction.new(:payment => false)
         @transaction.payment_value.should eql("Сделка не оплачена")
+      end
+      
+      it "should write 'Да ' if payment is true" do
+        @transaction = Transaction.new(:payment => true)
+        @transaction.payment_short.should eql("Да ")
+      end
+      
+      it "should write 'Нет' if payment is false" do
+        @transaction = Transaction.new(:payment => false)
+        @transaction.payment_short.should eql("Нет")
       end
       
     end
