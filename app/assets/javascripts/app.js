@@ -107,11 +107,8 @@ $(document).ready(function() {
 
 
 // live search for subject
-//$(document).ready(function(){
-//  $('#subjects').tablesorter();
-//});
 $(document).ready(function() {
-  $('#subjects th a, #subjects .paginate a').live('click', function(){
+  $('#subjects-sort th a, #subjects-sort .paginate a').live('click', function() {
     $.getScript(this.href);  
     return false;  
   });
@@ -415,3 +412,12 @@ $(document).ready(function() {
   });
 });
 
+// transaction -> price formating function
+$(document).ready(function() {
+  $("#transaction_price").priceFormat({
+    prefix: '',
+    centsLimit: 0,
+    centsSeparator: '',
+    thousandsSeparator: ' '
+  });
+});
