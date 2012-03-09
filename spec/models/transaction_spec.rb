@@ -12,6 +12,9 @@ describe Transaction do
     @district = Factory(:district)
     @customer = Factory(:customer)
     @typetransaction = Factory(:typetransaction)
+    # subject active false
+    @subject_active_false = Factory(:subject_active_false, :typesubject => @typesubject, :city => @city, :customer => @customer, :district => @district)
+    # subject active true
     @subject = Factory(:subject, :typesubject => @typesubject, :city => @city, 
         :customer => @customer, :district => @district)
 
@@ -244,22 +247,30 @@ describe Transaction do
     
     describe "check_active_subject method" do
       
-      it "should change subjec status (when payment false)" do
-        @transaction = Transaction.new(@attr)
-        sub = Subject.find(@transaction.subject_id)
-        if sub.active == false
-          sub.update_attribute(:active, true)
-        end
+      it "should change subject(active = true) status (when payment true)" do
+        transaction = Transaction.new(@attr.merge(:payment => true))
+        transaction.save
+        transaction.subject.active.should == false
       end
       
-      it "should change subject status (when payment true)" do
-        @transaction = Transaction.new(@attr, :payment => true)
-        sub = Subject.find(@transaction.subject_id)
-        if sub.active == true
-          sub.update_attribute(:active, false)
-        end
+      it "should change subject(active = false) status (when payment false)" do
+        transaction = Transaction.new(@attr.merge(:subject_id => @subject_active_false.id))
+        transaction.save
+        transaction.subject.active.should == true
       end
       
+      it "should change subject(active = false) status (when payment true)" do
+        transaction = Transaction.new(@attr.merge(:subject_id => @subject_active_false.id, :payment => true))
+        transaction.save
+        transaction.subject.active.should == false
+      end
+      
+      it "should change subject(active = true) status (when payment false)" do
+        transaction = Transaction.new(@attr)
+        transaction.save
+        transaction.subject.active.should == true
+      end
+    
     end
     
   end
