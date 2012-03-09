@@ -58,11 +58,6 @@ module ApplicationHelper
     end
   end
   
-  def to_dollar(object)
-    number_to_currency(object, :locale => :ru, :precision => 0,
-      :unit => "$ ", :delimiter => " ")
-  end
-  
   def to_area(object)
     raw("#{object} м&sup2;")
   end
@@ -176,5 +171,42 @@ module ApplicationHelper
       "Не активна"
     end
   end
+  
+  # price currency
+  
+  def price_currency(object)
+    case object.price_currency
+    when "доллар"
+      to_dollar(object)
+    when "тенге"
+      to_tenge(object)
+    when "евро"
+      to_euro(object)
+    when "рубль"
+      to_ruble(object)
+    end
+  end
+  
+  def to_dollar(object)
+    number_to_currency(object.price, :locale => :ru, :precision => 0,
+      :unit => "$ ", :delimiter => " ", :format => "%n %u")
+  end
+  
+  def to_tenge(object)
+    number_to_currency(object.price, :locale => :ru, :precision => 0,
+      :unit => "тг.", :delimiter => " ", :format => "%n %u")
+  end
+  
+  def to_euro(object)
+    number_to_currency(object.price, :locale => :ru, :precision => 0,
+      :unit => "€ ", :delimiter => " ", :format => "%n %u")
+  end
+  
+  def to_ruble(object)
+    number_to_currency(object.price, :locale => :ru, :precision => 0,
+      :unit => "руб.", :delimiter => " ", :format => "%n %u")
+  end
+  
+  
   
 end

@@ -16,7 +16,7 @@
         <td><%= s.typetransaction.name %></td>
         <td><%= link_to(s.typesubject.name, s) %></td>
         <td><%= s.city.name %></td>
-        <td><%= to_dollar(s.price) %></td>
+        <td><%= price_currency(s) %></td>
         <td><%= to_area(s.area) %></td>
         <td><%= active_subject?(s) %></td>
         <td class="actions-buttons">
