@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-#encoding: UTF-8
 
 class Transaction < ActiveRecord::Base
   
