@@ -31,7 +31,6 @@ gem 'flash_cookie_session'
 
 # Authorization
 gem "cancan", "~> 1.6.7"
-gem "gruff", "~> 0.3.6"
 # annotate model:
 gem 'annotate', '~> 2.4.1.beta'
 gem 'simple_form'
