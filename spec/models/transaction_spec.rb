@@ -242,6 +242,26 @@ describe Transaction do
       
     end
     
+    describe "check_active_subject method" do
+      
+      it "should change subjec status (when payment false)" do
+        @transaction = Transaction.new(@attr)
+        sub = Subject.find(@transaction.subject_id)
+        if sub.active == false
+          sub.update_attribute(:active, true)
+        end
+      end
+      
+      it "should change subject status (when payment true)" do
+        @transaction = Transaction.new(@attr, :payment => true)
+        sub = Subject.find(@transaction.subject_id)
+        if sub.active == true
+          sub.update_attribute(:active, false)
+        end
+      end
+      
+    end
+    
   end
   
 end

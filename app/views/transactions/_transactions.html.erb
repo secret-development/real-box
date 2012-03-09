@@ -53,13 +53,6 @@
           <%= link_to delete_icon, t, :method => :delete,
                       :confirm => "Вы уверены?" %>
         </td>
-          </td>
-          <td class="actions-buttons">
-            <%= link_to eye_icon, transaction_path(t) %>
-            <%= link_to edit_icon, edit_transaction_path(t) %>
-            <%= link_to delete_icon, t, :method => :delete,
-                        :confirm => "Вы уверены?" %>
-          </td>
         <% elsif t.user_id == current_user.id %>
           <td><%= t.id %></td>
           <td><%= t.name %></td>
@@ -74,7 +67,7 @@
               <%= t.subject.address %>
             <% end %>
           </td>
-          <td><%= to_dollar(t.price) %></td>
+          <td><%= to_dollar(t) %></td>
           <td>
             <% if t.payment == true %>
               <%= link_to edit_icon + ' ' + t.payment_value, 
