@@ -406,13 +406,21 @@ $(document).ready(function() {
 
 
 // subject -> price formating function
-
-
-$(function(){
+$(document).ready(function() {
   $('#subject_price').priceFormat({
     prefix: '',
     centsLimit: 0,
     centsSeparator: '',
     thousandsSeparator: ' '
   });
-})
+});
+
+// transaction -> price formating function
+$(document).ready(function() {
+  $("#transaction_price").priceFormat({
+    prefix: '',
+    centsLimit: 0,
+    centsSeparator: '',
+    thousandsSeparator: ' '
+  });
+});

@@ -3,8 +3,6 @@
 
 class Transaction < ActiveRecord::Base
   
-  after_update :check_active_subject
-  
   #associations
   belongs_to :user
   belongs_to :customer
@@ -26,6 +24,10 @@ class Transaction < ActiveRecord::Base
             :numericality => true          
   validates_inclusion_of :payment, :in => [true, false]
   validates :price_currency, :presence => true
+  
+  # callbacks
+  after_update :check_active_subject
+  before_validation :format_price
   
   # price currency
   
@@ -74,6 +76,10 @@ class Transaction < ActiveRecord::Base
         end
       end
     end
+  end
+  
+  def format_price
+    self.price = price_before_type_cast.gsub(/\s/, '').to_i
   end
   
 end
