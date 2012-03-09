@@ -289,34 +289,6 @@ $(document).ready(function() {
   
 });
 
-//validation reset password
-$(document).ready(function(){
-  $('#password-reset').validate({
-    rules :{
-      "user[password]" : {
-        required: true,
-        minlength: 7, 
-      },
-      "user[password_confirmation]" : {
-        required: true,
-        minlength: 7,
-        equalTo: '#confirm',
-      },
-    },
-    messages :{
-      "user[password]": { 
-        minlength: "Пароль не менее 7ми  символов!",
-        required: "Введите пароль!",
-      },
-      "user[password_confirmation]": {
-        equalTo: "Пароли не совпадают!",
-        required: "Введите пароль!",
-        minlength: "Пароль не менее 7ми символов!"
-      },  
-    }
-  })
-});
-
 // subject -> floor
 $(document).ready(function() {
   if ($("form").find("#exist-floor-subject").length != 0) {
@@ -419,5 +391,67 @@ $(document).ready(function() {
     centsLimit: 0,
     centsSeparator: '',
     thousandsSeparator: ' '
+  });
+});
+
+//validation reset password
+$(document).ready(function(){
+  $('#password-reset').validate({
+    rules: {
+      "user[password]" : {
+        required: true,
+        minlength: 7, 
+      },
+      "user[password_confirmation]" : {
+        required: true,
+        minlength: 7,
+        equalTo: '#confirm',
+      },
+    },
+    messages: {
+      "user[password]": { 
+        minlength: "Пароль не менее 7ми  символов!",
+        required: "Введите пароль!",
+      },
+      "user[password_confirmation]": {
+        equalTo: "Пароли не совпадают!",
+        required: "Введите пароль!",
+        minlength: "Пароль не менее 7ми символов!"
+      },  
+    }
+  })
+});
+
+// validates for customer:
+$(document).ready(function() {
+  $(".customer-form-validation").validate({
+    rules: {
+      "customer[lastname]" : {
+        required: true
+      },
+      "customer[firstname]" : {
+        required: true
+      },
+      "customer[phonehome]" : {
+        digits: true
+      },
+      "customer[email]" : {
+        email: true
+      }
+    },
+    messages: {
+      "customer[lastname]" : {
+        required: "Введите фамилию"
+      },
+      "customer[firstname]" : {
+        required: "Введите имя"
+      },
+      "customer[phonehome]" : {
+        digits: "Только цифры"
+      },
+      "customer[email]" : {
+        email: "Неправильный формат e-mail"
+      }
+    }
   });
 });
