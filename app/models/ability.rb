@@ -18,7 +18,12 @@ class Ability
       can [:update,:destroy], Task, :admin => false, :user_id => user.id
       #can :destroy, Task, :admin => false, :user_id => user.id
       can :update, User, :id => user.id
-      can :add_info, User, :id => user.id   
+      can :add_info, User, :id => user.id
+      
+      #transactions
+      can :new, Transaction
+      can :create, Transaction
+      can :manage, Transaction, :user_id => user.id   
     end
     # Define abilities for the passed in user here. For example:
     #

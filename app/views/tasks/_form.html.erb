@@ -30,8 +30,7 @@
       <div class="control-group">
         <%= f.label :deadline, "Дедлайн:" %>
         <div class="controls">
-          <input id="task_deadline" name="task[deadline]" 
-          size="30" type="text" />
+          <%= f.text_field :deadline %>
             <script type="text/javascript">
               //<![CDATA[
     jQuery(document).ready(function(){$('#task_deadline').datetimepicker({})});
