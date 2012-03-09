@@ -3,6 +3,8 @@
 
 class Transaction < ActiveRecord::Base
   
+  after_update :check_active_subject
+  
   #associations
   belongs_to :user
   belongs_to :customer
@@ -47,6 +49,24 @@ class Transaction < ActiveRecord::Base
   
   def self.total_on
     where("date(created_at) = ?", date).sum(:price)    
+  end
+  
+end
+
+  def check_active_subject
+    if subject_id != nil
+      if payment == true
+        sub = Subject.find(subject_id)
+        if sub.active == true
+          sub.update_attribute(:active, false)
+        end
+      else
+        sub = Subject.find(subject_id)
+        if sub.active == false
+          sub.update_attribute(:active, true)
+        end
+      end
+    end
   end
   
 end
