@@ -7,5 +7,6 @@ FactoryGirl.define do
     description "MyText"
     price 1
     payment false
+    price_currency "доллар"
   end
 end

@@ -7,9 +7,13 @@ describe TransactionsController do
   render_views
   
   before(:each) do
+    # login
     @user = Factory(:user)
     test_log_in(@user)
+    # end login
+    
     @typetransaction = Factory(:typetransaction)
+
     city = Factory(:city)
     @typesubject = Factory(:typesubject)
     @customer = Factory(:customer)
@@ -17,6 +21,7 @@ describe TransactionsController do
     @subject = Factory(:subject, :typesubject => @typesubject, :city => city,
               :typetransaction => @typetransaction, :customer => @customer,
               :district => @district)
+
     @transaction = Factory(:transaction, :typetransaction => @typetransaction,
                   :user => @user, :customer => @customer, :subject => @subject)
                   
@@ -182,7 +187,8 @@ describe TransactionsController do
       :user_id => @user.id,
       :customer_id => @customer.id,
       :subject_id => @subject.id,
-      :typetransaction_id => @typetransaction.id
+      :typetransaction_id => @typetransaction.id,
+      :price_currency => "доллар"
     }
   end
   
@@ -196,7 +202,8 @@ describe TransactionsController do
       :user_id => @user.id,
       :customer_id => @customer.id,
       :subject_id => @subject.id,
-      :typetransaction_id => @typetransaction.id
+      :typetransaction_id => @typetransaction.id,
+      :price_currency => "доллар"
     }
   end
   

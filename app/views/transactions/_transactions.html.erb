@@ -30,7 +30,7 @@
               <%= t.subject.address %>
             <% end %>
           </td>
-          <td><%= to_dollar(t.price) %></td>
+          <td><%= price_currency(t) %></td>
           <td>
             <% if t.payment == true %>
               <%= link_to edit_icon + ' ' + t.payment_value, 
