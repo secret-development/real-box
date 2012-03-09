@@ -46,7 +46,6 @@ class Task < ActiveRecord::Base
   
 end
 
-#TODO: file_attachment
 #TODO: created_at DESC
 # == Schema Information
 #
