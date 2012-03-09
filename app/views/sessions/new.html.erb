@@ -17,10 +17,10 @@
   </div>
   
   <div class="control-group">
-    <%= label_tag :remember_me, "Запомнить меня" %>
-    <div class="controls">
     <%= check_box_tag :remember_me, 1, params[:remember_me] %>
-    </div>    
+    <span class="remember-me-label">
+      <%= label_tag :remember_me, "Запомнить меня" %>
+    </span>
   </div>
   
   <div class="form-actions">
