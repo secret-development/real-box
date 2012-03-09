@@ -38,6 +38,9 @@ class Subject < ActiveRecord::Base
   
   attr_writer :street, :house, :flat
 
+  # scopes
+  scope :active_subjects, where(:active => true)
+  scope :inactive_subjects, where(:active => false)
 
   def price_cur
     {
