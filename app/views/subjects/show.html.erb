@@ -50,7 +50,7 @@
       <span class="title-field-subject">Добавлен:</span>
       <%= to_date(@subject.created_at) %>
     </div>
-    <% unless properties_zero?(@subject) %>
+    <% unless properties_views_zero?(@subject) %>
       <div id="properties-info">
         <h5>
           Дополнительная информация:
