@@ -161,3 +161,18 @@ form{
 #subject_price_currency{
   width:80px;
 }
+// links type subject
+.links-type-subjects{
+  float:right;
+  margin-top:5px;
+  margin-bottom:30px;
+  a{
+    text-decoration:underline;
+    margin-left:25px;
+    font-size:18px;
+    color:#626262;
+    &:hover{
+      color:#858585;  
+    }
+  }
+}
