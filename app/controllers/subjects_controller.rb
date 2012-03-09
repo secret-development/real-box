@@ -9,9 +9,24 @@ class SubjectsController < ApplicationController
   
   def index
     @title = "Объекты"
-    @subjects = Subject.order(sort_column + " " + sort_direction).page(params[:page]).per(2)
+    @subjects = Subject.order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
     respond_with(@subjects)
   end
+  
+  # active
+  def active
+    @title = "Активные объекты"
+    @subjects = Subject.active_subjects.page(params[:page]).per(page_paginate)
+    respond_with(@subjects)
+  end
+  
+  # inactive
+  def inactive
+    @title = "Неактивные объекты"
+    @subjects = Subject.inactive_subjects.page(params[:page]).per(page_paginate)
+    respond_with(@subjects)
+  end
+  
   
   def show
     @subject = Subject.find(params[:id])
@@ -132,6 +147,10 @@ class SubjectsController < ApplicationController
   
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"    
+    end
+    
+    def page_paginate
+      5
     end
     
 end
