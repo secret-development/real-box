@@ -397,3 +397,21 @@ $(document).ready(function(){
     .autotab_filter('numeric');
     $('#user_phonemobile').autotab_filter('numeric');
 });
+
+
+// what type?(condition fields)
+$(document).ready(function() {
+  $("#what-type-input").fancybox();
+});
+
+
+// subject -> price formating function
+$(document).ready(function() {
+  $('#subject_price').priceFormat({
+    prefix: '',
+    centsLimit: 0,
+    centsSeparator: '',
+    thousandsSeparator: ' '
+  });
+});
+

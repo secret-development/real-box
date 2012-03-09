@@ -241,6 +241,18 @@ describe Subject do
     end
   end
   
+  describe "scopes" do
+    it "active_subjects scopes should return where(:active => true)" do
+      @subjects = Subject.active_subjects
+      @subjects.to_sql.should =~ /`active` = 1/i
+    end
+    
+    it "inactive_subjects scopes should return where(:active => false)" do
+      @subjects = Subject.inactive_subjects
+      @subjects.to_sql.should =~ /`active` = 0/i
+    end
+  end
+  
 end
 
 # == Schema Information

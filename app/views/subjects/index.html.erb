@@ -1,5 +1,6 @@
 <h1 class="title-page">Объекты недвижимости</h1>
 <%= flash_msg(flash[:notice]) %>
+<%= render 'links_subjects' %>
 <%= form_tag subjects_path, :method => 'get'  do %>
   
   <%= hidden_field_tag :sort, params[:sort] %>
