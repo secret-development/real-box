@@ -19,9 +19,20 @@ describe CustomersController do
       :note => "blabla",
       :lastcall => Time.now.weeks_ago(1)
     }
+    
     soc = Factory(:social_status)
     typetr = Factory(:typetransaction)
     @customer = Factory(:customer, :typetransaction => typetr, :social_status => soc)
+    
+    # subject factory
+    city = Factory(:city)
+    @typesubject = Factory(:typesubject)
+    typetransaction = Factory(:typetransaction)
+    @district = Factory(:district)
+    @subject = Factory(:subject, :typesubject => @typesubject, :city => city,
+                :typetransaction => typetransaction, :customer => @customer, :district => @district)
+    # subject factory
+
   end
 
   describe "GET should be successful" do

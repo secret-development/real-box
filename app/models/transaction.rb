@@ -25,6 +25,19 @@ class Transaction < ActiveRecord::Base
             :presence => true,
             :numericality => true          
   validates_inclusion_of :payment, :in => [true, false]
+  validates :price_currency, :presence => true
+  
+  # price currency
+  
+  def price_cur
+    {
+      "доллар" => "доллар",
+      "тенге" => "тенге",
+      "евро" => "евро",
+      "рубль" => "рубль"
+    }
+  end
+  
   
   #methods
   def payment_value

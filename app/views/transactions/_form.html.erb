@@ -53,6 +53,7 @@
         <%= f.label :price, "Сумма:" %>
         <div class="controls">
           <%= f.text_field :price %>
+          <%= f.select :price_currency, @transaction.price_cur %>
         </div>
       </div>
       <% if @transaction.new_record? %>

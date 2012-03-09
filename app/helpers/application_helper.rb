@@ -3,14 +3,18 @@ module ApplicationHelper
   include Icons
   require 'simple_form'
   
+  def base_title
+    "Этванс"
+  end
+  
   def title
-    base_title = "CRM"
     if @title
       "#{base_title} | #{@title}"
     else
       base_title
     end
   end
+  
   
   def error_messages_for(object)
     render(:partial => "shared/error_messages", :locals => {:object => object})
@@ -158,17 +162,17 @@ module ApplicationHelper
   
   def active_subject?(object)
     if object.active == true
-      image_tag('active.png', :title => "Активна")
+      image_tag('active.png', :title => "Активен")
     else
-      image_tag('busy.png', :title => "Не активна")
+      image_tag('busy.png', :title => "Не активен")
     end
   end
   
   def active_subject_text?(object)
     if object.active == true
-      "Активна"
+      "Активен"
     else
-      "Не активна"
+      "Не активен"
     end
   end
   
