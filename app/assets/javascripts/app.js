@@ -399,5 +399,19 @@ $(document).ready(function(){
 });
 
 
+// what type?(condition fields)
+$(document).ready(function() {
+  $("#what-type-input").fancybox();
+});
+
 
 // subject -> price formating function
+$(document).ready(function() {
+  $('#subject_price').priceFormat({
+    prefix: '',
+    centsLimit: 0,
+    centsSeparator: '',
+    thousandsSeparator: ' '
+  });
+});
+
