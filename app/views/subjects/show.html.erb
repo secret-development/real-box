@@ -89,7 +89,7 @@
     @subject, :method => :delete, :confirm => "Вы уверены?", :class => "btn" %>
     <!-- end main actions -->
     <!-- properties -->
-    <% if properties_zero?(@subject) %>
+    <% if properties_views_zero?(@subject) %>
       <%= link_to icon_info_sign_black + 
         " Добавить дополнительную информацию",
         add_properties_subject_path(@subject), :class => "btn" %>
