@@ -1,6 +1,6 @@
 <%= form_for(@user, :action => "add_info", :html => {:class => "form-horizontal"}) do |f| %>
+    <%= error_messages_for(@user) %>
     <fieldset>
-       <%= error_messages_for(@user) %>
        <legend><%= @user.legend_value %></legend>
     
       <div class="control-group">

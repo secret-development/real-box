@@ -9,13 +9,16 @@ describe SubjectsController do
     @user = Factory(:user)
     test_log_in(@user)
     # end auth
-    city = Factory(:city)
+    @city = Factory(:city)
     @typesubject = Factory(:typesubject)
-    typetransaction = Factory(:typetransaction)
-    @customer = Factory(:customer)
+    @typetransaction = Factory(:typetransaction)
+    soc = Factory(:social_status)
+    @customer = Factory(:customer, :typetransaction => @typetransaction, :social_status => soc)
     @district = Factory(:district)
-    @subject = Factory(:subject, :typesubject => @typesubject, :city => city,
-                :typetransaction => typetransaction, :customer => @customer, :district => @district)
+    
+    # main subject
+    @subject = Factory(:subject, :typesubject => @typesubject, :city => @city,
+                :typetransaction => @typetransaction, :customer => @customer, :district => @district)
   end
   
   it "get 'index'" do
@@ -39,7 +42,7 @@ describe SubjectsController do
   end
   
   it "get show" do
-    get :show, :id => @subject.id
+    get :show, :id => @subject
     response.should be_success
   end
   
@@ -193,7 +196,9 @@ describe SubjectsController do
       :address => "Баймагамбетова 15, 23",
       :customer_id => @customer,
       :floor => 5,
-      :price_currency => "доллар"
+      :active => true,
+      :price_currency => "доллар",
+      :typetransaction_id => @typetransaction.id
     }
   end
   
@@ -208,7 +213,9 @@ describe SubjectsController do
       :address => "Баймагамбетова 15, 23",
       :customer_id => @customer,
       :floor => 6,
-      :price_currency => "доллар"
+      :active => true,
+      :price_currency => "доллар",
+      :typetransaction_id => @typetransaction.id
     }   
   end
   
@@ -222,7 +229,9 @@ describe SubjectsController do
       :address => "Баймагамбетова 15, 23",
       :customer_id => @customer,
       :floor => 5,
-      :price_currency => "доллар"
+      :active => true,
+      :price_currency => "доллар",
+      :typetransaction_id => @typetransaction.id
     }
   end
   
