@@ -11,6 +11,18 @@ class TransactionsController < ApplicationController
   def index
     @transactions = Transaction.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(10)
     @title = "Сделки"
+    
+#    @h = LazyHighCharts::HighChart.new('graph') do |f|
+#      f.chart({:defaultSeriesType => 'area'})
+#      f.title(:text => 'Сделки')
+#      #f.x_Axis([:type => 'datetime'])
+#      f.x_Axis([:dateTimeLabelFormats => {:month => '%b' }])
+#      #f.y_Axis([:title => {:text => 'Status'}, :min => 0.6])
+#      #f.plot_options({:area => {:line_width => 10, :fillColor => {:lineGradient => [0, 10, 0, 300]}}})
+#      f.options[:legend][:layout] = "horizontal"   
+#      f.series(:name => current_user.lastname, :data => [1 ,4 , 6, 6, 4])
+#      #f.options[:xAxis][:categories] = ["uno" ,"dos" , "tres" , "cuatro"]
+#    end
   end
   
   def new
