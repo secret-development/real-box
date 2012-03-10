@@ -1,9 +1,9 @@
-en:
+ru:
   errors:
     messages:
-      invalid_date: ". Дата не является допустимой"
-      invalid_time: ". Время не является допустимым"
-      invalid_datetime: ". Дата и время не являются допустимыми"
+      invalid_date: "- Дата не является допустимой"
+      invalid_time: "- Время не является допустимым"
+      invalid_datetime: "- Дата и время не являются допустимыми"
       is_at: "должен быть равным %{restriction}"
       before: "должен быть раньше, чем %{restriction}"
       on_or_before: "может быть не позже %{restriction}"
