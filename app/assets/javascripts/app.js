@@ -530,4 +530,34 @@ $(document).ready(function() {
   });
 });
 
-
+// validates for transaction
+$(document).ready(function() {
+  $(".transaction-form-validation").validate({
+    rules: {
+      "transaction[name]" : {
+        required: true,
+        maxlength: 140
+      },
+      "transaction[description]" : {
+        required: true,
+        maxlength: 800
+      },
+      "transaction[price]" : {
+        required: true
+      }
+    },
+    messages: {
+      "transaction[name]" : {
+        required: "Введите название",
+        maxlength: "Не более 140 символов"
+      },
+      "transaction[description]" : {
+        required: "Введите описание",
+        maxlength: "Не более 800 символов"
+      },
+      "transaction[price]" : {
+        required: "Введите цену"
+      }
+    }
+  });
+});
