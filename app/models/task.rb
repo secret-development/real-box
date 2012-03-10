@@ -40,7 +40,7 @@ class Task < ActiveRecord::Base
     if search
       where('title LIKE ?', "%#{search}%") 
     else
-      scoped
+      reorder("created_at DESC")
     end
   end
   
