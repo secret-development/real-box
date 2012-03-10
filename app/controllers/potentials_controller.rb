@@ -1,4 +1,5 @@
 # -*- encoding : utf-8 -*-
+
 class PotentialsController < ApplicationController
   before_filter :all_deny 
   respond_to :html

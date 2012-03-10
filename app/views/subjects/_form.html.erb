@@ -1,11 +1,8 @@
-<%= form_for(@subject, :html => 
-  {:multipart => true,:class => "form-horizontal"}) do |f| %>
+<%= form_for(@subject, :html => {:multipart => true,
+  :class => "form-horizontal subject-form-validation"}) do |f| %>
   <%= error_messages_for(@subject) %>
   <fieldset>
     <legend><%= @subject.legend_value %></legend>
-    <div class="control-group">
-      <%= f.hidden_field :user_id, :value => current_user.id %>
-    </div>
     <div class="control-group">
       <%= f.label :typetransaction_id, "Тип сделки:" %>
       <div class="controls">
@@ -93,6 +90,7 @@
         <div id="subject-id" data-subject-id="<%= @subject.new_record? ? nil : @subject.id  %>"></div>
       </div>
     </div>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
     <div class="form-actions">
       <%= f.submit @subject.button_value, :class => "btn btn-primary" %>
       <button type="reset" class="btn cancel-form">Отмена</button>

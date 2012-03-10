@@ -1,4 +1,5 @@
-<%= form_for(@socialstatus, :html => { :class => "form-horizontal"}) do |f| %>
+<%= form_for(@socialstatus, :html => 
+  { :class => "form-horizontal socialstatus-form-validation"}) do |f| %>
   <%= error_messages_for(@socialstatus) %>
   <fieldset>
     <legend><%= @socialstatus.legend_value %></legend>
