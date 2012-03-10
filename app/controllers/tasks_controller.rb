@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-#encoding: UTF-8
 
 class TasksController < ApplicationController
   before_filter :all_deny
