@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 Crm::Application.routes.draw do
 
-  get "report/index"
+  get "report" => "report#index", :as => "report"
 
   get "sign_in" => "sessions#new", :as => "sign_in"
   get "sign_out" => "sessions#destroy", :as => "sign_out"
