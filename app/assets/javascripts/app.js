@@ -594,3 +594,57 @@ $(document).ready(function() {
     }
   });
 });
+
+// validates for settings -> typesubjects
+$(document).ready(function() {
+  $(".typesubject-form-validation").validate({
+    rules: {
+      "typesubject[name]" : {
+        required: true
+      },
+      "typesubject[permalink]" : {
+        required: true
+      }
+    },
+    messages: {
+      "typesubject[name]" : {
+        required: "Введите название"
+      },
+      "typesubject[permalink]" : {
+        required: "Введите постоянную ссылку"
+      }
+    }
+  });
+});
+
+// validates for settings -> condition fields
+$(document).ready(function() {
+  $(".condition-field-form-validation").validate({
+    rules: {
+      "condition_field[namefield]" : {
+        required: true
+      }
+    },
+    messages: {
+      "condition_field[namefield]" : {
+        required: "Введите название поля"
+      }
+    }
+  });
+});
+
+// validates for settings -> value fields
+$(document).ready(function() {
+  $(".value-field-form-validation").validate({
+    rules: {
+      "value_field[valuefield]" : {
+        required: true
+      }
+    },
+    messages: {
+      "value_field[valuefield]" : {
+        required: "Введите значение"
+      }
+    }
+  });
+});
