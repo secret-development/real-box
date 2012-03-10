@@ -4,10 +4,6 @@
     <fieldset>
       <legend><%= @transaction.legend %></legend>
       <div class="control-group">
-        <% @customer = @transaction.customer if @customer.nil? %>
-        <%= f.hidden_field :customer_id, :value => @customer.id %>
-      </div>
-      <div class="control-group">
         <%= f.label :typetransaction_id, "Тип сделки:" %>
         <div class="controls">
           <%= f.collection_select(:typetransaction_id, Typetransaction.all, 
@@ -66,6 +62,8 @@
           </div>
         </div>
       <% end %>
+      <% @customer = @transaction.customer if @customer.nil? %>
+      <%= f.hidden_field :customer_id, :value => @customer.id %>
       <div class="form-actions">
         <%= f.submit @transaction.button_value, :class => "btn btn-primary" %>
         <button-type="reset" class="btn cancel-form">Отмена</button>

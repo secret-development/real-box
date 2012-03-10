@@ -453,5 +453,36 @@ $(document).ready(function() {
         email: "Неправильный формат e-mail"
       }
     }
-  });
+  });  
 });
+
+// validates for subject
+$(document).ready(function() {
+  $(".subject-form-validation").validate({
+    rules: {
+      "subject[districtname]" : {
+        required: true
+      },
+      "subject[price]" : {
+        required: true
+      },
+      "subject[area]" : {
+        digits: true
+      }
+    },
+    messages: {
+      "subject[districtname]" : {
+        required: "Введите название района"
+      },
+      "subject[price]" : {
+        required: "Введите цену "
+      },
+      "subject[area]" : {
+        digits: "Только цифры"
+      }
+    }
+  });
+
+  
+});
+
