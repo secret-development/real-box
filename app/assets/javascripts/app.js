@@ -577,3 +577,20 @@ $(document).ready(function() {
     }
   });
 });
+
+
+// validates for settings -> social statuses
+$(document).ready(function() {
+  $(".socialstatus-form-validation").validate({
+    rules: {
+      "social_status[title]" : {
+        required: true
+      }
+    },
+    messages: {
+      "social_status[title]" : {
+        required: "Введите наименование"
+      }      
+    }
+  });
+});
