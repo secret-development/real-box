@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   
   validates :email, :uniqueness => { :case_sensitive => false}
   validates :email, :presence => true, :format => {:with => email_regex}
-  validates :lastname, :firstname, :presence => true, :on => :create
+  validates :lastname, :firstname, :presence => true
   # validates :phonemobile, :presence => true
   
   def encrypt_password
@@ -117,6 +117,10 @@ class User < ActiveRecord::Base
     unless phonemobile.nil?
       phonemobile.split(' ').fourth
     end
+  end
+  
+  def fullname
+    lastname + " " + firstname
   end
   
 end

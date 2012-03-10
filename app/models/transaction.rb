@@ -1,9 +1,6 @@
 # -*- encoding : utf-8 -*-
-#encoding: UTF-8
 
 class Transaction < ActiveRecord::Base
-  
-  after_update :check_active_subject
   
   #associations
   belongs_to :user
@@ -27,6 +24,11 @@ class Transaction < ActiveRecord::Base
   validates_inclusion_of :payment, :in => [true, false]
   validates :price_currency, :presence => true
   
+  # callbacks
+  after_update :check_active_subject
+  before_save :check_active_subject
+  before_validation :format_price
+  
   # price currency
   
   def price_cur
@@ -42,6 +44,10 @@ class Transaction < ActiveRecord::Base
   #methods
   def payment_value
     payment == true ? "Сделка оплачена" : "Сделка не оплачена"
+  end
+  
+  def payment_short
+    payment == true ? "Да " : "Нет"
   end
   
   def legend
@@ -78,6 +84,11 @@ class Transaction < ActiveRecord::Base
   
   def self.total_on(date)
     where("date(created_at) = ?", date).sum(:price)         
+  end
+  
+
+  def format_price
+    self.price = price_before_type_cast.to_s.gsub(/\s/, '')
   end
   
 end
