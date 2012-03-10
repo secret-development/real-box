@@ -8,14 +8,6 @@
   -o-border-radius:5px;
   font-size:15px;
   color:#111111;
-  .field-customer{
-    margin-bottom:15px;
-    .title-field{
-      color:#8B8B8B;
-      display:inline-block;
-      min-width:230px;
-    }
-  }
   .actions-with-customers{
     margin:25px 0px 10px 0px;
     a{
@@ -77,5 +69,13 @@
         min-width:140px;
       }
     }
+  }
+}
+.field-customer{
+  margin-bottom:15px;
+  .title-field{
+    color:#8B8B8B;
+    display:inline-block;
+    min-width:230px;
   }
 }

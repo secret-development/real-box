@@ -91,3 +91,15 @@ body{
   position:relative;
   top:1px;
 }
+
+// validations
+form{
+  .controls{
+    label.error{
+      display:inline-block;
+      margin-left:10px;
+      color:#B43B39;
+      font-size:11px;
+    }
+  }
+}
