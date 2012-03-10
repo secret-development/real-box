@@ -103,3 +103,15 @@ form{
     }
   }
 }
+
+// errors - server validation output
+.errorExplanation{
+  margin-bottom:10px;
+  color:#666666;
+  border:1px solid #B43B39;
+  padding:5px;
+  font-size:12px;
+  .error-title{
+    font-size:17px;
+  }
+}
