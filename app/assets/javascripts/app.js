@@ -561,3 +561,19 @@ $(document).ready(function() {
     }
   });
 });
+
+// validates for settings -> city
+$(document).ready(function() {
+  $(".city-form-validation").validate({
+    rules: {
+      "city[name]" : {
+        required: true
+      }
+    },
+    messages: {
+      "city[name]" : {
+        required: "Введите название"
+      }
+    }
+  });
+});
