@@ -468,6 +468,10 @@ $(document).ready(function() {
       },
       "subject[area]" : {
         digits: true
+      },
+      "subject[floor]" : {
+        required: true,
+        digits: true
       }
     },
     messages: {
@@ -478,6 +482,10 @@ $(document).ready(function() {
         required: "Введите цену "
       },
       "subject[area]" : {
+        digits: "Только цифры"
+      },
+      "subject[floor]" : {
+        required: "Введите этаж",
         digits: "Только цифры"
       }
     }
