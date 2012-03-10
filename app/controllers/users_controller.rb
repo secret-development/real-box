@@ -1,4 +1,5 @@
 # -*- encoding : utf-8 -*-
+
 class UsersController < ApplicationController
 
   before_filter :all_deny 
@@ -41,12 +42,21 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(params[:user])
-      flash[:notice] = "Данные изменены"
-      respond_with(@user)
+    if params[:user][:lastname]
+      if @user.update_attributes(params[:user])
+        flash[:notice] = "Данные изменены"
+        respond_with(@user)
+      else
+        render 'add_info'      
+      end      
     else
-      render 'edit'      
-    end    
+      if @user.update_attributes(params[:user])
+        flash[:notice] = "Данные изменены"
+        respond_with(@user)
+      else
+        render 'edit'      
+      end  
+    end
   end
   
   def destroy
@@ -59,7 +69,6 @@ class UsersController < ApplicationController
   def add_info
     @user = User.find(params[:id])
     @title = "Анкетные данные"
-    respond_with(@user)
   end
   
 end

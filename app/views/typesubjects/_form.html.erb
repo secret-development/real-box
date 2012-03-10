@@ -1,4 +1,5 @@
-<%= form_for(@typesubject, :html => {:class => "form-horizontal"}) do |f| %>
+<%= form_for(@typesubject, :html => 
+  {:class => "form-horizontal typesubject-form-validation"}) do |f| %>
   <%= error_messages_for(@typesubject) %>
   <fieldset>
     <legend><%= @typesubject.legend_value %></legend>

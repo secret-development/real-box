@@ -289,34 +289,6 @@ $(document).ready(function() {
   
 });
 
-//validation reset password
-$(document).ready(function(){
-  $('#password-reset').validate({
-    rules :{
-      "user[password]" : {
-        required: true,
-        minlength: 7, 
-      },
-      "user[password_confirmation]" : {
-        required: true,
-        minlength: 7,
-        equalTo: '#confirm',
-      },
-    },
-    messages :{
-      "user[password]": { 
-        minlength: "Пароль не менее 7ми  символов!",
-        required: "Введите пароль!",
-      },
-      "user[password_confirmation]": {
-        equalTo: "Пароли не совпадают!",
-        required: "Введите пароль!",
-        minlength: "Пароль не менее 7ми символов!"
-      },  
-    }
-  })
-});
-
 // subject -> floor
 $(document).ready(function() {
   if ($("form").find("#exist-floor-subject").length != 0) {
@@ -419,5 +391,260 @@ $(document).ready(function() {
     centsLimit: 0,
     centsSeparator: '',
     thousandsSeparator: ' '
+  });
+});
+
+//validation reset password
+$(document).ready(function(){
+  $('#password-reset').validate({
+    rules: {
+      "user[password]" : {
+        required: true,
+        minlength: 7, 
+      },
+      "user[password_confirmation]" : {
+        required: true,
+        minlength: 7,
+        equalTo: '#confirm',
+      },
+    },
+    messages: {
+      "user[password]": { 
+        minlength: "Пароль не менее 7ми  символов!",
+        required: "Введите пароль!",
+      },
+      "user[password_confirmation]": {
+        equalTo: "Пароли не совпадают!",
+        required: "Введите пароль!",
+        minlength: "Пароль не менее 7ми символов!"
+      },  
+    }
+  })
+});
+
+// validates for customer:
+$(document).ready(function() {
+  $(".customer-form-validation").validate({
+    rules: {
+      "customer[lastname]" : {
+        required: true
+      },
+      "customer[firstname]" : {
+        required: true
+      },
+      "customer[phonehome]" : {
+        digits: true
+      },
+      "customer[email]" : {
+        email: true
+      }
+    },
+    messages: {
+      "customer[lastname]" : {
+        required: "Введите фамилию"
+      },
+      "customer[firstname]" : {
+        required: "Введите имя"
+      },
+      "customer[phonehome]" : {
+        digits: "Только цифры"
+      },
+      "customer[email]" : {
+        email: "Неправильный формат e-mail"
+      }
+    }
+  });  
+});
+
+// validates for subject
+$(document).ready(function() {
+  $(".subject-form-validation").validate({
+    rules: {
+      "subject[districtname]" : {
+        required: true
+      },
+      "subject[price]" : {
+        required: true
+      },
+      "subject[area]" : {
+        digits: true
+      },
+      "subject[floor]" : {
+        required: true,
+        digits: true
+      }
+    },
+    messages: {
+      "subject[districtname]" : {
+        required: "Введите название района"
+      },
+      "subject[price]" : {
+        required: "Введите цену "
+      },
+      "subject[area]" : {
+        digits: "Только цифры"
+      },
+      "subject[floor]" : {
+        required: "Введите этаж",
+        digits: "Только цифры"
+      }
+    }
+  });
+});
+
+// validates for task
+$(document).ready(function() {
+  $(".task-form-validation").validate({
+    rules: {
+      "task[title]" : {
+        required: true,
+        maxlength: 140
+      },
+      "task[description]" : {
+        required: true,
+        maxlength: 800
+      },
+      "task[user_id]" : {
+        required: true
+      },
+      "task[deadline]" : {
+        required: true
+      }
+    },
+    messages: {
+      "task[title]" : {
+        required: "Введите название",
+        maxlength: "Не более 140 символов"
+      },
+      "task[description]" : {
+        required: "Введите описание",
+        maxlength: "Не более 800 символов"
+      },
+      "task[user_id]" : {
+        required: "Выберите ответственного"
+      },
+      "task[deadline]" : {
+        required: "Выберите срок дедлйна"
+      }
+    }
+  });
+});
+
+// validates for transaction
+$(document).ready(function() {
+  $(".transaction-form-validation").validate({
+    rules: {
+      "transaction[name]" : {
+        required: true,
+        maxlength: 140
+      },
+      "transaction[description]" : {
+        required: true,
+        maxlength: 800
+      },
+      "transaction[price]" : {
+        required: true
+      }
+    },
+    messages: {
+      "transaction[name]" : {
+        required: "Введите название",
+        maxlength: "Не более 140 символов"
+      },
+      "transaction[description]" : {
+        required: "Введите описание",
+        maxlength: "Не более 800 символов"
+      },
+      "transaction[price]" : {
+        required: "Введите цену"
+      }
+    }
+  });
+});
+
+// validates for settings -> city
+$(document).ready(function() {
+  $(".city-form-validation").validate({
+    rules: {
+      "city[name]" : {
+        required: true
+      }
+    },
+    messages: {
+      "city[name]" : {
+        required: "Введите название"
+      }
+    }
+  });
+});
+
+
+// validates for settings -> social statuses
+$(document).ready(function() {
+  $(".socialstatus-form-validation").validate({
+    rules: {
+      "social_status[title]" : {
+        required: true
+      }
+    },
+    messages: {
+      "social_status[title]" : {
+        required: "Введите наименование"
+      }      
+    }
+  });
+});
+
+// validates for settings -> typesubjects
+$(document).ready(function() {
+  $(".typesubject-form-validation").validate({
+    rules: {
+      "typesubject[name]" : {
+        required: true
+      },
+      "typesubject[permalink]" : {
+        required: true
+      }
+    },
+    messages: {
+      "typesubject[name]" : {
+        required: "Введите название"
+      },
+      "typesubject[permalink]" : {
+        required: "Введите постоянную ссылку"
+      }
+    }
+  });
+});
+
+// validates for settings -> condition fields
+$(document).ready(function() {
+  $(".condition-field-form-validation").validate({
+    rules: {
+      "condition_field[namefield]" : {
+        required: true
+      }
+    },
+    messages: {
+      "condition_field[namefield]" : {
+        required: "Введите название поля"
+      }
+    }
+  });
+});
+
+// validates for settings -> value fields
+$(document).ready(function() {
+  $(".value-field-form-validation").validate({
+    rules: {
+      "value_field[valuefield]" : {
+        required: true
+      }
+    },
+    messages: {
+      "value_field[valuefield]" : {
+        required: "Введите значение"
+      }
+    }
   });
 });

@@ -1,4 +1,5 @@
-<%= form_for(@conditionfield, :html => {:class => "form-horizontal"}) do |f| %>
+<%= form_for(@conditionfield, :html => 
+  {:class => "form-horizontal condition-field-form-validation"}) do |f| %>
   <%= error_messages_for(@conditionfield) %>
   <fieldset>
     <legend><%= @conditionfield.legend_value %></legend>

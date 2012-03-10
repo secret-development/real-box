@@ -1,4 +1,5 @@
-<%= form_for(@city, :html => {:class => "form-horizontal"}) do |f| %>
+<%= form_for(@city, :html => 
+  {:class => "form-horizontal city-form-validation"}) do |f| %>
   <%= error_messages_for(@city) %>
   <fieldset>
     <legend><%= @city.legend_value %></legend>
