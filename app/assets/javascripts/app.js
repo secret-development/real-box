@@ -490,7 +490,44 @@ $(document).ready(function() {
       }
     }
   });
-
-  
 });
+
+// validates for task
+$(document).ready(function() {
+  $(".task-form-validation").validate({
+    rules: {
+      "task[title]" : {
+        required: true,
+        maxlength: 140
+      },
+      "task[description]" : {
+        required: true,
+        maxlength: 800
+      },
+      "task[user_id]" : {
+        required: true
+      },
+      "task[deadline]" : {
+        required: true
+      }
+    },
+    messages: {
+      "task[title]" : {
+        required: "Введите название",
+        maxlength: "Не более 140 символов"
+      },
+      "task[description]" : {
+        required: "Введите описание",
+        maxlength: "Не более 800 символов"
+      },
+      "task[user_id]" : {
+        required: "Выберите ответственного"
+      },
+      "task[deadline]" : {
+        required: "Выберите срок дедлйна"
+      }
+    }
+  });
+});
+
 
