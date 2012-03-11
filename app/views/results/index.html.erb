@@ -5,6 +5,11 @@
         :html => {:method => :get, :id => "search-main-form"} do |f| %>
         <div class="s-group-field">
           <div class="s-field">
+            <%= f.label :city_id_eq, "Город:" %>
+            <%= f.collection_select(:city_id_eq,
+                City.all, :id, :name) %>
+          </div>
+          <div class="s-field">
             <%= f.label :typetransaction_id_eq, "Тип сделки:" %>
             <%= f.collection_select(:typetransaction_id_eq, Typetransaction.all, 
                 :id, :name) %>
@@ -13,13 +18,13 @@
             <%= f.label :typesubject_id_eq, "Тип недвижимости:" %>
             <%= f.collection_select(:typesubject_id_eq,
                 Typesubject.all, :id, :name) %>
-          </div>  
+          </div>
         </div>
         <div class="s-group-field">
           <div class="s-field">
-            <%= f.label :city_id_eq, "Город:" %>
-            <%= f.collection_select(:city_id_eq,
-                City.all, :id, :name) %>
+            <%= f.label :district, "Район" %>
+            <%= f.grouped_collection_select(:district_id_eq, 
+                City.order(:name), :districts, :name ,:id, :title, :include_blank => true) %>
           </div>
         </div>
         <div class="s-action">
