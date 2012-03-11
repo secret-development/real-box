@@ -1,7 +1,31 @@
 <div id="search-page">
   <div class="row">
     <div class="span12" id="search-die">
-      
+      <%= form_for @search, :url => results_path, 
+        :html => {:method => :get, :id => "search-main-form"} do |f| %>
+        <div class="s-group-field">
+          <div class="s-field">
+            <%= f.label :typetransaction_id_eq, "Тип сделки:" %>
+            <%= f.collection_select(:typetransaction_id_eq, Typetransaction.all, 
+                :id, :name) %>
+          </div>
+          <div class="s-field">
+            <%= f.label :typesubject_id_eq, "Тип недвижимости:" %>
+            <%= f.collection_select(:typesubject_id_eq,
+                Typesubject.all, :id, :name) %>
+          </div>  
+        </div>
+        <div class="s-group-field">
+          <div class="s-field">
+            <%= f.label :city_id_eq, "Город:" %>
+            <%= f.collection_select(:city_id_eq,
+                City.all, :id, :name) %>
+          </div>
+        </div>
+        <div class="s-action">
+          <%= f.submit "Поиск", :class => "btn btn-primary" %>  
+        </div>
+      <% end %>
     </div>
     <div>
       <% @subjects.each do |s| %>

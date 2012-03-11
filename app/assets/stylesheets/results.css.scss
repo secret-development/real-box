@@ -2,10 +2,39 @@
   #search-die{
     background:#FAFAFA;
     border:1px solid #eee;
-    height:100px;
     -webkit-border-radius:10px;
     -moz-border-radius:10px;
     border-radius:10px;
     -o-border-radius:10px;
+    margin-bottom:15px;
+    
+    #search-main-form{
+      margin-top:35px;
+      margin-left:20px;
+      margin-right:20px;
+      
+      .s-group-field{
+        clear:both;
+        height:35px;
+        margin-bottom:40px;
+        .s-field{
+          margin-right:20px;
+          float:left;
+          label{
+            float:left;
+            min-width:80px;
+            margin-right:10px;
+            font-size:14px;
+            margin-top:5px;
+          }
+          select{
+            width:120px;
+          }
+        }
+      }
+      .s-action{
+        clear:both;
+      }
+    }
   }
 }
