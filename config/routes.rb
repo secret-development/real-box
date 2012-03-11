@@ -44,8 +44,6 @@ Crm::Application.routes.draw do
   # settings
   match "settings" => "settings#index", :as => :settings
   
-  # search
-  resources :search
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
