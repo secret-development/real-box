@@ -50,9 +50,11 @@
         <li>
           <%= link_to "Сделки", transactions_path %>
         </li>
-        <li>
-          <%= link_to "Отчеты", report_path %>
-        </li>
+        <% if current_user.role? %>
+          <li>
+            <%= link_to "Отчеты", reports_path %>
+          </li>
+        <% end %>
         <li>
           <%= link_to "Справка", "#" %>
         </li>

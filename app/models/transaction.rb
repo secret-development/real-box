@@ -83,9 +83,9 @@ class Transaction < ActiveRecord::Base
     end
   end
   
-  def self.total_on(date)
-    where("date(created_at) = ?", date).sum(:price)         
-  end
+#  def self.total_on(date)
+#    where("date(created_at) = ?", date).sum(:price)         
+#  end
   
 
   def format_price

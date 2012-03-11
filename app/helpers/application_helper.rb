@@ -219,6 +219,6 @@ module ApplicationHelper
       :unit => "руб.", :delimiter => " ", :format => "%n %u")
   end
   
-  
+  MONTH = ["Неделя", "Месяц"]
   
 end
