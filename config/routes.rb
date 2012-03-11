@@ -4,6 +4,7 @@ Crm::Application.routes.draw do
   get "reports" => "reports#index", :as => :reports
   resource :reports do
     get "activ", :on => :member, :as => :activ
+    get "finance", :on => :member, :as => :finance
   end
   get "sign_in" => "sessions#new", :as => "sign_in"
   get "sign_out" => "sessions#destroy", :as => "sign_out"
