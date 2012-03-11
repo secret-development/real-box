@@ -3,10 +3,9 @@
 
 class Task < ActiveRecord::Base
   
-  attr_accessible :title, :description, :user_id, :deadline, :done, :admin
+  attr_accessible :title, :description, :user_id, :deadline, :done, :admin,
+                  :user_lastname
   belongs_to :user
-  
-  
   validates :user_id,
             :presence => true
   validates :title, 
@@ -19,6 +18,9 @@ class Task < ActiveRecord::Base
             :presence => true,
             :timeliness => { :on_or_after => :date_for_validation, :type => :datetime }
   validates_inclusion_of :done, :in => [true, false]
+  
+  after_create :set_user_lastname
+  after_validation :set_user_lastname
   
   def status
     done == true ? "Да " : "Нет"
@@ -35,13 +37,19 @@ class Task < ActiveRecord::Base
   def date_for_validation
     new_record? ? Time.current : created_at
   end
-  
+    
   def self.search(search)
     if search
-      where('title LIKE ?', "%#{search}%")
+      where('title LIKE ? OR user_lastname LIKE ?', "%#{search}%", "%#{search}%")
     else
       reorder("created_at DESC")
     end
+  end
+  
+  protected
+  
+  def set_user_lastname
+    update_attribute(:user_lastname, user.lastname)
   end
   
 end
