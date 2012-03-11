@@ -1,12 +1,14 @@
 <div id="search-page">
   <div class="row">
     <div class="span12" id="search-die">
-
+      
     </div>
-  </div>
-  <div>
-    <% @subjects.each do |s| %>
-      <%= s.address %><%= s.area %><br />
-    <% end %>
+    <div>
+      <% @subjects.each do |s| %>
+      <div>
+        <%= s.address %>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>

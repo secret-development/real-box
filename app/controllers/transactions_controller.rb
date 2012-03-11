@@ -8,7 +8,7 @@ class TransactionsController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @transactions = Transaction.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(10)
+    @transactions = Transaction.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
     @title = "Сделки"
   end
   
@@ -74,6 +74,10 @@ class TransactionsController < ApplicationController
   
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"    
+  end
+  
+  def page_paginate
+    20
   end
   
 end

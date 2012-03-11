@@ -2,7 +2,7 @@
 class ResultsController < ApplicationController
   
   def index
-    
+    @subjects = Subject.where{address =~ '%Пушкин%'}
   end
   
 end
