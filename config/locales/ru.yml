@@ -112,3 +112,7 @@ ru:
       value_field:
         valuefield: "Значение поля"
         condition_field_id: "Дополнительное поле"
+        
+  unauthorized: 
+    manage:
+      all: "Действия запрещены!"
