@@ -1,17 +1,18 @@
 <div id="transaction_form">
-  <%= form_for(@transaction, :html => { :class => "form-horizontal" }) do |f| %>
+  <%= form_for(@transaction, :html => 
+    { :class => "form-horizontal transaction-form-validation" }) do |f| %>
     <%= error_messages_for(@transaction) %>
     <fieldset>
       <legend><%= @transaction.legend %></legend>
-      <div class="control-group">
-        <% @customer = @transaction.customer if @customer.nil? %>
-        <%= f.hidden_field :customer_id, :value => @customer.id %>
-      </div>
       <div class="control-group">
         <%= f.label :typetransaction_id, "Тип сделки:" %>
         <div class="controls">
           <%= f.collection_select(:typetransaction_id, Typetransaction.all, 
                                   :id, :name) %>
+        </div>
+        <div>
+          <% @customer = @transaction.customer if @customer.nil? %>
+          <%= f.hidden_field :customer_id, :value => @customer.id %>
         </div>
       </div>
       <div class="control-group">

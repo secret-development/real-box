@@ -453,5 +453,198 @@ $(document).ready(function() {
         email: "Неправильный формат e-mail"
       }
     }
+  });  
+});
+
+// validates for subject
+$(document).ready(function() {
+  $(".subject-form-validation").validate({
+    rules: {
+      "subject[districtname]" : {
+        required: true
+      },
+      "subject[price]" : {
+        required: true
+      },
+      "subject[area]" : {
+        digits: true
+      },
+      "subject[floor]" : {
+        required: true,
+        digits: true
+      }
+    },
+    messages: {
+      "subject[districtname]" : {
+        required: "Введите название района"
+      },
+      "subject[price]" : {
+        required: "Введите цену "
+      },
+      "subject[area]" : {
+        digits: "Только цифры"
+      },
+      "subject[floor]" : {
+        required: "Введите этаж",
+        digits: "Только цифры"
+      }
+    }
+  });
+});
+
+// validates for task
+$(document).ready(function() {
+  $(".task-form-validation").validate({
+    rules: {
+      "task[title]" : {
+        required: true,
+        maxlength: 140
+      },
+      "task[description]" : {
+        required: true,
+        maxlength: 800
+      },
+      "task[user_id]" : {
+        required: true
+      },
+      "task[deadline]" : {
+        required: true
+      }
+    },
+    messages: {
+      "task[title]" : {
+        required: "Введите название",
+        maxlength: "Не более 140 символов"
+      },
+      "task[description]" : {
+        required: "Введите описание",
+        maxlength: "Не более 800 символов"
+      },
+      "task[user_id]" : {
+        required: "Выберите ответственного"
+      },
+      "task[deadline]" : {
+        required: "Выберите срок дедлйна"
+      }
+    }
+  });
+});
+
+// validates for transaction
+$(document).ready(function() {
+  $(".transaction-form-validation").validate({
+    rules: {
+      "transaction[name]" : {
+        required: true,
+        maxlength: 140
+      },
+      "transaction[description]" : {
+        required: true,
+        maxlength: 800
+      },
+      "transaction[price]" : {
+        required: true
+      }
+    },
+    messages: {
+      "transaction[name]" : {
+        required: "Введите название",
+        maxlength: "Не более 140 символов"
+      },
+      "transaction[description]" : {
+        required: "Введите описание",
+        maxlength: "Не более 800 символов"
+      },
+      "transaction[price]" : {
+        required: "Введите цену"
+      }
+    }
+  });
+});
+
+// validates for settings -> city
+$(document).ready(function() {
+  $(".city-form-validation").validate({
+    rules: {
+      "city[name]" : {
+        required: true
+      }
+    },
+    messages: {
+      "city[name]" : {
+        required: "Введите название"
+      }
+    }
+  });
+});
+
+
+// validates for settings -> social statuses
+$(document).ready(function() {
+  $(".socialstatus-form-validation").validate({
+    rules: {
+      "social_status[title]" : {
+        required: true
+      }
+    },
+    messages: {
+      "social_status[title]" : {
+        required: "Введите наименование"
+      }      
+    }
+  });
+});
+
+// validates for settings -> typesubjects
+$(document).ready(function() {
+  $(".typesubject-form-validation").validate({
+    rules: {
+      "typesubject[name]" : {
+        required: true
+      },
+      "typesubject[permalink]" : {
+        required: true
+      }
+    },
+    messages: {
+      "typesubject[name]" : {
+        required: "Введите название"
+      },
+      "typesubject[permalink]" : {
+        required: "Введите постоянную ссылку"
+      }
+    }
+  });
+});
+
+// validates for settings -> condition fields
+$(document).ready(function() {
+  $(".condition-field-form-validation").validate({
+    rules: {
+      "condition_field[namefield]" : {
+        required: true
+      }
+    },
+    messages: {
+      "condition_field[namefield]" : {
+        required: "Введите название поля"
+      }
+    }
+  });
+});
+
+// validates for settings -> value fields
+$(document).ready(function() {
+  $(".value-field-form-validation").validate({
+    rules: {
+      "value_field[valuefield]" : {
+        required: true
+      }
+    },
+    messages: {
+      "value_field[valuefield]" : {
+        required: "Введите значение"
+      }
+    }
   });
 });
