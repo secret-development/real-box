@@ -19,7 +19,6 @@ class Task < ActiveRecord::Base
             :timeliness => { :on_or_after => :date_for_validation, :type => :datetime }
   validates_inclusion_of :done, :in => [true, false]
   
-  after_create :set_user_lastname
   after_validation :set_user_lastname
   
   def status
@@ -49,7 +48,9 @@ class Task < ActiveRecord::Base
   protected
   
   def set_user_lastname
-    update_attribute(:user_lastname, user.lastname)
+    if self.user != nil
+      self.update_attribute(:user_lastname, self.user.lastname)
+    end
   end
   
 end

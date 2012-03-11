@@ -13,7 +13,7 @@ describe TasksController do
     test_log_in(@user)
     # end auth
     
-    @task = Factory(:task, :user => @user)
+    @task = Factory(:task, :user => @user, :user_lastname => @user.lastname)
   end
   
   it "get show" do
@@ -154,9 +154,10 @@ describe TasksController do
     {
       :title => "MyString",
       :description => "MyText",
-      :user_id => 1,
+      :user_id => @user.id,
       :deadline => "2050-02-08 13:58:15",
-      :done => false
+      :done => false,
+      :user_lastname => @user.lastname
     }
   end
   
@@ -164,9 +165,10 @@ describe TasksController do
     {
       :title => "",
       :description => "",
-      :user_id => 1,
+      :user_id => @user.id,
       :deadline => "",
-      :done => false
+      :done => false,
+      :user_lastname => @user.lastname
     }
   end
   
