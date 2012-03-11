@@ -38,7 +38,7 @@ class Task < ActiveRecord::Base
   
   def self.search(search)
     if search
-      where('title LIKE ?', "%#{search}%") 
+      where('title LIKE ?', "%#{search}%")
     else
       reorder("created_at DESC")
     end
@@ -46,7 +46,6 @@ class Task < ActiveRecord::Base
   
 end
 
-#TODO: created_at DESC
 # == Schema Information
 #
 # Table name: tasks
@@ -59,5 +58,3 @@ end
 #  done        :boolean(1)
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
-
-
