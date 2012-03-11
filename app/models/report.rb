@@ -4,6 +4,10 @@ class Report < ActiveRecord::Base
     Transaction.where("date(created_at) = ? AND price_currency = ?", date, "доллар").sum(:price)    
   end
   
+  def self.total_ru(date)
+    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "рубль").sum(:price)    
+  end
+  
   def self.total_month(month)
     Transaction.where("month(created_at) = ?", month).sum(:price)    
   end

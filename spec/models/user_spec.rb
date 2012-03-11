@@ -105,5 +105,28 @@ describe User do
       last_email.to.should include(user.email)      
     end    
   end
+  
+  # association
+  describe "association" do
+    it "should 'has_many :transactions'" do
+      u = User.reflect_on_association(:transactions)
+      u.macro.should == :has_many      
+    end
+    
+    it "should 'has_many :customers'" do
+      u = User.reflect_on_association(:customers)
+      u.macro.should == :has_many      
+    end
+    
+    it "should 'has_many :tasks'" do
+      u = User.reflect_on_association(:tasks)
+      u.macro.should == :has_many
+    end
+    
+    it "should 'has_many :subjects'" do
+      u = User.reflect_on_association(:subjects)
+      u.macro.should == :has_many      
+    end
+  end
     
 end

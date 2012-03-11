@@ -59,24 +59,28 @@ describe UsersController do
     end
   end
   
-#  describe "regular user" do
-#    before(:each) do  
-#      @userr = { :email => "new@mail.ru",
-#                :lastname => "Иванов",
-#                :firstname => "Иван",
-#                :password => "123456",
-#                #:password_confirmation => "123456",
-#               # :role => false
-#              }
-#      test_log_in(@userr)
-#    end
-#      
-#    describe "failture" do
-#      it "GET 'new'" do
-#        get :new
-#        response.should be_success          
-#      end 
-#    end    
-#  end
+  describe "regular user" do
+    before(:each) do  
+      @regular_user = Factory(:User) 
+      test_log_in(@regular_user)
+      @other = Factory(:user)
+      @attr = { :email => "agent007@mail.ru"}
+    end
+      
+    describe "cannot regular user" do
+      it "GET 'new'" do
+        get :new
+        response.should_not be_success          
+      end
+    end
+    
+    describe "can regular user" do
+      it "update self" do
+        put :update, :id =>@regular_user, :user => @attr
+        flash[:notice].should =~ /Данные изменены/i      
+      end
+    end  
+  
+  end
 
 end

@@ -1,4 +1,4 @@
-<div id="tran-chart" style="width: 560px; height: 300px; float: left;">
+<div id="tran-chart" style="width: 660px; height: 300px; float: left;">
 </div>
 <script type="text/javascript" charset="urf-8">
   $(function() {
@@ -7,7 +7,7 @@
       title: { text: 'Неделя'},
       xAxis: { type: 'datetime'},
       yAxis: {
-        title: { text: 'Деньги'}
+        title: { text: 'Доход'}
       },
       tooltip: {
         formatter: function () {
@@ -15,7 +15,7 @@
         }  
       },
       series: [{
-        name: "Ship",
+        name: "USD",
         pointInterval: <%= 1.day * 900 %>,
         pointStart: <%= 1.weeks.ago.at_midnight.to_i * 1000 %>,
         data: <%= (1.weeks.ago.to_date..Date.today).map { |date| Report.total_dollar(date).to_f}.inspect %>
