@@ -1,9 +1,13 @@
+<div class="tabbable tabs-left">
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">Финансы</a></li>
+  <li><a href="#">Активность сотрудников</a></li>
+</ul>
+
 <%= flash_msg(flash[:notice]) %>
 <%= form_tag(report_path, :method => 'get') do %>
   <%= label_tag :month, "Период" %>
   <%= select_tag :month, options_for_select(ApplicationHelper::MONTH) %>
   <%= submit_tag 'Построить диаграмму' %>    
 <% end %>
-
-
-<%= Report.total %> тг
+</div>

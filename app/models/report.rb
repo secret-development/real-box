@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Report < ActiveRecord::Base
-  def self.total_on(date)
+  def self.total_dollar(date)
     Transaction.where("date(created_at) = ? AND price_currency = ?", date, "доллар").sum(:price)    
   end
   
@@ -9,11 +9,7 @@ class Report < ActiveRecord::Base
   end
   
   def self.total
-    Transaction.sum(:price)    
-  end
-  
-  def self.sum_month(m)
-    Transaction.where("m(created_at) = ?", m).sum(:price)    
+    Transaction.where("price_currency = ?", "доллар").sum(:price)    
   end
   
 end

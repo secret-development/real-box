@@ -18,7 +18,7 @@
         name: "Ship",
         pointInterval: <%= 1.day * 900 %>,
         pointStart: <%= 1.weeks.ago.at_midnight.to_i * 1000 %>,
-        data: <%= (1.weeks.ago.to_date..Date.today).map { |date| Report.total_on(date).to_f}.inspect %>
+        data: <%= (1.weeks.ago.to_date..Date.today).map { |date| Report.total_dollar(date).to_f}.inspect %>
       }]      
     });
   });
