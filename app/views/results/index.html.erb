@@ -22,9 +22,25 @@
         </div>
         <div class="s-group-field">
           <div class="s-field">
-            <%= f.label :district, "Район" %>
+            <%= f.label :district_id_eq, "Район" %>
             <%= f.grouped_collection_select(:district_id_eq, 
                 City.order(:name), :districts, :name ,:id, :title, :include_blank => true) %>
+          </div>
+          <div class="s-field">
+            <%= f.label :price_gte, "Цена:" %>
+            <%= f.text_field :price_gte, :class => "price-search-field" %> 
+            – 
+            <%= f.text_field :price_lte, :class => "price-search-field" %>
+            <%= f.select :price_currency_eq, Subject.price_cur_search %>
+          </div>
+        </div>
+        <div class="s-group-field">
+          <div class="s-field">
+            <%= f.label :area_gte, "Площадь:" %>
+            <%= f.text_field :area_gte, :class => "area-search-field" %>
+            –
+            <%= f.text_field :area_lte, :class => "area-search-field" %>
+            <span class="calc-label">м&sup2;</span>
           </div>
         </div>
         <div class="s-action">
