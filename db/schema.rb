@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120308054821) do
+ActiveRecord::Schema.define(:version => 20120311115223) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -37,7 +37,9 @@ ActiveRecord::Schema.define(:version => 20120308054821) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "potentials",         :default => false
+    t.integer  "type_customer_id"
     t.integer  "social_status_id"
+    t.string   "permalink"
     t.integer  "typetransaction_id"
     t.datetime "lastcall"
     t.integer  "user_id"
@@ -69,10 +71,12 @@ ActiveRecord::Schema.define(:version => 20120308054821) do
   end
 
   create_table "properties", :force => true do |t|
-    t.string  "condition"
-    t.string  "value"
-    t.integer "subject_id"
-    t.string  "typefield"
+    t.string   "condition"
+    t.string   "value"
+    t.integer  "subject_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "typefield"
   end
 
   create_table "social_statuses", :force => true do |t|
@@ -107,9 +111,10 @@ ActiveRecord::Schema.define(:version => 20120308054821) do
     t.integer  "user_id"
     t.datetime "deadline"
     t.boolean  "done"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.boolean  "admin"
+    t.string   "user_lastname"
   end
 
   create_table "transactions", :force => true do |t|
@@ -125,6 +130,7 @@ ActiveRecord::Schema.define(:version => 20120308054821) do
     t.datetime "updated_at",         :null => false
     t.boolean  "admin"
     t.string   "price_currency"
+    t.string   "user_lastname"
   end
 
   create_table "typesubjects", :force => true do |t|
