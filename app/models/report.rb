@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Report < ActiveRecord::Base
+  # finance report
   def self.total_dollar(date)
     Transaction.where("date(created_at) = ? AND price_currency = ?", date, "доллар").sum(:price)    
   end
@@ -16,14 +17,8 @@ class Report < ActiveRecord::Base
     Transaction.where("date(created_at) = ? AND price_currency = ?", date, "тенге").sum(:price)    
   end
   
-  def self.total_month(month)
-    Transaction.where("month(created_at) = ?", month).sum(:price)    
-  end
-  
-  def self.total
-    Transaction.where("price_currency = ?", "доллар").sum(:price)    
-  end
-  
+  # activ users report
+      
 end
 # transaction
 #    t.string   "name"
