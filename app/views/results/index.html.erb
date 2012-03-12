@@ -63,10 +63,23 @@
             </div>
             <div class="info-about-subject">
               <div class="main-info-about-subject">
-                <%= link_to s.typesubject.name, s %>
-                <div class="info-price-subject">
-                  – <%= price_currency(s) %>
+                <% if s.active == true %>
+                  <div class="active-sub">
+                    <%= link_to s.typesubject.name, s%>
+                    <div class="info-price-subject">
+                      за <%= price_currency(s) %>
+                    </div>  
+                    – Активна
+                  </div>
+                <% else %>
+                <div class="inactive-sub">
+                  <%= link_to s.typesubject.name, s%>
+                  <div class="info-price-subject">
+                    за <%= price_currency(s) %>
+                  </div>  
+                  – Не активна
                 </div>
+                <% end %>
               </div>
               <div class="other-info-subject">
                 <div class="field-other">

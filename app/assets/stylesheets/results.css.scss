@@ -79,6 +79,22 @@
           .info-price-subject{
             display: inline-block;
           }
+          .active-sub{
+            background:#AFD2EA;
+            padding:5px;
+            a{
+              color:#000000;
+              text-decoration:underline;
+            }
+          }
+          .inactive-sub{
+            background:#ECAFBC;
+            padding:5px;
+            a{
+              color:#fff;
+              text-decoration:underline;
+            }
+          }
         }
         .other-info-subject{
           padding:5px;
