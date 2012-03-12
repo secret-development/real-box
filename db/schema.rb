@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(:version => 20120311115223) do
     t.string   "phonemobile"
     t.string   "email"
     t.text     "note"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.boolean  "potentials",         :default => false
     t.integer  "social_status_id"
     t.integer  "typetransaction_id"
@@ -127,6 +127,12 @@ ActiveRecord::Schema.define(:version => 20120311115223) do
     t.boolean  "admin"
     t.string   "price_currency"
     t.string   "user_lastname"
+  end
+
+  create_table "type_customers", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "typesubjects", :force => true do |t|

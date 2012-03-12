@@ -41,7 +41,7 @@ class Task < ActiveRecord::Base
     if search
       where('title LIKE ? OR user_lastname LIKE ?', "%#{search}%", "%#{search}%")
     else
-      reorder("created_at DESC")
+      scoped
     end
   end
   
