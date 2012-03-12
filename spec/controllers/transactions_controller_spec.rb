@@ -23,7 +23,8 @@ describe TransactionsController do
               :district => @district)
 
     @transaction = Factory(:transaction, :typetransaction => @typetransaction,
-                  :user => @user, :customer => @customer, :subject => @subject)
+                  :user => @user, :user_lastname => @user.lastname, 
+                  :customer => @customer, :subject => @subject)
                   
   end
   
@@ -185,6 +186,7 @@ describe TransactionsController do
       :price => 1000,
       :payment => false,
       :user_id => @user.id,
+      :user_lastname => @user.lastname,
       :customer_id => @customer.id,
       :subject_id => @subject.id,
       :typetransaction_id => @typetransaction.id,
@@ -200,6 +202,7 @@ describe TransactionsController do
       :price => 1000,
       :payment => false,
       :user_id => @user.id,
+      :user_lastname => @user.lastname,
       :customer_id => @customer.id,
       :subject_id => @subject.id,
       :typetransaction_id => @typetransaction.id,

@@ -6,11 +6,14 @@ require 'spec_helper'
 describe Task do
   
   before(:each) do
+    @user = Factory(:user)
+    @task = Factory(:task, :user => @user, :user_lastname => @user.lastname)
     
     @attr = {
       :title => "MyTask",
       :description => "Just to do something",
-      :user_id => 1,
+      :user_id => @user.id,
+      :user_lastname => @user.lastname,
       :deadline => "2050-02-08 13:58:15",
       :done => false
     }
@@ -149,6 +152,13 @@ describe Task do
         @task.date_for_validation.to_s.should == @task.created_at.to_s
       end
       
+    end
+    
+    describe "set_user_lastname" do
+      it "should set user_lastname from user.lastname" do
+        @task = Task.create(@attr)
+        @task.user_lastname.should == @task.user.lastname
+      end
     end
     
   end
