@@ -43,15 +43,48 @@
           </div>
         </div>
         <div class="s-action">
-          <%= f.submit "Поиск", :class => "btn btn-primary" %>  
+          <%= f.submit "Поиск", :class => "btn btn-large btn-success" %>  
         </div>
       <% end %>
     </div>
-    <div>
-      <% @subjects.each do |s| %>
-      <div>
-        <%= s.address %>
-      </div>
+  </div>
+  <div class="row">
+    <div class="span12" id="subjects-results">
+      <% if @subjects %>
+        <h1 class="subjects-results-title">Результат:</h1>
+        <% @subjects.each do |s| %>
+          <div class="sub-one">
+            <div class="photo-sub">
+              <% if isset_photo?(s) %>
+                <%= link_to(image_tag(s.photos.first.image_url(:thumb)), s) %>
+              <% else %>
+                <%= link_to(image_tag("no-photo.gif", :title => "Нет фото"), s) %>
+              <% end %>
+            </div>
+            <div class="info-about-subject">
+              <div class="main-info-about-subject">
+                <%= link_to s.typesubject.name, s %>
+                <div class="info-price-subject">
+                  – <%= price_currency(s) %>
+                </div>
+              </div>
+              <div class="other-info-subject">
+                <div class="field-other">
+                  Адресс: <%= s.address %>
+                </div>
+                <div class="field-other">
+                  Площадь: <%= isset_data(s.area) %> <span class="calc-label">м&sup2;</span>
+                </div>
+                <div class="field-other">
+                  Хозяин: <%= link_to(s.customer.fullname, s.customer) %>
+                </div>
+              </div>
+              
+            </div>
+            <div class="clear"></div>
+          </div>
+        <% end %>
+        <%= paginate @subjects %>      
       <% end %>
     </div>
   </div>
