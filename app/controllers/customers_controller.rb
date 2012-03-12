@@ -84,10 +84,8 @@ class CustomersController < ApplicationController
   end
   
   def page_paginate
-    5
+    20
   end
 
   
 end
-
-# todo: переделать дату формата

@@ -43,6 +43,10 @@ Crm::Application.routes.draw do
   resources :typesubjects, :except => [:show]
   # settings
   match "settings" => "settings#index", :as => :settings
+  
+  # for search
+  resources :results
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -92,7 +96,7 @@ Crm::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'pages#index'
+  root :to => 'results#index'
 
   # See how all your routes lay out with "rake routes"
 

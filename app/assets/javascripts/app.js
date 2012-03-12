@@ -648,3 +648,47 @@ $(document).ready(function() {
     }
   });
 });
+
+// search:
+// change city - load districts
+$(document).ready(function() {
+  // functions :
+  function disabled_district(){
+    $("#search_district_id_eq")
+      .attr("disabled", true)
+      .html("<option>Нет района</option>");
+  }
+  
+  function enable_district(){
+    $("#search_district_id_eq")
+      .attr("disabled", false)
+  }
+  
+  // all districts :
+  var districts = $("#search_district_id_eq").html();
+  
+  // first state
+  var city_first = $("#search_city_id_eq :selected").text();
+  var opt_fir = $(districts).filter("optgroup[label='"+city_first+"']")
+    .prepend('<option value="">Все районы</option>')
+    .html();
+  $("#search_district_id_eq").html(opt_fir);
+  if (!opt_fir) {
+    disabled_district();
+  };
+  
+  // change city
+  $("#search_city_id_eq").change(function(event) {
+    var city = $("#search_city_id_eq :selected").text();
+    var options = $(districts).filter("optgroup[label='"+city+"']")
+    .prepend('<option value="">Все районы</option>')
+    .html();
+    if (options) {
+      enable_district();
+      $("#search_district_id_eq").html(options);
+    }
+    else{
+      disabled_district();
+    };
+  });
+});
