@@ -4,10 +4,14 @@ class ReportsController < ApplicationController
   layout 'report'
   load_and_authorize_resource
   def index
-    if params[:month] == "Неделя"
+    if params[:period] == "Неделя"
       render  "weeks"
-    elsif params[:month] == "Месяц"
-      render  "month"        
+    elsif params[:period] == "Месяц"
+      render  "month"
+    elsif params[:period] == "Квартал"
+      render "quarter"
+    elsif params[:period] == "Год"
+      render "year"      
     end  
   end
   
