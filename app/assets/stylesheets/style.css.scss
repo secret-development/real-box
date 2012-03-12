@@ -130,4 +130,8 @@ form{
 }
 .tasks-size-label{
   float:left;
+  &:hover{
+    background:none !important;
+    color:#ccc !important;
+  }
 }
