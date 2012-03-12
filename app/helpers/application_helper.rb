@@ -219,6 +219,26 @@ module ApplicationHelper
       :unit => "руб.", :delimiter => " ", :format => "%n %u")
   end
   
+
+  # search methods:
+  def isset_photo?(object)
+    if object.photos.any?
+      true
+    else
+      false
+    end
+  end
+  
+  def isset_data(object)
+    if object.nil?
+      "–"
+    else
+      object
+    end
+  end
+  
+  # for reports
+
   MONTH = ["Неделя", "Месяц", "Квартал", "Год"]
   
 end

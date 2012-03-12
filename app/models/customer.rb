@@ -4,7 +4,7 @@ class Customer < ActiveRecord::Base
   belongs_to :typetransaction
   belongs_to :social_status
   has_many :subjects, :dependent => :destroy
-  has_many :transactions
+  has_many :transactions, :dependent => :destroy
   belongs_to :user
   #validations
   validates :firstname, :lastname, :presence => true

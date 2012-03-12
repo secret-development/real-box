@@ -106,27 +106,77 @@ describe User do
     end    
   end
   
-  # association
-  describe "association" do
-    it "should 'has_many :transactions'" do
-      u = User.reflect_on_association(:transactions)
-      u.macro.should == :has_many      
+  # associations
+  describe "associations" do
+    
+    describe "transactions" do
+      it "should respond to transactions" do
+        user = User.new(@attr)
+        user.should respond_to(:transactions)
+      end
+      
+      it "should has_many transactions" do
+        user = User.reflect_on_association(:transactions)
+        user.macro.should == :has_many
+      end
+      
+      it "should dependent nullify" do
+        user = User.reflect_on_association(:transactions)
+        user.options[:dependent].should == :nullify
+      end
     end
     
-    it "should 'has_many :customers'" do
-      u = User.reflect_on_association(:customers)
-      u.macro.should == :has_many      
+    describe "customers" do
+      it "should respond to customers" do
+        user = User.new(@attr)
+        user.should respond_to(:customers)
+      end
+      
+      it "should has_many customers" do
+        user = User.reflect_on_association(:customers)
+        user.macro.should == :has_many
+      end
+      
+      it "should dependent nullify" do
+        user = User.reflect_on_association(:customers)
+        user.options[:dependent].should == :nullify
+      end
     end
     
-    it "should 'has_many :tasks'" do
-      u = User.reflect_on_association(:tasks)
-      u.macro.should == :has_many
+    describe "tasks" do
+      it "should respond to tasks" do
+        user = User.new(@attr)
+        user.should respond_to(:tasks)
+      end
+      
+      it "should has_many tasks" do
+        user = User.reflect_on_association(:tasks)
+        user.macro.should == :has_many
+      end
+      
+      it "should dependent nullify" do
+        user = User.reflect_on_association(:tasks)
+        user.options[:dependent].should == :nullify
+      end      
     end
     
-    it "should 'has_many :subjects'" do
-      u = User.reflect_on_association(:subjects)
-      u.macro.should == :has_many      
+    describe "subjects" do
+      it "should respond to subjects" do
+        user = User.new(@attr)
+        user.should respond_to(:subjects)
+      end
+      
+      it "should has_many subjects" do
+        user = User.reflect_on_association(:subjects)
+        user.macro.should == :has_many
+      end
+      
+      it "should dependent nullify" do
+        user = User.reflect_on_association(:subjects)
+        user.options[:dependent].should == :nullify
+      end
     end
+    
   end
-    
+  
 end

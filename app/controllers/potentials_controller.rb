@@ -6,7 +6,7 @@ class PotentialsController < ApplicationController
   helper_method :sort_column, :sort_direction
   
   def index
-    @potentials = Customer.potentials.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(7)
+    @potentials = Customer.potentials.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(20)
     @title = "Потенциальные клиенты"
   end
   
