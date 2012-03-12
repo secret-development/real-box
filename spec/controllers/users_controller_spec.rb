@@ -72,6 +72,11 @@ describe UsersController do
         get :new
         response.should_not be_success          
       end
+      
+      it "should redirect root path" do
+        put :update, :id => @other, :user => @attr
+        flash[:alert].should =~ /Действия запрещены!/i        
+      end
     end
     
     describe "can regular user" do
