@@ -240,5 +240,8 @@ module ApplicationHelper
   # for reports
 
   MONTH = ["Неделя", "Месяц", "Квартал", "Год"]
+
+  # for transaction views:
+  
   
 end
