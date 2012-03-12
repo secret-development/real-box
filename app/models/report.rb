@@ -18,7 +18,21 @@ class Report < ActiveRecord::Base
   end
   
   # activ users report
-      
+  def self.activ_user_cust(date)
+    Customer.where("date(created_at) = ?", date).count(:id)        
+  end
+  
+  def self.activ_user_sub(date)
+    Subject.where("date(created_at) = ?", date).count(:id)    
+  end
+  
+  def self.activ_user_tran(date)
+    Transaction.where("date(created_at) = ?", date).count(:id)    
+  end
+  
+  def self.current(user)
+    User.where("user(id) = ?", user)    
+  end    
 end
 # transaction
 #    t.string   "name"
