@@ -10,6 +10,12 @@ class ApplicationController < ActionController::Base
   def current_ability
     @current_ability ||= Ability.new(current_user)    
   end
+  
+  def tasks_size
+    current_user.tasks.where(:done => false).size
+  end
+  
+  helper_method :tasks_size
     
   private
   

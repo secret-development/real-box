@@ -71,6 +71,13 @@
             <%= current_user.firstname %> <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
+            <li>
+              <%= link_to icon_tags + " Мои задачи", tasks_path, 
+                :class => "tasks-size-label" %>
+              <div id="tasks-size">
+                <%= tasks_size %>
+              </div>
+            </li>
             <li><%= link_to icon_user + ' Показать профиль', user_path(current_user) %></li>
             <li><%= link_to icon_edit + ' Изменить профиль', add_info_user_path(current_user) %></li>
             <li><%= link_to icon_lock_black + ' Изменить пароль', edit_user_path(current_user) %></li>

@@ -176,3 +176,15 @@ form{
     }
   }
 }
+#subjects-sort th .current{
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+#subjects-sort th .asc { 
+  background-image: url(sort_asc.png);
+}
+#subjects-sort th .desc { 
+  background-image: url(sort_desc.png); 
+}

@@ -63,7 +63,7 @@ class Transaction < ActiveRecord::Base
     if search
       where('name LIKE ? OR user_lastname LIKE ?', "%#{search}%", "%#{search}%") 
     else
-      reorder("created_at DESC")
+      scoped
     end
   end
   

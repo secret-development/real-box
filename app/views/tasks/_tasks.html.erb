@@ -1,4 +1,4 @@
-<table class="table table-striped table-condensed tasks">
+<table class="table table-striped table-condensed tasks" id="tasks_table">
   <thead>
     <tr>
       <th><%= sortable "id", "#" %></th>
@@ -18,7 +18,11 @@
         <td><%= task.id %></td>
         <td><%= link_to task.title, task_path(task) %></td>
         <td>
-          <%= task.user.lastname %>
+          <% if task.user_id == nil %>
+            Отсутствует
+          <% else %>
+            <%= task.user.lastname %>  
+          <% end %>
         </td>
         <td><%= to_datetime(task.deadline) %></td>
         <td> 
@@ -57,10 +61,14 @@
                 <td><%= task.id %></td>
         <td><%= link_to task.title, task_path(task) %></td>
         <td>
-          <%= task.user.lastname %>
+          <% if task.user_id == nil %>
+            Отсутствует
+          <% else %>
+            <%= task.user.lastname %>  
+          <% end %>
         </td>
         <td><%= to_datetime(task.deadline) %></td>
-        <td> <% if !task.admin? %>
+        <td>
           <div class="btn-group">
             <a class="btn-small dropdown-toggle" 
               data-toggle="dropdown" href="#">
@@ -80,9 +88,7 @@
               <% end %>
             </ul>
           </div>
-          <% else %>
-            <%= task.status %>
-          <% end %>
+
         </td>
         <td><%= to_datetime(task.created_at) %></td>
         <td>

@@ -115,3 +115,19 @@ form{
     font-size:17px;
   }
 }
+
+#tasks-size{
+  margin-left:5px;
+  display: inline-block;
+  float:left;
+  padding:1px 7px;
+  font-size:10px;
+  background:#B6E4F8;
+  -webkit-border-radius:25px;
+  -moz-border-radius:25px;
+  border-radius:25px;
+  -o-border-radius:25px;
+}
+.tasks-size-label{
+  float:left;
+}
