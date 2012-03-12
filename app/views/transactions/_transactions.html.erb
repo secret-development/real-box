@@ -16,11 +16,29 @@
     <% @transactions.each do |t| %>
       <tr>
         <% if current_user.role? %>
-          <td><%= link_to t.name, t %></td>
-          <td><%= t.typetransaction.name %></td>
-          <td><%= link_to t.user.lastname, user_path(t.user) %></td>
-          <td><%= link_to t.customer.lastname, customer_path(t.customer) %></td>
-          <td><%= to_formatted_date(t.created_at) %></td>
+          <td>
+            <%= link_to t.name, t %>
+          </td>
+          <td>
+            <%= t.typetransaction.name %>
+          </td>
+          <td>
+            <% if t.user_id == nil %>
+              Отсутствует
+            <% else %>
+              <%= link_to t.user.lastname, user_path(t.user) %>
+            <% end %>
+          </td>
+          <td>
+            <% if t.customer_id == nil %>
+              Отсутствует
+            <% else %>
+              <%= link_to t.customer.lastname, customer_path(t.customer) %>  
+            <% end %>
+          </td>
+          <td>
+            <%= to_formatted_date(t.created_at) %>
+          </td>
           <td>
             <% if t.subject_id == nil %>
               Отсутствует
@@ -55,11 +73,29 @@
                       :confirm => "Вы уверены?" %>
         </td>
         <% elsif t.user_id == current_user.id %>
-          <td><%= link_to t.name, t %></td>
-          <td><%= t.typetransaction.name %></td>
-          <td><%= link_to t.user.lastname, user_path(t.user) %></td>
-          <td><%= link_to t.customer.lastname, customer_path(t.customer) %></td>
-          <td><%= to_formatted_date(t.created_at) %></td>
+          <td>
+            <%= link_to t.name, t %>
+          </td>
+          <td>
+            <%= t.typetransaction.name %>
+          </td>
+          <td>
+            <% if t.user_id == nil %>
+              Отсутствует
+            <% else %>
+              <%= link_to t.user.lastname, user_path(t.user) %>
+            <% end %>
+          </td>
+          <td>
+            <% if t.customer_id == nil %>
+              Отсутствует
+            <% else %>
+              <%= link_to t.customer.lastname, customer_path(t.customer) %>  
+            <% end %>
+          </td>
+          <td>
+            <%= to_formatted_date(t.created_at) %>
+          </td>
           <td>
             <% if t.subject_id == nil %>
               Отсутствует
