@@ -16,7 +16,11 @@
   </div>
   <div class="field-transaction">
     <span class="title-field">Ответственный:</span>
-    <%= link_to(@transaction.user.fullname, user_path(@transaction.user)) %>
+    <% if @transaction.user_id == nil %>
+      Отсутствует
+    <% else %>      
+      <%= link_to(@transaction.user.fullname, user_path(@transaction.user)) %>  
+    <% end %>
   </div>
   <div class="field-transaction">
     <span class="title-field">Клиент:</span>

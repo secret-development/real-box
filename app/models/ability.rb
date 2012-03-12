@@ -16,6 +16,7 @@ class Ability
       can :read, :all
       can :create, Task
       can [:update,:destroy], Task, :admin => false, :user_id => user.id
+      can :update, Task, :admin => true, :user_id => user.id
       #can :destroy, Task, :admin => false, :user_id => user.id
       can :update, User, :id => user.id
       can :add_info, User, :id => user.id
