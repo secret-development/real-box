@@ -1,4 +1,56 @@
+# -*- encoding : utf-8 -*-
 Crm::Application.routes.draw do
+
+  get "reports" => "reports#index", :as => :reports
+  resource :reports do
+    get "activ", :on => :member, :as => :activ
+    get "finance", :on => :member, :as => :finance
+  end
+  get "sign_in" => "sessions#new", :as => "sign_in"
+  get "sign_out" => "sessions#destroy", :as => "sign_out"
+
+  get "sign_up => " "users/new", :as => "sign_up"
+  resources :users do
+    get 'add_info', :on => :member, :as => :add_info
+  end
+  resource :sessions
+  resource :password_resets
+
+  get "potentials/index"
+  match "potentials" => "potentials#index", :as => :potentials
+  resources :tasks  
+  resources :customers do
+    get 'all', :on => :collection
+    post 'lastcallcustomer', :on => :collection
+  end
+  
+  resources :subjects do
+    resources :photos, :only => [:create, :destroy]
+    get 'add_properties', :on => :member, :as => :add_properties
+    get 'add_photo', :on => :member, :as => :add_photo
+    post 'findtypesubject', :on => :collection
+    post 'load_attr', :on => :collection
+    # scopes:
+    get 'active', :on => :collection
+    get 'inactive', :on => :collection
+  end
+  
+  resources :transactions do
+    resources :documents, :only => [:create, :destroy]
+    get 'add_document', :on => :member, :as => :add_document
+  end
+  resources :cities, :except => [:show]
+  resources :social_statuses, :except => [:show]
+  resources :condition_fields
+  resources :value_fields, :except => [:show]
+  resources :typesubjects, :except => [:show]
+  # settings
+  match "settings" => "settings#index", :as => :settings
+  
+  # for search
+  resources :results
+  get "help" => "help#index", :as => :help
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +100,7 @@ Crm::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'results#index'
 
   # See how all your routes lay out with "rake routes"
 

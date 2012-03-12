@@ -1,0 +1,119 @@
+#search-page{
+  #search-die{
+    background:#FCFCFC;
+    border:1px solid #eee;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    -o-border-radius:10px;
+    margin-bottom:15px;
+    
+    #search-main-form{
+      margin-top:35px;
+      margin-left:20px;
+      margin-right:20px;
+      
+      .s-group-field{
+        clear:both;
+        height:35px;
+        margin-bottom:40px;
+        .s-field{
+          margin-right:50px;
+          float:left;
+          label{
+            float:left;
+            // min-width:80px;
+            margin-right:10px;
+            font-size:14px;
+            margin-top:5px;
+          }
+          select{
+            width:120px;
+          }
+          .price-search-field{
+            width:70px;
+          }
+          #search_price_currency_eq{
+            width:120px;
+          }
+          .area-search-field{
+            width:50px;
+          }
+        }
+      }
+      .s-action{
+        clear:both;
+        margin-top:-20px;
+        text-align:center;
+      }
+    }
+  }
+  #subjects-results{
+    clear:both;
+    .subjects-results-title{
+      font-size:20px;
+      font-weight:normal;
+      margin-bottom:10px;
+    }
+    #sort-search-subjects{
+      margin-bottom:30px;
+      .sort-search-title{
+        display: inline-block;
+        margin-right:10px;
+      }
+    }
+    .sub-one{
+      margin-bottom:10px;
+      // border:1px solid #ccc;
+      height:130px;
+      .photo-sub{
+        // border:1px solid #ccc;
+        float:left;
+        margin-right:20px;
+        img{
+          height:95px;
+          width:150px;
+          border:1px solid #eee;
+        }
+      }
+      .info-about-subject{
+        float:left;
+        width:70%;
+        margin-left:5px;
+        .main-info-about-subject{
+          font-size:16px;
+          margin-bottom:5px;
+          .info-price-subject{
+            display: inline-block;
+          }
+          .active-sub{
+            background:#AFD2EA;
+            padding:5px;
+            a{
+              color:#000000;
+              text-decoration:underline;
+            }
+          }
+          .inactive-sub{
+            background:#ECAFBC;
+            padding:5px;
+            a{
+              color:#fff;
+              text-decoration:underline;
+            }
+          }
+        }
+        .other-info-subject{
+          padding:5px;
+          background:#F8F8F8;
+          .field-other{
+            margon-bottom:5px;
+          }
+        }
+      }
+    }
+  }
+}
+.date-add-subject{
+  font-size:11px;
+}

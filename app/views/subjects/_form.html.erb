@@ -1,0 +1,99 @@
+<%= form_for(@subject, :html => {:multipart => true,
+  :class => "form-horizontal subject-form-validation"}) do |f| %>
+  <%= error_messages_for(@subject) %>
+  <fieldset>
+    <legend><%= @subject.legend_value %></legend>
+    <div class="control-group">
+      <%= f.label :typetransaction_id, "Тип сделки:" %>
+      <div class="controls">
+        <%= f.collection_select(:typetransaction_id, Typetransaction.all, 
+            :id, :name) %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :city_id, "Город:" %>
+      <div class="controls">
+        <%= f.collection_select(:city_id,
+            City.all, :id, :name) %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :typesubject_id, "Тип недвижимости:" %>
+      <div class="controls">
+        <%= f.collection_select(:typesubject_id, Typesubject.all, :id, :name) %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :district, "Район:" %>
+      <div class="controls">
+        <div class="district-operations">
+          <%= f.grouped_collection_select(:district_id, 
+              City.order(:name), :districts, :name ,:id, :title) %>
+          <div class="title">Нет в списке района? Добавьте самостоятельно</div>
+          <button type="button" id="add-district-button" class="btn">
+            <%= icon_map + " Добавить район" %>
+          </button>
+        </div>
+        <%= f.text_field :districtname, :id => "add_district", :placeholder => "Западный" %>
+        <button type="button" id="back-district-select" class="btn">
+          <%= list_icon + " Вернуться к списку районов" %> 
+        </button> 
+      </div>
+    </div>
+    <!-- floor -->
+    <div class="control-group" id="floor-subject-block">
+      <%= f.label :floor, "Этаж:" %>
+      <div class="controls">
+        <%= f.text_field :floor, :placeholder => "9" %> 
+      </div>
+    </div>
+    <% if floor?(@subject) %>
+      <div class="control-group" id="exist-floor-subject">
+        <%= f.label :floor, "Этаж:" %>
+        <div class="controls">
+          <%= f.text_field :floor, :placeholder => "9" %> 
+        </div>
+      </div>
+    <% end %>
+    <!-- end floor -->
+    <div class="control-group">
+      <%= f.label :price, "Цена:" %>
+      <div class="controls">
+        <%= f.text_field :price, :placeholder => "10000" %> 
+        <%= f.select :price_currency, @subject.price_cur %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :area, "Площадь:" %>
+      <div class="controls">
+        <%= f.text_field :area, :placeholder => "70" %> 
+        <span class="calc-label">м&sup2;</span>
+      </div>
+    </div>
+    <!-- address -->
+    <div class="control-group">
+      <%= f.label :address, "Адрес:" %>
+      <div class="controls address-fields">
+        <%= f.text_field :street, :id => "ad-street", :placeholder => "Абая" %>
+        <span class="address-label">дом</span>
+        <%= f.text_field :house, :id => "ad-house", 
+            :maxlength => "4", :placeholder => "34" %>
+        <span class="address-label">кв.</span>
+        <%= f.text_field :flat, :id => "ad-flat", 
+            :maxlength => "4", :placeholder => "15" %>
+      </div>
+    </div>
+    <!-- address -->
+    <div class="control-group">
+      <div class="controls">
+        <%= hidden_field_tag('subject[customer_id]', @subject.customer_id.nil? ? params[:customer_id] : @subject.customer_id ) %>
+        <div id="subject-id" data-subject-id="<%= @subject.new_record? ? nil : @subject.id  %>"></div>
+      </div>
+    </div>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <div class="form-actions">
+      <%= f.submit @subject.button_value, :class => "btn btn-primary" %>
+      <button type="reset" class="btn cancel-form">Отмена</button>
+    </div>
+  </fieldset>
+<% end %>

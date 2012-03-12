@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Crm</title>
+  <title><%= title %></title>
+  <%= favicon_link_tag %>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <%= render 'layouts/topmenu' %>
+  <div class="container" id="main-wrapper">
+    <div class="row">
+      <div class="span12" id="content">
+        <%= yield %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span12" id="footer">
+        <address class="pull-right">
+          <a href="http://remeli.kz">
+            Remeli.kz
+          </a>
+           &copy; 2012
+        </address>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

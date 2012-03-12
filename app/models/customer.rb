@@ -1,0 +1,114 @@
+# -*- encoding : utf-8 -*-
+class Customer < ActiveRecord::Base
+  # associations
+  belongs_to :typetransaction
+  belongs_to :social_status
+  has_many :subjects, :dependent => :destroy
+  has_many :transactions, :dependent => :destroy
+  belongs_to :user
+  #validations
+  validates :firstname, :lastname, :presence => true
+  #scope
+  scope :real, where(:potentials => false)
+  scope :potentials, where(:potentials => true)
+  #default_scope order("lastname ASC")
+
+  attr_writer :area_code, :phonemobile1, :phonemobile2
+  
+  # callbacks
+  before_save :phonemobile_merge
+  before_update :phonemobile_merge
+  
+  #permalink
+#  def to_param
+#    permalink    
+#  end
+  
+  def phonemobile_merge
+    if (@area_code.blank? || @phonemobile1.blank? || @phonemobile2.blank?)
+      if new_record?
+        self.phonemobile = ""  
+      end
+    else
+      self.phonemobile = "+7 #{@area_code} #{@phonemobile1} #{@phonemobile2}" 
+    end
+  end
+  
+  def area_code
+    unless phonemobile.nil?
+      phonemobile.split(' ').second
+    end
+  end
+  
+  def phonemobile1
+    unless phonemobile.nil?
+      phonemobile.split(' ').third
+    end
+  end
+  
+  def phonemobile2
+    unless phonemobile.nil?
+      phonemobile.split(' ').fourth
+    end
+  end
+  
+  def button_value
+    if new_record?
+      "Добавить"
+    else
+      "Редактировать"      
+    end    
+  end
+  
+  def legend_value
+    if new_record?
+      "Добавление клиента"
+    else 
+      "Редактирование клиента"      
+    end    
+  end
+  
+  def self.search(search)
+    if search
+      where('lastname LIKE ? OR firstname LIKE ?', "%#{search}%", "%#{search}%")
+    else
+      scoped
+    end 
+  end
+
+  def fullname
+    lastname + " " + firstname
+  end
+  
+  #all customers count
+  def self.all_customers_count
+    Customer.count(:id)    
+  end
+  # real customers count
+  def self.real_customers_count
+    Customer.where("potentials = false").count(:id)    
+  end
+  # potentials customers count
+  def self.potential_customers_count
+    Customer.where("potentials = true").count(:id)    
+  end
+  
+
+end
+
+# == Schema Information
+#
+# Table name: customers
+#
+#  id                 :integer(4)      not null, primary key
+#  firstname          :string(255)
+#  lastname           :string(255)
+#  phonehome          :string(255)
+#  phonemobile        :string(255)
+#  email              :string(255)
+#  note               :text
+#  created_at         :datetime
+#  updated_at         :datetime
+#  potentials         :boolean(1)      default(FALSE)
+#  social_status_id   :integer(4)
+#  typetransaction_id :integer(4)

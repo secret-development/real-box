@@ -1,6 +1,7 @@
 config/database.yml
 config/*.sphinx.conf
 config/s3_credentials.yml
+public/uploads/*
 *~
 *.cache
 *.log
@@ -17,3 +18,4 @@ coverage/*
 db/*.sqlite3
 *.tmproj
 *.sw?
+coverage
