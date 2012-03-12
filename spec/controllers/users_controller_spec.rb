@@ -61,7 +61,7 @@ describe UsersController do
   
   describe "regular user" do
     before(:each) do  
-      @regular_user = Factory(:User) 
+      @regular_user = Factory(:regular_user) 
       test_log_in(@regular_user)
       @other = Factory(:user)
       @attr = { :email => "agent007@mail.ru"}

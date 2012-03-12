@@ -10,7 +10,7 @@ FactoryGirl.define do
     role true
     phonemobile "+7 777 474 4343"
   end
-  factory :User do
+  factory :regular_user, :class => User do
     email "new@mail.ru"
     lastname "Петров"
     firstname  "Петр"
