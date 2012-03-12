@@ -18,21 +18,33 @@ class Report < ActiveRecord::Base
   end
   
   # activ users report
-  def self.activ_user_cust(date)
-    Customer.where("date(created_at) = ?", date).count(:id)        
+  def self.find_user(user)
+    @u = User.find(user) 
   end
   
-  def self.activ_user_sub(date)
-    Subject.where("date(created_at) = ?", date).count(:id)    
+  def self.return_name
+    @u.fullname    
   end
   
-  def self.activ_user_tran(date)
-    Transaction.where("date(created_at) = ?", date).count(:id)    
+  def self.activ_user(date)
+    cust = @u.customers.where("date(created_at) = ?", date).count(:id)
+    sub = @u.subjects.where("date(created_at) = ?", date).count(:id)
+    tran = @u.transactions.where("date(created_at) = ?", date).count(:id)
+    summa = (cust + sub + tran)/3.0
+    return summa.to_f.round(3)
   end
-  
-  def self.current(user)
-    User.where("user(id) = ?", user)    
-  end    
+#  def self.activ_user_cust(date)
+#    @u.customers.where("date(created_at) = ?", date).count(:id)        
+#  end
+#  
+#  def self.activ_user_sub(date)
+#    @u.subjects.where("date(created_at) = ?", date).count(:id)    
+#  end
+#  
+#  def self.activ_user_tran(date)
+#    @u.transactions.where("date(created_at) = ?", date).count(:id)    
+#  end
+     
 end
 # transaction
 #    t.string   "name"
