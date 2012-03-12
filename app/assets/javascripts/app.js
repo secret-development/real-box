@@ -108,9 +108,14 @@ $(document).ready(function() {
 
 // live search for subject
 $(document).ready(function() {
-  $('#subjects-sort th a, #subjects-sort .paginate a').live('click', function() {
+  $('#subject th a').live('click', function() {
     $.getScript(this.href);  
     return false;  
+  });
+  
+  $('#subjects_search input').keyup(function(){
+    $.get($("#subjects_search").attr("action"), $("#subjects_search").serialize(), null, "script");
+    return false;
   });
 });
 

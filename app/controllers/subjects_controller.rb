@@ -10,21 +10,21 @@ class SubjectsController < ApplicationController
   
   def index
     @title = "Объекты"
-    @subjects = Subject.order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
+    @subjects = Subject.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
     respond_with(@subjects)
   end
   
   # active
   def active
     @title = "Активные объекты"
-    @subjects = Subject.active_subjects.page(params[:page]).per(page_paginate)
+    @subjects = Subject.active_subjects.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
     respond_with(@subjects)
   end
   
   # inactive
   def inactive
     @title = "Неактивные объекты"
-    @subjects = Subject.inactive_subjects.page(params[:page]).per(page_paginate)
+    @subjects = Subject.inactive_subjects.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
     respond_with(@subjects)
   end
   

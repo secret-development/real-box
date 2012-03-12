@@ -166,6 +166,14 @@ class Subject < ActiveRecord::Base
     self.price = price_before_type_cast.to_s.gsub(/\s/, '')
   end
   
+  def self.search(search)
+    if search
+      where('area LIKE ?', "%#{search}%")
+    else
+      scoped
+    end 
+  end
+  
 end
 
 # == Schema Information
