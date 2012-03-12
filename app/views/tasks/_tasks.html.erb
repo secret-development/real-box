@@ -68,7 +68,7 @@
           <% end %>
         </td>
         <td><%= to_datetime(task.deadline) %></td>
-        <td> <% if !task.admin? %>
+        <td>
           <div class="btn-group">
             <a class="btn-small dropdown-toggle" 
               data-toggle="dropdown" href="#">
@@ -88,9 +88,7 @@
               <% end %>
             </ul>
           </div>
-          <% else %>
-            <%= task.status %>
-          <% end %>
+
         </td>
         <td><%= to_datetime(task.created_at) %></td>
         <td>
