@@ -63,7 +63,7 @@ namespace :deploy do
   
   desc "assets precompile"
   task :assets_precompile, :roles => :app do
-    run "cd #{deploy_to}/current && rvm use 1.9.3 do bundle exec rake assets:precompile RAILS_ENV=productionv"
+    run "cd #{current_path} && rvm use 1.9.3 do bundle exec rake assets:precompile RAILS_ENV=productionv"
   end
   
   desc "Start application"
