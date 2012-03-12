@@ -9,10 +9,11 @@
 
 # type of transaction:
 
-Typetransaction.delete_all
+
 types_of_transactions = ['Купля', 'Продажа', 'Аренда', 'Съем', 'Обмен']
 types_of_transactions.each do |t|
   Typetransaction.create(:name => t)
 end
 
+User.find_by_email("admin@example.com").delete
 User.create(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :role => true, :lastname => "Иванов", :firstname => "Иван")
