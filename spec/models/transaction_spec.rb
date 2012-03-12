@@ -20,7 +20,7 @@ describe Transaction do
 
     @transaction = Factory(:transaction, :typetransaction => @typetransaction,
                     :user => @user, :customer => @customer,
-                    :subject => @subject)
+                    :subject => @subject, :user_lastname => @user.lastname)
     
     # price_currency
     @pricecur = {
@@ -40,8 +40,8 @@ describe Transaction do
       :customer_id => @customer.id,
       :subject_id => @subject.id,
       :typetransaction_id => @typetransaction.id,
-      :price_currency => @pricecur["доллар"]
-      
+      :price_currency => @pricecur["доллар"],
+      :user_lastname => @user.lastname
     }
     
   end
@@ -281,6 +281,13 @@ describe Transaction do
         transaction.subject.active.should == true
       end
     
+    end
+    
+    describe "set_user_lastname method" do
+      it "should set user_lastname from user.lastname" do
+        @transaction = Transaction.create(@attr)
+        @transaction.user_lastname.should == @transaction.user.lastname
+      end
     end
     
   end

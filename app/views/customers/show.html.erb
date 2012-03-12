@@ -73,6 +73,11 @@
         </div>
         <div class="actions-with-customers">
           <%= link_to plus_icon_white + " Добавить недвижимость", new_subject_path(:customer_id => @customer.id), :class => "btn btn-primary" %>
+          <% if @customer.potentials == false %>
+            <%= link_to list_icon + " Заключить сделку",
+                new_transaction_path(:customer_id => @customer.id), 
+                :class => "btn" %>
+          <% end %>
           <%= link_to edit_icon + " Редактировать",
               edit_customer_path(@customer), :class => "btn" %>
           <%= link_to delete_icon + " Удалить",

@@ -28,6 +28,7 @@ class Transaction < ActiveRecord::Base
   after_update :check_active_subject
   before_save :check_active_subject
   before_validation :format_price
+  after_validation :set_user_lastname
   
   # price currency
   
@@ -60,9 +61,9 @@ class Transaction < ActiveRecord::Base
   
   def self.search(search)
     if search
-      where('name LIKE ?', "%#{search}%") 
+      where('name LIKE ? OR user_lastname LIKE ?', "%#{search}%", "%#{search}%") 
     else
-      scoped
+      reorder("created_at DESC")
     end
   end
   
@@ -89,6 +90,14 @@ class Transaction < ActiveRecord::Base
 
   def format_price
     self.price = price_before_type_cast.to_s.gsub(/\s/, '')
+  end
+  
+  protected
+  
+  def set_user_lastname
+    if self.user != nil
+      self.update_attribute(:user_lastname, self.user.lastname)
+    end
   end
   
 end
