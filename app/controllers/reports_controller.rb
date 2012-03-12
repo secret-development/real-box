@@ -4,15 +4,7 @@ class ReportsController < ApplicationController
   layout 'report'
   load_and_authorize_resource
   def index
-    if params[:period] == "Неделя"
-      render  "weeks"
-    elsif params[:period] == "Месяц"
-      render  "month"
-    elsif params[:period] == "Квартал"
-      render "quarter"
-    elsif params[:period] == "Год"
-      render "year"      
-    end  
+    
   end
   
   def show
@@ -22,6 +14,15 @@ class ReportsController < ApplicationController
   def activ      
   end
   
-  def finance    
+  def finance
+    if params[:period] == "Неделя"
+      render  "weeks"
+    elsif params[:period] == "Месяц"
+      render  "month"
+    elsif params[:period] == "Квартал"
+      render "quarter"
+    elsif params[:period] == "Год"
+      render "year"      
+    end     
   end
 end
