@@ -1,8 +1,8 @@
-<table class="table table-striped table-condensed transactions">
+<table class="table table-striped table-condensed transactions" id="transactions_table">
   <thead>
     <tr>
       <th><%= sortable "name", "Сделка" %></th>
-      <th>Тип сделки</th>
+      <th><%= sortable "typetransaction_id", "Тип сделки" %></th>
       <th><%= sortable "user_id", "Ответственный" %></th>
       <th><%= sortable "customer_id", "Клиент" %></th>
       <th><%= sortable "created_at", "Дата" %></th>
