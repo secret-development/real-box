@@ -151,7 +151,7 @@ class SubjectsController < ApplicationController
     end
     
     def page_paginate
-      5
+      20
     end
     
 end

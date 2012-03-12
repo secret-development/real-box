@@ -52,6 +52,17 @@ class Subject < ActiveRecord::Base
       "рубль" => "рубль"
     }
   end
+  
+  # for search:
+  def self.price_cur_search
+    {
+      "любая валюта" => "",
+      "доллар" => "доллар",
+      "тенге" => "тенге",
+      "евро" => "евро",
+      "рубль" => "рубль"
+    }
+  end
 
   def full_address
     if(@street.blank? || @house.blank?)

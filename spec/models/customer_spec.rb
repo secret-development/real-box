@@ -66,6 +66,11 @@ describe Customer do
       c.macro.should == :has_many
     end
     
+    it "should dependent(transactions) destroy" do
+      c = Customer.reflect_on_association(:transactions)
+      c.options[:dependent].should == :destroy
+    end
+    
     it "should dependent destroy(subjects)" do
       c = Customer.reflect_on_association(:subjects)
       c.options[:dependent].should == :destroy

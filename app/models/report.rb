@@ -1,17 +1,24 @@
 # -*- encoding : utf-8 -*-
 class Report < ActiveRecord::Base
+  # finance report
   def self.total_dollar(date)
     Transaction.where("date(created_at) = ? AND price_currency = ?", date, "доллар").sum(:price)    
   end
   
-  def self.total_month(month)
-    Transaction.where("month(created_at) = ?", month).sum(:price)    
+  def self.total_ru(date)
+    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "рубль").sum(:price)    
   end
   
-  def self.total
-    Transaction.where("price_currency = ?", "доллар").sum(:price)    
+  def self.total_euro(date)
+    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "евро").sum(:price)    
   end
   
+  def self.total_tg(date)
+    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "тенге").sum(:price)    
+  end
+  
+  # activ users report
+      
 end
 # transaction
 #    t.string   "name"

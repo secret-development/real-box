@@ -105,5 +105,78 @@ describe User do
       last_email.to.should include(user.email)      
     end    
   end
+  
+  # associations
+  describe "associations" do
     
+    describe "transactions" do
+      it "should respond to transactions" do
+        user = User.new(@attr)
+        user.should respond_to(:transactions)
+      end
+      
+      it "should has_many transactions" do
+        user = User.reflect_on_association(:transactions)
+        user.macro.should == :has_many
+      end
+      
+      it "should dependent nullify" do
+        user = User.reflect_on_association(:transactions)
+        user.options[:dependent].should == :nullify
+      end
+    end
+    
+    describe "customers" do
+      it "should respond to customers" do
+        user = User.new(@attr)
+        user.should respond_to(:customers)
+      end
+      
+      it "should has_many customers" do
+        user = User.reflect_on_association(:customers)
+        user.macro.should == :has_many
+      end
+      
+      it "should dependent nullify" do
+        user = User.reflect_on_association(:customers)
+        user.options[:dependent].should == :nullify
+      end
+    end
+    
+    describe "tasks" do
+      it "should respond to tasks" do
+        user = User.new(@attr)
+        user.should respond_to(:tasks)
+      end
+      
+      it "should has_many tasks" do
+        user = User.reflect_on_association(:tasks)
+        user.macro.should == :has_many
+      end
+      
+      it "should dependent nullify" do
+        user = User.reflect_on_association(:tasks)
+        user.options[:dependent].should == :nullify
+      end      
+    end
+    
+    describe "subjects" do
+      it "should respond to subjects" do
+        user = User.new(@attr)
+        user.should respond_to(:subjects)
+      end
+      
+      it "should has_many subjects" do
+        user = User.reflect_on_association(:subjects)
+        user.macro.should == :has_many
+      end
+      
+      it "should dependent nullify" do
+        user = User.reflect_on_association(:subjects)
+        user.options[:dependent].should == :nullify
+      end
+    end
+    
+  end
+  
 end
