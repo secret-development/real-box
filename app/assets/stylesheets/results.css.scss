@@ -53,7 +53,14 @@
     .subjects-results-title{
       font-size:20px;
       font-weight:normal;
-      margin-bottom:20px;
+      margin-bottom:10px;
+    }
+    #sort-search-subjects{
+      margin-bottom:30px;
+      .sort-search-title{
+        display: inline-block;
+        margin-right:10px;
+      }
     }
     .sub-one{
       margin-bottom:10px;

@@ -2,6 +2,12 @@
   <div class="span12" id="subjects-results">
     <% if @subjects %>
       <h1 class="subjects-results-title">Результат:</h1>
+      <div id="sort-search-subjects">
+        <span class="sort-search-title">Сортировать по:</span>
+        <%= sort_link @search, :price, "по цене" %> | 
+        <%= sort_link @search, :area, "по площади" %> |
+        <%= sort_link @search, :created_at, "По дате добавления" %>
+      </div>
       <% @subjects.each do |s| %>
         <div class="sub-one">
           <div class="photo-sub">
@@ -41,13 +47,17 @@
               <div class="field-other">
                 Хозяин: <%= link_to(s.customer.fullname, s.customer) %>
               </div>
+              <div class="field-other">
+                Дата добавления: <%= to_date(s.created_at) %>
+              </div>
             </div>
             
           </div>
           <div class="clear"></div>
         </div>
       <% end %>
-      <%= paginate @subjects %>      
+      <%= flash_msg(flash[:notice]) %>
+      <%= paginate @subjects %>
     <% end %>
   </div>
 </div>
