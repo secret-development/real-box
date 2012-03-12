@@ -1,10 +1,10 @@
-<div id="chart-activ-week" style="width: 760px; height: 300px; float: left;">
+<div id="chart-activ-year" style="width: 760px; height: 300px; float: left;">
 </div>
 <script type="text/javascript" charset="urf-8">
   $(function() {
     new Highcharts.Chart({
-      chart: { renderTo: 'chart-activ-week', zoomType: 'x', backgroundColor: "#F4F4FF"},
-      title: { text: 'Неделя'},
+      chart: { renderTo: 'chart-activ-year', zoomType: 'x', backgroundColor: "#F4F4FF"},
+      title: { text: 'Год'},
       xAxis: { type: 'datetime'},
       yAxis: {
         title: { text: 'Активность'},
@@ -29,8 +29,8 @@
       series: [{
         name: "<%= Report.return_name %>",
         pointInterval: <%= 1.day * 1000 %>,
-        pointStart: <%= 1.weeks.ago.to_i * 1000 %>,
-        data: <%= (1.weeks.ago.to_date..Date.today).map { |date| Report.activ_user(date)}.inspect %>
+        pointStart: <%= 1.years.ago.to_i * 1000 %>,
+        data: <%= (1.years.ago.to_date..Date.today).map { |date| Report.activ_user(date)}.inspect %>
       }],
     });
   });
