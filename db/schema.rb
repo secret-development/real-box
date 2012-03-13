@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120313064151) do
+ActiveRecord::Schema.define(:version => 20120313070500) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20120313064151) do
     t.integer  "user_id"
     t.boolean  "active",             :default => true
     t.string   "price_currency"
+    t.integer  "room"
   end
 
   create_table "tasks", :force => true do |t|

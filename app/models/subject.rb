@@ -36,6 +36,7 @@ class Subject < ActiveRecord::Base
   validates :customer_id, :presence => true
   validates :districtname, :presence => true
   validates :floor, :presence => true, :if => :floor?
+  validates :room, :presence => true, :if => :room?
   validates :price_currency, :presence => true
   
   attr_writer :street, :house, :flat
@@ -109,6 +110,14 @@ class Subject < ActiveRecord::Base
       false
     else
       typesubject.floor == true  
+    end
+  end
+  
+  def room?
+    if typesubject.nil?
+      false
+    else
+      typesubject.room == true  
     end
   end
   
