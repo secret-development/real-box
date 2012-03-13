@@ -80,20 +80,6 @@ class Customer < ActiveRecord::Base
     lastname + " " + firstname
   end
   
-  #all customers count
-  def self.all_customers_count
-    Customer.count(:id)    
-  end
-  # real customers count
-  def self.real_customers_count
-    Customer.where("potentials = false").count(:id)    
-  end
-  # potentials customers count
-  def self.potential_customers_count
-    Customer.where("potentials = true").count(:id)    
-  end
-  
-
 end
 
 # == Schema Information
