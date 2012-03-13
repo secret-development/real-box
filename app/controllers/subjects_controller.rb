@@ -5,23 +5,23 @@ class SubjectsController < ApplicationController
   before_filter :all_deny
   before_filter :load_type_subject, :only => :add_properties
   before_filter :load_attr, :only => :add_properties
-  
+  helper_method :sort_column, :sort_direction
   
   def index
+    @subjects = Subject.order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
     @title = "Объекты"
-    @subjects = Subject.all
   end
   
   # active
   def active
+    @subjects = Subject.active_subjects.order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
     @title = "Активные объекты"
-    @subjects = Subject.active_subjects
   end
   
   # inactive
   def inactive
+    @subjects = Subject.inactive_subjects.order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
     @title = "Неактивные объекты"
-    @subjects = Subject.inactive_subjects
   end
   
   
@@ -136,6 +136,18 @@ class SubjectsController < ApplicationController
         redirect_to subject_path(subject), 
           :alert => "Дополнительные поля для данного типа недвижимости не указаны в настройках"
       end
+    end
+    
+    def sort_column
+      Subject.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+    end
+    
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+    end
+    
+    def page_paginate
+      20
     end
     
 end

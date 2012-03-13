@@ -105,6 +105,14 @@ $(document).ready(function() {
   });
 });
 
+//live sort for subjects
+$(document).ready(function() {
+  $('#subject th a').live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+});
+
 // live search for tasks
 $(document).ready(function() {
   $('#task th a').live("click", function() {
