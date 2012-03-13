@@ -282,9 +282,7 @@ $(document).ready(function() {
   $('#customer_phonehome').autotab_filter('numeric');
   
   $('#ad-house, #ad-flat')
-    .autotab_magic()
-    .autotab_filter('numeric');
-  
+    .autotab_magic();
 });
 
 // subject -> floor
