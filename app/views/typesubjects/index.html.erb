@@ -19,8 +19,8 @@
       <tr>
         <td><%= t.name %></td>
         <td><%= t.permalink %></td>
-        <td><%= t.room == true ? "Да" : "Нет" %></td>
         <td><%= t.floor == true ? "Да" : "Нет" %></td>
+        <td><%= t.room == true ? "Да" : "Нет" %></td>
         <td class="actions-buttons">
           <%= link_to edit_icon, edit_typesubject_path(t) %>
           <%= link_to delete_icon, t, :method => :delete,
