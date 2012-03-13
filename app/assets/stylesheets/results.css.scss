@@ -34,7 +34,7 @@
             width:70px;
           }
           .room-search-field{
-            width:40px;
+            width:25px;
           }
           #search_price_currency_eq{
             width:120px;
@@ -119,4 +119,7 @@
 }
 .date-add-subject{
   font-size:11px;
+}
+#room-search-block{
+  display: none;
 }
