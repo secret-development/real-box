@@ -245,6 +245,7 @@ module ApplicationHelper
   # for reports
 
   MONTH = ["Неделя", "Месяц", "Квартал", "Год"]
+  OBJECTS = ["Клиенты", "Объекты"]
 
   # for transaction views:
   
