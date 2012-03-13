@@ -40,6 +40,12 @@ describe Typesubject do
       @typesubject.should_not be_valid
     end
     
+    it "should require room" do
+      @attr[:room] = nil
+      @typesubject = Typesubject.new(@attr)
+      @typesubject.should_not be_valid
+    end
+    
     it "should reject duplicate name" do
       Typesubject.create!(@attr)
       typesubject_with_duplicate = 
@@ -71,6 +77,11 @@ describe Typesubject do
     it "should floor contain false or true" do
       @typesubject = Typesubject.new(@attr)
       [true, false].should include(@typesubject.floor)
+    end
+    
+    it "should room contain false or true" do
+      @typesubject = Typesubject.new(@attr)
+      [true, false].should include(@typesubjec.room)
     end
     
   end
