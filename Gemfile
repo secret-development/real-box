@@ -26,7 +26,7 @@ gem 'russian', '~> 0.6.0'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
 # for attachment:
-gem "carrierwave", "~> 0.5.8"
+gem 'carrierwave', :git => 'git://github.com/jnicklas/carrierwave.git', :branch => "0.5-stable"
 gem 'mini_magick'
 gem 'flash_cookie_session'
 
@@ -39,7 +39,6 @@ gem 'annotate', '~> 2.4.1.beta'
 gem 'simple_form'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
-gem "rake", "~> 0.9.2.2"
 
 # for search:
 gem "squeel"

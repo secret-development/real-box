@@ -1,12 +1,9 @@
 # encdoing:utf-8
 
-require 'rubygems'
-
 # set up
 set :application, "demo"
 set :scm, :git
 set :repository,  "git://github.com/secret-development/real-box.git"
-set :branch, 'master'
 
 set :user, "hosting_lagox"
 set :use_sudo, false
@@ -19,7 +16,7 @@ role :db,  "lithium.locum.ru", :primary => true
 set :deploy_via, :remote_cache
 set :unicorn_conf, "/etc/unicorn/demo.lagox.rb"
 set :unicorn_pid, "/var/run/unicorn/demo.lagox.pid"
-set :unicorn_start_cmd, "(cd #{current_path}; rvm use 1.9.3 do bundle exec unicorn_rails -Dc #{unicorn_conf})"
+set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use 1.9.3 do bundle exec unicorn_rails -Dc #{unicorn_conf})"
 
 
 # database.yml
@@ -35,37 +32,37 @@ task :symlink_shared, roles => :app do
   run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
 end
 
-after "deploy:update_code", "deploy:bundle_gems"
+after "deploy", "deploy:bundle_gems"
 after "deploy:bundle_gems", "deploy:migrate"
 after "deploy:migrate", "deploy:seed"
-
-
+after "deploy:seed", "deploy:ascomplie"
+after "deploy:ascomplie", "deploy:restart"
 
 # - for unicorn - #
 namespace :deploy do
   # assets
   desc "Compile assets"
   task :ascomplie, :roles => :app do
-    run "cd #{current_path}; rvm use 1.9.3 do bundle exec rake assets:precompile RAILS_ENV=production"    
+    run "cd #{current_path} && rvm use 1.9.3 do bundle exec rake assets:precompile RAILS_ENV=production"    
   end
   
   # migrate
   desc "Migrations db"
   task :migrate, :roles => :app do
-    run "cd #{current_path}; rvm use 1.9.3 do bundle exec rake RAILS_ENV=production db:migrate"
+    run "cd #{current_path} && rvm use 1.9.3 do bundle exec rake RAILS_ENV=production db:migrate"
   end
   
   # seed
   desc "Seeding data"
   task :seed do
     puts "\n\n=== Populating the Production Database! ===\n\n"
-    run "cd #{current_path}; rvm use 1.9.3 do bundle exec rake RAILS_ENV=production db:seed"
+    run "cd #{current_path} && rvm use 1.9.3 do bundle exec rake RAILS_ENV=production db:seed"
     puts "\n\n------- end seed -------\n\n"
   end
   # bundle install
   desc "Bundle install"
   task :bundle_gems, :roles => :app do
-    run "cd #{current_path}; rvm use 1.9.3 do bundle install --path ../../shared/gems"
+    run "cd #{current_path} && rvm use 1.9.3 do bundle install --path ../../shared/gems"
   end
   
   desc "Start application"
