@@ -16,7 +16,7 @@ role :db,  "lithium.locum.ru", :primary => true
 set :deploy_via, :remote_cache
 set :unicorn_conf, "/etc/unicorn/demo.lagox.rb"
 set :unicorn_pid, "/var/run/unicorn/demo.lagox.pid"
-set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use 1.9.3 do bundle exec unicorn_rails -Dc #{unicorn_conf})"
+set :unicorn_start_cmd, "(cd #{deploy_to}/current && rvm use 1.9.3 do bundle exec unicorn_rails -Dc #{unicorn_conf})"
 
 
 # database.yml
