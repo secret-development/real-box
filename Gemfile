@@ -26,7 +26,7 @@ gem 'russian', '~> 0.6.0'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
 # for attachment:
-gem 'carrierwave', :git => 'git://github.com/jnicklas/carrierwave.git', :branch => "0.5-stable"
+gem "carrierwave", "~> 0.5.8"
 gem 'mini_magick'
 gem 'flash_cookie_session'
 

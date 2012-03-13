@@ -40,7 +40,8 @@ after "deploy:update_code", "deploy:bundle_gems"
 after "deploy:bundle_gems", "deploy:migrate"
 after "deploy:migrate", "deploy:seed"
 after "deploy:seed", "deploy:ascomplie"
-after "deploy:ascomplie", "deploy:restart"
+after "deploy:restart", "deploy:stop"
+after "deplot:stop", "deploy:start"
 
 # - for unicorn - #
 namespace :deploy do
