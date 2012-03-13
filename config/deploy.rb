@@ -16,7 +16,7 @@ role :db,  "lithium.locum.ru", :primary => true
 set :deploy_via, :remote_cache
 set :unicorn_conf, "/etc/unicorn/demo.lagox.rb"
 set :unicorn_pid, "/var/run/unicorn/demo.lagox.pid"
-set :unicorn_start_cmd, "(cd #{deploy_to}/current && rvm use 1.9.3 do bundle exec unicorn_rails -Dc #{unicorn_conf})"
+set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use 1.9.3 do bundle exec unicorn_rails -Dc #{unicorn_conf})"
 
 
 # database.yml
@@ -32,12 +32,11 @@ task :symlink_shared, roles => :app do
   run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
 end
 
-after "symlink_shared", "deploy:bundle_gems"
+after "deploy", "deploy:bundle_gems"
 after "deploy:bundle_gems", "deploy:migrate"
 after "deploy:migrate", "deploy:seed"
 after "deploy:seed", "deploy:ascomplie"
-after "deploy:ascomplie", "deploy:stop"
-after "deploy:stop", "deploy:start"
+after "deploy:ascomplie", "deploy:restart"
 
 # - for unicorn - #
 namespace :deploy do
