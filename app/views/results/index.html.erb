@@ -26,6 +26,12 @@
                 City.order(:name), :districts, :name ,:id, :title, :include_blank => true) %>
           </div>
           <div class="s-field">
+            <%= f.label :room_gte, "Количество комнат:" %>
+            <%= f.text_field :room_gte, :class => "room-search-field" %> 
+            – 
+            <%= f.text_field :room_lte, :class => "room-search-field" %>
+          </div>
+          <div class="s-field">
             <%= f.label :price_gte, "Цена:" %>
             <%= f.text_field :price_gte, :class => "price-search-field" %> 
             – 

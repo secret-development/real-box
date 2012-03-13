@@ -735,3 +735,13 @@ $(document).ready(function() {
     };
   });
 });
+
+// search digits:
+$(document).ready(function() {
+  $("#search_room_gte").autotab_filter('numeric');
+  $("#search_room_lte").autotab_filter('numeric');
+  $("#search_price_gte").autotab_filter('numeric');
+  $("#search_price_lte").autotab_filter('numeric');
+  $("#search_area_gte").autotab_filter('numeric');
+  $("#search_area_lte").autotab_filter('numeric');
+});
