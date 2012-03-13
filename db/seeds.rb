@@ -10,7 +10,7 @@
 # type of transaction:
 
 
-if RAILS_ENV == "production"
+if ENV['RAILS_ENV'] == "production"
   # type transactions
   exists_typetr = Typetransaction.all
   if exists_typetr.size == 0
@@ -26,7 +26,7 @@ if RAILS_ENV == "production"
     User.create(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :role => true, :lastname => "Иванов", :firstname => "Иван")    
   end
 
-elsif RAILS_ENV = "development"
+elsif ENV['RAILS_ENV'] = "development"
   # type transactions
   types_of_transactions = ['Купля', 'Продажа', 'Аренда', 'Съем', 'Обмен']
   types_of_transactions.each do |t|
