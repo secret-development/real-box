@@ -747,23 +747,26 @@ $(document).ready(function() {
 
 // search
 $(document).ready(function() {
-  var first_typesubject = $("#search_typesubject_id_eq option:selected").val();
-  $.ajax({
-    url: '/subjects/findtypesubject',
-    type: 'POST',
-    dataType: 'json',
-    data: {id: first_typesubject},
-    success: function(data, textStatus, xhr) {
-      if (data['room'] == true) {
-        $("#room-search-block :input").removeAttr('disabled');
-        $("#room-search-block").show();
-      }
-      else if (data['room'] == false){
-        $("#room-search-block :input").attr('disabled', true);
-        $("#room-search-block").hide();
-      };
-    }
-  });
+    if($("form").is("#search-main-form")){
+      var first_typesubject = $("#search_typesubject_id_eq option:selected").val();
+      
+      $.ajax({
+        url: '/subjects/findtypesubject',
+        type: 'POST',
+        dataType: 'json',
+        data: {id: first_typesubject},
+        success: function(data, textStatus, xhr) {
+          if (data['room'] == true) {
+            $("#room-search-block :input").removeAttr('disabled');
+            $("#room-search-block").show();
+          }
+          else if (data['room'] == false){
+            $("#room-search-block :input").attr('disabled', true);
+            $("#room-search-block").hide();
+          };
+        }
+      });  
+  }
   
   $("#search_typesubject_id_eq").change(function(event) {
     var typesubject_id = $(this).attr("value");
