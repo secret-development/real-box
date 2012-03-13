@@ -41,6 +41,12 @@
             <%= f.text_field :area_lte, :class => "area-search-field" %>
             <span class="calc-label">м&sup2;</span>
           </div>
+          <div class="s-field" id="room-search-block">
+            <%= f.label :room_gte, "Количество комнат:" %>
+            <%= f.text_field :room_gte, :class => "room-search-field" %> 
+            – 
+            <%= f.text_field :room_lte, :class => "room-search-field" %>
+          </div>
         </div>
         <div class="s-action">
           <%= f.submit "Поиск", :class => "btn btn-large btn-success" %>  
