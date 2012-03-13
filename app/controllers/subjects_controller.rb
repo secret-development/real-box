@@ -99,7 +99,7 @@ class SubjectsController < ApplicationController
     @title = "Фотографии"
   end
   
-  # AJAX -> subject -> floor
+  # AJAX -> subject -> floor/room
   def findtypesubject
     @typesubject = Typesubject.find(params[:id])
     respond_to do |format|

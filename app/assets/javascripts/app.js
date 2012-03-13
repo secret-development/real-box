@@ -324,6 +324,42 @@ $(document).ready(function() {
   });
 });
 
+// subject -> room
+$(document).ready(function() {
+  if ($("form").find("#exist-room-subject").length != 0) {
+    $("#room-subject-block :input").attr("disabled", true);
+  };
+  
+  $("#subject_typesubject_id").change(function(event) {
+    var typesubject_id = $(this).attr("value");
+    $.ajax({
+      url: '/subjects/findtypesubject',
+      type: 'POST',
+      dataType: 'json',
+      data: {id: typesubject_id},
+      success: function(data, textStatus, xhr) {
+        if((data['room'] == true) && ($("form").find("#exist-room-subject").length == 0)){
+          $("#room-subject-block :input").removeAttr('disabled');
+          $("#room-subject-block").slideDown('fast');
+        }
+        else if((data['room'] == false) && ($("form").find("#exist-room-subject").length != 0)){
+          
+          $("#exist-room-subject")
+            .slideUp('fast')
+            .remove();
+          
+          $("#room-subject-block :input").attr('disabled', true);
+          $("#room-subject-block").slideUp('fast');
+        }
+        else if(data['room'] == false){
+          $("#room-subject-block :input").attr('disabled', true);
+          $("#room-subject-block").slideUp('fast');
+        }
+      }
+    });
+  });
+});
+
 
 // // subject -> change subject (load attr)
 // $(document).ready(function() {
@@ -470,6 +506,10 @@ $(document).ready(function() {
       "subject[floor]" : {
         required: true,
         digits: true
+      },
+      "subject[room]" : {
+        required: true,
+        digits: true
       }
     },
     messages: {
@@ -483,6 +523,10 @@ $(document).ready(function() {
         digits: "Только цифры"
       },
       "subject[floor]" : {
+        required: "Введите этаж",
+        digits: "Только цифры"
+      },
+      "subject[room]" : {
         required: "Введите этаж",
         digits: "Только цифры"
       }
@@ -689,4 +733,57 @@ $(document).ready(function() {
       disabled_district();
     };
   });
+});
+
+// search digits:
+$(document).ready(function() {
+  $("#search_room_gte").autotab_filter('numeric');
+  $("#search_room_lte").autotab_filter('numeric');
+  $("#search_price_gte").autotab_filter('numeric');
+  $("#search_price_lte").autotab_filter('numeric');
+  $("#search_area_gte").autotab_filter('numeric');
+  $("#search_area_lte").autotab_filter('numeric');
+});
+
+// search
+$(document).ready(function() {
+  var first_typesubject = $("#search_typesubject_id_eq option:selected").val();
+  $.ajax({
+    url: '/subjects/findtypesubject',
+    type: 'POST',
+    dataType: 'json',
+    data: {id: first_typesubject},
+    success: function(data, textStatus, xhr) {
+      if (data['room'] == true) {
+        $("#room-search-block :input").removeAttr('disabled');
+        $("#room-search-block").show();
+      }
+      else if (data['room'] == false){
+        $("#room-search-block :input").attr('disabled', true);
+        $("#room-search-block").hide();
+      };
+    }
+  });
+  
+  $("#search_typesubject_id_eq").change(function(event) {
+    var typesubject_id = $(this).attr("value");
+    $.ajax({
+      url: '/subjects/findtypesubject',
+      type: 'POST',
+      dataType: 'json',
+      data: {id: typesubject_id},
+      success: function(data, textStatus, xhr) {
+        if (data['room'] == true) {
+          $("#room-search-block :input").removeAttr('disabled');
+          $("#room-search-block").show();
+        }
+        else if (data['room'] == false){
+          $("#room-search-block :input").attr('disabled', true);
+          $("#room-search-block").hide();
+        };
+      }
+    });
+    
+  });
+  
 });
