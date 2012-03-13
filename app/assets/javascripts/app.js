@@ -105,15 +105,13 @@ $(document).ready(function() {
   });
 });
 
-
-// live search for subject
+//live sort for subjects
 $(document).ready(function() {
-  $('#subjects-sort th a, #subjects-sort .paginate a').live('click', function() {
-    $.getScript(this.href);  
-    return false;  
+  $('#subject th a').live("click", function() {
+    $.getScript(this.href);
+    return false;
   });
 });
-
 
 // live search for tasks
 $(document).ready(function() {
