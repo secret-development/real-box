@@ -1,9 +1,12 @@
 # encdoing:utf-8
 
+require 'rubygems'
+
 # set up
 set :application, "demo"
 set :scm, :git
 set :repository,  "git://github.com/secret-development/real-box.git"
+set :branch, 'master'
 
 set :user, "hosting_lagox"
 set :use_sudo, false
@@ -32,11 +35,12 @@ task :symlink_shared, roles => :app do
   run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
 end
 
+after "symlink_shared", "deploy:ascomplie"
 after "deploy", "deploy:bundle_gems"
 after "deploy:bundle_gems", "deploy:migrate"
 after "deploy:migrate", "deploy:seed"
-after "deploy:seed", "deploy:ascomplie"
-after "deploy:ascomplie", "deploy:restart"
+
+
 
 # - for unicorn - #
 namespace :deploy do

@@ -39,7 +39,6 @@ gem 'annotate', '~> 2.4.1.beta'
 gem 'simple_form'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
-gem "rake", "~> 0.9.2.2"
 
 # for search:
 gem "squeel"
