@@ -22,4 +22,10 @@ FactoryGirl.define do
     room true
   end
 
+  factory :withoutroom, :class => Typesubject do
+    name "Частный дом"
+    permalink "chastnii dom"
+    floor false
+    room false
+  end
 end
