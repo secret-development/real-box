@@ -13,6 +13,9 @@ describe Subject do
     # typesubject without floor
     @withourfloor = Factory(:withourfloor)
     
+    # typesubject without room
+    @withoutroom = Factory(:withoutroom)
+    
     # price_currency
     @pricecur = {
       "тенге" => "тенге",
@@ -34,6 +37,7 @@ describe Subject do
       :address => "Баймагамбетова 15, 23",
       :district_id => @district.id,
       :floor => 1,
+      :room => 5,
       :active => true,
       :price_currency => @pricecur["доллар"]
     }
@@ -108,6 +112,23 @@ describe Subject do
       it "should be valid if typesubject.floor == false" do
         subject = Subject.new(@attr.merge(:typesubject_id => @withourfloor.id))
         subject.floor = nil
+        subject.should be_valid
+      end
+    end
+    
+    # room
+    describe "validation room" do
+      it "should require room if typesubject.room == true" do
+        subject = Subject.new(@attr)
+        if subject.typesubject.room == true
+          subject.room = nil
+          subject.should_not be_valid
+        end
+      end
+      
+      it "should be valida if typesubject.room == true" do
+        subject = Subject.new(@attr.merge(:typesubject_id => @withoutroom.id))
+        subject.room = nil
         subject.should be_valid
       end
     end

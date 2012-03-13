@@ -12,7 +12,8 @@ describe Typesubject do
     @attr = {
       :name => "Дача",
       :permalink => "dacha",
-      :floor => true
+      :floor => true,
+      :room => true
     }
   end
   
@@ -35,6 +36,12 @@ describe Typesubject do
     
     it "should require floor" do
       @attr[:floor] = nil
+      @typesubject = Typesubject.new(@attr)
+      @typesubject.should_not be_valid
+    end
+    
+    it "should require room" do
+      @attr[:room] = nil
       @typesubject = Typesubject.new(@attr)
       @typesubject.should_not be_valid
     end
@@ -70,6 +77,11 @@ describe Typesubject do
     it "should floor contain false or true" do
       @typesubject = Typesubject.new(@attr)
       [true, false].should include(@typesubject.floor)
+    end
+    
+    it "should room contain false or true" do
+      @typesubject = Typesubject.new(@attr)
+      [true, false].should include(@typesubject.room)
     end
     
   end
