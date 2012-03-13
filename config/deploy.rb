@@ -56,12 +56,8 @@ namespace :deploy do
   desc "Seeding data"
   task :seed do
     puts "\n\n=== Populating the Production Database! ===\n\n"
-    type_of_tr = Typetransaction.all
-    if type_of_tr.size == 0
-      run "cd #{current_path} && rvm use 1.9.3 do bundle exec rake RAILS_ENV=production db:seed"
-    else
-      puts "\n\n------- no seed -------\n\n"
-    end
+    run "cd #{current_path} && rvm use 1.9.3 do bundle exec rake RAILS_ENV=production db:seed"
+    puts "\n\n------- end seed -------\n\n"
   end
   # bundle install
   desc "Bundle install"
