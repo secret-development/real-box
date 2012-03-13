@@ -32,11 +32,12 @@ task :symlink_shared, roles => :app do
   run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
 end
 
-after "deploy:update_code", "deploy:bundle_gems"
+after "symlink_shared", "deploy:bundle_gems"
 after "deploy:bundle_gems", "deploy:migrate"
 after "deploy:migrate", "deploy:seed"
 after "deploy:seed", "deploy:ascomplie"
-after "deploy:ascomplie", "deploy:restart"
+after "deploy:ascomplie", "deploy:stop"
+after "deploy:stop", "deploy:start"
 
 # - for unicorn - #
 namespace :deploy do
