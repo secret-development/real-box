@@ -81,7 +81,7 @@ describe Typesubject do
     
     it "should room contain false or true" do
       @typesubject = Typesubject.new(@attr)
-      [true, false].should include(@typesubjec.room)
+      [true, false].should include(@typesubject.room)
     end
     
   end
