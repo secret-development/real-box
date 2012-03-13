@@ -12,8 +12,7 @@
         </a>
       </li>
     </ul>
-  </div>
-  
+  </div>  
   <div class="tab-content">
     <div class="tab-pane active" id="1">
       <div class="subject-info">
@@ -41,6 +40,14 @@
           <span class="title-field-subject">Район:</span>
           <%= @subject.district.title %>
         </div>
+        <!-- room -->
+        <% if room?(@subject) %>
+        <div class="field-subject">
+          <span class="title-field-subject">Количество комнат:</span>
+          <%= @subject.room %>
+        </div>        
+        <% end %>
+        <!-- end room -->
         <!-- floor -->
         <% if floor?(@subject) %>
         <div class="field-subject">
