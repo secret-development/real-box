@@ -13,10 +13,6 @@
   </div>
   
   <div class="control-group">
-    <%= link_to 'Забыли пароль?', new_password_resets_path %>
-  </div>
-  
-  <div class="control-group">
     <%= check_box_tag :remember_me, 1, params[:remember_me] %>
     <span class="remember-me-label">
       <%= label_tag :remember_me, "Запомнить меня" %>

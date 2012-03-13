@@ -198,6 +198,7 @@ describe SubjectsController do
       :floor => 5,
       :active => true,
       :price_currency => "доллар",
+      :room => 4,
       :typetransaction_id => @typetransaction.id
     }
   end
@@ -213,6 +214,7 @@ describe SubjectsController do
       :address => "Баймагамбетова 15, 23",
       :customer_id => @customer,
       :floor => 6,
+      :room => 3,
       :active => true,
       :price_currency => "доллар",
       :typetransaction_id => @typetransaction.id
@@ -229,6 +231,7 @@ describe SubjectsController do
       :address => "Баймагамбетова 15, 23",
       :customer_id => @customer,
       :floor => 5,
+      :room => 4,
       :active => true,
       :price_currency => "доллар",
       :typetransaction_id => @typetransaction.id

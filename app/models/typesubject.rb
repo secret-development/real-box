@@ -13,6 +13,7 @@ class Typesubject < ActiveRecord::Base
   validates :permalink, :presence => true, 
             :uniqueness => { :case_sensitive => false }
   validates :floor, :inclusion => { :in => [true, false]}
+  validates :room, :inclusion => { :in => [true, false]}
   
   default_scope order("name ASC")
   
