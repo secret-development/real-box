@@ -29,7 +29,7 @@ end
 # for carrierwave
 after "deploy:update_code", :symlink_shared
 task :symlink_shared, roles => :app do
-  run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
+  run "ln -nfs #{shared_path}/system #{release_path}/public/uploads"
 end
 
 after "deploy", "deploy:bundle_gems"
