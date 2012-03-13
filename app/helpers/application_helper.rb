@@ -64,7 +64,11 @@ module ApplicationHelper
   end
   
   def to_area(object)
-    raw("#{object} м&sup2;")
+    if object == nil
+      raw("– м&sup2;")
+    else
+      raw("#{object} м&sup2;")
+    end
   end
   
   def properties_views_zero?(object)
