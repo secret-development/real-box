@@ -1,0 +1,37 @@
+<div id="chart-subjects-year" style="width: 760px; height: 300px; float: left;">
+</div>
+<script type="text/javascript" charset="urf-8">
+  $(function() {
+    new Highcharts.Chart({
+      chart: { renderTo: 'chart-subjects-year', zoomType: 'x', backgroundColor: "#F4F4FF"},
+      title: { text: 'Год'},
+      xAxis: { type: 'datetime'},
+      yAxis: {
+        title: { text: 'Количество'},
+        labels: {
+				  formatter: function() {
+					  return this.value
+          }
+        }
+      },
+      tooltip: {
+        formatter: function () {
+          return Highcharts.dateFormat("%B %e %Y", this.x) + ': '  + Highcharts.numberFormat(this.y, 2);
+        }  
+      },
+      plotOptions: {
+			  line: {
+				  dataLabels: {
+					  enabled: true
+				  },
+			}
+		},
+      series: [{
+        name: "Объекты",
+        pointInterval: <%= 1.day * 1000 %>,
+        pointStart: <%= 1.years.ago.to_i * 1000 %>,
+        data: <%= (1.years.ago.to_date..Date.today).map { |date| Report.subjects_add(date).to_i}.inspect %>
+      }],
+    });
+  });
+</script>

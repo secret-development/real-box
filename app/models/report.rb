@@ -51,6 +51,14 @@ class Report < ActiveRecord::Base
   def self.potential_customers_count
     Customer.where("potentials = true").count(:id)    
   end
+  
+  def self.customers_add(date)
+    Customer.where("date(created_at) = ?", date).count(:id)    
+  end
+  
+  def self.subjects_add(date)
+    Subject.where("date(created_at) = ?", date).count(:id)    
+  end
 #  def self.activ_user_cust(date)
 #    @u.customers.where("date(created_at) = ?", date).count(:id)        
 #  end

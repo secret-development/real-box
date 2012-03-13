@@ -1,0 +1,37 @@
+<div id="chart-customers-month" style="width: 760px; height: 300px; float: left;">
+</div>
+<script type="text/javascript" charset="urf-8">
+  $(function() {
+    new Highcharts.Chart({
+      chart: { renderTo: 'chart-customers-month', zoomType: 'x', backgroundColor: "#F4F4FF"},
+      title: { text: 'Месяц'},
+      xAxis: { type: 'datetime'},
+      yAxis: {
+        title: { text: 'Количество'},
+        labels: {
+				  formatter: function() {
+					  return this.value
+          }
+        }
+      },
+      tooltip: {
+        formatter: function () {
+          return Highcharts.dateFormat("%B %e %Y", this.x) + ': '  + Highcharts.numberFormat(this.y, 2);
+        }  
+      },
+      plotOptions: {
+			  line: {
+				  dataLabels: {
+					  enabled: true
+				  },
+			}
+		},
+      series: [{
+        name: "Клиенты",
+        pointInterval: <%= 1.day * 1000 %>,
+        pointStart: <%= 1.months.ago.to_i * 1000 %>,
+        data: <%= (1.months.ago.to_date..Date.today).map { |date| Report.customers_add(date).to_i}.inspect %>
+      }],
+    });
+  });
+</script>
