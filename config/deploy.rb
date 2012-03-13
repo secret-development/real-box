@@ -39,9 +39,9 @@ end
 after "deploy:update_code", "deploy:bundle_gems"
 after "deploy:bundle_gems", "deploy:migrate"
 after "deploy:migrate", "deploy:seed"
-after "deploy:seed", "deploy:ascomplie"
+after "deploy", "deploy:ascomplie"
 after "deploy:restart", "deploy:stop"
-after "deplot:stop", "deploy:start"
+after "deploy:stop", "deploy:start"
 
 # - for unicorn - #
 namespace :deploy do
@@ -74,7 +74,7 @@ namespace :deploy do
   desc "Compile assets"
   task :ascomplie, :roles => :app do
     puts "\n\n-------------- Compile assets --------------\n\n"
-    run "cd #{current_path}; rvm use 1.9.3 do bundle exec rake assets:precompile RAILS_ENV=production"    
+    run "cd #{current_path}; rvm use 1.9.3 do RAILS_ENV=production bundle exec rake assets:precompile"    
     puts "\n\n-------------- end assets --------------\n\n"
   end
   
