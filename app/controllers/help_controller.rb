@@ -8,4 +8,9 @@ class HelpController < ApplicationController
     @title = "Справка"
   end
   
+  
+  def search
+    @title = "Справка | Поиск"
+  end
+  
 end

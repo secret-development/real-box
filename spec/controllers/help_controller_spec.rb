@@ -15,4 +15,9 @@ describe HelpController do
     get :index
     response.should be_success
   end
+  
+  it "get search" do
+    get :search
+    response.should be_success
+  end
 end
