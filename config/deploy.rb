@@ -35,7 +35,6 @@ task :symlink_shared, roles => :app do
   run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
 end
 
-after "symlink_shared", "deploy:ascomplie"
 after "deploy", "deploy:bundle_gems"
 after "deploy:bundle_gems", "deploy:migrate"
 after "deploy:migrate", "deploy:seed"
