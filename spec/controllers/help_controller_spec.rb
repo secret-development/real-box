@@ -20,4 +20,14 @@ describe HelpController do
     get :search
     response.should be_success
   end
+  
+  it "get customers" do
+    get :customers
+    response.should be_success
+  end
+  
+  it "get subjects" do
+    get :subjects
+    response.should be_success
+  end
 end
