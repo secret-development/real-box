@@ -105,21 +105,6 @@ $(document).ready(function() {
   });
 });
 
-
-// live search for subject
-$(document).ready(function() {
-  $('#subject th a').live('click', function() {
-    $.getScript(this.href);  
-    return false;  
-  });
-  
-  $('#subjects_search input').keyup(function(){
-    $.get($("#subjects_search").attr("action"), $("#subjects_search").serialize(), null, "script");
-    return false;
-  });
-});
-
-
 // live search for tasks
 $(document).ready(function() {
   $('#task th a').live("click", function() {

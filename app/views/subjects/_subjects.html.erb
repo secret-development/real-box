@@ -1,10 +1,11 @@
-<table class="table table-striped table-condensed subjects" id="subjects-sort">
+<table class="table table-striped table-condensed subjects" id="subjects_table">
   <thead>
     <tr>
-      <th><%= sortable "typetransaction_id", "Тип сделки" %></th>
+      <th>Тип сделки</th>
       <th>Тип объекта</th>
-      <th><%= sortable "city_id", "Город" %></th>
-      <th><%= sortable "price", "Цена" %></th>
+      <th>Город</th>
+      <th>Адрес</th>
+      <th>Цена</th>
       <th>Площадь</th>
       <th>Статус</th>
       <th>Действия</th>
@@ -16,6 +17,7 @@
         <td><%= s.typetransaction.name %></td>
         <td><%= link_to(s.typesubject.name, s) %></td>
         <td><%= s.city.name %></td>
+        <td><%= s.address %></td>
         <td><%= price_currency(s) %></td>
         <td><%= to_area(s.area) %></td>
         <td><%= active_subject?(s) %></td>
@@ -28,5 +30,5 @@
     <% end %>    
   </tbody>
 </table>
-<%= paginate @subjects %> 
+
 

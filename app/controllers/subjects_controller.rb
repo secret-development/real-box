@@ -3,29 +3,25 @@
 class SubjectsController < ApplicationController
   respond_to :html
   before_filter :all_deny
-  helper_method :sort_column, :sort_direction
   before_filter :load_type_subject, :only => :add_properties
   before_filter :load_attr, :only => :add_properties
   
   
   def index
     @title = "Объекты"
-    @subjects = Subject.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
-    respond_with(@subjects)
+    @subjects = Subject.all
   end
   
   # active
   def active
     @title = "Активные объекты"
-    @subjects = Subject.active_subjects.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
-    respond_with(@subjects)
+    @subjects = Subject.active_subjects
   end
   
   # inactive
   def inactive
     @title = "Неактивные объекты"
-    @subjects = Subject.inactive_subjects.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
-    respond_with(@subjects)
+    @subjects = Subject.inactive_subjects
   end
   
   
@@ -140,18 +136,6 @@ class SubjectsController < ApplicationController
         redirect_to subject_path(subject), 
           :alert => "Дополнительные поля для данного типа недвижимости не указаны в настройках"
       end
-    end
-  
-    def sort_column
-      Subject.column_names.include?(params[:sort]) ? params[:sort] : "typetransaction_id"    
-    end
-  
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"    
-    end
-    
-    def page_paginate
-      20
     end
     
 end
