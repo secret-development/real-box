@@ -10,10 +10,29 @@
 # type of transaction:
 
 
-types_of_transactions = ['Купля', 'Продажа', 'Аренда', 'Съем', 'Обмен']
-types_of_transactions.each do |t|
-  Typetransaction.create(:name => t)
-end
+if RAILS_ENV == "production"
+  # type transactions
+  exists_typetr = Typetransaction.all
+  if exists_typetr.size == 0
+    types_of_transactions = ['Купля', 'Продажа', 'Аренда', 'Съем', 'Обмен']
+    types_of_transactions.each do |t|
+      Typetransaction.create(:name => t)
+    end
+  end
+  
+  # users
+  users = User.all
+  if users.size == 0
+    User.create(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :role => true, :lastname => "Иванов", :firstname => "Иван")    
+  end
 
-User.find_by_email("admin@example.com").delete
-User.create(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :role => true, :lastname => "Иванов", :firstname => "Иван")
+elsif RAILS_ENV = "development"
+  # type transactions
+  types_of_transactions = ['Купля', 'Продажа', 'Аренда', 'Съем', 'Обмен']
+  types_of_transactions.each do |t|
+    Typetransaction.create(:name => t)
+  end
+  
+  # users
+  User.create(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :role => true, :lastname => "Иванов", :firstname => "Иван")
+end
