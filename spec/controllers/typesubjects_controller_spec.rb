@@ -142,7 +142,8 @@ describe TypesubjectsController do
     {
       :name => "Дом",
       :permalink => "",
-      :floor => nil
+      :floor => nil,
+      :room => true
     }
   end
   
@@ -150,7 +151,8 @@ describe TypesubjectsController do
     {
       :name => "Земля",
       :permalink => "terrain",
-      :floor => true
+      :floor => true,
+      :room => true
     }
   end
   

@@ -12,7 +12,8 @@ describe Typesubject do
     @attr = {
       :name => "Дача",
       :permalink => "dacha",
-      :floor => true
+      :floor => true,
+      :room => true
     }
   end
   
