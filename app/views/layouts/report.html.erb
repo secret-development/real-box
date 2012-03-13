@@ -11,11 +11,11 @@
   <div class="container" id="main-wrapper">
     <div class="row">
       <div class="span12" id="content">
-        <div class="tabbable tabs-left">
+        <div class="tabbable">
           <ul class="nav nav-tabs">
             <li><%= link_to 'Финансы', finance_reports_path  %></li>
             <li><%= link_to 'Активность сотрудников', activ_reports_path  %></li>
-            <li><%= link_to 'Клиенты', "#" %></li>
+            <li><%= link_to 'Общие сведения', general_reports_path %></li>
           </ul> 
           <%= yield %>
         </div>

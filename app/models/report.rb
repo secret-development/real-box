@@ -18,32 +18,57 @@ class Report < ActiveRecord::Base
   end
   
   # activ users report
-  def self.activ_user_cust(date)
-    Customer.where("date(created_at) = ?", date).count(:id)        
+  def self.find_user(user)
+    @u = User.find(user) 
   end
   
-  def self.activ_user_sub(date)
+  def self.return_name
+    @u.fullname    
+  end
+  
+  def self.activ_user(date)
+    cust = @u.customers.where("date(created_at) = ?", date).count(:id)
+    sub = @u.subjects.where("date(created_at) = ?", date).count(:id)
+    tran = @u.transactions.where("date(created_at) = ?", date).count(:id)
+    summa = (cust + sub + tran)/3.0
+    return summa.to_f.round(3)
+  end
+  
+  #GENERAL 
+  #all customers count
+  def self.all_customers_count
+    Customer.count(:id)    
+  end
+  # all subjects count
+  def self.all_subjects
+    Subject.count(:id)    
+  end
+  # real customers count
+  def self.real_customers_count
+    Customer.where("potentials = false").count(:id)    
+  end
+  # potentials customers count
+  def self.potential_customers_count
+    Customer.where("potentials = true").count(:id)    
+  end
+  
+  def self.customers_add(date)
+    Customer.where("date(created_at) = ?", date).count(:id)    
+  end
+  
+  def self.subjects_add(date)
     Subject.where("date(created_at) = ?", date).count(:id)    
   end
-  
-  def self.activ_user_tran(date)
-    Transaction.where("date(created_at) = ?", date).count(:id)    
-  end
-  
-  def self.current(user)
-    User.where("user(id) = ?", user)    
-  end    
+#  def self.activ_user_cust(date)
+#    @u.customers.where("date(created_at) = ?", date).count(:id)        
+#  end
+#  
+#  def self.activ_user_sub(date)
+#    @u.subjects.where("date(created_at) = ?", date).count(:id)    
+#  end
+#  
+#  def self.activ_user_tran(date)
+#    @u.transactions.where("date(created_at) = ?", date).count(:id)    
+#  end
+     
 end
-# transaction
-#    t.string   "name"
-#    t.text     "description"
-#    t.integer  "customer_id"
-#    t.integer  "user_id"
-#    t.integer  "typetransaction_id"
-#    t.integer  "subject_id"
-#    t.integer  "price"
-#    t.boolean  "payment"
-#    t.datetime "created_at",         :null => false
-#    t.datetime "updated_at",         :null => false
-#    t.boolean  "admin"
-#    t.string   "price_currency"
