@@ -11,10 +11,10 @@ describe HelpController do
     # end auth
   end
   
-  it "get index" do
-    get :index
-    response.should be_success
-  end
+  # it "get index" do
+  #   get :index
+  #   response.should be_success
+  # end
   
   it "get search" do
     get :search
