@@ -16,4 +16,20 @@ class HelpController < ApplicationController
     @title = "Справка | Клиенты"
   end
   
+  def users
+    @title = "Справка | Персонал"
+  end
+  
+  def tasks
+    @title = "Справка | Задачи"
+  end
+  
+  def transactions
+    @title = "Справка | Сделки"
+  end
+  
+  def report
+    @title = "Справка | Отчеты"
+  end
+  
 end

@@ -30,4 +30,24 @@ describe HelpController do
     get :subjects
     response.should be_success
   end
+  
+  it "get users" do
+    get :users
+    response.should be_success
+  end
+  
+  it "tasks" do
+    get :tasks
+    response.should be_success
+  end
+  
+  it "transactions" do
+    get :transactions
+    response.should be_success
+  end
+  
+  it "reports" do
+    get :reports
+    response.should be_success
+  end
 end
