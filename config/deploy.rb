@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # encdoing:utf-8
 
 # set up
@@ -29,7 +30,7 @@ end
 # for carrierwave
 after "deploy:update_code", :symlink_shared
 task :symlink_shared, roles => :app do
-  run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
+  run "ln -nfs #{shared_path}/system #{release_path}/public/uploads"
 end
 
 after "deploy", "deploy:bundle_gems"
@@ -77,8 +78,6 @@ namespace :deploy do
 
   desc "Restart Application"
   task :restart, :roles => :app do
-    # run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{unicorn_start_cmd}"
-    run "[ -f #{unicorn_pid} ] && kill -QUIT `cat #{unicorn_pid}`"
-    run unicorn_start_cmd
+    run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{unicorn_start_cmd}"
   end
 end
