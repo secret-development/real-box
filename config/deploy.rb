@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # encdoing:utf-8
 
 # set up

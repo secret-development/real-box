@@ -50,7 +50,16 @@ Crm::Application.routes.draw do
   
   # for search
   resources :results
+  
+  # help:
   get "help" => "help#index", :as => :help
+  get "help/search" => "help#search", :as => :help_search
+  get "help/customers" => "help#customers", :as => :help_customers
+  get "help/subjects" => "help#subjects", :as => :help_subjects
+  get "help/users" => "help#users", :as => :help_users
+  get "help/tasks" => "help#tasks", :as => :help_tasks
+  get "help/transactions" => "help#transactions", :as => :help_transactions
+  get "help/reports" => "help#reports", :as => :help_reports
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
