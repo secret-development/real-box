@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120313070500) do
+ActiveRecord::Schema.define(:version => 20120315144233) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -166,6 +166,13 @@ ActiveRecord::Schema.define(:version => 20120313070500) do
     t.integer  "condition_field_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "worktimes", :force => true do |t|
+    t.integer "start_hour"
+    t.integer "start_min"
+    t.integer "end_hour"
+    t.integer "end_min"
   end
 
 end
