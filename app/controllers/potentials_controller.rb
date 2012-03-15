@@ -1,8 +1,9 @@
 # -*- encoding : utf-8 -*-
 
 class PotentialsController < ApplicationController
+  respond_to :html  
   before_filter :all_deny 
-  respond_to :html
+  before_filter :time_work
   helper_method :sort_column, :sort_direction
   
   def index

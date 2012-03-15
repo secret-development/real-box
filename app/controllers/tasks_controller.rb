@@ -2,6 +2,7 @@
 
 class TasksController < ApplicationController
   before_filter :all_deny
+  before_filter :time_work
   respond_to :html
   helper_method :sort_column, :sort_direction
   load_and_authorize_resource

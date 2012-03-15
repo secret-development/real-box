@@ -1,8 +1,8 @@
 # -*- encoding : utf-8 -*-
 
 class ConditionFieldsController < ApplicationController
-  before_filter :all_deny
   respond_to :html
+  before_filter :all_deny
   before_filter :load_typesubject, :only => [:index]
   load_and_authorize_resource
   

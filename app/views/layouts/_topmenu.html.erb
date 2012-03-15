@@ -67,6 +67,11 @@
             <li><%= link_to "Задачи", help_tasks_path %></li>
             <li><%= link_to "Сделки", help_transactions_path %></li>
             <li><%= link_to "Отчёты", help_reports_path %></li>
+            <% if current_user.role? %>
+              <li>
+                <%= link_to "Важно!", help_danger_path %>
+              </li>
+            <% end %>
           </ul>
         </li>
       </ul>
