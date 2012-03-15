@@ -34,11 +34,19 @@
         </div>
         <div class="field-subject">
           <span class="title-field-subject">Город:</span>
-          <%= @subject.city.name %>
+          <% if have_object?(@subject.city) %>
+            <%= @subject.city.name %>
+          <% else %>
+            Отсутствует
+          <% end %>
         </div>
         <div class="field-subject">
           <span class="title-field-subject">Район:</span>
-          <%= @subject.district.title %>
+          <% if have_object?(@subject.district) %>
+            <%= @subject.district.title %>
+          <% else %>
+            Отсутствует
+          <% end %>
         </div>
         <!-- room -->
         <% if room?(@subject) %>
@@ -153,7 +161,11 @@
         </div>
         <div class="field-customer">
           <span class="title-field">Социальный статус:</span>
-          <%= isset_field(@subject.customer.social_status.title) %>
+          <% if have_object?(@subject.customer.social_status) %>
+            <%= @subject.customer.social_status.title %>
+          <% else %>
+            Отсутствует
+          <% end %>
         </div>
         <div class="field-customer">
           <span class="title-field">Телефон:</span>

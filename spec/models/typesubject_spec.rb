@@ -117,9 +117,9 @@ describe Typesubject do
         t.macro.should == :has_many
       end
       
-      it "should dependent nullify" do
+      it "should dependent destroy" do
         t = Typesubject.reflect_on_association(:subjects)
-        t.options[:dependent].should == :nullify
+        t.options[:dependent].should == :destroy
       end
     end
   end

@@ -5,7 +5,7 @@ class Typesubject < ActiveRecord::Base
 
   # associations:
   has_many :condition_fields, :dependent => :destroy
-  has_many :subjects, :dependent => :nullify
+  has_many :subjects, :dependent => :destroy
   
   # validates
   validates :name, :presence => true, 

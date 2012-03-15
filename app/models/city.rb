@@ -2,7 +2,7 @@
 class City < ActiveRecord::Base
   
   # associations:
-  has_many :subjects, :dependent => :nullify
+  has_many :subjects, :dependent => :destroy
   has_many :districts, :dependent => :destroy
   # validates
   validates :name, :presence => true,
