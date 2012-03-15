@@ -3,6 +3,7 @@
 class SubjectsController < ApplicationController
   respond_to :html
   before_filter :all_deny
+  before_filter :time_work
   before_filter :load_type_subject, :only => :add_properties
   before_filter :load_attr, :only => :add_properties
   helper_method :sort_column, :sort_direction

@@ -1,9 +1,9 @@
 # -*- encoding : utf-8 -*-
 
 class TransactionsController < ApplicationController
-  
   respond_to :html
   before_filter :all_deny
+  before_filter :time_work
   helper_method :sort_column, :sort_direction
   load_and_authorize_resource
   

@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 
 class ApplicationController < ActionController::Base
-  protect_from_forgery
+  protect_from_forgery  
   
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message    
@@ -36,6 +36,22 @@ class ApplicationController < ActionController::Base
         redirect_to root_path
         flash[:alert] = "Запрещено!"
       end            
+    end
+  
+    def time_work
+      if current_user.role == false
+        current_time = Time.current
+        @w = Worktime.first
+        if(@w.start_hour.nil? && @w.start_min.nil? && @w.end_hour.nil? && @w.end_min.nil?)
+          true
+        elsif(current_time.hour >= @w.start_hour && current_time.min >= @w.start_min && current_time.hour <= @w.end_hour && current_time.min <= @w.end_min)
+          true
+        else
+          cookies.delete(:auth_token)
+          redirect_to sign_in_path
+          flash[:notice] = "Рабочий день закончился"
+        end
+      end
     end
         
 end

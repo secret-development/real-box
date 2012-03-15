@@ -1,10 +1,11 @@
 # -*- encoding : utf-8 -*-
 
 class PhotosController < ApplicationController
-
+  before_filter :all_deny 
   before_filter :find_subject
   before_filter :find_or_build_photo
   skip_before_filter :verify_authenticity_token
+  before_filter :time_work
   
   def create
     respond_to do |format|

@@ -50,4 +50,10 @@ describe HelpController do
     get :reports
     response.should be_success
   end
+  
+  it "danger" do
+    get :danger
+    response.should be_success
+    
+  end
 end
