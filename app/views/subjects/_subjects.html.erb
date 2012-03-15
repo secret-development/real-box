@@ -17,7 +17,13 @@
       <tr>
         <td><%= s.typetransaction.name %></td>
         <td><%= link_to(s.typesubject.name, s) %></td>
-        <td><%= s.city.name %></td>
+        <td>
+          <% if have_object?(s.city) %>
+            <%= s.city.name %>
+          <% else %>
+            Отсутствует
+          <% end %>
+        </td>
         <td><%= isset_data(s.room) %></td>
         <td><%= s.address %></td>
         <td><%= price_currency(s) %></td>
