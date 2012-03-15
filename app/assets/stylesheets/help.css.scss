@@ -8,4 +8,16 @@
 .help-content{
   border:1px solid #eee;
   padding:10px;
+  h2{
+    font-weight:normal;
+    text-align:center;
+    margin-top:20px;
+  }
+}
+.danger-dependent{
+  li{
+    margin-top:5px;
+    list-style: square;
+    color:#C52D44;
+  }
 }
