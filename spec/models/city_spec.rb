@@ -36,9 +36,9 @@ describe City do
       city.macro.should == :has_many
     end
     
-    it "should dependent nullify" do
+    it "should dependent destroy" do
       city = City.reflect_on_association(:subjects)
-      city.options[:dependent].should == :nullify
+      city.options[:dependent].should == :destroy
     end
     
     it "should respond to districts" do
