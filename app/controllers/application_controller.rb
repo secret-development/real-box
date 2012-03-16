@@ -44,8 +44,14 @@ class ApplicationController < ActionController::Base
         @w = Worktime.first
         if(@w.start_hour.nil? && @w.start_min.nil? && @w.end_hour.nil? && @w.end_min.nil?)
           true
-        elsif(current_time.hour >= @w.start_hour && current_time.min >= @w.start_min && current_time.hour <= @w.end_hour && current_time.min <= @w.end_min)
-          true
+        elsif(current_time.hour >= @w.start_hour && current_time.min >= @w.start_min && current_time.hour <= @w.end_hour)
+          if(current_time.hour == @w.end_hour && current_time.min > @w.end_min)
+            cookies.delete(:auth_token)
+            redirect_to sign_in_path
+            flash[:notice] = "Рабочий день закончился"
+          else
+            true
+          end
         else
           cookies.delete(:auth_token)
           redirect_to sign_in_path
