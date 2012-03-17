@@ -458,9 +458,6 @@ $(document).ready(function(){
 $(document).ready(function() {
   $(".customer-form-validation").validate({
     rules: {
-      "customer[lastname]" : {
-        required: true
-      },
       "customer[firstname]" : {
         required: true
       },
@@ -472,9 +469,6 @@ $(document).ready(function() {
       }
     },
     messages: {
-      "customer[lastname]" : {
-        required: "Введите фамилию"
-      },
       "customer[firstname]" : {
         required: "Введите имя"
       },

@@ -82,6 +82,12 @@ describe Customer do
       customer = Customer.new(@attr.merge(:firstname => nil))
       customer.should_not be_valid
     end
+    
+    it "should valid without lastname" do
+      customer = Customer.new(@attr.merge(:lastname => nil))
+      customer.should be_valid
+    end
+    
   end
   
 end
