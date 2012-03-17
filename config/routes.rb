@@ -31,11 +31,13 @@ Crm::Application.routes.draw do
     resources :photos, :only => [:create, :destroy]
     get 'add_properties', :on => :member, :as => :add_properties
     get 'add_photo', :on => :member, :as => :add_photo
+    get 'guest', :on => :member, :as => :subject_guest
     post 'findtypesubject', :on => :collection
     post 'load_attr', :on => :collection
     # scopes:
     get 'active', :on => :collection
     get 'inactive', :on => :collection
+    
   end
   
   resources :transactions do

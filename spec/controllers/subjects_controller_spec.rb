@@ -185,6 +185,13 @@ describe SubjectsController do
     end
   end
   
+  describe "guest" do
+    it "should be success" do
+      get 'guest', :id => @subject
+      response.should be_success
+    end
+  end
+  
   # valid data
   def valid_data
     {

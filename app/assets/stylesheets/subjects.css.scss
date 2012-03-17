@@ -191,3 +191,12 @@ form{
 #subjects_table th .desc { 
   background-image: url(sort_desc.png); 
 }
+
+// guest:
+#guest-deny{
+  padding:15px;
+  .guest-title{
+    font-size:18px;
+    font-weight:normal;
+  }
+}

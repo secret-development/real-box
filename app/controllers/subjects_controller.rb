@@ -3,8 +3,8 @@
 class SubjectsController < ApplicationController
 
   respond_to :html
-  before_filter :all_deny
-  before_filter :time_work
+  before_filter :all_deny, :except => :guest
+  before_filter :time_work, :except => :guest
   before_filter :load_type_subject, :only => :add_properties
   before_filter :load_attr, :only => :add_properties
   helper_method :sort_column, :sort_direction
@@ -117,6 +117,12 @@ class SubjectsController < ApplicationController
   #     format.json { render :json => @attr.to_json }
   #   end
   # end
+  
+  def guest
+    @subject = Subject.find(params[:id])
+    @title = "Гостевой доступ"
+    render :layout => 'guest'
+  end
   
   private
     
