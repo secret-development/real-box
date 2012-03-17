@@ -1,11 +1,10 @@
 # -*- encoding : utf-8 -*-
 
 class DocumentsController < ApplicationController  
-  before_filter :all_deny
+
   before_filter :find_transaction
   before_filter :find_or_build_document
   skip_before_filter :verify_authenticity_token
-  before_filter :time_work
   
   def create
     respond_to do |format|
