@@ -2,6 +2,8 @@
 class ReportsController < ApplicationController
 
   respond_to :html
+  before_filter :all_deny
+  before_filter :settings_deny
   layout 'report'
   load_and_authorize_resource
   
