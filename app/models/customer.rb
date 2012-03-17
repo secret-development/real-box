@@ -7,7 +7,7 @@ class Customer < ActiveRecord::Base
   has_many :transactions, :dependent => :destroy
   belongs_to :user
   #validations
-  validates :firstname, :lastname, :presence => true
+  validates :firstname, :presence => true
   #scope
   scope :real, where(:potentials => false)
   scope :potentials, where(:potentials => true)

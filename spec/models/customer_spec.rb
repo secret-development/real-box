@@ -77,6 +77,13 @@ describe Customer do
     end
   end
   
+  describe "validates" do
+    it "should presence firstname" do
+      customer = Customer.new(@attr.merge(:firstname => nil))
+      customer.should_not be_valid
+    end
+  end
+  
 end
 
 # == Schema Information
