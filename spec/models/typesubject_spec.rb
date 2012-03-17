@@ -168,25 +168,3 @@ describe Typesubject do
   end
   
 end
-
-# == Schema Information
-#
-# Table name: typesubjects
-#
-#  id         :integer(4)      not null, primary key
-#  name       :string(255)
-#  permalink  :string(255)
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
-#  floor      :boolean(1)
-## == Schema Information
-#
-# Table name: typesubjects
-#
-#  id         :integer(4)      not null, primary key
-#  name       :string(255)
-#  permalink  :string(255)
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
-#  floor      :boolean(1)
-#

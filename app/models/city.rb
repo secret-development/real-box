@@ -19,7 +19,6 @@ class City < ActiveRecord::Base
     end
   end
   
-  
   def button_value
     if new_record?
       "Добавить"
@@ -29,14 +28,3 @@ class City < ActiveRecord::Base
   end
   
 end
-
-# == Schema Information
-#
-# Table name: cities
-#
-#  id         :integer(4)      not null, primary key
-#  name       :string(255)
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
-
-

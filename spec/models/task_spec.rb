@@ -164,15 +164,3 @@ describe Task do
   end
   
 end
-
-# == Schema Information
-# Table name: tasks
-#
-#  id          :integer(4)      not null, primary key
-#  title       :string(255)
-#  description :text
-#  user_id     :integer(4)
-#  deadline    :datetime
-#  done        :boolean(1)
-#  created_at  :datetime        not null
-#  updated_at  :datetime        not null
