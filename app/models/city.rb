@@ -4,6 +4,7 @@ class City < ActiveRecord::Base
   # associations:
   has_many :subjects, :dependent => :destroy
   has_many :districts, :dependent => :destroy
+  has_many :residents, :dependent => :destroy
   # validates
   validates :name, :presence => true,
             :uniqueness => { :case_sensitive => false}

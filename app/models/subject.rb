@@ -8,6 +8,7 @@ class Subject < ActiveRecord::Base
   belongs_to :typetransaction
   belongs_to :customer
   belongs_to :district
+  belongs_to :resident
   has_many :photos, :dependent => :destroy
   has_one :transaction, :dependent => :nullify, :autosave => true
   belongs_to :user

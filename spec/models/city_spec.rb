@@ -55,6 +55,16 @@ describe City do
       @city = City.reflect_on_association(:districts)
       @city.options[:dependent].should == :destroy
     end
+    
+    it "should has_many residents" do
+      @city = City.reflect_on_association(:residents)
+      @city.macro.should == :has_many
+    end
+    
+    it "(residents) should dependent destroy" do
+      @city = City.reflect_on_association(:residents)
+      @city.options[:dependent].should == :destroy
+    end
   end
   
 end

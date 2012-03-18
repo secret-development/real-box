@@ -15,10 +15,11 @@ describe SubjectsController do
     soc = Factory(:social_status)
     @customer = Factory(:customer, :typetransaction => @typetransaction, :social_status => soc)
     @district = Factory(:district)
+    @resident = Factory(:resident)
     
     # main subject
     @subject = Factory(:subject, :typesubject => @typesubject, :city => @city,
-                :typetransaction => @typetransaction, :customer => @customer, :district => @district)
+                :typetransaction => @typetransaction, :customer => @customer, :district => @district, :resident => @resident)
   end
   
   it "get 'index'" do
@@ -199,6 +200,7 @@ describe SubjectsController do
       :city_id => 2,
       :price => 100003,
       :district_id => @district.id,
+      :resident_id => @resident.id,
       :area => 80,
       :address => "Баймагамбетова 15, 23",
       :customer_id => @customer,
@@ -217,6 +219,7 @@ describe SubjectsController do
       :city_id => nil,
       :price => "swsws",
       :district_id => @district.id,
+      :resident_id => @resident.id,
       :area => 80,
       :address => "Баймагамбетова 15, 23",
       :customer_id => @customer,
@@ -234,6 +237,7 @@ describe SubjectsController do
       :city_id => 2,
       :price => 100003,
       :district_id => @district.id,
+      :resident_id => @resident.id,
       :area => 80,
       :address => "Баймагамбетова 15, 23",
       :customer_id => @customer,
