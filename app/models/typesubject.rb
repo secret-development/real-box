@@ -14,6 +14,7 @@ class Typesubject < ActiveRecord::Base
             :uniqueness => { :case_sensitive => false }
   validates :floor, :inclusion => { :in => [true, false]}
   validates :room, :inclusion => { :in => [true, false]}
+  validates :resident, :inclusion => { :in => [true, false]}
   
   default_scope order("name ASC")
   
