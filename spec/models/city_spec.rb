@@ -55,25 +55,16 @@ describe City do
       @city = City.reflect_on_association(:districts)
       @city.options[:dependent].should == :destroy
     end
+    
+    it "should has_many residents" do
+      @city = City.reflect_on_association(:residents)
+      @city.macro.should == :has_many
+    end
+    
+    it "(residents) should dependent destroy" do
+      @city = City.reflect_on_association(:residents)
+      @city.options[:dependent].should == :destroy
+    end
   end
   
 end
-
-# == Schema Information
-#
-# Table name: cities
-#
-#  id         :integer(4)      not null, primary key
-#  name       :string(255)
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
-## == Schema Information
-#
-# Table name: cities
-#
-#  id         :integer(4)      not null, primary key
-#  name       :string(255)
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
-#
-

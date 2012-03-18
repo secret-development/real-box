@@ -7,7 +7,7 @@ class Customer < ActiveRecord::Base
   has_many :transactions, :dependent => :destroy
   belongs_to :user
   #validations
-  validates :firstname, :lastname, :presence => true
+  validates :firstname, :presence => true
   #scope
   scope :real, where(:potentials => false)
   scope :potentials, where(:potentials => true)
@@ -81,20 +81,3 @@ class Customer < ActiveRecord::Base
   end
   
 end
-
-# == Schema Information
-#
-# Table name: customers
-#
-#  id                 :integer(4)      not null, primary key
-#  firstname          :string(255)
-#  lastname           :string(255)
-#  phonehome          :string(255)
-#  phonemobile        :string(255)
-#  email              :string(255)
-#  note               :text
-#  created_at         :datetime
-#  updated_at         :datetime
-#  potentials         :boolean(1)      default(FALSE)
-#  social_status_id   :integer(4)
-#  typetransaction_id :integer(4)

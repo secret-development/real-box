@@ -13,7 +13,8 @@ describe Typesubject do
       :name => "Дача",
       :permalink => "dacha",
       :floor => true,
-      :room => true
+      :room => true,
+      :resident => true
     }
   end
   
@@ -42,6 +43,12 @@ describe Typesubject do
     
     it "should require room" do
       @attr[:room] = nil
+      @typesubject = Typesubject.new(@attr)
+      @typesubject.should_not be_valid
+    end
+    
+    it "should require resident" do
+      @attr[:resident] = nil
       @typesubject = Typesubject.new(@attr)
       @typesubject.should_not be_valid
     end
@@ -82,6 +89,11 @@ describe Typesubject do
     it "should room contain false or true" do
       @typesubject = Typesubject.new(@attr)
       [true, false].should include(@typesubject.room)
+    end
+    
+    it "should resident contain false or true" do
+      @typesubject = Typesubject.new(@attr)
+      [true, false].should include(@typesubject.resident)
     end
     
   end
@@ -168,25 +180,3 @@ describe Typesubject do
   end
   
 end
-
-# == Schema Information
-#
-# Table name: typesubjects
-#
-#  id         :integer(4)      not null, primary key
-#  name       :string(255)
-#  permalink  :string(255)
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
-#  floor      :boolean(1)
-## == Schema Information
-#
-# Table name: typesubjects
-#
-#  id         :integer(4)      not null, primary key
-#  name       :string(255)
-#  permalink  :string(255)
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
-#  floor      :boolean(1)
-#

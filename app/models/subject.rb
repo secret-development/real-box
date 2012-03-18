@@ -8,6 +8,7 @@ class Subject < ActiveRecord::Base
   belongs_to :typetransaction
   belongs_to :customer
   belongs_to :district
+  belongs_to :resident
   has_many :photos, :dependent => :destroy
   has_one :transaction, :dependent => :nullify, :autosave => true
   belongs_to :user
@@ -145,7 +146,8 @@ class Subject < ActiveRecord::Base
       cust.update_attributes(:potentials => true)
     end
   end
-  
+
+  # district
   def districtname=(title)
     # d = District.create(:title => title, :city_id => city_id)
     d = District.find_by_title_and_city_id(title, city_id)
@@ -159,6 +161,23 @@ class Subject < ActiveRecord::Base
     unless district_id.nil?
       d = District.find(district_id)
       d.title
+    end
+  end
+  
+  # resident
+  def residentname=(title)
+    # d = District.create(:title => title, :city_id => city_id)
+    r = Resident.find_by_title_and_city_id(title, city_id)
+    if r.nil?
+      r = Resident.create(:title => title, :city_id => city_id)
+    end
+    self.resident_id = r.id
+  end
+  
+  def residentname
+    unless resident_id.nil?
+      r = Resident.find(resident_id)
+      r.title
     end
   end
   
@@ -176,18 +195,3 @@ class Subject < ActiveRecord::Base
   end
   
 end
-
-# == Schema Information
-# Table name: subjects
-#
-#  id                 :integer(4)      not null, primary key
-#  typesubject_id     :integer(4)
-#  city_id            :integer(4)
-#  price              :integer(4)
-#  area               :integer(4)
-#  address            :string(255)
-#  created_at         :datetime        not null
-#  updated_at         :datetime        not null
-#  typetransaction_id :integer(4)
-#  customer_id        :integer(4)
-#  district_id        :integer(4)

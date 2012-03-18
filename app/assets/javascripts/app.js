@@ -5,6 +5,7 @@ $(document).ready(function() {
   });
 });
 
+// districts:
 $(document).ready(function() {
   // districts(subject form)
   $("#add_district")
@@ -458,9 +459,6 @@ $(document).ready(function(){
 $(document).ready(function() {
   $(".customer-form-validation").validate({
     rules: {
-      "customer[lastname]" : {
-        required: true
-      },
       "customer[firstname]" : {
         required: true
       },
@@ -472,9 +470,6 @@ $(document).ready(function() {
       }
     },
     messages: {
-      "customer[lastname]" : {
-        required: "Введите фамилию"
-      },
       "customer[firstname]" : {
         required: "Введите имя"
       },
@@ -787,4 +782,13 @@ $(document).ready(function() {
     
   });
   
+});
+
+
+// guest deny button
+$(document).ready(function() {
+  $("#guest-deny-button").click(function(event) {
+    $("#guest-deny-window").modal();
+    return false;
+  });
 });

@@ -23,6 +23,7 @@
         <%= f.collection_select(:typesubject_id, Typesubject.all, :id, :name) %>
       </div>
     </div>
+    <!-- district -->
     <div class="control-group">
       <%= f.label :district, "Район:" %>
       <div class="controls">
@@ -37,7 +38,7 @@
         <%= f.text_field :districtname, :id => "add_district", :placeholder => "Западный" %>
         <button type="button" id="back-district-select" class="btn">
           <%= list_icon + " Вернуться к списку районов" %> 
-        </button> 
+        </button>
       </div>
     </div>
     <!-- room -->

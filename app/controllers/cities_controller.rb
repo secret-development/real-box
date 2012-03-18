@@ -1,8 +1,10 @@
 # -*- encoding : utf-8 -*-
 
 class CitiesController < ApplicationController
-  before_filter :all_deny
+  
   respond_to :html
+  before_filter :all_deny
+  before_filter :settings_deny
   load_and_authorize_resource
   
   def index

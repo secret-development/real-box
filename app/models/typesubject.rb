@@ -14,6 +14,7 @@ class Typesubject < ActiveRecord::Base
             :uniqueness => { :case_sensitive => false }
   validates :floor, :inclusion => { :in => [true, false]}
   validates :room, :inclusion => { :in => [true, false]}
+  validates :resident, :inclusion => { :in => [true, false]}
   
   default_scope order("name ASC")
   
@@ -62,14 +63,3 @@ class Typesubject < ActiveRecord::Base
   end
   
 end
-
-# == Schema Information
-#
-# Table name: typesubjects
-#
-#  id         :integer(4)      not null, primary key
-#  name       :string(255)
-#  permalink  :string(255)
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
-#  floor      :boolean(1)
