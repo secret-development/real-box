@@ -146,7 +146,8 @@ class Subject < ActiveRecord::Base
       cust.update_attributes(:potentials => true)
     end
   end
-  
+
+  # district
   def districtname=(title)
     # d = District.create(:title => title, :city_id => city_id)
     d = District.find_by_title_and_city_id(title, city_id)
@@ -160,6 +161,23 @@ class Subject < ActiveRecord::Base
     unless district_id.nil?
       d = District.find(district_id)
       d.title
+    end
+  end
+  
+  # resident
+  def residentname=(title)
+    # d = District.create(:title => title, :city_id => city_id)
+    r = Resident.find_by_title_and_city_id(title, city_id)
+    if r.nil?
+      r = Resident.create(:title => title, :city_id => city_id)
+    end
+    self.resident_id = r.id
+  end
+  
+  def residentname
+    unless resident_id.nil?
+      r = Resident.find(resident_id)
+      r.title
     end
   end
   

@@ -23,6 +23,7 @@
         <%= f.collection_select(:typesubject_id, Typesubject.all, :id, :name) %>
       </div>
     </div>
+    <!-- district -->
     <div class="control-group">
       <%= f.label :district, "Район:" %>
       <div class="controls">
@@ -37,7 +38,25 @@
         <%= f.text_field :districtname, :id => "add_district", :placeholder => "Западный" %>
         <button type="button" id="back-district-select" class="btn">
           <%= list_icon + " Вернуться к списку районов" %> 
-        </button> 
+        </button>
+      </div>
+    </div>
+    <!-- resident -->
+    <div class="control-group">
+      <%= f.label :resident, "ЖК:" %>
+      <div class="controls">
+        <div class="resident-operations">
+          <%= f.grouped_collection_select(:resident_id, 
+              City.order(:name), :residents, :name ,:id, :title) %>
+          <div class="title">Нет в списке ЖК? Добавьте самостоятельно</div>
+          <button type="button" id="add-resident-button" class="btn">
+            <%= icon_map + " Добавить ЖК" %>
+          </button>
+        </div>
+        <%= f.text_field :residentname, :id => "add_resident", :placeholder => "Мунар" %>
+        <button type="button" id="back-resident-select" class="btn">
+          <%= list_icon + " Вернуться к списку ЖК" %> 
+        </button>
       </div>
     </div>
     <!-- room -->
