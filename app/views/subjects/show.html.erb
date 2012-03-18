@@ -139,9 +139,6 @@
           <div class="modal-body">
             <input type="text" value="<%= guest_subject_url(@subject) %>">
           </div>
-          <div class="modal-footer">
-            <a href="#" class="btn">Скопировать</a>
-          </div>
         </div>
         <%= link_to "Гостевой доступ", guest_subject_path(@subject), :class => "btn", :id => "guest-deny-button", "data-toggle" => "modal" %>
       </div>
