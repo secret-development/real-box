@@ -782,3 +782,12 @@ $(document).ready(function() {
   });
   
 });
+
+
+// guest deny button
+$(document).ready(function() {
+  $("#guest-deny-button").click(function(event) {
+    $("#guest-deny-window").modal();
+    return false;
+  });
+});
