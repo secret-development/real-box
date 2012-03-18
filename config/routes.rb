@@ -31,7 +31,7 @@ Crm::Application.routes.draw do
     resources :photos, :only => [:create, :destroy]
     get 'add_properties', :on => :member, :as => :add_properties
     get 'add_photo', :on => :member, :as => :add_photo
-    get 'guest', :on => :member, :as => :subject_guest
+    get 'guest', :on => :member, :as => :guest
     post 'findtypesubject', :on => :collection
     post 'load_attr', :on => :collection
     # scopes:
