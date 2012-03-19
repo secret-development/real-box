@@ -40,6 +40,12 @@
             Отсутствует
           <% end %>
         </div>
+        <% if have_object?(@subject.resident) %>
+          <div class="field-subject">
+            <span class="title-field-subject">ЖК:</span>
+            <%= @subject.resident.title %>
+          </div>
+        <% end %>
         <div class="field-subject">
           <span class="title-field-subject">Район:</span>
           <% if have_object?(@subject.district) %>
