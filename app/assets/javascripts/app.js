@@ -359,6 +359,41 @@ $(document).ready(function() {
   });
 });
 
+// subject -> resident
+$(document).ready(function() {
+  if ($("form").find("#exist-resident-subject").length != 0) {
+    $("#resident-subject-block :input").attr("disabled", true);
+  };
+  
+  $("#subject_typesubject_id").change(function(event) {
+    var typesubject_id = $(this).attr("value");
+    $.ajax({
+      url: '/subjects/findtypesubject',
+      type: 'POST',
+      dataType: 'json',
+      data: {id: typesubject_id},
+      success: function(data, textStatus, xhr) {
+        if((data['resident'] == true) && ($("form").find("#exist-resident-subject").length == 0)){
+          $("#resident-subject-block :input").removeAttr('disabled');
+          $("#resident-subject-block").slideDown('fast');
+        }
+        else if((data['resident'] == false) && ($("form").find("#exist-resident-subject").length != 0)){
+          
+          $("#exist-resident-subject")
+            .slideUp('fast')
+            .remove();
+          
+          $("#resident-subject-block :input").attr('disabled', true);
+          $("#resident-subject-block").slideUp('fast');
+        }
+        else if(data['resident'] == false){
+          $("#resident-subject-block :input").attr('disabled', true);
+          $("#resident-subject-block").slideUp('fast');
+        }
+      }
+    });
+  });
+});
 
 // // subject -> change subject (load attr)
 // $(document).ready(function() {

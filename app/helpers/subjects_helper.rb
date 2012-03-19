@@ -19,4 +19,13 @@ module SubjectsHelper
     end
   end
   
+  def resident?(object)
+    if object.new_record?
+      typesubject = Typesubject.first
+      typesubject.resident == true
+    else
+      object.typesubject.resident == true
+    end
+  end
+  
 end
