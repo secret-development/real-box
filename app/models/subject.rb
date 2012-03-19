@@ -195,3 +195,29 @@ class Subject < ActiveRecord::Base
   end
   
 end
+# == Schema Information
+#
+# Table name: subjects
+#
+#  id                 :integer(4)      not null, primary key
+#  typesubject_id     :integer(4)
+#  city_id            :integer(4)
+#  price              :integer(4)
+#  area               :integer(4)
+#  address            :string(255)
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  typetransaction_id :integer(4)
+#  customer_id        :integer(4)
+#  district_id        :integer(4)
+#  floor              :integer(4)
+#  street_src         :string(255)
+#  house_src          :string(255)
+#  flat_src           :string(255)
+#  user_id            :integer(4)
+#  active             :boolean(1)      default(TRUE)
+#  price_currency     :string(255)
+#  room               :integer(4)
+#  resident_id        :integer(4)
+#
+
