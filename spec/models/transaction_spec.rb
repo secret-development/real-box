@@ -293,3 +293,23 @@ describe Transaction do
   end
   
 end
+# == Schema Information
+#
+# Table name: transactions
+#
+#  id                 :integer(4)      not null, primary key
+#  name               :string(255)
+#  description        :text
+#  customer_id        :integer(4)
+#  user_id            :integer(4)
+#  typetransaction_id :integer(4)
+#  subject_id         :integer(4)
+#  price              :integer(4)
+#  payment            :boolean(1)
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  admin              :boolean(1)
+#  price_currency     :string(255)
+#  user_lastname      :string(255)
+#
+
