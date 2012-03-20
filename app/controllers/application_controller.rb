@@ -33,8 +33,8 @@ class ApplicationController < ActionController::Base
     
     def settings_deny
       unless current_user.role?
-        redirect_to root_path
         flash[:alert] = "Запрещено!"
+        redirect_to root_path
       end            
     end
   

@@ -40,6 +40,12 @@
             Отсутствует
           <% end %>
         </div>
+        <% if have_object?(@subject.resident) %>
+          <div class="field-subject">
+            <span class="title-field-subject">ЖК:</span>
+            <%= @subject.resident.title %>
+          </div>
+        <% end %>
         <div class="field-subject">
           <span class="title-field-subject">Район:</span>
           <% if have_object?(@subject.district) %>
@@ -113,10 +119,10 @@
       <div class="clear"></div>
       <div class="actions-with-subject">
         <!-- main actions -->
-        <%= link_to edit_icon + " Редактировать",
-            edit_subject_path(@subject), :class => "btn" %>
-        <%= link_to delete_icon + " Удалить",
-        @subject, :method => :delete, :confirm => "Вы уверены?", :class => "btn" %>
+        <%= link_to edit_icon,
+            edit_subject_path(@subject), :class => "btn", :title => "Редактировать" %>
+        <%= link_to delete_icon,
+        @subject, :method => :delete, :confirm => "Вы уверены?", :class => "btn", :title => "Удалить" %>
         <!-- end main actions -->
         <!-- properties -->
         <% if properties_views_zero?(@subject) %>
@@ -131,6 +137,16 @@
         <!-- end properties -->
         <%= link_to icon_camera_black + " Добавить фотографии", 
             add_photo_subject_path(@subject), :class => "btn" %>
+        <div class="modal" id="guest-deny-window">
+          <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>Скопируйте ссылку</h3>
+          </div>
+          <div class="modal-body">
+            <input type="text" value="<%= guest_subject_url(@subject) %>">
+          </div>
+        </div>
+        <%= link_to "Гостевой доступ", guest_subject_path(@subject), :class => "btn", :id => "guest-deny-button", "data-toggle" => "modal" %>
       </div>
     </div>
     <div class="tab-pane" id="2">

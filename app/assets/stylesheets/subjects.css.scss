@@ -57,6 +57,7 @@
 }
 
 form{
+  // for district
   .district-operations{
     // margin-top:15px;
     .title{
@@ -119,6 +120,26 @@ form{
 }
 #room-subject-block{
   display:none;
+}
+
+// for resident
+#resident-subject-block{
+  display:none;
+}
+.resident-operations{
+  // margin-top:15px;
+  .title{
+    color:#6F6F6F;
+    margin:15px 0px 5px 0px;
+    font-size:11px;
+  }
+}
+#add-resident-button{
+  float:left;
+}
+#back-resident-select{
+  display:none;
+  margin-left:10px;
 }
 
 // address
@@ -190,4 +211,63 @@ form{
 }
 #subjects_table th .desc { 
   background-image: url(sort_desc.png); 
+}
+
+// guest:
+#guest-deny{
+  padding:15px;
+  border:1px solid #ccc;
+  margin-top:-30px;
+  .guest-title{
+    font-size:22px;
+    margin-bottom:20px;
+    font-weight:normal;
+  }
+  .guest-subject{
+    .subject-info{
+      float:left;
+      width:450px;
+      .field-subject{
+        margin-bottom:12px;
+        .title-field-subject{
+          display: inline-block;
+          min-width:180px;
+          color:#8B8B8B;
+        }
+      }
+    }
+    .subject-photos{
+      float:left;
+      margin-left:20px;
+      width:400px;
+      #main-subject-photo{
+        img{
+          border:1px solid #ccc;
+        }
+      }
+      #subject-photos-thumbs{
+        margin-top:10px;
+        margin-bottom:10px;
+        a{
+          border:1px solid #ccc;
+          display:block;
+          float:left;
+          margin:0px 2.3px 10px 2.3px;
+          img{
+            height:45px;
+            width:60px;
+          }
+          &:hover{
+            border:1px solid #000000;
+          }
+        }
+      }
+    }
+  }
+}
+#guest-deny-window{
+  display:none;
+  input{
+    width:500px;
+  }
 }

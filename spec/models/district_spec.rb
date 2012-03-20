@@ -70,17 +70,7 @@ describe District do
     end
   end
 end
-
 # == Schema Information
-#
-# Table name: districts
-#
-#  id         :integer(4)      not null, primary key
-#  city_id    :integer(4)
-#  title      :string(255)
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
-## == Schema Information
 #
 # Table name: districts
 #

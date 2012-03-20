@@ -2,7 +2,7 @@
   <%= link_to "Настройки", settings_path %> → Дополнительные поля объектов
 </h1>
 <%= flash_msg(flash[:notice]) %>
-<%= link_to plus_icon + "Добавить" , new_condition_field_path, 
+<%= link_to plus_icon + " Добавить" , new_condition_field_path, 
     :class => "btn button-add" %>
 <% @typesubjects.each do |t| %>
   <table class="table table-bordered table-striped table-condensed cv-table">

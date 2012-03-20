@@ -17,6 +17,12 @@
     </div>
     <h3 class="advanced-options-for-typesubject">Важны ли следующие опции?</h3>
     <div class="control-group">
+      <%= f.label :floor, "Жилые комплексы:" %>
+      <div class="controls">
+        <%= select('typesubject', 'resident', [["Да",true],["Нет",false]]) %>
+      </div>
+    </div>
+    <div class="control-group">
       <%= f.label :floor, "Этажность:" %>
       <div class="controls">
         <%= select('typesubject', 'floor', [["Да",true],["Нет",false]]) %>
