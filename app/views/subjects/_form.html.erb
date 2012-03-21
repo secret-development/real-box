@@ -42,33 +42,6 @@
       </div>
     </div>
     
-    <!-- resident -->
-    <div class="control-group" id="resident-subject-block">
-      <%= f.label :resident, "ЖК:" %>
-      <div class="controls">
-        <div class="resident-operations">
-          <%= f.grouped_collection_select(:resident_id, 
-              City.order(:name), :residents, :name ,:id, :title) %>
-          <div class="title">Нет в списке ЖК? Добавьте самостоятельно</div>
-          <button type="button" id="add-resident-button" class="btn">
-            <%= icon_map + " Добавить ЖК" %>
-          </button>
-        </div>
-        <%= f.text_field :residentname, :id => "add_resident", :placeholder => "Дуэт" %>
-        <button type="button" id="back-resident-select" class="btn">
-          <%= list_icon + " Вернуться к списку ЖК" %> 
-        </button>
-      </div>
-    </div>
-    <% if resident?(@subject) %>
-      <div class="control-group" id="exist-resident-subject">
-        <%= f.label :resident, "ЖК:" %>
-        <div class="controls">
-          <%= f.text_field :residentname, :id => "add_resident", :placeholder => "Дуэт" %>
-        </div>
-      </div>
-    <% end %>
-    <!-- end resident -->
     
     <!-- room -->
     <div class="control-group" id="room-subject-block">
