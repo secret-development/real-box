@@ -854,8 +854,11 @@ $(document).ready(function() {
 // subject -> residents
 $(document).ready(function() {
   if($("form").is(".subject-form")){
+    $("#add_resident")
+      .attr("disabled", true)
+      .hide();
     var first_typesubject = $("#subject_typesubject_id option:selected").val();
-    $("#resident-block :input").attr('disabled', true);
+    $("#resident-block #subject_resident_id").attr('disabled', true);
     $.ajax({
       url: '/subjects/findtypesubject',
       type: 'POST',
@@ -863,11 +866,13 @@ $(document).ready(function() {
       data: {id: first_typesubject},
       success: function(data, textStatus, xhr) {
         if (data['resident'] == true) {
-          $("#resident-block :input").removeAttr('disabled');
+          // $("#resident-block :input").removeAttr('disabled');
+          $("#resident-block #subject_resident_id").removeAttr('disabled');
           $("#resident-block").show();
         }
         else if (data['resident'] == false){
-          $("#resident-block :input").attr('disabled', true);
+          // $("#resident-block :input").attr('disabled', true);
+          $("#resident-block #subject_resident_id").attr('disabled', true);
           $("#resident-block").hide();
         };
       }
@@ -883,11 +888,13 @@ $(document).ready(function() {
       data: {id: typesubject_id},
       success: function(data, textStatus, xhr) {
         if (data['resident'] == true) {
-          $("#resident-block :input").removeAttr('disabled');
+          // $("#resident-block :input").removeAttr('disabled');
+          $("#resident-block #subject_resident_id").removeAttr('disabled');
           $("#resident-block").show();
         }
         else if (data['resident'] == false){
-          $("#resident-block :input").attr('disabled', true);
+          // $("#resident-block :input").attr('disabled', true);
+          $("#resident-block #subject_resident_id").attr('disabled', true);
           $("#resident-block").hide();
         };
       }
@@ -899,9 +906,6 @@ $(document).ready(function() {
 // residents:
 $(document).ready(function() {
   // residents(subject form)
-  $("#add_resident")
-    .attr("disabled", true)
-    .hide();
   $("#add-resident-button").click(function(event) {
     $("#subject_resident_id").attr("disabled", true);
     $(".resident-operations").slideUp('fast');
