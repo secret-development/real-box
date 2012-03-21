@@ -663,6 +663,7 @@ $(document).ready(function() {
 
 
 // search:
+
 // change city - load districts
 $(document).ready(function() {
   // functions :
@@ -805,7 +806,7 @@ $(document).ready(function() {
   });
 });
 
-// change city - load residents
+// search - change city - load residents
 $(document).ready(function() {
   // functions :
   function disabled_resident(){
@@ -847,3 +848,121 @@ $(document).ready(function() {
     };
   });
 });
+
+
+
+// subject -> residents
+$(document).ready(function() {
+  if($("form").is(".subject-form")){
+    $("#add_resident")
+      .attr("disabled", true)
+      .hide();
+    var first_typesubject = $("#subject_typesubject_id option:selected").val();
+    $("#resident-block #subject_resident_id").attr('disabled', true);
+    $.ajax({
+      url: '/subjects/findtypesubject',
+      type: 'POST',
+      dataType: 'json',
+      data: {id: first_typesubject},
+      success: function(data, textStatus, xhr) {
+        if (data['resident'] == true) {
+          // $("#resident-block :input").removeAttr('disabled');
+          $("#resident-block #subject_resident_id").removeAttr('disabled');
+          $("#resident-block").show();
+        }
+        else if (data['resident'] == false){
+          // $("#resident-block :input").attr('disabled', true);
+          $("#resident-block #subject_resident_id").attr('disabled', true);
+          $("#resident-block").hide();
+        };
+      }
+    });  
+  }
+
+  $("#subject_typesubject_id").change(function(event) {
+    var typesubject_id = $(this).attr("value");
+    $.ajax({
+      url: '/subjects/findtypesubject',
+      type: 'POST',
+      dataType: 'json',
+      data: {id: typesubject_id},
+      success: function(data, textStatus, xhr) {
+        if (data['resident'] == true) {
+          // $("#resident-block :input").removeAttr('disabled');
+          $("#resident-block #subject_resident_id").removeAttr('disabled');
+          $("#resident-block").show();
+        }
+        else if (data['resident'] == false){
+          // $("#resident-block :input").attr('disabled', true);
+          $("#resident-block #subject_resident_id").attr('disabled', true);
+          $("#resident-block").hide();
+        };
+      }
+    });
+  });
+  
+});
+
+// residents:
+$(document).ready(function() {
+  // residents(subject form)
+  $("#add-resident-button").click(function(event) {
+    $("#subject_resident_id").attr("disabled", true);
+    $(".resident-operations").slideUp('fast');
+    $("#add_resident")
+      .attr("disabled", false)
+      .show('fast');
+    $("#back-resident-select").show();
+  });
+  
+  // back to list residents
+  $("#back-resident-select").click(function(event) {
+    $("#add_resident")
+      .attr("disabled", true)
+      .hide('fast');
+    $("#subject_resident_id").attr("disabled", false);  
+    $(".resident-operations").slideDown('fast');
+    $("#back-resident-select").hide();
+  });
+  
+});
+
+// residents load(subject form)
+$(document).ready(function() {
+  // functions :
+  function disabled_resident(){
+    $("#subject_resident_id")
+      .attr("disabled", true)
+      .html("<option>Нет ЖК</option>");
+  }
+  
+  function enable_resident(){
+    $("#subject_resident_id")
+      .attr("disabled", false)
+  }
+  
+  // all residents :
+  var residents = $("#subject_resident_id").html();
+  
+  // first state
+  var city_first = $("#subject_city_id :selected").text();
+  var opt_fir = $(residents).filter("optgroup[label='"+city_first+"']").html();
+  $("#subject_resident_id").html(opt_fir);
+  if (!opt_fir) {
+    disabled_resident();
+  };
+  
+  // change city
+  $("#subject_city_id").change(function(event) {
+    var city = $("#subject_city_id :selected").text();
+    var options = $(residents).filter("optgroup[label='"+city+"']").html();
+    if (options) {
+      enable_resident();
+      $("#subject_resident_id").html(options);
+    }
+    else{
+      disabled_resident();
+    };
+  });
+});
+// end subject -> residents
