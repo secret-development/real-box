@@ -2,7 +2,7 @@
 # encdoing:utf-8
 
 # set up
-set :application, "whitehouse"
+set :application, "imkv"
 set :scm, :git
 set :repository,  "git://github.com/secret-development/real-box.git"
 
@@ -15,8 +15,8 @@ role :web, "lithium.locum.ru"
 role :app, "lithium.locum.ru"
 role :db,  "lithium.locum.ru", :primary => true
 set :deploy_via, :remote_cache
-set :unicorn_conf, "/etc/unicorn/whitehouse.lagox.rb"
-set :unicorn_pid, "/var/run/unicorn/whitehouse.lagox.pid"
+set :unicorn_conf, "/etc/unicorn/imkv.lagox.rb"
+set :unicorn_pid, "/var/run/unicorn/imkv.lagox.pid"
 set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use 1.9.3 do bundle exec unicorn_rails -Dc #{unicorn_conf})"
 
 
