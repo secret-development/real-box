@@ -20,6 +20,11 @@
           </div>
         </div>
         <div class="s-group-field">
+          <div class="s-field" id="resident-search-block">
+            <%= f.label :resident_id_eq, "ЖК:" %>
+            <%= f.grouped_collection_select(:resident_id_eq, 
+                City.order(:name), :residents, :name ,:id, :title, :include_blank => true) %>
+          </div>
           <div class="s-field">
             <%= f.label :district_id_eq, "Район:" %>
             <%= f.grouped_collection_select(:district_id_eq, 

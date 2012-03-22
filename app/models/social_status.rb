@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class SocialStatus < ActiveRecord::Base
   validates :title, :presence => true, :uniqueness => { :case_sensitive => false }
-  has_many :customers, :dependent => :destroy
+  has_many :customers, :dependent => :nullify
   default_scope order('title ASC')
   def button_value
     if new_record?
@@ -23,7 +23,6 @@ class SocialStatus < ActiveRecord::Base
     order("title ASC")    
   end
 end
-
 # == Schema Information
 #
 # Table name: social_statuses
@@ -32,3 +31,5 @@ end
 #  title      :string(255)
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
+#
+

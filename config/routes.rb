@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 Crm::Application.routes.draw do
 
+  resources :worktimes
+
   get "reports" => "reports#index", :as => :reports
   resource :reports do
     get "activ", :on => :member, :as => :activ
@@ -29,11 +31,13 @@ Crm::Application.routes.draw do
     resources :photos, :only => [:create, :destroy]
     get 'add_properties', :on => :member, :as => :add_properties
     get 'add_photo', :on => :member, :as => :add_photo
+    get 'guest', :on => :member, :as => :guest
     post 'findtypesubject', :on => :collection
     post 'load_attr', :on => :collection
     # scopes:
     get 'active', :on => :collection
     get 'inactive', :on => :collection
+    
   end
   
   resources :transactions do
@@ -50,7 +54,16 @@ Crm::Application.routes.draw do
   
   # for search
   resources :results
-  get "help" => "help#index", :as => :help
+  
+  # help:
+  get "help/search" => "help#search", :as => :help_search
+  get "help/customers" => "help#customers", :as => :help_customers
+  get "help/subjects" => "help#subjects", :as => :help_subjects
+  get "help/users" => "help#users", :as => :help_users
+  get "help/tasks" => "help#tasks", :as => :help_tasks
+  get "help/transactions" => "help#transactions", :as => :help_transactions
+  get "help/reports" => "help#reports", :as => :help_reports
+  get "help/daner" => "help#danger", :as => :help_danger
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

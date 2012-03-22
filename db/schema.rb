@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120313070500) do
+ActiveRecord::Schema.define(:version => 20120318081411) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -37,9 +37,7 @@ ActiveRecord::Schema.define(:version => 20120313070500) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "potentials",         :default => false
-    t.integer  "type_customer_id"
     t.integer  "social_status_id"
-    t.string   "permalink"
     t.integer  "typetransaction_id"
     t.datetime "lastcall"
     t.integer  "user_id"
@@ -71,12 +69,15 @@ ActiveRecord::Schema.define(:version => 20120313070500) do
   end
 
   create_table "properties", :force => true do |t|
-    t.string   "condition"
-    t.string   "value"
-    t.integer  "subject_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "typefield"
+    t.string  "condition"
+    t.string  "value"
+    t.integer "subject_id"
+    t.string  "typefield"
+  end
+
+  create_table "residents", :force => true do |t|
+    t.string  "title"
+    t.integer "city_id"
   end
 
   create_table "social_statuses", :force => true do |t|
@@ -104,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20120313070500) do
     t.boolean  "active",             :default => true
     t.string   "price_currency"
     t.integer  "room"
+    t.integer  "resident_id"
   end
 
   create_table "tasks", :force => true do |t|
@@ -141,6 +143,7 @@ ActiveRecord::Schema.define(:version => 20120313070500) do
     t.datetime "updated_at", :null => false
     t.boolean  "floor"
     t.boolean  "room"
+    t.boolean  "resident"
   end
 
   create_table "typetransactions", :force => true do |t|
@@ -170,6 +173,13 @@ ActiveRecord::Schema.define(:version => 20120313070500) do
     t.integer  "condition_field_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "worktimes", :force => true do |t|
+    t.integer "start_hour"
+    t.integer "start_min"
+    t.integer "end_hour"
+    t.integer "end_min"
   end
 
 end

@@ -1,7 +1,10 @@
 # -*- encoding : utf-8 -*-
 
 class PasswordResetsController < ApplicationController
+
   layout 'devise'
+  # before_filter :all_deny
+  
   def new
     @title = "Восстановление пароля"
   end
