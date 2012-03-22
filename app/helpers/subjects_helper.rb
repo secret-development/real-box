@@ -1,13 +1,13 @@
 # -*- encoding : utf-8 -*-
 module SubjectsHelper
-  
+
   def room?(object)
     if object.new_record?
       begin
         typesubject = Typesubject.first
-        typesubject.room == true  
+        typesubject.room == true
       rescue NoMethodError
-        redirect_to subjects_path, :alert => "Заполните типы недвижимости"
+        redirect_to customers_path, :alert => "Заполните типы недвижимости"
       end
     else
       object.typesubject.room == true
@@ -19,8 +19,7 @@ module SubjectsHelper
       begin
         typesubject = Typesubject.first
         typesubject.floor == true  
-      rescue NoMethodError
-        redirect_to customers_path, :alert => "Заполните типы недвижимости"
+      rescue NoMethodError        
       end
     else
       object.typesubject.floor == true
