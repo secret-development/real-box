@@ -29,6 +29,7 @@ class Subject < ActiveRecord::Base
   before_update :full_address
   
   before_validation :format_price
+  before_validation :resident_check
   
   # validations:
   validates :typesubject_id, :presence => true
@@ -178,6 +179,12 @@ class Subject < ActiveRecord::Base
     unless resident_id.nil?
       r = Resident.find(resident_id)
       r.title
+    end
+  end
+  
+  def resident_check
+    if resident_id == 0
+      self.resident_id = nil
     end
   end
   
