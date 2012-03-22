@@ -154,5 +154,3 @@ describe ConditionFieldsController do
     }
   end
 end
-
-# todo routes spec

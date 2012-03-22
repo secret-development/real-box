@@ -16,9 +16,15 @@
     <tbody>
       <tr>
         <td><%= p.typetransaction.name %></td>
-        <td><%= link_to(p.lastname,p) %></td>
-        <td><%= p.firstname %></td>
-        <td><%= p.social_status.title %></td>
+        <td><%= link_to(isset_field(p.lastname), p) %></td>
+        <td><%= link_to(p.firstname, p) %></td>
+        <td>
+          <% if have_object?(p.social_status) %>
+            <%= p.social_status.title %>
+          <% else %>
+            Отсутствует
+          <% end %>
+        </td>
         <td><%= p.phonehome %></td>
         <td><%= p.phonemobile %></td>
         <td>

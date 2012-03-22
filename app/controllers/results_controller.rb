@@ -1,7 +1,10 @@
 # -*- encoding : utf-8 -*-
 class ResultsController < ApplicationController
-  before_filter :all_deny
+  
   respond_to :html
+  before_filter :all_deny
+  before_filter :time_work
+  
   
   def index
     @title = "Поиск"

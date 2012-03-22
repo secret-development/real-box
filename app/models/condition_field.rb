@@ -48,7 +48,7 @@ class ConditionField < ActiveRecord::Base
   end
   
 end
-
+# == Schema Information
 #
 # Table name: condition_fields
 #
@@ -58,3 +58,5 @@ end
 #  updated_at     :datetime        not null
 #  typefield      :string(255)
 #  typesubject_id :integer(4)
+#
+

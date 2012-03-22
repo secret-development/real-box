@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 
-class DocumentsController < ApplicationController
-  
+class DocumentsController < ApplicationController  
+
   before_filter :find_transaction
   before_filter :find_or_build_document
   skip_before_filter :verify_authenticity_token

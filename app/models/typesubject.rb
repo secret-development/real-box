@@ -5,7 +5,7 @@ class Typesubject < ActiveRecord::Base
 
   # associations:
   has_many :condition_fields, :dependent => :destroy
-  has_many :subjects, :dependent => :nullify
+  has_many :subjects, :dependent => :destroy
   
   # validates
   validates :name, :presence => true, 
@@ -14,6 +14,7 @@ class Typesubject < ActiveRecord::Base
             :uniqueness => { :case_sensitive => false }
   validates :floor, :inclusion => { :in => [true, false]}
   validates :room, :inclusion => { :in => [true, false]}
+  validates :resident, :inclusion => { :in => [true, false]}
   
   default_scope order("name ASC")
   
@@ -62,7 +63,6 @@ class Typesubject < ActiveRecord::Base
   end
   
 end
-
 # == Schema Information
 #
 # Table name: typesubjects
@@ -73,3 +73,7 @@ end
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
 #  floor      :boolean(1)
+#  room       :boolean(1)
+#  resident   :boolean(1)
+#
+

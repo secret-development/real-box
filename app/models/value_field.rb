@@ -21,7 +21,6 @@ class ValueField < ActiveRecord::Base
 
   
 end
-
 # == Schema Information
 #
 # Table name: value_fields
@@ -31,3 +30,5 @@ end
 #  condition_field_id :integer(4)
 #  created_at         :datetime        not null
 #  updated_at         :datetime        not null
+#
+

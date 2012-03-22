@@ -1,8 +1,10 @@
 # -*- encoding : utf-8 -*-
 
 class SubjectsController < ApplicationController
+
   respond_to :html
-  before_filter :all_deny
+  before_filter :all_deny, :except => :guest
+  before_filter :time_work, :except => :guest
   before_filter :load_type_subject, :only => :add_properties
   before_filter :load_attr, :only => :add_properties
   helper_method :sort_column, :sort_direction
@@ -116,6 +118,12 @@ class SubjectsController < ApplicationController
   #   end
   # end
   
+  def guest
+    @subject = Subject.find(params[:id])
+    @title = "Гостевой доступ"
+    render :layout => 'guest'
+  end
+  
   private
     
     def load_type_subject
@@ -131,7 +139,14 @@ class SubjectsController < ApplicationController
       subject = load_subject
       typesubject = load_type_subject
       if typesubject.condition_fields.size > 0
-        @attr = typesubject.find_values  
+        typesubject.condition_fields.each do |c|
+          if c.typefield != "textfield" && c.typefield != "textarea" && c.value_fields.empty?
+            redirect_to subject_path(subject),
+              :alert => "Не указаны значения для дополнительного поля"
+          else
+            @attr = typesubject.find_values 
+          end
+        end
       else
         redirect_to subject_path(subject), 
           :alert => "Дополнительные поля для данного типа недвижимости не указаны в настройках"

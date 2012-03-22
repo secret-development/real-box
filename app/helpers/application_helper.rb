@@ -249,5 +249,12 @@ module ApplicationHelper
 
   # for transaction views:
   
-  
+  def have_object?(object)
+    if object.nil?
+      false
+    else
+      true
+    end
+  end
+
 end

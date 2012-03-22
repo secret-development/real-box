@@ -47,7 +47,7 @@
           </div>
         </td>
         <td><%= to_datetime(task.created_at) %></td>
-        <td>
+        <td class="actions-buttons">
           <%= link_to eye_icon, task_path(task) %>
           <% if can? :update, task %>
             <%= link_to edit_icon, edit_task_path(task) %>
@@ -91,7 +91,7 @@
 
         </td>
         <td><%= to_datetime(task.created_at) %></td>
-        <td>
+        <td class="actions-buttons">
           <%= link_to eye_icon, task_path(task) %>
           <% if can? :update, task %>
             <%= link_to edit_icon, edit_task_path(task) %>
