@@ -19,7 +19,7 @@ module SubjectsHelper
       begin
         typesubject = Typesubject.first
         typesubject.floor == true  
-      rescue NoMethodError        
+      rescue NoMethodError  
       end
     else
       object.typesubject.floor == true
