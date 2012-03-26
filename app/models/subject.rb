@@ -38,6 +38,7 @@ class Subject < ActiveRecord::Base
   validates :customer_id, :presence => true
   validates :districtname, :presence => true
   validates :floor, :presence => true, :if => :floor?
+  validates :floorall, :presence => true, :if => :floor?
   validates :room, :presence => true, :if => :room?
   validates :price_currency, :presence => true
   
@@ -126,6 +127,7 @@ class Subject < ActiveRecord::Base
   def nill_floor
     if typesubject.floor == false
       self.floor = nil
+      self.floorall = nil
     end
   end
 

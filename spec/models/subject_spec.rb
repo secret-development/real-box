@@ -39,6 +39,7 @@ describe Subject do
       :district_id => @district.id,
       :resident_id => @resident.id,
       :floor => 1,
+      :floorall => 9,
       :room => 5,
       :active => true,
       :price_currency => @pricecur["доллар"]
@@ -114,6 +115,21 @@ describe Subject do
       it "should be valid if typesubject.floor == false" do
         subject = Subject.new(@attr.merge(:typesubject_id => @withourfloor.id))
         subject.floor = nil
+        subject.should be_valid
+      end
+      
+      # floor all
+      it "should require floorall if typesubject.floor == true" do
+        subject = Subject.new(@attr)
+        if subject.typesubject.floor == true
+          subject.floorall = nil
+          subject.should_not be_valid
+        end
+      end
+      
+      it "should be valid if typesubject.floor == false" do
+        subject = Subject.new(@attr.merge(:typesubject_id => @withourfloor.id))
+        subject.floorall = nil
         subject.should be_valid
       end
     end

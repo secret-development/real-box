@@ -469,6 +469,10 @@ $(document).ready(function() {
         required: true,
         digits: true
       },
+      "subject[floorall]" : {
+        required: true,
+        digits: true
+      },
       "subject[room]" : {
         required: true,
         digits: true
@@ -486,6 +490,10 @@ $(document).ready(function() {
       },
       "subject[floor]" : {
         required: "Введите этаж",
+        digits: "Только цифры"
+      },
+      "subject[floorall]" : {
+        required: "Введите этажность",
         digits: "Только цифры"
       },
       "subject[room]" : {
