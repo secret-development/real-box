@@ -1,8 +1,10 @@
 # -*- encoding : utf-8 -*-
 
 class CustomersController < ApplicationController
-  before_filter :all_deny
+  
   respond_to :html
+  before_filter :all_deny
+  before_filter :time_work
   helper_method :sort_column, :sort_direction
 
   
@@ -53,7 +55,7 @@ class CustomersController < ApplicationController
       flash[:notice] = "Клиент успешно обновлен"
       respond_with @customer   
     else
-      render 'edit'        
+      render 'edit'     
     end    
   end
   

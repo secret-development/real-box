@@ -13,7 +13,6 @@ class District < ActiveRecord::Base
   # scopes
   default_scope order("title ASC")
 end
-
 # == Schema Information
 #
 # Table name: districts
@@ -23,3 +22,5 @@ end
 #  title      :string(255)
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
+#
+

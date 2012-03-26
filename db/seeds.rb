@@ -25,6 +25,12 @@ if ENV['RAILS_ENV'] == "production"
   if users.size == 0
     User.create(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :role => true, :lastname => "Иванов", :firstname => "Иван")    
   end
+  
+  # worktimes
+  worktime = Worktime.all
+  if worktime.size == 0
+    Worktime.create(:start_hour => nil, :start_min => nil, :end_hour => nil, :end_min => nil)
+  end
 
 elsif ENV['RAILS_ENV'] = "development"
   # type transactions
@@ -35,4 +41,6 @@ elsif ENV['RAILS_ENV'] = "development"
   
   # users
   User.create(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :role => true, :lastname => "Иванов", :firstname => "Иван")
+  
+  Worktime.create(:start_hour => nil, :start_min => nil, :end_hour => nil, :end_min => nil)
 end

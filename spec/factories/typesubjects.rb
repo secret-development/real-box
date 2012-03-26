@@ -6,6 +6,7 @@ FactoryGirl.define do
     permalink "cottage"
     floor true
     room true
+    resident true
   end
   
   factory :withourfloor, :class => Typesubject do
@@ -13,6 +14,7 @@ FactoryGirl.define do
     permalink "dacha"
     floor false
     room false
+    resident true
   end
   
   factory :withcond, :class => Typesubject do
@@ -20,6 +22,7 @@ FactoryGirl.define do
     permalink "flat"
     floor true
     room true
+    resident true
   end
 
   factory :withoutroom, :class => Typesubject do
@@ -27,5 +30,15 @@ FactoryGirl.define do
     permalink "chastnii dom"
     floor false
     room false
+    resident true
   end
+  
+  factory :withoutresident, :class => Typesubject do
+    name "Офис"
+    premalink "office"
+    floor true
+    room true
+    resident false
+  end
+  
 end

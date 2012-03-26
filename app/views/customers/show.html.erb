@@ -43,7 +43,11 @@
         </div>
         <div class="field-customer">
           <span class="title-field">Социальный статус:</span>
-          <%= isset_field(@customer.social_status.title) %>
+          <% if have_object?(@customer.social_status) %>
+            <%= @customer.social_status.title %>
+          <% else %>
+            Отсутствует
+          <% end %>
         </div>
         <div class="field-customer">
           <span class="title-field">Телефон:</span>

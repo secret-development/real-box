@@ -6,9 +6,10 @@ describe Subject do
     @city = Factory(:city)
     @typesubject = Factory(:typesubject)
     @district = Factory(:district)
+    @resident = Factory(:resident)
     @customer = Factory(:customer)
     @subject = Factory(:subject, :typesubject => @typesubject, :city => @city, 
-        :customer => @customer, :district => @district)
+        :customer => @customer, :district => @district, :resident => @resident)
     
     # typesubject without floor
     @withourfloor = Factory(:withourfloor)
@@ -36,6 +37,7 @@ describe Subject do
       :area => 80,
       :address => "Баймагамбетова 15, 23",
       :district_id => @district.id,
+      :resident_id => @resident.id,
       :floor => 1,
       :room => 5,
       :active => true,
@@ -217,6 +219,18 @@ describe Subject do
       end
     end
     
+    describe "resident" do
+      it "should respond to resident" do
+        subject = Subject.new(@attr)
+        subject.should respond_to(:resident)
+      end
+      
+      it "should belongs_to :resident" do
+        subject = Subject.reflect_on_association(:resident)
+        subject.macro.should == :belongs_to
+      end
+    end
+    
     describe "photos" do
       it "should respond to photos" do
         subject = Subject.new(@attr)
@@ -275,7 +289,6 @@ describe Subject do
   end
   
 end
-
 # == Schema Information
 #
 # Table name: subjects
@@ -291,4 +304,14 @@ end
 #  typetransaction_id :integer(4)
 #  customer_id        :integer(4)
 #  district_id        :integer(4)
+#  floor              :integer(4)
+#  street_src         :string(255)
+#  house_src          :string(255)
+#  flat_src           :string(255)
+#  user_id            :integer(4)
+#  active             :boolean(1)      default(TRUE)
+#  price_currency     :string(255)
+#  room               :integer(4)
+#  resident_id        :integer(4)
 #
+
