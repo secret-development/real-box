@@ -62,8 +62,8 @@ class UsersController < ApplicationController
   
   def destroy
     @user = User.find(params[:id])
-    @user.fired = true
-    @user.save
+    @user.update_attribute("fired", true)
+    @user.reload
     redirect_to users_path
     flash[:notice] = "Сотрудник уволен"
   end

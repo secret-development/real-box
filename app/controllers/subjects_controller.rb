@@ -5,6 +5,7 @@ class SubjectsController < ApplicationController
   respond_to :html
   before_filter :all_deny, :except => :guest
   before_filter :time_work, :except => :guest
+  before_filter :check_fired, :except => :guest
   before_filter :load_type_subject, :only => :add_properties
   before_filter :load_attr, :only => :add_properties
   helper_method :sort_column, :sort_direction

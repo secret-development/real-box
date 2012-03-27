@@ -21,4 +21,16 @@ FactoryGirl.define do
     role false
     fired false
   end
+  
+  factory :user2, :class => User do
+    email "agent1@mail.ru"
+    password "MyString"
+    password_confirmation "MyString"
+    lastname "Иванов"
+    firstname "Иван"
+    role true
+    phonemobile "+7 777 474 4343"
+    fired true
+  end
+  
 end
