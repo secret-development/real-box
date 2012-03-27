@@ -84,8 +84,25 @@ describe UsersController do
         put :update, :id =>@regular_user, :user => @attr
         flash[:notice].should =~ /Данные изменены/i      
       end
-    end  
+    end    
+  end
   
+  describe "destroy" do
+    it "should redirect_to list users" do
+      delete :destroy, :id => @user
+      response.should redirect_to(users_path)
+    end
+    
+    it "should not destroy the user" do
+      lambda do
+        delete :destroy, :id => @user
+      end.should_not change(User, :count)
+    end
+    
+    it "should fired = true" do
+      delete :destroy, :id => @user
+      @user.fired.should be_true
+    end
   end
 
 end
