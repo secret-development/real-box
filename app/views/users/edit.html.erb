@@ -30,7 +30,13 @@
       </div>
     </div>
     <% else %>
-    <% end %>  
+    <% end %>
+    <div class="control-group">
+      <%= f.label :fired, "Уволен?" %>
+      <div class="controls">
+        <%= select('user', 'fired', [["Да",true],["Нет",false]]) %>
+      </div>
+    </div>
     <div class="form-actions"> 
       <%= f.submit @user.button_value, :class => "btn btn-primary" %>
       <button type="reset" class="btn cancel-form">Отмена</button>
@@ -38,6 +44,5 @@
   </fieldset>  
 <% end %>
 <% if can? :update, @user %>
-<%= link_to 'Изменить анкетные данные', add_info_user_path(@user)  %>
-  
+  <%= link_to 'Изменить анкетные данные', add_info_user_path(@user)  %>
 <% end -%>

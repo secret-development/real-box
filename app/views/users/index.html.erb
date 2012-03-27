@@ -4,6 +4,7 @@
   <thead>
     <th>Фамилия Имя</th>
     <th>Действия</th>
+    <th>Статус</th>
   </thead>
   <tbody>
     <% @users.each do |u| %>
@@ -15,13 +16,23 @@
           <%= link_to edit_icon, edit_user_path(u) %>
         <% end %>
         <% if can? :destroy, @users %>  
-        <%= link_to delete_icon, user_path(u), method: :delete, confirm: "Вы уверены?"  %>
+        <%= link_to delete_icon, user_path(u), method: :delete, confirm: "Вы уверены?", :title => "Уволить"  %>
+        <% end %>
+      </td>
+      <td>
+        <% if u.fired == true %>
+          <div class="user-fired">
+            Уволен
+          </div>
+        <% else %>
+          <div class="user-not-fired">
+            Работает
+          </div>
         <% end %>
       </td>
     </tr>
     <% end %>
   </tbody>
-
 </table>
 <div class="form-actions">
 <% if can? :create, @users %>  
