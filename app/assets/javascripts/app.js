@@ -476,6 +476,9 @@ $(document).ready(function() {
       "subject[room]" : {
         required: true,
         digits: true
+      },
+      "subject[note]" : {
+        maxlength: 800
       }
     },
     messages: {
@@ -499,6 +502,9 @@ $(document).ready(function() {
       "subject[room]" : {
         required: "Введите этаж",
         digits: "Только цифры"
+      },
+      "subject[note]" : {
+        maxlength: "Не более 800 символов"
       }
     }
   });
