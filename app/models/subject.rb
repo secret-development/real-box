@@ -43,7 +43,7 @@ class Subject < ActiveRecord::Base
   validates :floorall, :presence => true, :if => :floor?
   validates :room, :presence => true, :if => :room?
   validates :price_currency, :presence => true
-  
+  validates :note, :length => { :maximum => 800 }, :allow_blank => true
   attr_writer :street, :house, :flat
 
   # scopes

@@ -105,6 +105,12 @@
             <% end %>
           </div>
         <% end %>
+        <div class="field-subject" id="note-field">
+          <span class="title-field-subject"><b>Заметка</b>:</span>
+          <div class="subject-note">
+            <%= isset_field(@subject.note) %>  
+          </div>
+        </div>
       </div>
       <!-- photos -->
       <% if @subject.photos.size > 0 %>
