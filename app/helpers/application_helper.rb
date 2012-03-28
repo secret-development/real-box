@@ -181,6 +181,14 @@ module ApplicationHelper
     end
   end
   
+  def customer_act?(object)
+    if object.potentials == true
+      image_tag('customer_pot.gif', :title => "Потенциальный")
+    else
+      image_tag('customer_act.gif', :title => "Действующий")
+    end
+  end
+  
   def active_subject_text?(object)
     if object.active == true
       "Активен"

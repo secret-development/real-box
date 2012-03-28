@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, 
                   :password_reset_token, :password_reset_sent_at, 
                   :role, :lastname, :firstname, :phonehome, :phonemobile,
-                  :area_code, :phonemobile1, :phonemobile2
+                  :area_code, :phonemobile1, :phonemobile2, :fired
   #encript password before save
   before_save :encrypt_password
   
@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   
   def self.authenticate(email, password)
     user = find_by_email(email)
-    if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
+    if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt) && user.fired == false
       user
     else
       nil      

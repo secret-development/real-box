@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120318081411) do
+ActiveRecord::Schema.define(:version => 20120327053810) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20120318081411) do
     t.string   "price_currency"
     t.integer  "room"
     t.integer  "resident_id"
+    t.integer  "floorall"
   end
 
   create_table "tasks", :force => true do |t|
@@ -160,8 +161,8 @@ ActiveRecord::Schema.define(:version => 20120318081411) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
@@ -170,6 +171,7 @@ ActiveRecord::Schema.define(:version => 20120318081411) do
     t.string   "lastname"
     t.string   "phonemobile"
     t.string   "phonehome"
+    t.boolean  "fired",                  :default => false
   end
 
   create_table "value_fields", :force => true do |t|

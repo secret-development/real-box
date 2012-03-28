@@ -7,6 +7,7 @@ FactoryGirl.define do
     area 73
     address "Абая 165, 8"
     floor 3
+    floorall 9
     room 3
     active true
     price_currency "доллар"
@@ -17,6 +18,7 @@ FactoryGirl.define do
     area 73
     address "Абая 165, 8"
     floor 7
+    floorall 30
     room 4
     active false
     price_currency "доллар"

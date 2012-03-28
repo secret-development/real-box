@@ -8,6 +8,7 @@
       <th>Дом. телефон</th>
       <th>Сот. телефон</th>
       <th>Добавить объект</th>
+      <th>Заключить сделку</th>
       <th>Действия</th>
     </tr>
   </thead>
@@ -30,6 +31,12 @@
         <td>
           <%= link_to plus_icon, new_subject_path(:customer_id => p.id), 
               :title => "Добавить недвижимость" %>
+        </td>
+        <td>
+          <span class="icon-trans-status">
+            <%= customer_act?(p) %>  
+          </span>
+          <%= link_to "Сделка", new_transaction_path(:customer_id => p.id) %>
         </td>
         <td class="actions-buttons">
           <%= link_to eye_icon, customer_path(p) %>

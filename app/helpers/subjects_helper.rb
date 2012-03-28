@@ -1,31 +1,29 @@
 # -*- encoding : utf-8 -*-
 module SubjectsHelper
 
-  def floor?(object)
-    if object.new_record?
-      typesubject = Typesubject.first
-      typesubject.floor == true
-    else
-      object.typesubject.floor == true
-    end
-  end
-  
   def room?(object)
     if object.new_record?
-      typesubject = Typesubject.first
-      typesubject.room == true
+      begin
+        typesubject = Typesubject.first
+        typesubject.room == true
+      rescue NoMethodError
+        redirect_to customers_path, :alert => "Заполните типы недвижимости"
+      end
     else
       object.typesubject.room == true
     end
   end
-  
-  def resident?(object)
+
+  def floor?(object)
     if object.new_record?
-      typesubject = Typesubject.first
-      typesubject.resident == true
+      begin
+        typesubject = Typesubject.first
+        typesubject.floor == true  
+      rescue NoMethodError  
+      end
     else
-      object.typesubject.resident == true
+      object.typesubject.floor == true
     end
-  end
-  
+  end  
+    
 end
