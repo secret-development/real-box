@@ -19,7 +19,7 @@ describe SubjectsController do
     
     # main subject
     @subject = Factory(:subject, :typesubject => @typesubject, :city => @city,
-                :typetransaction => @typetransaction, :customer => @customer, :district => @district, :resident => @resident)
+                :typetransaction => @typetransaction, :customer => @customer, :district => @district, :resident => @resident, :user => @user)
   end
   
   it "get 'index'" do
@@ -210,7 +210,8 @@ describe SubjectsController do
       :price_currency => "доллар",
       :room => 4,
       :typetransaction_id => @typetransaction.id,
-      :note => "Евроремонт"
+      :note => "Евроремонт",
+      :user_id => @user.id
     }
   end
   
@@ -231,7 +232,8 @@ describe SubjectsController do
       :active => true,
       :price_currency => "доллар",
       :typetransaction_id => @typetransaction.id,
-      :note => "Норм квартира"
+      :note => "Норм квартира",
+      :user_id => @user.id
     }   
   end
   
@@ -251,7 +253,8 @@ describe SubjectsController do
       :active => true,
       :price_currency => "доллар",
       :typetransaction_id => @typetransaction.id,
-      :note => "Не очень квартира"
+      :note => "Не очень квартира",
+      :user_id => @user.id
     }
   end
   
