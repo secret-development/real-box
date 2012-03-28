@@ -21,6 +21,9 @@
           <span class="title-field"><b>Тип клиента:</b></span>
           <span class="typecustomer">
             <%= type_customer(@customer.potentials) %>
+            <span class="icon-trans-status">
+              <%= customer_act?(@customer) %>  
+            </span>
           </span>
         </div>
         <div class="field-customer">
