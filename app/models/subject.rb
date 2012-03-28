@@ -20,9 +20,11 @@ class Subject < ActiveRecord::Base
   # callbacks:
   before_update :check_typesubject
   
+  # verify customer real
   after_save :verify_customer_real
   after_update :verify_customer_real
   after_destroy :verify_customer_real
+  
   before_save :nill_floor
   before_update :nill_floor
   before_save :full_address

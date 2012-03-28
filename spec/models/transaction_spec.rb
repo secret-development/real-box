@@ -290,6 +290,21 @@ describe Transaction do
       end
     end
     
+    describe "verify customer status(potentials or activity)" do      
+      it "should verify_cust_real(potentials = false)" do
+        transaction = @transaction
+        transaction.verify_cust_real
+        transaction.customer.potentials.should be_false
+      end
+      
+      it "should verify_cust_real(potentials = true)" do
+        transaction = @transaction
+        @customer[:potentials] = true
+        transaction.customer = @customer
+        transaction.customer.potentials.should == true
+      end
+    end
+    
   end
   
 end

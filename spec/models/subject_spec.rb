@@ -53,10 +53,10 @@ describe Subject do
   end
   
   it "should verify_customer_real(potentials = true)" do
+    subject = @subject
     @customer[:potentials] = true
     subject.customer = @customer
     subject.customer.potentials.should == true
-    
   end
   
   it "should active == true" do
