@@ -145,7 +145,9 @@ class Subject < ActiveRecord::Base
   
   def verify_customer_real
     cust = Customer.find(customer_id)
-    if cust.subjects.count > 0  
+    if cust.subjects.count > 0
+      cust.update_attributes(:potentials => false)
+    elsif cust.transactions.count > 0
       cust.update_attributes(:potentials => false)
     else
       cust.update_attributes(:potentials => true)
