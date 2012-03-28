@@ -3,6 +3,7 @@
 <table class="table table-striped">
   <thead>
     <th>Фамилия Имя</th>
+    <th>Последний визит</th>
     <th>Действия</th>
     <th>Статус</th>
   </thead>
@@ -10,6 +11,7 @@
     <% @users.each do |u| %>
     <tr>
       <td><%= u.lastname %> <%= u.firstname %></td>
+      <td><%= to_datetime(u.last_sign_in_at) %></td>
       <td class="actions-buttons">
         <%= link_to eye_icon, user_path(u) %>
         <% if can? :update, @users %>  
