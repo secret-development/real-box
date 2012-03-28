@@ -50,6 +50,7 @@ Crm::Application.routes.draw do
   resources :value_fields, :except => [:show]
   resources :typesubjects, :except => [:show]
   resources :districts, :except => [:show]
+  resources :residents, :except => [:show]
   # settings
   match "settings" => "settings#index", :as => :settings
   
