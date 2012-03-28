@@ -13,7 +13,7 @@
       <td><%= u.lastname %> <%= u.firstname %></td>
       <td>
         <% if isset_last_sign_in(u.last_sign_in_at) %>
-          -
+          Работник еще не входил в систему
         <% else %>
           <%= to_datetime(u.last_sign_in_at) %>
         <% end %> 
