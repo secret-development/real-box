@@ -270,5 +270,11 @@ module ApplicationHelper
       true
     end
   end
+  
+  def isset_last_sign_in(object)
+    if object.nil?
+      "-"
+    end    
+  end
 
 end
