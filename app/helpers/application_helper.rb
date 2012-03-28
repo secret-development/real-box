@@ -32,7 +32,13 @@ module ApplicationHelper
   end        
 
   def isset_field(object)
-    object.empty? ? "нет данных" : object
+    if object.nil?
+      "нет данных"
+    elsif object.empty?
+      "нет данных"
+    else
+      object
+    end
   end
   
   def isset_mail(object)
