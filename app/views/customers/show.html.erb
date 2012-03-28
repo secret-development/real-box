@@ -13,7 +13,6 @@
       </li>
     </ul>
   </div>
-
   <div class="tab-content">
     <div class="tab-pane active" id="1">
       <div id="fields-for-customers">
@@ -65,8 +64,10 @@
           <%= isset_mail(@customer.email) %>
         </div>
         <div class="field-customer">
-          <span class="title-field">Заметка:</span>
-          <%= isset_field(@customer.note) %>
+          <span class="title-field"><b>Заметка:</b></span>
+          <div class="customer-note">
+            <%= isset_field(@customer.note) %>
+          </div>
         </div>
         <div class="field-customer">
           <span class="title-field">Последний раз обращался:</span>

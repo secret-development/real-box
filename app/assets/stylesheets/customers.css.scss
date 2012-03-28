@@ -92,3 +92,21 @@
 #customers_table th .desc { 
   background-image: url(sort_desc.png); 
 }
+.customer-note{
+  background:#ffffff;
+  border:1px solid #eee;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+  -o-border-radius:10px;
+  -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Для Firefox */
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Для Safari и Chrome */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Параметры тени */
+  padding: 15px;
+  margin: 15px 15px 25px 0px;
+  width: 400px;
+  line-height: 1.5;
+}
+#note-field{
+  margin-top:20px;
+}

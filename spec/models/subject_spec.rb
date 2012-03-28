@@ -42,7 +42,8 @@ describe Subject do
       :floorall => 9,
       :room => 5,
       :active => true,
-      :price_currency => @pricecur["доллар"]
+      :price_currency => @pricecur["доллар"],
+      :note => "Адекватная квартира"
     }
   end
   
@@ -98,6 +99,12 @@ describe Subject do
     
     it "should require the district_id" do
       @attr[:district_id] = nil
+      subject = Subject.new(@attr)
+      subject.should_not be_valid
+    end
+    
+    it "should not note more than 800 characters" do
+      @attr[:note] = @attr[:note]*800
       subject = Subject.new(@attr)
       subject.should_not be_valid
     end

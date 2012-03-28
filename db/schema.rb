@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120327053810) do
+ActiveRecord::Schema.define(:version => 20120328071110) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20120327053810) do
     t.integer  "room"
     t.integer  "resident_id"
     t.integer  "floorall"
+    t.text     "note"
   end
 
   create_table "tasks", :force => true do |t|

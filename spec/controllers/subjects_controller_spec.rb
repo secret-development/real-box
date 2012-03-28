@@ -209,7 +209,8 @@ describe SubjectsController do
       :active => true,
       :price_currency => "доллар",
       :room => 4,
-      :typetransaction_id => @typetransaction.id
+      :typetransaction_id => @typetransaction.id,
+      :note => "Евроремонт"
     }
   end
   
@@ -229,7 +230,8 @@ describe SubjectsController do
       :room => 3,
       :active => true,
       :price_currency => "доллар",
-      :typetransaction_id => @typetransaction.id
+      :typetransaction_id => @typetransaction.id,
+      :note => "Норм квартира"
     }   
   end
   
@@ -248,7 +250,8 @@ describe SubjectsController do
       :room => 4,
       :active => true,
       :price_currency => "доллар",
-      :typetransaction_id => @typetransaction.id
+      :typetransaction_id => @typetransaction.id,
+      :note => "Не очень квартира"
     }
   end
   
