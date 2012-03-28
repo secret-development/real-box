@@ -42,7 +42,8 @@
           <%= link_to "Сделка", new_transaction_path(:customer_id => c.id) %>
         </td>
         <td class="actions-buttons">
-          <%= link_to eye_icon, customer_path(c), :title => "Подробнее..." %>
+          <%= link_to eye_icon, customer_path(c), :title => "Подробнее...",
+              :rel => "tooltip" %>
           <%= link_to edit_icon, edit_customer_path(c) %>
           <%= link_to delete_icon, c, :method => :delete, :confirm => "Вы уверены?" %>
         </td>

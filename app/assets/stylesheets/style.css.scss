@@ -143,3 +143,18 @@ form{
 .norm-inp{
   width:80px;
 }
+
+// links in tables
+table{
+  tbody{
+    color:#494949;
+    a{
+      color:#575757;
+      text-decoration:underline;
+      &:hover{
+        color:#494949;
+        text-decoration:none;
+      }
+    }
+  }
+}
