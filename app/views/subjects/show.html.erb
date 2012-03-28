@@ -31,6 +31,9 @@
         <div class="field-subject">
           <span class="title-field-subject"><b>Статус:</b></span>
           <b><%= active_subject_text?(@subject) %></b>
+          <span class="for-status-subject">
+            <%= active_subject?(@subject) %>
+          </span>
         </div>
         <div class="field-subject">
           <span class="title-field-subject">Тип сделки:</span>
