@@ -17,6 +17,10 @@
     <div class="tab-pane active" id="1">
       <div class="subject-info">
         <div class="field-subject">
+          <span class="title-field-subject">Кто добавил:</span>
+          <%= link_to @subject.user.fullname, @subject.user %>
+        </div>
+        <div class="field-subject">
           <span class="title-field-subject"><b>Хозяин:</b></span>
           <%= link_to(@subject.customer.fullname, @subject.customer) %>
         </div>
