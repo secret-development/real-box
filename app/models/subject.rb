@@ -71,12 +71,14 @@ class Subject < ActiveRecord::Base
   end
 
   def full_address
-    if(@street.blank? || @house.blank?)
+    if @street.blank?
       if new_record?
         self.address = "Адресс неизвестен"
       end
     else
-      if @flat.blank?
+      if @house.blank? && @flat.blank?
+        self.address = "ул. #{@street}"  
+      elsif @flat.blank?
         self.address = "ул. #{@street}, дом #{@house}"
       else
         self.address = "ул. #{@street}, дом #{@house}, кв. #{@flat}"
