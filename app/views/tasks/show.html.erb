@@ -10,7 +10,7 @@
     <% if @task.user_id == nil %>
       Отсутствует
     <% else %>
-      <%= link_to(@task.user.email, user_path(@task.user)) %>
+      <%= link_to(@task.user.fullname, user_path(@task.user)) %>
     <% end %>
   </div>
   <div class="field-task">

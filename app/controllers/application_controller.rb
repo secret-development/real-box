@@ -3,6 +3,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery  
   
+  helper_method :redirect_to
+  
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message    
   end
@@ -57,6 +59,14 @@ class ApplicationController < ActionController::Base
           redirect_to sign_in_path
           flash[:notice] = "Рабочий день закончился"
         end
+      end
+    end
+    
+    def check_fired
+      if current_user.fired == true
+        cookies.delete(:auth_token)
+        redirect_to sign_in_path
+        flash[:notice] = "Вас уволили"
       end
     end
         

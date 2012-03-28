@@ -122,26 +122,6 @@ form{
   display:none;
 }
 
-// for resident
-#resident-subject-block{
-  display:none;
-}
-.resident-operations{
-  // margin-top:15px;
-  .title{
-    color:#6F6F6F;
-    margin:15px 0px 5px 0px;
-    font-size:11px;
-  }
-}
-#add-resident-button{
-  float:left;
-}
-#back-resident-select{
-  display:none;
-  margin-left:10px;
-}
-
 // address
 #ad-street{
   width:110px;
@@ -270,4 +250,27 @@ form{
   input{
     width:500px;
   }
+}
+// residents:
+#resident-block{
+  display:none;
+  .resident-operations{
+    // margin-top:15px;
+    .title{
+      color:#6F6F6F;
+      margin:15px 0px 5px 0px;
+      font-size:11px;
+    }
+  }
+  #add-resident-button{
+    float:left;
+  }
+  #back-resident-select{
+    display:none;
+    margin-left:10px;
+  }
+}
+.icon-trans-status{
+  display: inline-block;
+  margin-right:5px;
 }

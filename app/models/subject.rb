@@ -20,15 +20,18 @@ class Subject < ActiveRecord::Base
   # callbacks:
   before_update :check_typesubject
   
+  # verify customer real
   after_save :verify_customer_real
   after_update :verify_customer_real
   after_destroy :verify_customer_real
+  
   before_save :nill_floor
   before_update :nill_floor
   before_save :full_address
   before_update :full_address
   
   before_validation :format_price
+  before_validation :resident_check
   
   # validations:
   validates :typesubject_id, :presence => true
@@ -37,6 +40,7 @@ class Subject < ActiveRecord::Base
   validates :customer_id, :presence => true
   validates :districtname, :presence => true
   validates :floor, :presence => true, :if => :floor?
+  validates :floorall, :presence => true, :if => :floor?
   validates :room, :presence => true, :if => :room?
   validates :price_currency, :presence => true
   
@@ -125,6 +129,7 @@ class Subject < ActiveRecord::Base
   def nill_floor
     if typesubject.floor == false
       self.floor = nil
+      self.floorall = nil
     end
   end
 
@@ -140,7 +145,9 @@ class Subject < ActiveRecord::Base
   
   def verify_customer_real
     cust = Customer.find(customer_id)
-    if cust.subjects.count > 0  
+    if cust.subjects.count > 0
+      cust.update_attributes(:potentials => false)
+    elsif cust.transactions.count > 0
       cust.update_attributes(:potentials => false)
     else
       cust.update_attributes(:potentials => true)
@@ -178,6 +185,12 @@ class Subject < ActiveRecord::Base
     unless resident_id.nil?
       r = Resident.find(resident_id)
       r.title
+    end
+  end
+  
+  def resident_check
+    if resident_id == 0
+      self.resident_id = nil
     end
   end
   
