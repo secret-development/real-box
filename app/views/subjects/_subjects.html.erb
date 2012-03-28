@@ -30,7 +30,8 @@
         <td><%= to_area(s.area) %></td>
         <td><%= active_subject?(s) %></td>
         <td class="actions-buttons">
-          <%= link_to eye_icon, subject_path(s), :title => "Подробнее..." %>
+          <%= link_to eye_icon, subject_path(s), :title => "Подробнее...",
+              :rel => "tooltip" %>
           <%= link_to edit_icon, edit_subject_path(s) %>
           <%= link_to delete_icon, s, :method => :delete, :confirm => "Вы уверены?" %>
         </td>

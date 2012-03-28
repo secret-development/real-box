@@ -980,3 +980,9 @@ $(document).ready(function() {
   });
 });
 // end subject -> residents
+
+// tooltip links
+$(document).ready(function() {
+  $('a').tooltip('hide')
+  $('img').tooltip('hide')
+});
