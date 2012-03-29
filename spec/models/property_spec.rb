@@ -46,14 +46,4 @@ describe Property do
     end
   end
 end
-# == Schema Information
-#
-# Table name: properties
-#
-#  id         :integer(4)      not null, primary key
-#  condition  :string(255)
-#  value      :string(255)
-#  subject_id :integer(4)
-#  typefield  :string(255)
-#
 

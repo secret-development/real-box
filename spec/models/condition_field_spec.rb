@@ -104,15 +104,3 @@ describe ConditionField do
   end
   
 end
-# == Schema Information
-#
-# Table name: condition_fields
-#
-#  id             :integer(4)      not null, primary key
-#  namefield      :string(255)
-#  created_at     :datetime        not null
-#  updated_at     :datetime        not null
-#  typefield      :string(255)
-#  typesubject_id :integer(4)
-#
-
