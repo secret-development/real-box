@@ -7,10 +7,9 @@ class DistrictsController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @districts = District.all
     @title = "Районы"
     @cities = City.all
-    respond_with(@districts)
+    respond_with(@cities)
   end
   
   def edit
