@@ -129,12 +129,6 @@ class User < ActiveRecord::Base
     save!    
   end
   
-  # last logout
-  def last_log_out
-    self.last_log_out_at = Time.current
-    save!    
-  end
-  
 end
 
 # == Schema Information
