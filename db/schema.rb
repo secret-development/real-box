@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120328092814) do
+ActiveRecord::Schema.define(:version => 20120329074113) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -180,6 +180,7 @@ ActiveRecord::Schema.define(:version => 20120328092814) do
     t.string   "phonehome"
     t.boolean  "fired",                  :default => false
     t.datetime "last_sign_in_at"
+    t.datetime "last_log_out_at"
   end
 
   create_table "value_fields", :force => true do |t|
