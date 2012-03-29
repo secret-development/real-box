@@ -113,7 +113,11 @@
             </div>
             <div class="field-obj">
               <span>Район:</span>
-              <%= subject.district.title %>
+              <% if have_object?(subject.district) %>
+                <%= subject.district.title %>
+              <% else %>
+                Отсутствует
+              <% end %>
             </div>
             <div class="field-obj">
               <span>Адресс:</span>
