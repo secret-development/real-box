@@ -54,8 +54,6 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    #session[:user_id] = nil
-    current_user.last_log_out
     cookies.delete(:auth_token)
     redirect_to sign_in_path
     flash[:notice] = "Вы вышли из системы"    
