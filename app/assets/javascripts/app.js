@@ -667,6 +667,23 @@ $(document).ready(function() {
   });
 });
 
+// validates for settings -> districts
+$(document).ready(function() {
+  $('.district-form-validation').validate({
+    rules: {
+      "district[title]" : {
+        required: true
+      }
+    },
+    messages: {
+      "district[title]" : {
+        required: "Введите значение"
+      }
+    }
+  });
+});
+
+
 // guest deny button
 $(document).ready(function() {
   $("#guest-deny-button").click(function(event) {
