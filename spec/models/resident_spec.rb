@@ -72,3 +72,12 @@ describe Resident do
 
 end
 
+# == Schema Information
+#
+# Table name: residents
+#
+#  id      :integer(4)      not null, primary key
+#  title   :string(255)
+#  city_id :integer(4)
+#
+

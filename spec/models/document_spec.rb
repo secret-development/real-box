@@ -44,3 +44,14 @@ describe Document do
   end
   
 end
+# == Schema Information
+#
+# Table name: documents
+#
+#  id             :integer(4)      not null, primary key
+#  transaction_id :integer(4)
+#  doc            :string(255)
+#  created_at     :datetime        not null
+#  updated_at     :datetime        not null
+#
+
