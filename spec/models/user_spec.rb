@@ -179,7 +179,9 @@ describe User do
     
   end
   
-end# == Schema Information
+end
+
+# == Schema Information
 #
 # Table name: users
 #

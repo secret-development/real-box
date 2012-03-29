@@ -104,6 +104,7 @@ describe ConditionField do
   end
   
 end
+
 # == Schema Information
 #
 # Table name: condition_fields

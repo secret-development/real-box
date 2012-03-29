@@ -2,7 +2,9 @@
 require 'spec_helper'
 
 describe Worktime do
-end# == Schema Information
+end
+
+# == Schema Information
 #
 # Table name: worktimes
 #

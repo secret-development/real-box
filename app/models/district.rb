@@ -12,7 +12,8 @@ class District < ActiveRecord::Base
   
   # scopes
   default_scope order("title ASC")
-end\n# == Schema Information
+end
+# == Schema Information
 #
 # Table name: districts
 #

@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 class Worktime < ActiveRecord::Base
-end\n# == Schema Information
+end
+
+# == Schema Information
 #
 # Table name: worktimes
 #

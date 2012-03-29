@@ -80,7 +80,8 @@ class Customer < ActiveRecord::Base
     lastname + " " + firstname
   end
   
-end# == Schema Information
+end
+# == Schema Information
 #
 # Table name: customers
 #
