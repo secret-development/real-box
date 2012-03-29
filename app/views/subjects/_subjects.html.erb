@@ -17,19 +17,19 @@
     <% @subjects.each do |s| %>
       <tr>
         <td class="id-table"><%= s.id %></td>
-        <td><%= s.typetransaction.name %></td>
+        <td class="id-table"><%= s.typetransaction.name %></td>
         <td><%= link_to(s.typesubject.name, s) %></td>
-        <td>
+        <td class="id-table">
           <% if have_object?(s.city) %>
             <%= s.city.name %>
           <% else %>
             Отсутствует
           <% end %>
         </td>
-        <td><%= isset_data(s.room) %></td>
+        <td class="id-table"><%= isset_data(s.room) %></td>
         <td><%= s.address %></td>
-        <td><%= price_currency(s) %></td>
-        <td><%= to_area(s.area) %></td>
+        <td class="id-table"><%= price_currency(s) %></td>
+        <td class="id-table"><%= to_area(s.area) %></td>
         <td><%= active_subject?(s) %></td>
         <td class="actions-buttons">
           <%= link_to eye_icon, subject_path(s), :title => "Подробнее...",
