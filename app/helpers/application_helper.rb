@@ -189,9 +189,9 @@ module ApplicationHelper
   
   def customer_act?(object)
     if object.potentials == true
-      image_tag('customer_pot.gif', :title => "Потенциальный", :rel => "tooltip")
+      image_tag('customer_pot.gif', :title => "Потенциальный клиент", :rel => "tooltip")
     else
-      image_tag('customer_act.gif', :title => "Действующий", :rel => "tooltip")
+      image_tag('customer_act.gif', :title => "Действующий клиент", :rel => "tooltip")
     end
   end
   
