@@ -29,6 +29,7 @@ describe Photo do
     end
   end
 end
+
 # == Schema Information
 #
 # Table name: photos
