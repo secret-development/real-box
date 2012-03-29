@@ -23,6 +23,7 @@ class SocialStatus < ActiveRecord::Base
     order("title ASC")    
   end
 end
+
 # == Schema Information
 #
 # Table name: social_statuses

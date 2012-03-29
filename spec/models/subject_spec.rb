@@ -312,6 +312,7 @@ describe Subject do
   end
   
 end
+
 # == Schema Information
 #
 # Table name: subjects
@@ -336,5 +337,7 @@ end
 #  price_currency     :string(255)
 #  room               :integer(4)
 #  resident_id        :integer(4)
+#  floorall           :integer(4)
+#  note               :text
 #
 
