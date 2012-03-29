@@ -73,6 +73,10 @@ form{
     display:none;
     margin-left:10px;
   }
+  #f-subject-note{
+    // border:1px solid #ccc;
+    margin-top:-10px;
+  }
 }
 
 // photos:
@@ -268,5 +272,31 @@ form{
   #back-resident-select{
     display:none;
     margin-left:10px;
+  }
+}
+.icon-trans-status{
+  display: inline-block;
+  margin-right:5px;
+}
+.subject-note{
+  background:#ffffff;
+  border:1px solid #eee;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+  -o-border-radius:10px;
+  -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Для Firefox */
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Для Safari и Chrome */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Параметры тени */
+  padding: 15px;
+  margin: 15px 15px 25px 0px;
+  width: 400px;
+  line-height: 1.5;
+}
+.for-status-subject{
+  margin-left:5px;
+  img{
+    position:relative;
+    top:3px;
   }
 }

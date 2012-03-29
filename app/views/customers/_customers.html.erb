@@ -34,6 +34,9 @@
           <%= link_to plus_icon, new_subject_path(:customer_id => c.id), :title => "Добавить недвижимость" %>
         </td>
         <td>
+          <span class="icon-trans-status">
+            <%= customer_act?(c) %>  
+          </span>
           <%= link_to "Сделка", new_transaction_path(:customer_id => c.id) %>
         </td>
         <td class="actions-buttons">

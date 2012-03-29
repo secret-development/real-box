@@ -13,7 +13,7 @@ class ConditionField < ActiveRecord::Base
   validates :typesubject_id, :presence => true
 
   # scopes:
-  default_scope order("namefield ASC")
+  default_scope order("id ASC")
   
   scope :forform,  where("typefield != 'textfield' 
     and  typefield != 'textarea'").reorder("typesubject_id ASC")

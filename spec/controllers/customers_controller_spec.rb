@@ -17,12 +17,13 @@ describe CustomersController do
       :email => "sam@mail.ru",
       :potentials => false,
       :note => "blabla",
-      :lastcall => Time.now.weeks_ago(1)
+      :lastcall => Time.now.weeks_ago(1),
+      :user_id => @user.id
     }
     
     soc = Factory(:social_status)
     typetr = Factory(:typetransaction)
-    @customer = Factory(:customer, :typetransaction => typetr, :social_status => soc)
+    @customer = Factory(:customer, :typetransaction => typetr, :social_status => soc, :user => @user)
     
     # subject factory
     city = Factory(:city)

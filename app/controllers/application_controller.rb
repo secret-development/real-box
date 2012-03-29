@@ -61,5 +61,13 @@ class ApplicationController < ActionController::Base
         end
       end
     end
+    
+    def check_fired
+      if current_user.fired == true
+        cookies.delete(:auth_token)
+        redirect_to sign_in_path
+        flash[:notice] = "Вас уволили"
+      end
+    end
         
 end

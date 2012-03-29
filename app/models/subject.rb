@@ -20,9 +20,11 @@ class Subject < ActiveRecord::Base
   # callbacks:
   before_update :check_typesubject
   
+  # verify customer real
   after_save :verify_customer_real
   after_update :verify_customer_real
   after_destroy :verify_customer_real
+  
   before_save :nill_floor
   before_update :nill_floor
   before_save :full_address
@@ -38,9 +40,10 @@ class Subject < ActiveRecord::Base
   validates :customer_id, :presence => true
   validates :districtname, :presence => true
   validates :floor, :presence => true, :if => :floor?
+  validates :floorall, :presence => true, :if => :floor?
   validates :room, :presence => true, :if => :room?
   validates :price_currency, :presence => true
-  
+  validates :note, :length => { :maximum => 800 }, :allow_blank => true
   attr_writer :street, :house, :flat
 
   # scopes
@@ -68,12 +71,14 @@ class Subject < ActiveRecord::Base
   end
 
   def full_address
-    if(@street.blank? || @house.blank?)
+    if @street.blank?
       if new_record?
         self.address = "Адресс неизвестен"
       end
     else
-      if @flat.blank?
+      if @house.blank? && @flat.blank?
+        self.address = "ул. #{@street}"  
+      elsif @flat.blank?
         self.address = "ул. #{@street}, дом #{@house}"
       else
         self.address = "ул. #{@street}, дом #{@house}, кв. #{@flat}"
@@ -126,6 +131,7 @@ class Subject < ActiveRecord::Base
   def nill_floor
     if typesubject.floor == false
       self.floor = nil
+      self.floorall = nil
     end
   end
 
@@ -141,7 +147,9 @@ class Subject < ActiveRecord::Base
   
   def verify_customer_real
     cust = Customer.find(customer_id)
-    if cust.subjects.count > 0  
+    if cust.subjects.count > 0
+      cust.update_attributes(:potentials => false)
+    elsif cust.transactions.count > 0
       cust.update_attributes(:potentials => false)
     else
       cust.update_attributes(:potentials => true)

@@ -18,7 +18,9 @@
     <% @customers.each do |c| %>
        <tr>
         <td><%= c.typetransaction.name %></td>
-        <td><%= link_to(isset_field(c.lastname),c) %></td>
+        <td>
+          <%= link_to(isset_field(c.lastname),c) %>
+        </td>
         <td><%= link_to(c.firstname, c) %></td>
         <td>
           <% if have_object?(c.social_status) %>
@@ -34,14 +36,14 @@
           <%= link_to plus_icon, new_subject_path(:customer_id => c.id), :title => "Добавить недвижимость" %>
         </td>
         <td>
-          <% if c.potentials %>
-          -
-          <% else %>
-            <%= link_to "Сделка", new_transaction_path(:customer_id => c.id) %>
-          <% end %>
+          <span class="icon-trans-status">
+            <%= customer_act?(c) %>  
+          </span>
+          <%= link_to "Сделка", new_transaction_path(:customer_id => c.id) %>
         </td>
         <td class="actions-buttons">
-          <%= link_to eye_icon, customer_path(c), :title => "Подробнее..." %>
+          <%= link_to eye_icon, customer_path(c), :title => "Подробнее...",
+              :rel => "tooltip" %>
           <%= link_to edit_icon, edit_customer_path(c) %>
           <%= link_to delete_icon, c, :method => :delete, :confirm => "Вы уверены?" %>
         </td>

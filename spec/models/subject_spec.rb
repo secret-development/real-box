@@ -39,9 +39,11 @@ describe Subject do
       :district_id => @district.id,
       :resident_id => @resident.id,
       :floor => 1,
+      :floorall => 9,
       :room => 5,
       :active => true,
-      :price_currency => @pricecur["доллар"]
+      :price_currency => @pricecur["доллар"],
+      :note => "Адекватная квартира"
     }
   end
   
@@ -52,10 +54,10 @@ describe Subject do
   end
   
   it "should verify_customer_real(potentials = true)" do
+    subject = @subject
     @customer[:potentials] = true
     subject.customer = @customer
     subject.customer.potentials.should == true
-    
   end
   
   it "should active == true" do
@@ -101,6 +103,12 @@ describe Subject do
       subject.should_not be_valid
     end
     
+    it "should not note more than 800 characters" do
+      @attr[:note] = @attr[:note]*800
+      subject = Subject.new(@attr)
+      subject.should_not be_valid
+    end
+    
     # floor
     describe "validation floor" do
       it "should require floor if typesubject.floor == true" do
@@ -114,6 +122,21 @@ describe Subject do
       it "should be valid if typesubject.floor == false" do
         subject = Subject.new(@attr.merge(:typesubject_id => @withourfloor.id))
         subject.floor = nil
+        subject.should be_valid
+      end
+      
+      # floor all
+      it "should require floorall if typesubject.floor == true" do
+        subject = Subject.new(@attr)
+        if subject.typesubject.floor == true
+          subject.floorall = nil
+          subject.should_not be_valid
+        end
+      end
+      
+      it "should be valid if typesubject.floor == false" do
+        subject = Subject.new(@attr.merge(:typesubject_id => @withourfloor.id))
+        subject.floorall = nil
         subject.should be_valid
       end
     end

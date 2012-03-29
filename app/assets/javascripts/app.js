@@ -469,9 +469,16 @@ $(document).ready(function() {
         required: true,
         digits: true
       },
+      "subject[floorall]" : {
+        required: true,
+        digits: true
+      },
       "subject[room]" : {
         required: true,
         digits: true
+      },
+      "subject[note]" : {
+        maxlength: 800
       }
     },
     messages: {
@@ -488,9 +495,16 @@ $(document).ready(function() {
         required: "Введите этаж",
         digits: "Только цифры"
       },
+      "subject[floorall]" : {
+        required: "Введите этажность",
+        digits: "Только цифры"
+      },
       "subject[room]" : {
         required: "Введите этаж",
         digits: "Только цифры"
+      },
+      "subject[note]" : {
+        maxlength: "Не более 800 символов"
       }
     }
   });
@@ -966,3 +980,9 @@ $(document).ready(function() {
   });
 });
 // end subject -> residents
+
+// tooltip links
+$(document).ready(function() {
+  $('a').tooltip('hide')
+  $('img').tooltip('hide')
+});
