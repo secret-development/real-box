@@ -12,7 +12,6 @@ describe DistrictsController do
     # end auth
     @city = Factory(:city)
     @district = Factory(:district, :city => @city)
-    
   end
   
   it "get 'index'" do

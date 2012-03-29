@@ -25,7 +25,11 @@
           <% end %>
         </td>
         <td><%= to_datetime(task.deadline) %></td>
-        <td> 
+        <% if task.done == false %>
+          <td id="not_done_task"> 
+        <% else %>
+          <td>
+        <% end %>
           <div class="btn-group">
             <a class="btn-small dropdown-toggle" 
               data-toggle="dropdown" href="#">
@@ -68,7 +72,11 @@
           <% end %>
         </td>
         <td><%= to_datetime(task.deadline) %></td>
-        <td>
+        <% if task.done == false %>
+          <td id="not_done_task"> 
+        <% else %>
+          <td>
+        <% end %>
           <div class="btn-group">
             <a class="btn-small dropdown-toggle" 
               data-toggle="dropdown" href="#">

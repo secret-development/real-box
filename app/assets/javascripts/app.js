@@ -683,6 +683,21 @@ $(document).ready(function() {
   });
 });
 
+// validates for settings -> residents
+$(document).ready(function() {
+  $('.resident-form-validation').validate({
+    rules: {
+      "resident[title]" : {
+        required: true
+      }
+    },
+    messages: {
+      "resident[title]" : {
+        required: "Введите значение"
+      }
+    }
+  });
+});
 
 // guest deny button
 $(document).ready(function() {
