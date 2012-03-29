@@ -91,6 +91,7 @@ describe Customer do
   end
   
 end
+
 # == Schema Information
 #
 # Table name: customers

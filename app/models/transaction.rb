@@ -118,6 +118,7 @@ class Transaction < ActiveRecord::Base
   end
   
 end
+
 # == Schema Information
 #
 # Table name: transactions

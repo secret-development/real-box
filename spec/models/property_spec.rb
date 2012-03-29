@@ -46,6 +46,7 @@ describe Property do
     end
   end
 end
+
 # == Schema Information
 #
 # Table name: properties

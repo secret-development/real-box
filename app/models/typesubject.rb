@@ -63,6 +63,7 @@ class Typesubject < ActiveRecord::Base
   end
   
 end
+
 # == Schema Information
 #
 # Table name: typesubjects

@@ -50,6 +50,7 @@ describe Typetransaction do
     end
   end
 end
+
 # == Schema Information
 #
 # Table name: typetransactions
