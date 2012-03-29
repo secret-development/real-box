@@ -4,6 +4,9 @@
   <thead>
     <th>Фамилия Имя</th>
     <th>Последний визит</th>
+    <% if current_user.role? %>
+      <th>Вышел из системы</th>
+    <% end %>
     <th>Действия</th>
     <th>Статус</th>
   </thead>
@@ -19,6 +22,15 @@
         <% end %> 
 
       </td>
+      <% if current_user.role? %>
+        <td>
+          <% if isset_last_sign_in(u.last_log_out_at) %>
+          -
+          <% else %>
+            <%= to_datetime(u.last_log_out_at) %>
+          <% end %>
+        </td>
+      <% end %>
       <td class="actions-buttons">
         <%= link_to eye_icon, user_path(u) %>
         <% if can? :update, @users %>  
