@@ -3,11 +3,19 @@
 <script type="text/javascript" charset="urf-8">
   $(function() {
     new Highcharts.Chart({
-      chart: { renderTo: 'chart-finance-year', zoomType: 'x', backgroundColor: "#F4F4FF"},
+      chart: { renderTo: 'chart-finance-year', zoomType: 'x', backgroundColor: "#F4F4FF", type: 'spline'},
       title: { text: 'Год'},
-      xAxis: { type: 'datetime', dateTimeLabelFormats: { month: '%b `%e'}},
+      exporting: {
+        enabled: true,
+        filename: 'График за год',
+        type: 'image/png'        
+      },
+      xAxis: { 
+        type: 'datetime'
+      },
       yAxis: {
         title: { text: 'Доход'},
+        min: 0,
         labels: {
 				  formatter: function() {
 					  return this.value
@@ -17,7 +25,7 @@
       tooltip: {
         formatter: function () {
           return Highcharts.dateFormat("%B %e %Y", this.x) + ': '  + Highcharts.numberFormat(this.y, 2);
-        }  
+        },  
       },
       plotOptions: {
 			  line: {
@@ -55,7 +63,11 @@
       lang: {
         //downloadPDF: 'Экспорт в PDF',
         months: ['Январь','Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-        shortMonths: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек' ]
+        shortMonths: ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'],
+        resetZoom: 'Сброс',
+        weekdays: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
+        downloadPNG: 'Загрузить в формате PNG'
+        
       },
     });
   });
