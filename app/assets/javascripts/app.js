@@ -463,7 +463,7 @@ $(document).ready(function() {
         required: true
       },
       "subject[area]" : {
-        digits: true
+        number: true
       },
       "subject[floor]" : {
         required: true,
@@ -489,7 +489,7 @@ $(document).ready(function() {
         required: "Введите цену "
       },
       "subject[area]" : {
-        digits: "Только цифры"
+        number: "Только числа"
       },
       "subject[floor]" : {
         required: "Введите этаж",
@@ -759,8 +759,8 @@ $(document).ready(function() {
   $("#search_room_lte").autotab_filter('numeric');
   $("#search_price_gte").autotab_filter('numeric');
   $("#search_price_lte").autotab_filter('numeric');
-  $("#search_area_gte").autotab_filter('numeric');
-  $("#search_area_lte").autotab_filter('numeric');
+  // $("#search_area_gte").autotab_filter('numeric');
+  // $("#search_area_lte").autotab_filter('numeric');
 });
 
 // search
