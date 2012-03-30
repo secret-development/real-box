@@ -164,6 +164,7 @@ describe Task do
   end
   
 end
+
 # == Schema Information
 #
 # Table name: tasks

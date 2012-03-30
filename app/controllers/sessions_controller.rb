@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
         current_time  = Time.current
         if(@w.start_hour.nil? && @w.start_min.nil? && @w.end_hour.nil? && @w.end_min.nil?)
           flash[:notice] = "Добро пожаловать"
+          user.last_sign
           redirect_to root_url
         elsif(current_time.hour >= @w.start_hour && current_time.min >= @w.start_min && current_time.hour <= @w.end_hour)
           if(current_time.hour == @w.end_hour && current_time.min > @w.end_min)
@@ -32,6 +33,7 @@ class SessionsController < ApplicationController
             flash[:notice] = "Рабочий день закончился"
           else
             flash[:notice] = "Добро пожаловать"
+            user.last_sign
             redirect_to root_url  
           end
         else
@@ -42,6 +44,7 @@ class SessionsController < ApplicationController
       else
         #session[:user_id] = user.id
         flash[:notice] = "Добро пожаловать"
+        user.last_sign
         redirect_to root_url  
       end
     else
@@ -51,7 +54,6 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    #session[:user_id] = nil
     cookies.delete(:auth_token)
     redirect_to sign_in_path
     flash[:notice] = "Вы вышли из системы"    

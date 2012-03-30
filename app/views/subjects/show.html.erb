@@ -17,6 +17,10 @@
     <div class="tab-pane active" id="1">
       <div class="subject-info">
         <div class="field-subject">
+          <span class="title-field-subject">Кто добавил:</span>
+          <%= link_to @subject.user.fullname, @subject.user %>
+        </div>
+        <div class="field-subject">
           <span class="title-field-subject"><b>Хозяин:</b></span>
           <%= link_to(@subject.customer.fullname, @subject.customer) %>
         </div>
@@ -27,6 +31,9 @@
         <div class="field-subject">
           <span class="title-field-subject"><b>Статус:</b></span>
           <b><%= active_subject_text?(@subject) %></b>
+          <span class="for-status-subject">
+            <%= active_subject?(@subject) %>
+          </span>
         </div>
         <div class="field-subject">
           <span class="title-field-subject">Тип сделки:</span>
@@ -105,6 +112,12 @@
             <% end %>
           </div>
         <% end %>
+        <div class="field-subject" id="note-field">
+          <span class="title-field-subject"><b>Заметка</b>:</span>
+          <div class="subject-note">
+            <%= isset_field(@subject.note) %>  
+          </div>
+        </div>
       </div>
       <!-- photos -->
       <% if @subject.photos.size > 0 %>
@@ -159,6 +172,9 @@
           <span class="title-field"><b>Тип клиента:</b></span>
           <span class="typecustomer">
             <%= type_customer(@subject.customer.potentials) %>
+            <span class="icon-trans-status">
+              <%= customer_act?(@subject.customer) %>  
+            </span>
           </span>
         </div>
         <div class="field-customer">

@@ -33,6 +33,7 @@ describe SocialStatus do
     old_title.should_not be_valid    
   end
 end
+
 # == Schema Information
 #
 # Table name: social_statuses

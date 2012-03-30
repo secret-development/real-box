@@ -11,6 +11,7 @@ FactoryGirl.define do
     room 3
     active true
     price_currency "доллар"
+    note "хорошая квартира"
   end
   
   factory :subject_active_false, :class => Subject do
@@ -22,5 +23,6 @@ FactoryGirl.define do
     room 4
     active false
     price_currency "доллар"
+    note "хорошая квартира 2"
   end
 end

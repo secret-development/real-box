@@ -42,7 +42,8 @@ describe Subject do
       :floorall => 9,
       :room => 5,
       :active => true,
-      :price_currency => @pricecur["доллар"]
+      :price_currency => @pricecur["доллар"],
+      :note => "Адекватная квартира"
     }
   end
   
@@ -53,10 +54,10 @@ describe Subject do
   end
   
   it "should verify_customer_real(potentials = true)" do
+    subject = @subject
     @customer[:potentials] = true
     subject.customer = @customer
     subject.customer.potentials.should == true
-    
   end
   
   it "should active == true" do
@@ -98,6 +99,12 @@ describe Subject do
     
     it "should require the district_id" do
       @attr[:district_id] = nil
+      subject = Subject.new(@attr)
+      subject.should_not be_valid
+    end
+    
+    it "should not note more than 800 characters" do
+      @attr[:note] = @attr[:note]*800
       subject = Subject.new(@attr)
       subject.should_not be_valid
     end
@@ -305,6 +312,7 @@ describe Subject do
   end
   
 end
+
 # == Schema Information
 #
 # Table name: subjects
@@ -329,5 +337,7 @@ end
 #  price_currency     :string(255)
 #  room               :integer(4)
 #  resident_id        :integer(4)
+#  floorall           :integer(4)
+#  note               :text
 #
 

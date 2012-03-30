@@ -143,3 +143,29 @@ form{
 .norm-inp{
   width:80px;
 }
+
+// links in tables
+table{
+  tbody{
+    color:#494949;
+    a{
+      color:#575757;
+      text-decoration:underline;
+      &:hover{
+        color:#494949;
+        text-decoration:none;
+      }
+    }
+  }
+}
+
+// warning in settings -> cities
+.warning-city{
+  font-size:12px;
+  color:#B17880;
+  font-weight:normal;
+  margin:10px 0px;
+}
+.id-table{
+  font-size:11px;
+}

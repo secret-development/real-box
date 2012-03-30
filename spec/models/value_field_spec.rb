@@ -61,6 +61,7 @@ describe ValueField do
   end
   
 end
+
 # == Schema Information
 #
 # Table name: value_fields

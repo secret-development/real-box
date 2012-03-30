@@ -4,6 +4,12 @@
   <fieldset>
     <legend><%= @subject.legend_value %></legend>
     <div class="control-group">
+      <%= f.label :active, "Активна:" %>
+      <div class="controls">
+        <%= select('subject', 'active', [["Да",true],["Нет",false]]) %>
+      </div>
+    </div>
+    <div class="control-group">
       <%= f.label :typetransaction_id, "Тип сделки:" %>
       <div class="controls">
         <%= f.collection_select(:typetransaction_id, Typetransaction.all, 
@@ -138,6 +144,13 @@
       <div class="controls">
         <%= hidden_field_tag('subject[customer_id]', @subject.customer_id.nil? ? params[:customer_id] : @subject.customer_id ) %>
         <div id="subject-id" data-subject-id="<%= @subject.new_record? ? nil : @subject.id  %>"></div>
+      </div>
+    </div>
+    <!-- note -->
+    <div class="control-group" id="f-subject-note">
+      <%= f.label :note, "Заметка:" %>
+      <div class="controls">
+        <%= f.text_area :note, :rows=>3, :placeholder => "О недвижимости..." %>
       </div>
     </div>
     <%= f.hidden_field :user_id, :value => current_user.id %>

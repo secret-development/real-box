@@ -21,6 +21,7 @@ class ValueField < ActiveRecord::Base
 
   
 end
+
 # == Schema Information
 #
 # Table name: value_fields

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120327053810) do
+ActiveRecord::Schema.define(:version => 20120329120510) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(:version => 20120327053810) do
     t.integer  "typesubject_id"
     t.integer  "city_id"
     t.integer  "price"
-    t.integer  "area"
+    t.float    "area"
     t.string   "address"
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20120327053810) do
     t.integer  "room"
     t.integer  "resident_id"
     t.integer  "floorall"
+    t.text     "note"
   end
 
   create_table "tasks", :force => true do |t|
@@ -168,6 +169,7 @@ ActiveRecord::Schema.define(:version => 20120327053810) do
     t.string   "phonemobile"
     t.string   "phonehome"
     t.boolean  "fired",                  :default => false
+    t.datetime "last_sign_in_at"
   end
 
   create_table "value_fields", :force => true do |t|

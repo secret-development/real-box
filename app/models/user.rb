@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, 
                   :password_reset_token, :password_reset_sent_at, 
                   :role, :lastname, :firstname, :phonehome, :phonemobile,
-                  :area_code, :phonemobile1, :phonemobile2, :fired
+                  :area_code, :phonemobile1, :phonemobile2, :fired, :last_sign_in_at, :last_log_out_at
   #encript password before save
   before_save :encrypt_password
   
@@ -123,7 +123,14 @@ class User < ActiveRecord::Base
     lastname + " " + firstname
   end
   
+  #last_sign_in_at
+  def last_sign
+    self.last_sign_in_at = Time.current
+    save!    
+  end
+  
 end
+
 # == Schema Information
 #
 # Table name: users
@@ -142,5 +149,7 @@ end
 #  lastname               :string(255)
 #  phonemobile            :string(255)
 #  phonehome              :string(255)
+#  fired                  :boolean(1)      default(FALSE)
+#  last_sign_in_at        :datetime
 #
 

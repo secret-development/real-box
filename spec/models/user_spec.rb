@@ -180,6 +180,7 @@ describe User do
   end
   
 end
+
 # == Schema Information
 #
 # Table name: users
@@ -198,5 +199,7 @@ end
 #  lastname               :string(255)
 #  phonemobile            :string(255)
 #  phonehome              :string(255)
+#  fired                  :boolean(1)      default(FALSE)
+#  last_sign_in_at        :datetime
 #
 

@@ -463,7 +463,7 @@ $(document).ready(function() {
         required: true
       },
       "subject[area]" : {
-        digits: true
+        number: true
       },
       "subject[floor]" : {
         required: true,
@@ -476,6 +476,9 @@ $(document).ready(function() {
       "subject[room]" : {
         required: true,
         digits: true
+      },
+      "subject[note]" : {
+        maxlength: 800
       }
     },
     messages: {
@@ -486,7 +489,7 @@ $(document).ready(function() {
         required: "Введите цену "
       },
       "subject[area]" : {
-        digits: "Только цифры"
+        number: "Только числа"
       },
       "subject[floor]" : {
         required: "Введите этаж",
@@ -499,6 +502,9 @@ $(document).ready(function() {
       "subject[room]" : {
         required: "Введите этаж",
         digits: "Только цифры"
+      },
+      "subject[note]" : {
+        maxlength: "Не более 800 символов"
       }
     }
   });
@@ -661,6 +667,38 @@ $(document).ready(function() {
   });
 });
 
+// validates for settings -> districts
+$(document).ready(function() {
+  $('.district-form-validation').validate({
+    rules: {
+      "district[title]" : {
+        required: true
+      }
+    },
+    messages: {
+      "district[title]" : {
+        required: "Введите значение"
+      }
+    }
+  });
+});
+
+// validates for settings -> residents
+$(document).ready(function() {
+  $('.resident-form-validation').validate({
+    rules: {
+      "resident[title]" : {
+        required: true
+      }
+    },
+    messages: {
+      "resident[title]" : {
+        required: "Введите значение"
+      }
+    }
+  });
+});
+
 // guest deny button
 $(document).ready(function() {
   $("#guest-deny-button").click(function(event) {
@@ -721,8 +759,8 @@ $(document).ready(function() {
   $("#search_room_lte").autotab_filter('numeric');
   $("#search_price_gte").autotab_filter('numeric');
   $("#search_price_lte").autotab_filter('numeric');
-  $("#search_area_gte").autotab_filter('numeric');
-  $("#search_area_lte").autotab_filter('numeric');
+  // $("#search_area_gte").autotab_filter('numeric');
+  // $("#search_area_lte").autotab_filter('numeric');
 });
 
 // search
@@ -974,3 +1012,9 @@ $(document).ready(function() {
   });
 });
 // end subject -> residents
+
+// tooltip links
+$(document).ready(function() {
+  $('a').tooltip('hide')
+  $('img').tooltip('hide')
+});

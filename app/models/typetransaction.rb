@@ -4,6 +4,7 @@ class Typetransaction < ActiveRecord::Base
   has_many :subjects
   has_many :transactions
 end
+
 # == Schema Information
 #
 # Table name: typetransactions
