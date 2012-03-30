@@ -5,28 +5,6 @@
     new Highcharts.Chart({
       chart: { renderTo: 'chart-finance-year', zoomType: 'x', backgroundColor: "#F4F4FF", type: 'spline'},
       title: { text: 'Год'},
-      exporting: {
-        buttons: { 
-          exportButton: { 
-            menuItems: [{
-              text: "Экспорт в PNG",
-              onclick: function(){ this.exportChart();}
-            },
-            {
-              text: "Экспорт в JPG",
-              onclick: function(){ this.exportChart();}
-            },
-            {
-              text: "Экспорт в PDF",
-              onclick: function() {this.exportChart();}
-            },
-            null
-           ]}
-        },
-        enabled: true,
-        filename: 'График за год',
-        type: 'image/png'        
-      },
       xAxis: { 
         type: 'datetime'
       },
@@ -75,16 +53,38 @@
         pointStart: <%= 1.years.ago.to_i * 1000 %>,
         data: <%= (1.years.ago.to_date..Date.today).map { |date| Report.total_tg(date).to_f }.inspect %>
       }],
+      exporting: {
+        buttons: { 
+          exportButton: { 
+            menuItems: [{
+              text: "Экспорт в PNG",
+              onclick: function(){ this.exportChart();}
+            },
+            {
+              text: "Экспорт в JPG",
+              onclick: function(){ this.exportChart();}
+            },
+            {
+              text: "Экспорт в PDF",
+              onclick: function() {this.exportChart();}
+            },
+            null
+           ]  
+          }
+        },
+        enabled: true,
+        filename: 'График за год',
+        type: 'image/png'        
+      },
     });
     Highcharts.setOptions({
       lang: {
-        //downloadPDF: 'Экспорт в PDF',
+        printButtonTitle: 'asfasfw',
+        exportButtonTitle: 'afdasfasf',
         months: ['Январь','Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
         shortMonths: ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'],
         resetZoom: 'Сброс',
-        weekdays: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
-        printButtonTitle: "Печать"
-        
+        weekdays: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']        
       },
     });
   });
