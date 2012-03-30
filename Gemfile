@@ -55,6 +55,10 @@ gem 'capistrano'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+# for backup
+gem 'backup'
+gem 'dropbox-sdk', '~> 1.1.0'
+
 group :test, :development do
   gem "awesome_print", "~> 1.0.2"
   gem 'spork', '0.9.0.rc9'
