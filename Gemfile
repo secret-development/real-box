@@ -57,6 +57,7 @@ gem 'capistrano'
 
 # for backup
 gem 'backup'
+gem 'dropbox-sdk', '~> 1.1.0'
 
 group :test, :development do
   gem "awesome_print", "~> 1.0.2"
