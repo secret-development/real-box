@@ -55,17 +55,18 @@
       }],
       exporting: {
         buttons: { 
-          exportButton: { 
+          exportButton: {
+            exportButtonTitle: "fewjfhwuefhuiew", 
             menuItems: [{
-              text: "Экспорт в PNG",
+              text: "Сохранить в PNG",
               onclick: function(){ this.exportChart();}
             },
             {
-              text: "Экспорт в JPG",
+              text: "Сохранить в JPG",
               onclick: function(){ this.exportChart();}
             },
             {
-              text: "Экспорт в PDF",
+              text: "Сохранить в PDF",
               onclick: function() {this.exportChart();}
             },
             null
@@ -79,11 +80,10 @@
     });
     Highcharts.setOptions({
       lang: {
-        printButtonTitle: 'asfasfw',
-        exportButtonTitle: 'afdasfasf',
         months: ['Январь','Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
         shortMonths: ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'],
         resetZoom: 'Сброс',
+        resetZoomTitle: "Вернуться к масштабу 1:1",
         weekdays: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']        
       },
     });
