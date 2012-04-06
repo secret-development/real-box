@@ -31,16 +31,47 @@ if ENV['RAILS_ENV'] == "production"
   if worktime.size == 0
     Worktime.create(:start_hour => nil, :start_min => nil, :end_hour => nil, :end_min => nil)
   end
+  
+  # paginators
+  paginators = Paginator.all
+  default_page = 25
+  resources = ['поиск', 'клиенты', 'объекты', 'задачи', 'сделки']
+  if paginators.size == 0
+    resources.each do |r|
+      Paginator.create(:resource => r, :paginate => default_page)
+    end
+  end
 
 elsif ENV['RAILS_ENV'] = "development"
   # type transactions
-  types_of_transactions = ['Купля', 'Продажа', 'Аренда', 'Съем', 'Обмен']
-  types_of_transactions.each do |t|
-    Typetransaction.create(:name => t)
+  exists_typetr = Typetransaction.all
+  if exists_typetr.size == 0
+    types_of_transactions = ['Купля', 'Продажа', 'Аренда', 'Съем', 'Обмен']
+    types_of_transactions.each do |t|
+      Typetransaction.create(:name => t)
+    end
   end
   
   # users
-  User.create(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :role => true, :lastname => "Иванов", :firstname => "Иван")
+  users = User.all
+  if users.size == 0
+    User.create(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :role => true, :lastname => "Иванов", :firstname => "Иван")    
+  end
   
-  Worktime.create(:start_hour => nil, :start_min => nil, :end_hour => nil, :end_min => nil)
+  # worktimes
+  worktime = Worktime.all
+  if worktime.size == 0
+    Worktime.create(:start_hour => nil, :start_min => nil, :end_hour => nil, :end_min => nil)
+  end
+  
+  # paginators
+  paginators = Paginator.all
+  default_page = 25
+  resources = ['поиск', 'клиенты', 'объекты', 'задачи', 'сделки']
+  if paginators.size == 0
+    resources.each do |r|
+      Paginator.create(:resource => r, :paginate => default_page)
+    end
+  end
+  
 end
