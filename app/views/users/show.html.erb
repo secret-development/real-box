@@ -24,6 +24,10 @@
       <span>Сотовый телефон:</span>
       <%= @user.phonemobile %>
     </div>
+    <div class="field-info-user">
+      <span>Уровень доступа:</span>
+      <%= level_access(@user) %>
+    </div>
   </div>
 
   <% if current_user.id == @user.id || current_user.role? %>  

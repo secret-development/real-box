@@ -276,5 +276,13 @@ module ApplicationHelper
       "-"
     end    
   end
+  
+  def level_access(object)
+    if object.role == true
+      "Администратор"
+    else
+      "Агент"
+    end
+  end
 
 end

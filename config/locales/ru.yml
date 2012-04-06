@@ -71,6 +71,7 @@ ru:
         price_currency: "Значение поля 'Валюта'"
         active: "Статус"
         floor: "Этаж"
+        floorall: "Этажность"
         district_id: "Район"
         user_id: "Ответственный"
         customer_id: "Хозяин"
