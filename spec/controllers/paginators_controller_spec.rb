@@ -15,5 +15,10 @@ describe PaginatorsController do
     get :index
     response.should be_success
   end
+  
+  it "get edit" do
+    get :edit
+    response.should be_success
+  end
 
 end

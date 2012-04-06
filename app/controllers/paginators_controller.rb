@@ -10,4 +10,10 @@ class PaginatorsController < ApplicationController
     @title = "Постраничный вывод"
     respond_with(@paginators)
   end
+  
+  def edit
+    @paginator = Paginator.find(params[:id])
+    @title = "Редактирование"
+    respond_with(@paginator)
+  end
 end
