@@ -2,10 +2,11 @@
 <%= flash_msg(flash[:notice]) %>
 <table class="table table-striped">
   <thead>
-    <th>Фамилия Имя</th>
+    <th>Имя</th>
     <th>Последний визит</th>
-    <th>Действия</th>
     <th>Статус</th>
+    <th>Уровень доступа</th>
+    <th>Действия</th>
   </thead>
   <tbody>
     <% @users.each do |u| %>
@@ -19,15 +20,6 @@
         <% end %> 
 
       </td>
-      <td class="actions-buttons">
-        <%= link_to eye_icon, user_path(u) %>
-        <% if can? :update, @users %>  
-          <%= link_to edit_icon, edit_user_path(u) %>
-        <% end %>
-        <% if can? :destroy, @users %>  
-        <%= link_to delete_icon, user_path(u), method: :delete, confirm: "Вы уверены?", :title => "Уволить"  %>
-        <% end %>
-      </td>
       <td>
         <% if u.fired == true %>
           <div class="user-fired">
@@ -39,13 +31,25 @@
           </div>
         <% end %>
       </td>
+      <td>
+        <%= level_access(u) %>
+      </td>
+      <td class="actions-buttons">
+        <%= link_to eye_icon, user_path(u) %>
+        <% if can? :update, @users %>  
+          <%= link_to edit_icon, edit_user_path(u) %>
+        <% end %>
+        <% if can? :destroy, @users %>  
+        <%= link_to delete_icon, user_path(u), method: :delete, confirm: "Вы уверены?", :title => "Уволить"  %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>
 </table>
 <div class="form-actions">
 <% if can? :create, @users %>  
-  <%= link_to 'Создать нового пользователя', new_user_path, :class => "btn"  %> <br />
+  <%= link_to 'Создать нового сотрудника', new_user_path, :class => "btn"  %> <br />
 <% end %>
 </div>
 

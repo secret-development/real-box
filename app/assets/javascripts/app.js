@@ -1018,3 +1018,17 @@ $(document).ready(function() {
   $('a').tooltip('hide')
   $('img').tooltip('hide')
 });
+
+
+// active report menu:
+$(document).ready(function() {
+  if($("div").is(".reports-content")){
+    var name = document.location.href;
+    var active_url = new Array();
+    var full_url = name.split('?');
+    var active_url = full_url[0].toString().split('/');
+    $("a[href='/reports/"+active_url[4]+"']")
+      .parent()
+      .addClass("active-report-tab");
+  }
+});
