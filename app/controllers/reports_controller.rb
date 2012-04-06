@@ -8,7 +8,7 @@ class ReportsController < ApplicationController
   load_and_authorize_resource
   
   def index
-    render 'finance'
+    redirect_to finance_reports_path
   end
   
   def show
