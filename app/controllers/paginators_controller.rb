@@ -16,4 +16,15 @@ class PaginatorsController < ApplicationController
     @title = "Редактирование"
     respond_with(@paginator)
   end
+  
+  def update
+    @paginator = Paginator.find(params[:id])
+    if @paginator.update_attributes(params[:paginator])
+      flash[:notice] = "Постраничный вывод успешно обновлен"
+      respond_with(@paginator, location: paginators_path)
+    else
+      render 'edit'
+    end
+  end
+  
 end
