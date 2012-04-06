@@ -78,7 +78,7 @@ class Transaction < ActiveRecord::Base
   
   def self.search(search)
     if search
-      where('name LIKE ? OR user_lastname LIKE ? OR customers.lastname LIKE ? OR subjects.address LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%") 
+      where('name LIKE ? OR user_lastname LIKE ? OR customers.lastname LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%") 
     else
       scoped
     end
