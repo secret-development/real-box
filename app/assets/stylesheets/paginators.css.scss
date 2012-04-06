@@ -1,3 +1,28 @@
-// Place all the styles related to the paginators controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.paginator-settings{
+  .one-paginator{
+    margin-bottom:20px;
+    font-size:18px;
+    border:1px solid #eee;
+    padding:10px;
+    width:300px;
+    &:hover{
+      border:1px solid #ccc;
+      background:#FBFBFB;
+    }
+    .paginator-resource{
+      display: inline-block;
+      min-width:80px;
+    }
+    .paginator-paginate{
+      display: inline-block;
+      font-size:11px;
+    }
+    .paginator-actions{
+      display: inline-block;
+      margin-left:30px;
+    }
+  }
+}
+.textfield-paginate{
+  width:40px;
+}

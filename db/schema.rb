@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(:version => 20120406075403) do
   end
 
   create_table "paginators", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string  "resource"
+    t.integer "paginate"
   end
 
   create_table "photos", :force => true do |t|
