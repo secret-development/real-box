@@ -163,7 +163,11 @@ class SubjectsController < ApplicationController
     end
     
     def page_paginate
-      Paginator.find_by_resource("объекты").paginate
-    end
+      if Paginator.find_by_resource("объекты")
+        Paginator.find_by_resource("объекты").paginate
+      else
+        25
+      end
+    end    
     
 end

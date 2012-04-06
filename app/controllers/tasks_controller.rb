@@ -70,7 +70,11 @@ class TasksController < ApplicationController
   end
   
   def page_paginate
-    Paginator.find_by_resource("задачи").paginate
+    if Paginator.find_by_resource("задачи")
+      Paginator.find_by_resource("задачи").paginate
+    else
+      25
+    end
   end
   
 end

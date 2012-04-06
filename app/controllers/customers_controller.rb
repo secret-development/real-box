@@ -86,8 +86,11 @@ class CustomersController < ApplicationController
   end
   
   def page_paginate
-    Paginator.find_by_resource("клиенты").paginate
+    if Paginator.find_by_resource("клиенты")
+      Paginator.find_by_resource("клиенты").paginate
+    else
+      25
+    end
   end
-
   
 end
