@@ -1,1 +1,5 @@
+<% if current_user.role? %>
 $("#task").html("<%= escape_javascript(render("tasks")) %>")
+<% else %>
+$("#task").html("<%= escape_javascript(render("agent_tasks")) %>")
+<% end %>
