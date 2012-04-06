@@ -1,6 +1,8 @@
 <h1 class="title-page"><%= @title %></h1>
 <%= flash_msg(flash[:notice]) %>
-<%= render 'links_tasks' %>
+<% if current_user.role? %>
+  <%= render 'links_tasks' %>
+<% end %>
 <%= link_to plus_icon + 'Добавить', new_task_path, 
     :class => "btn button-add"  %>
 
@@ -11,7 +13,11 @@
                     :placeholder => "Поиск ...", 
                     :class => "span3" %>
     <div id="task">
-      <%= render 'tasks' %>
+      <% if current_user.role? %>
+        <%= render 'tasks' %>
+      <% else %>
+        <%= render 'agent_tasks' %>
+      <% end %>
     </div>
 <% end %>
 
