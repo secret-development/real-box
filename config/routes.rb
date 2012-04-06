@@ -22,7 +22,10 @@ Crm::Application.routes.draw do
 
   get "potentials/index"
   match "potentials" => "potentials#index", :as => :potentials
-  resources :tasks  
+  resources :tasks do
+    get 'adm', :on => :collection
+    get 'usr', :on => :collection
+  end
   resources :customers do
     get 'all', :on => :collection
     post 'lastcallcustomer', :on => :collection
