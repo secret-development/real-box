@@ -3,7 +3,9 @@
 
 <%= link_to plus_icon + 'Добавить', new_task_path, 
     :class => "btn button-add"  %>
-<%= render 'links_tasks' %>
+<% if current_user.role? %>
+  <%= render 'links_tasks' %>
+<% end %>
 
 <%= form_tag(admin_tasks_path, :method => 'get', :id => 'tasks_search')  do %>
   <%= hidden_field_tag :sort, params[:sort] %>
