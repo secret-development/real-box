@@ -15,7 +15,7 @@
     <% @tasks.each do |task| %>
       <tr>
         <% if  current_user.role? && task.admin? %>
-        <td><%= task.id %></td>
+        <td class="id-table"><%= task.id %></td>
         <td><%= link_to task.title, task_path(task) %></td>
         <td>
           <% if task.user_id == nil %>
@@ -24,7 +24,7 @@
             <%= task.user.lastname %>  
           <% end %>
         </td>
-        <td><%= to_datetime(task.deadline) %></td>
+        <td class="id-table"><%= to_datetime(task.deadline) %></td>
         <% if task.done == false %>
           <td id="not_done_task"> 
         <% else %>
@@ -50,7 +50,7 @@
             </ul>
           </div>
         </td>
-        <td><%= to_datetime(task.created_at) %></td>
+        <td class="id-table"><%= to_datetime(task.created_at) %></td>
         <td class="actions-buttons">
           <%= link_to eye_icon, task_path(task) %>
           <% if can? :update, task %>
@@ -62,7 +62,7 @@
           <% end %>
         </td>
         <% elsif !current_user.role? && current_user.id == task.user_id %>
-                <td><%= task.id %></td>
+        <td class="id-table"><%= task.id %></td>
         <td><%= link_to task.title, task_path(task) %></td>
         <td>
           <% if task.user_id == nil %>
@@ -71,7 +71,7 @@
             <%= task.user.lastname %>  
           <% end %>
         </td>
-        <td><%= to_datetime(task.deadline) %></td>
+        <td class="id-table"><%= to_datetime(task.deadline) %></td>
         <% if task.done == false %>
           <td id="not_done_task"> 
         <% else %>
@@ -98,7 +98,7 @@
           </div>
 
         </td>
-        <td><%= to_datetime(task.created_at) %></td>
+        <td class="id-table"><%= to_datetime(task.created_at) %></td>
         <td class="actions-buttons">
           <%= link_to eye_icon, task_path(task) %>
           <% if can? :update, task %>
