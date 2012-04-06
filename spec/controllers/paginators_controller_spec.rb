@@ -9,6 +9,8 @@ describe PaginatorsController do
     @user = Factory(:user)
     test_log_in(@user)
     # end auth
+    
+    @paginator = Factory(:paginator)
   end
   
   it "get index" do
@@ -17,8 +19,18 @@ describe PaginatorsController do
   end
   
   it "get edit" do
-    get :edit
+    get :edit, :id => @paginator
     response.should be_success
+  end
+  
+  describe "update" do
+    describe "failure" do
+      
+    end
+    
+    describe "success" do
+      
+    end
   end
 
 end
