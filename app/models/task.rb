@@ -21,6 +21,9 @@ class Task < ActiveRecord::Base
   
   after_validation :set_user_lastname
   
+  scope :admin_tasks, where(:admin => true)
+  scope :user_tasks, where(:admin => false)
+  
   def status
     done == true ? "Да " : "Нет"
   end
