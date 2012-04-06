@@ -11,7 +11,7 @@ class TransactionsController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @transactions = Transaction.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
+    @transactions = Transaction.joins(:customer, :subject).search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
     @title = "Сделки"
   end
   
