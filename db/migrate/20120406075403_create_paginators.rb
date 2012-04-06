@@ -1,8 +1,8 @@
 class CreatePaginators < ActiveRecord::Migration
   def change
     create_table :paginators do |t|
-
-      t.timestamps
+      t.string :resource
+      t.integer :paginate
     end
   end
 end
