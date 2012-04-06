@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 Crm::Application.routes.draw do
 
-  resources :paginators
+  resources :paginators, :except => [:new, :create, :destroy]
   resources :worktimes
 
   get "reports" => "reports#index", :as => :reports
