@@ -13,11 +13,7 @@
                     :placeholder => "Поиск ...", 
                     :class => "span3" %>
     <div id="task">
-      <% if current_user.role? %>
-        <%= render 'tasks' %>
-      <% else %>
-        <%= render 'agent_tasks' %>
-      <% end %>
+      <%= render 'user_tasks' %>
     </div>
 <% end %>
 

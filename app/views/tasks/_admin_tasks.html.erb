@@ -18,9 +18,11 @@
       <% else %>
         <tr>
       <% end %>
-        <% if current_user.id == task.user_id && task.admin? %>
+        <% if current_user.id != task.user_id && task.admin == true %>
         <td class="id-table"><%= task.id %></td>
-        <td><%= link_to task.title, task_path(task) %></td>
+        <td>
+          <%= link_to task.title, task_path(task) %>
+        </td>
         <td>
           <% if task.user_id == nil %>
             Отсутствует
