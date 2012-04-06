@@ -1,6 +1,7 @@
 <table class="table table-striped table-condensed transactions" id="transactions_table">
   <thead>
     <tr>
+      <th><%= sortable "id", "№" %></th>
       <th><%= sortable "name", "Сделка" %></th>
       <th><%= sortable "typetransaction_id", "Тип сделки" %></th>
       <th><%= sortable "user_id", "Ответственный" %></th>
@@ -16,10 +17,13 @@
     <% @transactions.each do |t| %>
       <tr>
         <% if current_user.role? %>
-          <td>
+          <td class="id-table">
+            <%= t.id %>
+          </td>
+          <td class="id-table">
             <%= link_to t.name, t %>
           </td>
-          <td>
+          <td class="id-table">
             <%= t.typetransaction.name %>
           </td>
           <td>
@@ -36,17 +40,17 @@
               <%= link_to t.customer.lastname, customer_path(t.customer) %>  
             <% end %>
           </td>
-          <td>
+          <td class="id-table">
             <%= to_formatted_date(t.created_at) %>
           </td>
-          <td>
+          <td class="id-table">
             <% if t.subject_id == nil %>
               Отсутствует
             <% else %>
               <%= t.subject.address %>
             <% end %>
           </td>
-          <td><%= price_currency(t) %></td>
+          <td class="id-table"><%= price_currency(t) %></td>
           <td>
             <div class="btn-group">
               <a class="btn-small dropdown-toggle" data-toggle="dropdown" href="#">
@@ -73,10 +77,13 @@
                       :confirm => "Вы уверены?" %>
         </td>
         <% elsif t.user_id == current_user.id %>
-          <td>
+          <td class="id-table">
+            <%= t.id %>
+          </td>
+          <td class="id-table">
             <%= link_to t.name, t %>
           </td>
-          <td>
+          <td class="id-table">
             <%= t.typetransaction.name %>
           </td>
           <td>
@@ -93,17 +100,17 @@
               <%= link_to t.customer.lastname, customer_path(t.customer) %>  
             <% end %>
           </td>
-          <td>
+          <td class="id-table">
             <%= to_formatted_date(t.created_at) %>
           </td>
-          <td>
+          <td class="id-table">
             <% if t.subject_id == nil %>
               Отсутствует
             <% else %>
               <%= t.subject.address %>
             <% end %>
           </td>
-          <td><%= to_dollar(t) %></td>
+          <td class="id-table"><%= to_dollar(t) %></td>
           <td>
             <div class="btn-group">
               <a class="btn-small dropdown-toggle" data-toggle="dropdown" href="#">
@@ -123,8 +130,9 @@
             </div>
           </td>
           <td class="actions-buttons">
-            <%= link_to eye_icon, transaction_path(t) %>
-            <%= link_to edit_icon, edit_transaction_path(t) %>
+            <%= link_to eye_icon, transaction_path(t), :title => "Просмотр" %>
+            <%= link_to edit_icon, edit_transaction_path(t), 
+                :title => "Редактировать" %>
             <%= link_to delete_icon, t, :method => :delete,
                         :confirm => "Вы уверены?" %>
           </td>

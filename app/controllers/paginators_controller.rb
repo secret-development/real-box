@@ -1,0 +1,2 @@
+class PaginatorsController < ApplicationController
+end
