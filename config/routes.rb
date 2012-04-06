@@ -2,7 +2,6 @@
 Crm::Application.routes.draw do
 
   resources :paginators
-
   resources :worktimes
 
   get "reports" => "reports#index", :as => :reports

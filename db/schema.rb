@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120329120510) do
+ActiveRecord::Schema.define(:version => 20120406075403) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -59,6 +59,11 @@ ActiveRecord::Schema.define(:version => 20120329120510) do
     t.string   "doc"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "paginators", :force => true do |t|
+    t.string  "resource"
+    t.integer "paginate"
   end
 
   create_table "photos", :force => true do |t|
