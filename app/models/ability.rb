@@ -24,7 +24,7 @@ class Ability
       #transactions
       can :new, Transaction
       can :create, Transaction
-      can :manage, Transaction, :user_id => user.id   
+      can :manage, Transaction, :user_id => user.id
     end
     # Define abilities for the passed in user here. For example:
     #

@@ -53,7 +53,7 @@ describe HelpController do
   
   it "danger" do
     get :danger
-    response.should be_success
-    
+    response.should be_success    
   end
+  
 end

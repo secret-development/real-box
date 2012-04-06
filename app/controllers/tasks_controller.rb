@@ -20,6 +20,7 @@ class TasksController < ApplicationController
     @title = "Задачи поставленные агентам"
   end
 
+  
   def show
     @task = Task.find(params[:id])
     @title = @task.title
