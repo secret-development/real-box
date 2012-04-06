@@ -17,12 +17,12 @@ class TasksController < ApplicationController
   
   def adm
     @tasks = Task.adm_tasks.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
-    @title = "Задачи, поставленные мной"
+    @title = "Задачи, поставленные администратором"
   end
   
   def usr
     @tasks = Task.usr_tasks.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
-    @title = "Задачи персонала"
+    @title = "Задачи, поставленные персоналом"
   end
 
   def show
