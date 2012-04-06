@@ -12,7 +12,12 @@ class TasksController < ApplicationController
   
   def index
     @tasks = Task.search(params[:search]).order(sort_column + " " + sort_direction).where(:user_id => current_user.id).page(params[:page]).per(page_paginate)
-    @title = "Задачи"
+    @title = "Мои задачи"
+  end
+  
+  def admin
+    @tasks = Task.search(params[:search]).order(sort_column + " " + sort_direction).where("admin IS true && user_id != ?", current_user.id).page(params[:page]).per(page_paginate)
+    @title = "Задачи поставленные агентам"
   end
 
   def show

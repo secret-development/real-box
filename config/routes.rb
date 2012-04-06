@@ -23,8 +23,7 @@ Crm::Application.routes.draw do
   get "potentials/index"
   match "potentials" => "potentials#index", :as => :potentials
   resources :tasks do
-    get 'adm', :on => :collection
-    get 'usr', :on => :collection
+    get 'admin', :on => :collection
   end
   resources :customers do
     get 'all', :on => :collection
