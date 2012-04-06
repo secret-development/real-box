@@ -1030,6 +1030,5 @@ $(document).ready(function() {
     $("a[href='/reports/"+active_url[4]+"']")
       .parent()
       .addClass("active-report-tab");
-
   }
 });
