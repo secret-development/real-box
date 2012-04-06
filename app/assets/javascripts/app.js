@@ -699,6 +699,25 @@ $(document).ready(function() {
   });
 });
 
+// validates for settings -> paginators
+$(document).ready(function() {
+  $('.pag-valid-form').validate({
+    rules: {
+      "paginator[paginate]" : {
+        required: true,
+        digits: true
+      }
+    },
+    messages: {
+      "paginator[paginate]" : {
+        required: "Введите значение",
+        digits: "Только цифры"
+      }
+    }
+  });
+});
+
+
 // guest deny button
 $(document).ready(function() {
   $("#guest-deny-button").click(function(event) {
