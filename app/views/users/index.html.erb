@@ -5,6 +5,7 @@
     <th>Имя</th>
     <th>Последний визит</th>
     <th>Статус</th>
+    <th>Уровень доступа</th>
     <th>Действия</th>
   </thead>
   <tbody>
@@ -29,6 +30,9 @@
             Работает
           </div>
         <% end %>
+      </td>
+      <td>
+        <%= level_access(u) %>
       </td>
       <td class="actions-buttons">
         <%= link_to eye_icon, user_path(u) %>
