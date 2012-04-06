@@ -15,12 +15,14 @@ class TasksController < ApplicationController
     @title = "Задачи"
   end
   
-  def admin_tasks
-    @tasks = Task.admin_tasks.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
+  def adm
+    @tasks = Task.adm_tasks.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
+    @title = "Задачи"
   end
   
-  def user_tasks
-    @tasks = Task.user_tasks.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
+  def usr
+    @tasks = Task.usr_tasks.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
+    @title = "Задачи"
   end
 
   def show
