@@ -80,7 +80,11 @@ class TransactionsController < ApplicationController
   end
   
   def page_paginate
-    20
+    if Paginator.find_by_resource("сделки")
+      Paginator.find_by_resource("сделки").paginate
+    else
+      25
+    end
   end
   
 end

@@ -21,6 +21,11 @@ class ResultsController < ApplicationController
   private
   
     def page_paginate
-      15
+      if Paginator.find_by_resource("поиск")
+        Paginator.find_by_resource("поиск").paginate
+      else
+        25
+      end
     end
+    
 end

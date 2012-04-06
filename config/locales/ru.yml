@@ -128,6 +128,9 @@ ru:
         start_min: "Минута начала"
         end_hour: "Час конца"
         end_hour: "Минута конца"
+      paginator:
+        resource: "Ресурс"
+        paginate: "Значение поля 'Количество элементов'"
         
   unauthorized: 
     manage:

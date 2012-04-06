@@ -70,4 +70,3 @@ end
 #  admin         :boolean(1)
 #  user_lastname :string(255)
 #
-

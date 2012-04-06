@@ -15,9 +15,8 @@ class CustomersController < ApplicationController
   end
   
   def index
-    @customers = Customer.real.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)#real.page(params[:page]).per(10)
+    @customers = Customer.real.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
     @title = "Действующие клиенты"
-    #@potentials = Customer.potentials.all
   end
   
   def new
@@ -87,8 +86,11 @@ class CustomersController < ApplicationController
   end
   
   def page_paginate
-    20
+    if Paginator.find_by_resource("клиенты")
+      Paginator.find_by_resource("клиенты").paginate
+    else
+      25
+    end
   end
-
   
 end

@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 Crm::Application.routes.draw do
 
+  resources :paginators, :except => [:new, :create, :destroy]
   resources :worktimes
 
   get "reports" => "reports#index", :as => :reports
@@ -21,7 +22,9 @@ Crm::Application.routes.draw do
 
   get "potentials/index"
   match "potentials" => "potentials#index", :as => :potentials
-  resources :tasks  
+  resources :tasks do
+    get 'admin', :on => :collection
+  end
   resources :customers do
     get 'all', :on => :collection
     post 'lastcallcustomer', :on => :collection
