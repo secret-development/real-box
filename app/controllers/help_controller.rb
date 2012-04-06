@@ -17,6 +17,10 @@ class HelpController < ApplicationController
     @title = "Справка | Клиенты"
   end
   
+  def subjects
+    @title = "Справка | Объекты"
+  end
+  
   def users
     @title = "Справка | Персонал"
   end
@@ -31,6 +35,10 @@ class HelpController < ApplicationController
   
   def report
     @title = "Справка | Отчеты"
+  end
+  
+  def danger
+    @title = "Справка | Важно"
   end
   
 end
