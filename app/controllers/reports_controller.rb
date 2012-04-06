@@ -7,7 +7,8 @@ class ReportsController < ApplicationController
   layout 'report'
   load_and_authorize_resource
   
-  def index 
+  def index
+    redirect_to finance_reports_path
   end
   
   def show

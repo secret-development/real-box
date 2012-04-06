@@ -6,13 +6,18 @@ class TransactionsController < ApplicationController
   before_filter :all_deny
   before_filter :time_work
   before_filter :check_fired
-  
+  before_filter :settings_deny, :only => :all
   helper_method :sort_column, :sort_direction
   load_and_authorize_resource
   
   def index
-    @transactions = Transaction.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
-    @title = "Сделки"
+    @transactions = Transaction.joins(:customer).search(params[:search]).order(sort_column + " " + sort_direction).where(:user_id => current_user.id).page(params[:page]).per(page_paginate)
+    @title = "Мои сделки"
+  end
+  
+  def all
+    @transactions = Transaction.joins(:customer).search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
+    @title = "Все сделки"
   end
   
   def new
@@ -80,7 +85,11 @@ class TransactionsController < ApplicationController
   end
   
   def page_paginate
-    20
+    if Paginator.find_by_resource("сделки")
+      Paginator.find_by_resource("сделки").paginate
+    else
+      25
+    end
   end
   
 end

@@ -699,6 +699,25 @@ $(document).ready(function() {
   });
 });
 
+// validates for settings -> paginators
+$(document).ready(function() {
+  $('.pag-valid-form').validate({
+    rules: {
+      "paginator[paginate]" : {
+        required: true,
+        digits: true
+      }
+    },
+    messages: {
+      "paginator[paginate]" : {
+        required: "Введите значение",
+        digits: "Только цифры"
+      }
+    }
+  });
+});
+
+
 // guest deny button
 $(document).ready(function() {
   $("#guest-deny-button").click(function(event) {
@@ -1017,4 +1036,18 @@ $(document).ready(function() {
 $(document).ready(function() {
   $('a').tooltip('hide')
   $('img').tooltip('hide')
+});
+
+
+// active report menu:
+$(document).ready(function() {
+  if($("div").is(".reports-content")){
+    var name = document.location.href;
+    var active_url = new Array();
+    var full_url = name.split('?');
+    var active_url = full_url[0].toString().split('/');
+    $("a[href='/reports/"+active_url[4]+"']")
+      .parent()
+      .addClass("active-report-tab");
+  }
 });

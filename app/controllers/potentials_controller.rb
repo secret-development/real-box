@@ -10,7 +10,7 @@ class PotentialsController < ApplicationController
   helper_method :sort_column, :sort_direction
   
   def index
-    @potentials = Customer.potentials.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(20)
+    @potentials = Customer.potentials.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
     @title = "Потенциальные клиенты"
   end
   
@@ -29,6 +29,14 @@ class PotentialsController < ApplicationController
   
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"    
+  end
+  
+  def page_paginate
+    if Paginator.find_by_resource("клиенты")
+      Paginator.find_by_resource("клиенты").paginate
+    else
+      25
+    end
   end
   
 end

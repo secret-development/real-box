@@ -10,13 +10,13 @@
     
     li{
       float:left;
-      width: 23%;
+      width: 31%;
       min-height:80px;
       margin-right: 10px;
       margin-top: 25px;
       margin-bottom: 45px;
       text-align: center;
-      
+      // border:1px solid #ccc;
       // links:
       a{
         display: block;
@@ -54,6 +54,9 @@
       }
       .resident-icon{
         background: url(resident_icon.png) no-repeat center 30px;
+      }
+      .paginator-icon{
+        background: url(paginator_icon.png) no-repeat center 30px;
       }
     }
     
