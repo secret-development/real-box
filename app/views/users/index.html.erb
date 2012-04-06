@@ -2,10 +2,10 @@
 <%= flash_msg(flash[:notice]) %>
 <table class="table table-striped">
   <thead>
-    <th>Фамилия Имя</th>
+    <th>Имя</th>
     <th>Последний визит</th>
-    <th>Действия</th>
     <th>Статус</th>
+    <th>Действия</th>
   </thead>
   <tbody>
     <% @users.each do |u| %>
@@ -19,15 +19,6 @@
         <% end %> 
 
       </td>
-      <td class="actions-buttons">
-        <%= link_to eye_icon, user_path(u) %>
-        <% if can? :update, @users %>  
-          <%= link_to edit_icon, edit_user_path(u) %>
-        <% end %>
-        <% if can? :destroy, @users %>  
-        <%= link_to delete_icon, user_path(u), method: :delete, confirm: "Вы уверены?", :title => "Уволить"  %>
-        <% end %>
-      </td>
       <td>
         <% if u.fired == true %>
           <div class="user-fired">
@@ -37,6 +28,15 @@
           <div class="user-not-fired">
             Работает
           </div>
+        <% end %>
+      </td>
+      <td class="actions-buttons">
+        <%= link_to eye_icon, user_path(u) %>
+        <% if can? :update, @users %>  
+          <%= link_to edit_icon, edit_user_path(u) %>
+        <% end %>
+        <% if can? :destroy, @users %>  
+        <%= link_to delete_icon, user_path(u), method: :delete, confirm: "Вы уверены?", :title => "Уволить"  %>
         <% end %>
       </td>
     </tr>
