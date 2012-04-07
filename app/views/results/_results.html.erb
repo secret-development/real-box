@@ -12,7 +12,8 @@
         <div class="sub-one">
           <div class="photo-sub">
             <% if isset_photo?(s) %>
-              <%= link_to(image_tag(s.photos.first.image_url(:thumb)), s) %>
+              <%= link_to(image_tag(s.photos.first.image_url(:thumb),                     
+                  :title => "#{s.photos.size} фото"), s) %>
             <% else %>
               <%= link_to(image_tag("no-photo.gif", :title => "Нет фото"), s) %>
             <% end %>
