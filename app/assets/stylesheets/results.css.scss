@@ -72,7 +72,25 @@
       .photo-sub{
         // border:1px solid #ccc;
         float:left;
+        position:relative;
         margin-right:20px;
+        .overimage{
+          position:absolute;
+          top:50px;
+          padding:3px 5px;
+          left:0;
+          width:140px;
+          height:39px;
+          color:#FFFFFF;
+          font-size:11px;
+          background: rgb(0, 0, 0); /* fallback color */
+          background: rgba(0, 0, 0, 0.6);
+          font-weight:bold;
+          .overimage-field{
+            display: block;
+            margin-bottom:1px;
+          }
+        }
         img{
           height:95px;
           width:150px;
@@ -93,7 +111,7 @@
         width:70%;
         margin-left:5px;
         .main-info-about-subject{
-          font-size:15px;
+          font-size:13px;
           margin-bottom:5px;
           .info-price-subject{
             display: inline-block;
@@ -127,7 +145,7 @@
     }
   }
 }
-.date-add-subject{
+.small-field-subject{
   font-size:11px;
 }
 #room-search-block{

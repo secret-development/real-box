@@ -14,8 +14,24 @@
             <% if isset_photo?(s) %>
               <%= link_to(image_tag(s.photos.first.image_url(:thumb),                     
                   :title => "#{s.photos.size} фото"), s) %>
+                  <div class="overimage">
+                    <span class="overimage-field">
+                      Цена: <%= price_currency(s) %>
+                    </span>
+                    <span class="overimage-field">
+                      Площадь: <%= isset_data(s.area) %> м&sup2;
+                    </span>
+                  </div>
             <% else %>
               <%= link_to(image_tag("no-photo.gif", :title => "Нет фото"), s) %>
+                  <div class="overimage">
+                    <span class="overimage-field">
+                      Цена: <%= price_currency(s) %>
+                    </span>
+                    <span class="overimage-field">
+                      Площадь: <%= isset_data(s.area) %> м&sup2;
+                    </span>
+                  </div>
             <% end %>
           </div>
           <div class="info-about-subject">
@@ -45,10 +61,10 @@
               <div class="field-other">
                 Площадь: <%= isset_data(s.area) %> <span class="calc-label">м&sup2;</span>
               </div>
-              <div class="field-other">
+              <div class="field-other small-field-subject">
                 Хозяин: <%= link_to(s.customer.fullname, s.customer) %>
               </div>
-              <div class="field-other date-add-subject">
+              <div class="field-other small-field-subject">
                 Дата добавления: <%= to_date(s.created_at) %>
               </div>
             </div>
