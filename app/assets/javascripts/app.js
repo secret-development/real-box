@@ -1034,8 +1034,9 @@ $(document).ready(function() {
 
 // tooltip links
 $(document).ready(function() {
-  $('a').tooltip('hide')
-  $('img').tooltip('hide')
+  $('a').tooltip('hide');
+  $('img').tooltip('hide');
+  $('i').tooltip('hide');
 });
 
 

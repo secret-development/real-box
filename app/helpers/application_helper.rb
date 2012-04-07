@@ -284,5 +284,12 @@ module ApplicationHelper
       "Агент"
     end
   end
+  
+  # photo icon for list subjects
+  def photo_list(object)
+    if object.photos.size > 0
+      icon_camera_list(object.photos.size)
+    end
+  end
 
 end
