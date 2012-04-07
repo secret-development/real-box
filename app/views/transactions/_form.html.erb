@@ -44,7 +44,7 @@
         <div class="controls">
           <% if @customer.subjects.size > 0 %>
             <%= f.collection_select(:subject_id, @customer.subjects, 
-                                    :id, :address) %>
+                                    :id, :address, :include_blank => true) %>
           <% else %>
             <span class="curve">Отсутствует</span>
           <% end %>
