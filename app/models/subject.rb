@@ -208,6 +208,7 @@ class Subject < ActiveRecord::Base
   def format_price
     self.price = price_before_type_cast.to_s.gsub(/\s/, '')
   end
+
   
 end
 

@@ -12,9 +12,26 @@
         <div class="sub-one">
           <div class="photo-sub">
             <% if isset_photo?(s) %>
-              <%= link_to(image_tag(s.photos.first.image_url(:thumb)), s) %>
+              <%= link_to(image_tag(s.photos.first.image_url(:thumb),                     
+                  :title => "#{s.photos.size} фото"), s) %>
+                  <div class="overimage">
+                    <span class="overimage-field">
+                      Цена: <%= price_currency(s) %>
+                    </span>
+                    <span class="overimage-field">
+                      Площадь: <%= isset_data(s.area) %> м&sup2;
+                    </span>
+                  </div>
             <% else %>
               <%= link_to(image_tag("no-photo.gif", :title => "Нет фото"), s) %>
+                  <div class="overimage">
+                    <span class="overimage-field">
+                      Цена: <%= price_currency(s) %>
+                    </span>
+                    <span class="overimage-field">
+                      Площадь: <%= isset_data(s.area) %> м&sup2;
+                    </span>
+                  </div>
             <% end %>
           </div>
           <div class="info-about-subject">
@@ -24,16 +41,24 @@
                   <%= link_to s.typesubject.name, s%>
                   <div class="info-price-subject">
                     за <%= price_currency(s) %>
-                  </div>  
-                  – Активна
+                  </div>
+                  <% if have_object?(s.room) %>
+                    <div class="room-subject-title">
+                      <%= to_room(s) %>
+                    </div>
+                  <% end %>
                 </div>
               <% else %>
               <div class="inactive-sub">
                 <%= link_to s.typesubject.name, s%>
                 <div class="info-price-subject">
                   за <%= price_currency(s) %>
-                </div>  
-                – Не активна
+                </div>
+                <% if have_object?(s.room) %>
+                  <div class="room-subject-title">
+                    <%= to_room(s) %>
+                  </div>
+                <% end %>
               </div>
               <% end %>
             </div>
@@ -41,13 +66,30 @@
               <div class="field-other">
                 Адресс: <%= s.address %>
               </div>
-              <div class="field-other">
-                Площадь: <%= isset_data(s.area) %> <span class="calc-label">м&sup2;</span>
+              <% if have_object?(s.floor) %>
+                <div class="field-other">
+                  Этаж: <%= s.floor %>
+                </div>
+              <% end %>
+              <% if have_object?(s.floorall) %>
+                <div class="field-other">
+                  Этажность: <%= s.floorall %>
+                </div>
+              <% end %>
+              <% if have_object?(s.resident) %>
+                <div class="field-other">
+                  ЖК: <%= s.resident.title %>
+                </div>
+              <% end %>
+              <% if have_object?(s.district) %>
+                <div class="field-other">
+                  Район: <%= s.district.title %>
+                </div>
+              <% end %>
+              <div class="advanced-info">
+                <%= puts_properties(s) %>
               </div>
-              <div class="field-other">
-                Хозяин: <%= link_to(s.customer.fullname, s.customer) %>
-              </div>
-              <div class="field-other date-add-subject">
+              <div class="field-other small-field-subject">
                 Дата добавления: <%= to_date(s.created_at) %>
               </div>
             </div>

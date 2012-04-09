@@ -2,14 +2,15 @@
   <thead>
     <tr>
       <th><%= sortable "id", "№" %></th>
-      <th><%= sortable "typetransaction_id", "Тип сделки" %></th>
-      <th>Тип объекта</th>
+      <th><%= sortable "typetransaction_id", "Сделка" %></th>
+      <th>Объект</th>
       <th><%= sortable "city_id", "Город" %></th>
-      <th><%= sortable "room", "Количество комнат" %></th>
+      <th><%= sortable "room", "Кол-во комнат:" %></th>
       <th>Адрес</th>
       <th><%= sortable "price", "Цена" %></th>
       <th><%= sortable "area", "Площадь" %></th>
-      <th>Статус</th>
+      <th>Фото</th>
+      <th><%= sortable "active", "Статус" %></th>
       <th>Действия</th>
     </tr>
   </thead>  
@@ -27,9 +28,10 @@
           <% end %>
         </td>
         <td class="id-table"><%= isset_data(s.room) %></td>
-        <td><%= s.address %></td>
+        <td class="id-table"><%= s.address %></td>
         <td class="id-table"><%= price_currency(s) %></td>
         <td class="id-table"><%= to_area(s.area) %></td>
+        <td class="id-table photo-list"><%= photo_list(s) %></td>
         <td><%= active_subject?(s) %></td>
         <td class="actions-buttons">
           <%= link_to eye_icon, subject_path(s), :title => "Подробнее...",
