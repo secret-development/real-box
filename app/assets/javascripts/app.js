@@ -782,7 +782,7 @@ $(document).ready(function() {
   // $("#search_area_lte").autotab_filter('numeric');
 });
 
-// search
+// search room
 $(document).ready(function() {
     if($("form").is("#search-main-form")){
       var first_typesubject = $("#search_typesubject_id_eq option:selected").val();
@@ -820,6 +820,51 @@ $(document).ready(function() {
         else if (data['room'] == false){
           $("#room-search-block :input").attr('disabled', true);
           $("#room-search-block").hide();
+        };
+      }
+    });
+  });
+  
+});
+
+// search floor
+$(document).ready(function() {
+    if($("form").is("#search-main-form")){
+      var first_typesubject = $("#search_typesubject_id_eq option:selected").val();
+      
+      $.ajax({
+        url: '/subjects/findtypesubject',
+        type: 'POST',
+        dataType: 'json',
+        data: {id: first_typesubject},
+        success: function(data, textStatus, xhr) {
+          if (data['floor'] == true) {
+            $("#floor-search-block :input").removeAttr('disabled');
+            $("#floor-search-block").show();
+          }
+          else if (data['floor'] == false){
+            $("#floor-search-block :input").attr('disabled', true);
+            $("#floor-search-block").hide();
+          };
+        }
+      });  
+  }
+  
+  $("#search_typesubject_id_eq").change(function(event) {
+    var typesubject_id = $(this).attr("value");
+    $.ajax({
+      url: '/subjects/findtypesubject',
+      type: 'POST',
+      dataType: 'json',
+      data: {id: typesubject_id},
+      success: function(data, textStatus, xhr) {
+        if (data['floor'] == true) {
+          $("#floor-search-block :input").removeAttr('disabled');
+          $("#floor-search-block").show();
+        }
+        else if (data['room'] == false){
+          $("#floor-search-block :input").attr('disabled', true);
+          $("#floor-search-block").hide();
         };
       }
     });
@@ -1034,8 +1079,9 @@ $(document).ready(function() {
 
 // tooltip links
 $(document).ready(function() {
-  $('a').tooltip('hide')
-  $('img').tooltip('hide')
+  $('a').tooltip('hide');
+  $('img').tooltip('hide');
+  $('i').tooltip('hide');
 });
 
 

@@ -1,10 +1,8 @@
-
 <div class="span6">
 <%= form_tag(sessions_path, :class => "well form-inline", :id => "session-new") do %>
+  <legend>Вход</legend>
   <fieldset>
   <%= flash_msg(flash[:notice]) %>
-  <legend>Вход</legend>
-  <br>
   <div class="control-group">
     <%= label_tag :email, "e-mail:" %>
     <div class="controls">
@@ -23,7 +21,6 @@
       <%= label_tag :remember_me, "Запомнить меня" %>
     </span>
   </div>
-  
   <div class="form-actions">
     <%= submit_tag "Войти", :class => "btn btn-large" %>
   </div>

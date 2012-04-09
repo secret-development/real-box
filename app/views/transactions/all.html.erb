@@ -3,7 +3,7 @@
 <% if current_user.role? %>
   <%= render 'links_transactions' %>
 <% end %>
-<%= form_tag(transactions_path, :method => 'get', 
+<%= form_tag(all_transactions_path, :method => 'get', 
     :id => 'transactions_search') do %>
   <%= hidden_field_tag :sort, params[:sort] %>
   <%= hidden_field_tag :direction, params[:direction] %>
