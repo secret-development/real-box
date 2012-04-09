@@ -52,6 +52,12 @@
             – 
             <%= f.text_field :room_lte, :class => "room-search-field" %>
           </div>
+          <div class="s-field" id="floor-search-block">
+            <%= f.label :floor_gte, "Этаж:" %>
+            <%= f.text_field :floor_gte, :class => "floor-search-field" %>
+            -
+            <%= f.text_field :floor_lte, :class => "floor-search-field" %>
+          </div>
         </div>
         <div class="s-action">
           <%= f.submit "Поиск", :class => "btn btn-large btn-success" %>  

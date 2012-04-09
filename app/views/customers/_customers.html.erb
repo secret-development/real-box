@@ -2,13 +2,13 @@
   <thead>
     <tr>
       <th><%= sortable "id", "№" %></th>
-      <th><%= sortable "typetransaction_id", "Тип сделки" %></th>
+      <th><%= sortable "typetransaction_id", "Сделка" %></th>
       <th><%= sortable "lastname", "Фамилия" %></th>
       <th><%= sortable "firstname", "Имя" %></th>
       <th><%= sortable "social_status_id", "Соц. статус" %></th>
       <th>Дом. телефон</th>
       <th>Сот. телефон</th>
-      <th>Количество объектов</th>
+      <th>Кол-во объектов</th>
       <th>Добавить объект</th>
       <th>Заключить сделку</th>
       <th>Действия</th>
@@ -35,7 +35,7 @@
         <td>
           <%= link_to plus_icon, new_subject_path(:customer_id => c.id), :title => "Добавить недвижимость" %>
         </td>
-        <td>
+        <td class="id-table">
           <span class="icon-trans-status">
             <%= customer_act?(c) %>  
           </span>

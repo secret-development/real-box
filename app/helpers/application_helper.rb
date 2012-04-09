@@ -284,5 +284,36 @@ module ApplicationHelper
       "Агент"
     end
   end
-
+  
+  # photo icon for list subjects
+  def photo_list(object)
+    if object.photos.size > 0
+      icon_camera_list(object.photos.size)
+    end
+  end
+  
+  # search -> room
+  def to_room(object)
+    typesubject = object.typesubject.name
+    if typesubject[typesubject.length-1] == "а"
+      "#{object.room}-комнатная"
+    else
+      "#{object.room}-комнатный"
+    end
+  end
+  
+  # search -> properties
+  def puts_properties(object)
+    last_property = object.properties.last
+    output_properties = ""
+    object.properties.collect do |p|
+      if p == last_property
+        output_properties += "#{p.condition}: #{p.value}"
+      else
+        output_properties += "#{p.condition}: #{p.value}, "
+      end
+    end
+    return output_properties.to_s
+  end
+  
 end
