@@ -51,6 +51,9 @@
           .room-search-field{
             width:25px;
           }
+          .floor-search-field{
+            width:25px;
+          }
           #search_price_currency_eq{
             width:120px;
           }
@@ -178,6 +181,9 @@
 }
 #room-search-block{
   display: none;
+}
+#floor-search-block{
+  display:none;
 }
 #resident-search-block{
   display: none;
