@@ -1,3 +1,21 @@
+@mixin rounded-top{
+  -webkit-border-radius:5px 5px 0px 0px;
+  -moz-border-radius:5px 5px 0px 0px;
+  border-radius:5px 5px 0px 0px;
+  -o-border-radius:5px 5px 0px 0px;
+}
+@mixin rounded-bottom{
+  -webkit-border-radius:0px 0px 5px 5px;
+  -moz-border-radius:0px 0px 5px 5px;
+  border-radius:0px 0px 5px 5px;
+  -o-border-radius:0px 0px 5px 5px;
+}
+@mixin rounded{
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
+  -o-border-radius:5px;
+}
 #search-page{
   #search-die{
     background:#FCFCFC;
@@ -7,12 +25,10 @@
     border-radius:10px;
     -o-border-radius:10px;
     margin-bottom:15px;
-    
     #search-main-form{
       margin-top:35px;
       margin-left:20px;
       margin-right:20px;
-      
       .s-group-field{
         clear:both;
         height:35px;
@@ -22,7 +38,6 @@
           float:left;
           label{
             float:left;
-            // min-width:80px;
             margin-right:10px;
             font-size:14px;
             margin-top:5px;
@@ -66,9 +81,9 @@
       }
     }
     .sub-one{
-      margin-bottom:10px;
+      margin-bottom:20px;
       // border:1px solid #ccc;
-      height:130px;
+      min-height:140px;
       .photo-sub{
         // border:1px solid #ccc;
         float:left;
@@ -98,6 +113,7 @@
           box-shadow: 0 0 6px rgba(0,0,0,0.4);
           -moz-box-shadow: 0 0 6px rgba(0,0,0,0.4);
           -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.4);
+          @include rounded-top;
           &:hover{
             box-shadow: 0 0 5px black;
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -108,37 +124,49 @@
       }
       .info-about-subject{
         float:left;
-        width:70%;
+        width:80%;
+        min-height:130px;
         margin-left:5px;
         .main-info-about-subject{
           font-size:13px;
-          margin-bottom:5px;
           .info-price-subject{
             display: inline-block;
           }
+          .room-subject-title{
+            display: inline-block;
+            border-left:1px solid #4E4E4E;
+            padding-left:10px;
+            margin-left:4px;
+          }
           .active-sub{
+            @include rounded;
             background:#E9F5F8;
-            padding:5px;
-            a{
-              color:#000000;
-              text-decoration:underline;
-            }
+            padding:5px 5px 5px 10px;
           }
           .inactive-sub{
-            // #F8DBDB
+            @include rounded;
             background:#F8DBDB;
-            padding:5px;
-            a{
-              color:#000;
-              text-decoration:underline;
+            padding:5px 5px 5px 10px;
+          }
+          a{
+            color:#000;
+            text-decoration:underline;
+            &:hover{
+              text-decoration:none;
             }
           }
         }
         .other-info-subject{
-          padding:5px;
-          background:#F8F8F8;
+          // border:1px solid #ccc;
+          padding:6px;
+          // height:100px;
           .field-other{
-            margon-bottom:5px;
+            font-size:11px;
+            margin-bottom:-1px;
+          }
+          .advanced-info{
+            margin-bottom:5px;
+            font-size:11px;
           }
         }
       }
@@ -146,7 +174,7 @@
   }
 }
 .small-field-subject{
-  font-size:11px;
+  font-size:11px !important;
 }
 #room-search-block{
   display: none;
