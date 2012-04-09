@@ -22,7 +22,7 @@ gem "kaminari", "~> 0.13.0"
 gem 'validates_timeliness', '~> 3.0.2'
 gem 'jquery_datepicker'
 gem 'russian', '~> 0.6.0'
-
+gem 'imperavi-rails', '0.0.12.beta'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
 # for attachment:
