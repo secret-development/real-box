@@ -7,6 +7,7 @@ class TransactionsController < ApplicationController
   before_filter :time_work
   before_filter :check_fired
   before_filter :settings_deny, :only => :all
+  before_filter :check_who_add, :only => :show
   helper_method :sort_column, :sort_direction
   load_and_authorize_resource
   
@@ -89,6 +90,13 @@ class TransactionsController < ApplicationController
       Paginator.find_by_resource("сделки").paginate
     else
       25
+    end
+  end
+  
+  def check_who_add
+    @transaction = Transaction.find(params[:id])
+    if current_user.id != @transaction.user_id && current_user.role != true
+      redirect_to transactions_path, :alert => "Доступ к этой сделке запрещен"
     end
   end
   
