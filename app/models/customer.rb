@@ -6,7 +6,7 @@ class Customer < ActiveRecord::Base
   has_many :subjects, :dependent => :destroy
   has_many :transactions, :dependent => :destroy
   has_many :phones, :dependent => :destroy
-  accepts_nested_attributes_for :phones, :reject_if => lambda {|a| a[:customerphone].blank? }
+  accepts_nested_attributes_for :phones, :reject_if => lambda {|a| a[:customerphone].blank? }, :allow_destroy => true
   belongs_to :user
   #validations
   validates :firstname, :presence => true

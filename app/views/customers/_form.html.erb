@@ -50,7 +50,10 @@
       <div class="control-group">
         <%= p.label :customerphone, "Доп.телефон:" %>
         <div class="controls">
-          <%= p.text_field :customerphone, :placeholder => "+7 774 334 43 54" %>
+          <%= p.text_field :customerphone, 
+              :placeholder => "+7 774 334 43 54" %>
+          <%= p.check_box :_destroy %>
+          <%= p.label :_destroy, "Удалить номер", :class => "label-destroy-more-phone" %>
         </div>
       </div>
     <% end %>
