@@ -21,7 +21,7 @@ describe Phone do
     end
     
     it "should require customer_id" do
-      phone = Phone.new(@attr.merge(:user_id => nil))
+      phone = Phone.new(@attr.merge(:customer_id => nil))
       phone.should_not be_valid
     end
     
