@@ -1099,3 +1099,11 @@ $(document).ready(function() {
 });
 
 // form phones for customers
+$(document).ready(function() {
+  $(".add-more-phone").toggle(function() {
+    $(".more-phones").slideDown();
+  }, function() {
+    $(".more-phones").slideUp();
+  });
+  
+});

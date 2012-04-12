@@ -43,21 +43,24 @@
         <%= f.text_field :phonemobile2, :id => "phonemobile2",
             :maxlength => "4", :class => "input-mphone", 
             :placeholder => "8724"%>
-        <a class="add-more-phone" title="Добавить еще телефон">+</a>
+        <a class="add-more-phone" title="Дополнительные телефоны">
+          <i class="icon-plus"></i>
+        </a>
       </div>
     </div>
-    <%= f.fields_for :phones do |p| %>
-      <div class="control-group">
-        <%= p.label :customerphone, "Доп.телефон:" %>
-        <div class="controls">
-          <%= p.text_field :customerphone, 
-              :placeholder => "+7 774 334 43 54" %>
-          <%= p.check_box :_destroy %>
-          <%= p.label :_destroy, "Удалить номер", :class => "label-destroy-more-phone" %>
+    <div class="more-phones">
+      <%= f.fields_for :phones do |p| %>
+        <div class="control-group">
+          <%= p.label :customerphone, "Доп.телефон:", 
+              :class => "label-more-phone" %>
+          <div class="controls">
+            <%= p.text_field :customerphone %>
+            <%= p.check_box :_destroy %>
+            <%= p.label :_destroy, "Удалить номер", :class => "label-destroy-more-phone" %>
+          </div>
         </div>
-      </div>
-    <% end %>
-    
+      <% end %>
+    </div>
     <div class="control-group">
       <%= f.label :email, "Электронный адрес:" %>
       <div class="controls">

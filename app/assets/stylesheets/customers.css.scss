@@ -152,3 +152,16 @@
   position:relative;
   top:2px;
 }
+.more-phones{
+  display:none;
+}
+.add-more-phone{
+  margin-left:10px;
+  &:hover{
+    cursor:pointer;
+  }
+}
+.label-more-phone{
+  font-size:11px;
+  color:#7A7A7A;
+}
