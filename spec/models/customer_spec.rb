@@ -79,7 +79,7 @@ describe Customer do
     
     it "should respond to phones" do
       c = Customer.new(@attr)
-      c.should respond_to(:phone)
+      c.should respond_to(:phones)
     end
     
     it "should has_many phones" do

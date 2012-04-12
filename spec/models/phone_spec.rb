@@ -11,7 +11,7 @@ describe Phone do
     # attributes:
     @attr = {
       :customerphone => "+ 7 755 434 334 43",
-      :user_id => @user.id
+      :customer_id => @customer.id
     }
   end
   
