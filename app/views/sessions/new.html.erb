@@ -1,24 +1,26 @@
-
 <div class="span6">
 <%= form_tag(sessions_path, :class => "well form-inline", :id => "session-new") do %>
+  <legend>Вход</legend>
   <fieldset>
   <%= flash_msg(flash[:notice]) %>
-  <legend>Вход</legend>
-  <div class="control-group"> 
-    <%= email_field_tag :email, params[:email]%>
+  <div class="control-group">
+    <%= label_tag :email, "e-mail:" %>
+    <div class="controls">
+      <%= email_field_tag :email, params[:email]%>  
+    </div>
   </div>
-  
   <div class="control-group">  
-    <%= password_field_tag :password %>
+    <%= label_tag :password, "пароль:" %>
+    <div class="controls">
+      <%= password_field_tag :password %>  
+    </div>
   </div>
-  
   <div class="control-group">
     <%= check_box_tag :remember_me, 1, params[:remember_me] %>
     <span class="remember-me-label">
       <%= label_tag :remember_me, "Запомнить меня" %>
     </span>
   </div>
-  
   <div class="form-actions">
     <%= submit_tag "Войти", :class => "btn btn-large" %>
   </div>

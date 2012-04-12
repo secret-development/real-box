@@ -16,6 +16,7 @@ ru:
       document: "Документы"
       photo: "Фото"
       property: "Свойства"
+      resident: "Жилой комплекс"
       social_status: "Социальные статусы"
       subject: "Объекты"
       task: "Задачи"
@@ -24,6 +25,7 @@ ru:
       typetransaction: "Типы сделок"
       user: "Персонал"
       value_field: "Значения дополнительных полей"
+      worktime: "Рабочее время"
     attributes:
       city:
         name: "Название"
@@ -55,6 +57,9 @@ ru:
         value: "Значение"
         subject_id: "Объект"
         typefield: "Тип поля"
+      resident:
+        title: "Название"
+        city_id: "Город"
       social_status:
         title: "Название"
       subject:
@@ -66,6 +71,7 @@ ru:
         price_currency: "Значение поля 'Валюта'"
         active: "Статус"
         floor: "Этаж"
+        floorall: "Этажность"
         district_id: "Район"
         user_id: "Ответственный"
         customer_id: "Хозяин"
@@ -73,6 +79,8 @@ ru:
         street_src: "Значение поля 'Улица'"
         house_src: "Значение поля 'Дом'"
         flat_src: "Значение поля 'Квартира'"
+        note: "Значение поля 'Заметка'"
+        resident: "Жилой комплекс"
       task:
         title: "Название"
         description: "Описание"
@@ -97,6 +105,7 @@ ru:
         name: "Название"
         permalink: "Значение поля 'Постоянная ссылка'"
         floor: "Значение поля 'Этажность'"
+        resident: "Жилой комплекс"
       typetransaction:
         name: "Название"
       user:
@@ -114,6 +123,14 @@ ru:
       value_field:
         valuefield: "Значение поля"
         condition_field_id: "Дополнительное поле"
+      worktime:
+        start_hour: "Час начала"
+        start_min: "Минута начала"
+        end_hour: "Час конца"
+        end_hour: "Минута конца"
+      paginator:
+        resource: "Ресурс"
+        paginate: "Значение поля 'Количество элементов'"
         
   unauthorized: 
     manage:

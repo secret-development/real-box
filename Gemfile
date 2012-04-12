@@ -22,7 +22,6 @@ gem "kaminari", "~> 0.13.0"
 gem 'validates_timeliness', '~> 3.0.2'
 gem 'jquery_datepicker'
 gem 'russian', '~> 0.6.0'
-
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
 # for attachment:
@@ -54,6 +53,10 @@ gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+# for backup
+gem 'backup'
+gem 'dropbox-sdk', '~> 1.1.0'
 
 group :test, :development do
   gem "awesome_print", "~> 1.0.2"

@@ -5,6 +5,7 @@ class CustomersController < ApplicationController
   respond_to :html
   before_filter :all_deny
   before_filter :time_work
+  before_filter :check_fired
   helper_method :sort_column, :sort_direction
 
   
@@ -14,9 +15,8 @@ class CustomersController < ApplicationController
   end
   
   def index
-    @customers = Customer.real.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)#real.page(params[:page]).per(10)
+    @customers = Customer.real.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
     @title = "Действующие клиенты"
-    #@potentials = Customer.potentials.all
   end
   
   def new
@@ -78,16 +78,19 @@ class CustomersController < ApplicationController
   private
   
   def sort_column
-    Customer.column_names.include?(params[:sort]) ? params[:sort] : "lastname"    
+    Customer.column_names.include?(params[:sort]) ? params[:sort] : "id"    
   end
   
   def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"    
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"    
   end
   
   def page_paginate
-    20
+    if Paginator.find_by_resource("клиенты")
+      Paginator.find_by_resource("клиенты").paginate
+    else
+      25
+    end
   end
-
   
 end

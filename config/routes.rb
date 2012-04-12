@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 Crm::Application.routes.draw do
 
+  resources :paginators, :except => [:new, :create, :destroy]
   resources :worktimes
 
   get "reports" => "reports#index", :as => :reports
@@ -21,7 +22,9 @@ Crm::Application.routes.draw do
 
   get "potentials/index"
   match "potentials" => "potentials#index", :as => :potentials
-  resources :tasks  
+  resources :tasks do
+    get 'admin', :on => :collection
+  end
   resources :customers do
     get 'all', :on => :collection
     post 'lastcallcustomer', :on => :collection
@@ -41,6 +44,7 @@ Crm::Application.routes.draw do
   end
   
   resources :transactions do
+    get 'all', :on => :collection
     resources :documents, :only => [:create, :destroy]
     get 'add_document', :on => :member, :as => :add_document
   end
@@ -49,6 +53,8 @@ Crm::Application.routes.draw do
   resources :condition_fields
   resources :value_fields, :except => [:show]
   resources :typesubjects, :except => [:show]
+  resources :districts, :except => [:show]
+  resources :residents, :except => [:show]
   # settings
   match "settings" => "settings#index", :as => :settings
   
@@ -63,7 +69,7 @@ Crm::Application.routes.draw do
   get "help/tasks" => "help#tasks", :as => :help_tasks
   get "help/transactions" => "help#transactions", :as => :help_transactions
   get "help/reports" => "help#reports", :as => :help_reports
-  get "help/daner" => "help#danger", :as => :help_danger
+  get "help/danger" => "help#danger", :as => :help_danger
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

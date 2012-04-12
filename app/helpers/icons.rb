@@ -54,6 +54,10 @@ module Icons
     raw("<i class='icon-camera'></i>")
   end
   
+  def icon_camera_list(size_photos)
+    raw("<i class='icon-camera' rel='tooltip' title='#{size_photos} фото'></i>")
+  end
+  
   def icon_arrow_left_white
     raw("<i class='icon-arrow-left icon-white'></i>")
   end

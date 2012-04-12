@@ -70,6 +70,7 @@ describe District do
     end
   end
 end
+
 # == Schema Information
 #
 # Table name: districts

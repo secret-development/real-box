@@ -5,14 +5,22 @@ class TasksController < ApplicationController
   respond_to :html
   before_filter :all_deny
   before_filter :time_work
+  before_filter :check_fired
+  
   helper_method :sort_column, :sort_direction
   load_and_authorize_resource
   
   def index
-    @tasks = Task.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
-    @title = "Задачи"
+    @tasks = Task.search(params[:search]).order(sort_column + " " + sort_direction).where(:user_id => current_user.id).page(params[:page]).per(page_paginate)
+    @title = "Мои задачи"
+  end
+  
+  def admin
+    @tasks = Task.search(params[:search]).order(sort_column + " " + sort_direction).where("admin IS true && user_id != ?", current_user.id).page(params[:page]).per(page_paginate)
+    @title = "Задачи поставленные агентам"
   end
 
+  
   def show
     @task = Task.find(params[:id])
     @title = @task.title
@@ -68,7 +76,11 @@ class TasksController < ApplicationController
   end
   
   def page_paginate
-    20
+    if Paginator.find_by_resource("задачи")
+      Paginator.find_by_resource("задачи").paginate
+    else
+      25
+    end
   end
   
 end

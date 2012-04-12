@@ -4,6 +4,12 @@
   <fieldset>
     <legend><%= @subject.legend_value %></legend>
     <div class="control-group">
+      <%= f.label :active, "Активна:" %>
+      <div class="controls">
+        <%= select('subject', 'active', [["Да",true],["Нет",false]]) %>
+      </div>
+    </div>
+    <div class="control-group">
       <%= f.label :typetransaction_id, "Тип сделки:" %>
       <div class="controls">
         <%= f.collection_select(:typetransaction_id, Typetransaction.all, 
@@ -67,14 +73,14 @@
     <div class="control-group" id="room-subject-block">
       <%= f.label :room, "Количество комнат:" %>
       <div class="controls">
-        <%= f.text_field :room, :placeholder => "3" %>
+        <%= f.text_field :room, :placeholder => "3", :class => "sm-inp" %>
       </div>
     </div>
     <% if room?(@subject) %>
       <div class="control-group" id="exist-room-subject">
         <%= f.label :room, "Количество комнат:" %>
         <div class="controls">
-          <%= f.text_field :room, :placeholder => "3" %>
+          <%= f.text_field :room, :placeholder => "3", :class => "sm-inp" %>
         </div>
       </div>
     <% end %>
@@ -84,14 +90,24 @@
     <div class="control-group" id="floor-subject-block">
       <%= f.label :floor, "Этаж:" %>
       <div class="controls">
-        <%= f.text_field :floor, :placeholder => "9" %> 
+        <%= f.text_field :floor, :placeholder => "9", :class => "sm-inp" %> 
+      </div>
+      <br>
+      <%= f.label :floorall, "Этажность:" %>
+      <div class="controls">
+        <%= f.text_field :floorall, :placeholder => "30", :class => "sm-inp" %>
       </div>
     </div>
     <% if floor?(@subject) %>
       <div class="control-group" id="exist-floor-subject">
         <%= f.label :floor, "Этаж:" %>
         <div class="controls">
-          <%= f.text_field :floor, :placeholder => "9" %> 
+          <%= f.text_field :floor, :placeholder => "9", :class => "sm-inp" %> 
+        </div>
+        <br>
+        <%= f.label :floorall, "Этажность:" %>
+        <div class="controls">
+          <%= f.text_field :floorall, :placeholder => "30", :class => "sm-inp" %>
         </div>
       </div>
     <% end %>
@@ -99,14 +115,14 @@
     <div class="control-group">
       <%= f.label :price, "Цена:" %>
       <div class="controls">
-        <%= f.text_field :price, :placeholder => "10000" %> 
+        <%= f.text_field :price, :placeholder => "10000", :class => "norm-inp" %> 
         <%= f.select :price_currency, @subject.price_cur %>
       </div>
     </div>
     <div class="control-group">
       <%= f.label :area, "Площадь:" %>
       <div class="controls">
-        <%= f.text_field :area, :placeholder => "70" %> 
+        <%= f.text_field :area, :placeholder => "70", :class => "sm-inp" %> 
         <span class="calc-label">м&sup2;</span>
       </div>
     </div>
@@ -128,6 +144,13 @@
       <div class="controls">
         <%= hidden_field_tag('subject[customer_id]', @subject.customer_id.nil? ? params[:customer_id] : @subject.customer_id ) %>
         <div id="subject-id" data-subject-id="<%= @subject.new_record? ? nil : @subject.id  %>"></div>
+      </div>
+    </div>
+    <!-- note -->
+    <div class="control-group" id="f-subject-note">
+      <%= f.label :note, "Заметка:" %>
+      <div class="controls">
+        <%= f.text_area :note, :rows => 5, :placeholder => "О недвижимости..." %>
       </div>
     </div>
     <%= f.hidden_field :user_id, :value => current_user.id %>

@@ -54,6 +54,7 @@ class Task < ActiveRecord::Base
   end
   
 end
+
 # == Schema Information
 #
 # Table name: tasks
@@ -69,4 +70,3 @@ end
 #  admin         :boolean(1)
 #  user_lastname :string(255)
 #
-

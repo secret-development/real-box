@@ -20,15 +20,18 @@ class Subject < ActiveRecord::Base
   # callbacks:
   before_update :check_typesubject
   
+  # verify customer real
   after_save :verify_customer_real
   after_update :verify_customer_real
   after_destroy :verify_customer_real
+  
   before_save :nill_floor
   before_update :nill_floor
   before_save :full_address
   before_update :full_address
   
   before_validation :format_price
+  before_validation :resident_check
   
   # validations:
   validates :typesubject_id, :presence => true
@@ -37,9 +40,10 @@ class Subject < ActiveRecord::Base
   validates :customer_id, :presence => true
   validates :districtname, :presence => true
   validates :floor, :presence => true, :if => :floor?
+  validates :floorall, :presence => true, :if => :floor?
   validates :room, :presence => true, :if => :room?
   validates :price_currency, :presence => true
-  
+  validates :note, :length => { :maximum => 800 }, :allow_blank => true
   attr_writer :street, :house, :flat
 
   # scopes
@@ -67,12 +71,14 @@ class Subject < ActiveRecord::Base
   end
 
   def full_address
-    if(@street.blank? || @house.blank?)
+    if @street.blank?
       if new_record?
         self.address = "Адресс неизвестен"
       end
     else
-      if @flat.blank?
+      if @house.blank? && @flat.blank?
+        self.address = "ул. #{@street}"  
+      elsif @flat.blank?
         self.address = "ул. #{@street}, дом #{@house}"
       else
         self.address = "ул. #{@street}, дом #{@house}, кв. #{@flat}"
@@ -125,6 +131,7 @@ class Subject < ActiveRecord::Base
   def nill_floor
     if typesubject.floor == false
       self.floor = nil
+      self.floorall = nil
     end
   end
 
@@ -140,7 +147,9 @@ class Subject < ActiveRecord::Base
   
   def verify_customer_real
     cust = Customer.find(customer_id)
-    if cust.subjects.count > 0  
+    if cust.subjects.count > 0
+      cust.update_attributes(:potentials => false)
+    elsif cust.transactions.count > 0
       cust.update_attributes(:potentials => false)
     else
       cust.update_attributes(:potentials => true)
@@ -181,6 +190,12 @@ class Subject < ActiveRecord::Base
     end
   end
   
+  def resident_check
+    if resident_id == 0
+      self.resident_id = nil
+    end
+  end
+  
   def check_typesubject
     if self.typesubject_id_changed?
       properties = Property.where(:subject_id => self.id)
@@ -193,8 +208,10 @@ class Subject < ActiveRecord::Base
   def format_price
     self.price = price_before_type_cast.to_s.gsub(/\s/, '')
   end
+
   
 end
+
 # == Schema Information
 #
 # Table name: subjects
@@ -219,5 +236,7 @@ end
 #  price_currency     :string(255)
 #  room               :integer(4)
 #  resident_id        :integer(4)
+#  floorall           :integer(4)
+#  note               :text
 #
 

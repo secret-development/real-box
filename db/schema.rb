@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120318081411) do
+ActiveRecord::Schema.define(:version => 20120406075403) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -37,7 +37,9 @@ ActiveRecord::Schema.define(:version => 20120318081411) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "potentials",         :default => false
+    t.integer  "type_customer_id"
     t.integer  "social_status_id"
+    t.string   "permalink"
     t.integer  "typetransaction_id"
     t.datetime "lastcall"
     t.integer  "user_id"
@@ -61,6 +63,11 @@ ActiveRecord::Schema.define(:version => 20120318081411) do
     t.datetime "updated_at",     :null => false
   end
 
+  create_table "paginators", :force => true do |t|
+    t.string  "resource"
+    t.integer "paginate"
+  end
+
   create_table "photos", :force => true do |t|
     t.integer  "subject_id"
     t.string   "image"
@@ -69,10 +76,12 @@ ActiveRecord::Schema.define(:version => 20120318081411) do
   end
 
   create_table "properties", :force => true do |t|
-    t.string  "condition"
-    t.string  "value"
-    t.integer "subject_id"
-    t.string  "typefield"
+    t.string   "condition"
+    t.string   "value"
+    t.integer  "subject_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "typefield"
   end
 
   create_table "residents", :force => true do |t|
@@ -90,7 +99,7 @@ ActiveRecord::Schema.define(:version => 20120318081411) do
     t.integer  "typesubject_id"
     t.integer  "city_id"
     t.integer  "price"
-    t.integer  "area"
+    t.float    "area"
     t.string   "address"
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
@@ -106,6 +115,8 @@ ActiveRecord::Schema.define(:version => 20120318081411) do
     t.string   "price_currency"
     t.integer  "room"
     t.integer  "resident_id"
+    t.integer  "floorall"
+    t.text     "note"
   end
 
   create_table "tasks", :force => true do |t|
@@ -156,8 +167,8 @@ ActiveRecord::Schema.define(:version => 20120318081411) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
@@ -166,6 +177,8 @@ ActiveRecord::Schema.define(:version => 20120318081411) do
     t.string   "lastname"
     t.string   "phonemobile"
     t.string   "phonehome"
+    t.boolean  "fired",                  :default => false
+    t.datetime "last_sign_in_at"
   end
 
   create_table "value_fields", :force => true do |t|

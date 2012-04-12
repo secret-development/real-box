@@ -463,15 +463,22 @@ $(document).ready(function() {
         required: true
       },
       "subject[area]" : {
-        digits: true
+        number: true
       },
       "subject[floor]" : {
+        required: true,
+        digits: true
+      },
+      "subject[floorall]" : {
         required: true,
         digits: true
       },
       "subject[room]" : {
         required: true,
         digits: true
+      },
+      "subject[note]" : {
+        maxlength: 800
       }
     },
     messages: {
@@ -482,15 +489,22 @@ $(document).ready(function() {
         required: "Введите цену "
       },
       "subject[area]" : {
-        digits: "Только цифры"
+        number: "Только числа"
       },
       "subject[floor]" : {
         required: "Введите этаж",
         digits: "Только цифры"
       },
+      "subject[floorall]" : {
+        required: "Введите этажность",
+        digits: "Только цифры"
+      },
       "subject[room]" : {
         required: "Введите этаж",
         digits: "Только цифры"
+      },
+      "subject[note]" : {
+        maxlength: "Не более 800 символов"
       }
     }
   });
@@ -653,6 +667,57 @@ $(document).ready(function() {
   });
 });
 
+// validates for settings -> districts
+$(document).ready(function() {
+  $('.district-form-validation').validate({
+    rules: {
+      "district[title]" : {
+        required: true
+      }
+    },
+    messages: {
+      "district[title]" : {
+        required: "Введите значение"
+      }
+    }
+  });
+});
+
+// validates for settings -> residents
+$(document).ready(function() {
+  $('.resident-form-validation').validate({
+    rules: {
+      "resident[title]" : {
+        required: true
+      }
+    },
+    messages: {
+      "resident[title]" : {
+        required: "Введите значение"
+      }
+    }
+  });
+});
+
+// validates for settings -> paginators
+$(document).ready(function() {
+  $('.pag-valid-form').validate({
+    rules: {
+      "paginator[paginate]" : {
+        required: true,
+        digits: true
+      }
+    },
+    messages: {
+      "paginator[paginate]" : {
+        required: "Введите значение",
+        digits: "Только цифры"
+      }
+    }
+  });
+});
+
+
 // guest deny button
 $(document).ready(function() {
   $("#guest-deny-button").click(function(event) {
@@ -713,11 +778,11 @@ $(document).ready(function() {
   $("#search_room_lte").autotab_filter('numeric');
   $("#search_price_gte").autotab_filter('numeric');
   $("#search_price_lte").autotab_filter('numeric');
-  $("#search_area_gte").autotab_filter('numeric');
-  $("#search_area_lte").autotab_filter('numeric');
+  // $("#search_area_gte").autotab_filter('numeric');
+  // $("#search_area_lte").autotab_filter('numeric');
 });
 
-// search
+// search room
 $(document).ready(function() {
     if($("form").is("#search-main-form")){
       var first_typesubject = $("#search_typesubject_id_eq option:selected").val();
@@ -755,6 +820,51 @@ $(document).ready(function() {
         else if (data['room'] == false){
           $("#room-search-block :input").attr('disabled', true);
           $("#room-search-block").hide();
+        };
+      }
+    });
+  });
+  
+});
+
+// search floor
+$(document).ready(function() {
+    if($("form").is("#search-main-form")){
+      var first_typesubject = $("#search_typesubject_id_eq option:selected").val();
+      
+      $.ajax({
+        url: '/subjects/findtypesubject',
+        type: 'POST',
+        dataType: 'json',
+        data: {id: first_typesubject},
+        success: function(data, textStatus, xhr) {
+          if (data['floor'] == true) {
+            $("#floor-search-block :input").removeAttr('disabled');
+            $("#floor-search-block").show();
+          }
+          else if (data['floor'] == false){
+            $("#floor-search-block :input").attr('disabled', true);
+            $("#floor-search-block").hide();
+          };
+        }
+      });  
+  }
+  
+  $("#search_typesubject_id_eq").change(function(event) {
+    var typesubject_id = $(this).attr("value");
+    $.ajax({
+      url: '/subjects/findtypesubject',
+      type: 'POST',
+      dataType: 'json',
+      data: {id: typesubject_id},
+      success: function(data, textStatus, xhr) {
+        if (data['floor'] == true) {
+          $("#floor-search-block :input").removeAttr('disabled');
+          $("#floor-search-block").show();
+        }
+        else if (data['room'] == false){
+          $("#floor-search-block :input").attr('disabled', true);
+          $("#floor-search-block").hide();
         };
       }
     });
@@ -966,3 +1076,24 @@ $(document).ready(function() {
   });
 });
 // end subject -> residents
+
+// tooltip links
+$(document).ready(function() {
+  $('a').tooltip('hide');
+  $('img').tooltip('hide');
+  $('i').tooltip('hide');
+});
+
+
+// active report menu:
+$(document).ready(function() {
+  if($("div").is(".reports-content")){
+    var name = document.location.href;
+    var active_url = new Array();
+    var full_url = name.split('?');
+    var active_url = full_url[0].toString().split('/');
+    $("a[href='/reports/"+active_url[4]+"']")
+      .parent()
+      .addClass("active-report-tab");
+  }
+});

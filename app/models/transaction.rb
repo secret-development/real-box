@@ -29,9 +29,13 @@ class Transaction < ActiveRecord::Base
   before_save :check_active_subject
   before_validation :format_price
   after_validation :set_user_lastname
+
+  # verify customer real
+  after_save :verify_cust_real
+  after_update :verify_cust_real
+  after_destroy :verify_cust_real
   
   # price currency
-  
   def price_cur
     {
       "доллар" => "доллар",
@@ -39,6 +43,19 @@ class Transaction < ActiveRecord::Base
       "евро" => "евро",
       "рубль" => "рубль"
     }
+  end
+  
+  def verify_cust_real
+    if customer_id
+      cust = Customer.find(customer_id)
+      if cust.subjects.empty?
+        if cust.transactions.count > 0
+          cust.update_attributes(:potentials => false)
+        else
+          cust.update_attributes(:potentials => true)
+        end
+      end  
+    end
   end
   
   
@@ -61,7 +78,7 @@ class Transaction < ActiveRecord::Base
   
   def self.search(search)
     if search
-      where('name LIKE ? OR user_lastname LIKE ?', "%#{search}%", "%#{search}%") 
+      where('name LIKE ? OR user_lastname LIKE ? OR customers.lastname LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%") 
     else
       scoped
     end
@@ -101,6 +118,7 @@ class Transaction < ActiveRecord::Base
   end
   
 end
+
 # == Schema Information
 #
 # Table name: transactions

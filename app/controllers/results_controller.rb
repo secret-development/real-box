@@ -4,7 +4,7 @@ class ResultsController < ApplicationController
   respond_to :html
   before_filter :all_deny
   before_filter :time_work
-  
+  before_filter :check_fired
   
   def index
     @title = "Поиск"
@@ -21,6 +21,11 @@ class ResultsController < ApplicationController
   private
   
     def page_paginate
-      15
+      if Paginator.find_by_resource("поиск")
+        Paginator.find_by_resource("поиск").paginate
+      else
+        25
+      end
     end
+    
 end

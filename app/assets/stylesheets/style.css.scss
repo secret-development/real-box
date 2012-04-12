@@ -1,7 +1,6 @@
 // variables:
 $small-font: 0.8em/1.5em Arial, Tahoma, sans-serif;
 
-
 body{
   padding-top: 60px;
 }
@@ -134,4 +133,38 @@ form{
     background:none !important;
     color:#ccc !important;
   }
+}
+
+// small inputs
+.sm-inp{
+  width:40px;
+}
+.norm-inp{
+  width:80px;
+}
+
+// links in tables
+table{
+  tbody{
+    color:#494949;
+    a{
+      color:#575757;
+      text-decoration:underline;
+      &:hover{
+        color:#494949;
+        text-decoration:none;
+      }
+    }
+  }
+}
+
+// warning in settings -> cities
+.warning-city{
+  font-size:12px;
+  color:#B17880;
+  font-weight:normal;
+  margin:10px 0px;
+}
+.id-table{
+  font-size:11px;
 }

@@ -68,6 +68,7 @@ describe City do
   end
   
 end
+
 # == Schema Information
 #
 # Table name: cities
