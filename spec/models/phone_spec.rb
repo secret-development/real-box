@@ -1,5 +1,46 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe Phone do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before(:each) do
+    # factory:
+    
+    @user = Factory(:user)
+    @customer = Factory(:customer, :user => @user)
+    @phone = Factory(:phone, :customer => @customer)
+    # attributes:
+    @attr = {
+      :customerphone => "+ 7 755 434 334 43",
+      :user_id => @user.id
+    }
+  end
+  
+  describe "validations" do
+    it "should create a new instance with valid attributes" do
+      Phone.create!(@attr)
+    end
+    
+    it "should require customer_id" do
+      phone = Phone.new(@attr.merge(:user_id => nil))
+      phone.should_not be_valid
+    end
+    
+    it "should require customerphone" do
+      phone = Phone.new(@attr.merge(:customerphone => nil))
+      phone.should_not be_valid
+    end
+  end
+  
+  describe "associations" do
+    it "should respond to customer" do
+      phone = Phone.new(@attr)
+      phone.should respond_to(:customer)
+    end
+    
+    it "should belongs_to to city" do
+      phone = Subject.reflect_on_association(:customer)
+      phone.macro.should == :belongs_to
+    end
+  end  
+  
 end
