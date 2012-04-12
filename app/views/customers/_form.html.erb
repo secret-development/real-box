@@ -43,8 +43,17 @@
         <%= f.text_field :phonemobile2, :id => "phonemobile2",
             :maxlength => "4", :class => "input-mphone", 
             :placeholder => "8724"%>
+        <a class="add-more-phone" title="Добавить еще телефон">+</a>
       </div>
     </div>
+    <%= f.fields_for :phones do |p| %>
+      <div class="control-group">
+        <%= p.label :customerphone, "Доп.телефон:" %>
+        <div class="controls">
+          <%= p.text_field :customerphone, :placeholder => "+7 774 334 43 54" %>
+        </div>
+      </div>
+    <% end %>
     
     <div class="control-group">
       <%= f.label :email, "Электронный адрес:" %>

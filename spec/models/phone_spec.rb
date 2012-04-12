@@ -19,16 +19,6 @@ describe Phone do
     it "should create a new instance with valid attributes" do
       Phone.create!(@attr)
     end
-    
-    it "should require customer_id" do
-      phone = Phone.new(@attr.merge(:customer_id => nil))
-      phone.should_not be_valid
-    end
-    
-    it "should require customerphone" do
-      phone = Phone.new(@attr.merge(:customerphone => nil))
-      phone.should_not be_valid
-    end
   end
   
   describe "associations" do

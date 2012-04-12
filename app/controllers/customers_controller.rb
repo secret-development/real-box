@@ -22,6 +22,7 @@ class CustomersController < ApplicationController
   def new
     @customer = Customer.new
     @title = "Добавление клиента"
+    3.times { @customer.phones.build }
     respond_with @customer 
   end
   

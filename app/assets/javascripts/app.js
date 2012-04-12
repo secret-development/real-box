@@ -1097,3 +1097,5 @@ $(document).ready(function() {
       .addClass("active-report-tab");
   }
 });
+
+// form phones for customers

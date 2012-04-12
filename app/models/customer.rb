@@ -6,6 +6,7 @@ class Customer < ActiveRecord::Base
   has_many :subjects, :dependent => :destroy
   has_many :transactions, :dependent => :destroy
   has_many :phones, :dependent => :destroy
+  accepts_nested_attributes_for :phones, :reject_if => lambda {|a| a[:customerphone].blank? }
   belongs_to :user
   #validations
   validates :firstname, :presence => true
@@ -19,6 +20,9 @@ class Customer < ActiveRecord::Base
   # callbacks
   before_save :phonemobile_merge
   before_update :phonemobile_merge
+  
+  
+  
   
   #permalink
 #  def to_param
