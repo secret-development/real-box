@@ -30,6 +30,7 @@ class CustomersController < ApplicationController
   def edit
     @customer = Customer.find(params[:id])
     @title = "Редактирование клиента"
+    3.times { @customer.phones.build }
     respond_with @customer
     #unauthorized! if cannot? :update, @customer   
   end
