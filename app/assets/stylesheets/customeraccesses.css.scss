@@ -1,3 +1,13 @@
-// Place all the styles related to the customeraccesses controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.description-access{
+  font-size:12px;
+  margin-bottom:20px;
+  .for-access{
+    margin-top:5px;
+    font-size:11px;
+  }
+}
+.customeraccess-form{
+  select{
+    width:200px;
+  }
+}
