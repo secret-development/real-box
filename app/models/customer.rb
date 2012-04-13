@@ -85,6 +85,31 @@ class Customer < ActiveRecord::Base
     lastname + " " + firstname
   end
   
+  def self.check_owner(user, customer)
+    if Customer.freeze_have?
+      if user.role == true
+        true
+      else
+        if user.id == customer.user_id
+          true
+        else
+          false
+        end
+      end
+    else
+      true
+    end
+  end
+  
+  def self.freeze_have?
+    c = Customeraccess.first
+    if c.access == true
+      false
+    else
+      true
+    end
+  end
+  
 end
 # == Schema Information
 #

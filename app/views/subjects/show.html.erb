@@ -213,27 +213,38 @@
           <span class="title-field">Добавлен:</span>
           <%= to_date(@subject.customer.created_at) %>
         </div>
-        <div class="field-customer customer-note field-customer-contacts">
-          <div class="field-c-c-title">Контактные данные:</div>
-          <div class="field-customer-c">
-            <span class="title-field">Телефон:</span>
-            <%= isset_field(@subject.customer.phonehome) %>  
-          </div>
-          <div class="field-customer-c">
-            <span class="title-field">Мобильный телефон:</span>
-            <%= isset_field(@subject.customer.phonemobile) %>  
-          </div>
-          <div class="field-customer-c">
-            <span class="title-field">e-mail:</span>
-            <%= isset_mail(@subject.customer.email) %>  
-          </div>
-          <% @subject.customer.phones.each do |p| %>
+        <% if Customer.check_owner(current_user, @subject.customer) %>
+          <!-- contacts -->
+          <div class="field-customer customer-note field-customer-contacts">
+            <div class="field-c-c-title">Контактные данные:</div>
             <div class="field-customer-c">
-              <span class="title-field">Доп.телефон:</span>
-              <%= isset_field(p.customerphone) %>  
+              <span class="title-field">Телефон:</span>
+              <%= isset_field(@subject.customer.phonehome) %>  
             </div>
-          <% end %>
-        </div>
+            <div class="field-customer-c">
+              <span class="title-field">Мобильный телефон:</span>
+              <%= isset_field(@subject.customer.phonemobile) %>  
+            </div>
+            <div class="field-customer-c">
+              <span class="title-field">e-mail:</span>
+              <%= isset_mail(@subject.customer.email) %>  
+            </div>
+            <% @subject.customer.phones.each do |p| %>
+              <div class="field-customer-c">
+                <span class="title-field">Доп.телефон:</span>
+                <%= isset_field(p.customerphone) %>  
+              </div>
+            <% end %>
+          </div>        
+          <!-- end contacts -->
+        <% else %>
+          <div class="field-customer customer-note field-customer-contacts">
+            <div class="field-c-c-title">Контактные данные:</div>
+            <div class="field-customer-c">
+              скрыты
+            </div>
+          </div>
+        <% end %>
         <div class="field-customer">
           <div class="customer-note">
             <div class="field-c-c-title">Заметка:</div>

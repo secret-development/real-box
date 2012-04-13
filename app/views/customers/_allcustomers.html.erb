@@ -31,8 +31,20 @@
             Отсутствует
           <% end %>
         </td>
-        <td class="id-table"><%= c.phonehome %></td>
-        <td class="id-table"><%= c.phonemobile %></td>
+        <td class="id-table">
+          <% if Customer.check_owner(current_user, c) %>
+            <%= c.phonehome %>
+          <% else %>
+            скрыт
+          <% end %>
+        </td>
+        <td class="id-table">
+          <% if Customer.check_owner(current_user, c) %>
+            <%= c.phonemobile %>
+          <% else %>
+            скрыт
+          <% end %>
+        </td>
         <td class="id-table"><%= c.subjects.size %></td>
         <td>
           <%= link_to plus_icon, new_subject_path(:customer_id => c.id), :title => "Добавить недвижимость" %>
