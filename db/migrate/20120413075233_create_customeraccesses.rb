@@ -1,8 +1,7 @@
 class CreateCustomeraccesses < ActiveRecord::Migration
   def change
     create_table :customeraccesses do |t|
-
-      t.timestamps
+      t.boolean :access
     end
   end
 end
