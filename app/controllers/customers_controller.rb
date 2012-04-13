@@ -7,7 +7,6 @@ class CustomersController < ApplicationController
   before_filter :time_work
   before_filter :check_fired
   helper_method :sort_column, :sort_direction
-
   
   def all
     @customers = Customer.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
