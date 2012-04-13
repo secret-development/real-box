@@ -12,6 +12,7 @@ describe Customer do
      # :real => true,
     }
   end
+  
   it "should create a new instance with valid attributes" do
     Customer.create!(@attr)    
   end
@@ -73,6 +74,21 @@ describe Customer do
     
     it "should dependent destroy(subjects)" do
       c = Customer.reflect_on_association(:subjects)
+      c.options[:dependent].should == :destroy
+    end
+    
+    it "should respond to phones" do
+      c = Customer.new(@attr)
+      c.should respond_to(:phones)
+    end
+    
+    it "should has_many phones" do
+      c = Customer.reflect_on_association(:phones)
+      c.macro.should == :has_many
+    end
+    
+    it "should dependent(:phones) destroy" do
+      c = Customer.reflect_on_association(:phones)
       c.options[:dependent].should == :destroy
     end
   end

@@ -20,7 +20,7 @@ class Ability
       #can :destroy, Task, :admin => false, :user_id => user.id
       can :update, User, :id => user.id
       can :add_info, User, :id => user.id
-      
+
       #transactions
       can :new, Transaction
       can :create, Transaction
