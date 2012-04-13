@@ -41,6 +41,12 @@ if ENV['RAILS_ENV'] == "production"
       Paginator.create(:resource => r, :paginate => default_page)
     end
   end
+  
+  # customeraccess
+  customeraccess = Customeraccess.all
+  if customeraccess.size == 0
+    Customeraccess.create(:access => true)
+  end
 
 elsif ENV['RAILS_ENV'] = "development"
   # type transactions
@@ -72,6 +78,12 @@ elsif ENV['RAILS_ENV'] = "development"
     resources.each do |r|
       Paginator.create(:resource => r, :paginate => default_page)
     end
+  end
+  
+  # customeraccess
+  customeraccess = Customeraccess.all
+  if customeraccess.size == 0
+    Customeraccess.create(:access => true)
   end
   
 end

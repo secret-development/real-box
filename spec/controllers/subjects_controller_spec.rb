@@ -9,6 +9,9 @@ describe SubjectsController do
     @user = Factory(:user)
     test_log_in(@user)
     # end auth
+    
+    @customeraccess = Factory(:customeraccess)
+    
     @city = Factory(:city)
     @typesubject = Factory(:typesubject)
     @typetransaction = Factory(:typetransaction)

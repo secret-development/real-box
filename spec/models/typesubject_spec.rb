@@ -29,11 +29,11 @@ describe Typesubject do
       @typesubject.should_not be_valid
     end
     
-    it "should require permalink" do
-      @attr[:permalink] = nil
-      @typesubject = Typesubject.new(@attr)
-      @typesubject.should_not be_valid
-    end
+    # it "should require permalink" do
+    #   @attr[:permalink] = nil
+    #   @typesubject = Typesubject.new(@attr)
+    #   @typesubject.should_not be_valid
+    # end
     
     it "should require floor" do
       @attr[:floor] = nil
@@ -60,12 +60,12 @@ describe Typesubject do
       typesubject_with_duplicate.should_not be_valid
     end
     
-    it "should reject duplicate permalink" do
-      Typesubject.create!(@attr)
-      typesubject_with_duplicate = 
-      Typesubject.new(@attr.merge(:name => "Дом"))
-      typesubject_with_duplicate.should_not be_valid
-    end
+    # it "should reject duplicate permalink" do
+    #   Typesubject.create!(@attr)
+    #   typesubject_with_duplicate = 
+    #   Typesubject.new(@attr.merge(:name => "Дом"))
+    #   typesubject_with_duplicate.should_not be_valid
+    # end
     
     it "should reject duplicate name(case sensitive)" do
       Typesubject.create!(@attr)
@@ -74,12 +74,12 @@ describe Typesubject do
       typesubject.should_not be_valid
     end
     
-    it "should reject duplicate permalink(case sensitive)" do
-      Typesubject.create!(@attr)
-      typesubject = 
-      Typesubject.new(@attr.merge(:name => "сад", :permalink => @attr[:permalink].upcase))
-      typesubject.should_not be_valid
-    end
+    # it "should reject duplicate permalink(case sensitive)" do
+    #   Typesubject.create!(@attr)
+    #   typesubject = 
+    #   Typesubject.new(@attr.merge(:name => "сад", :permalink => @attr[:permalink].upcase))
+    #   typesubject.should_not be_valid
+    # end
     
     it "should floor contain false or true" do
       @typesubject = Typesubject.new(@attr)

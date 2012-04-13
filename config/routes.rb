@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 Crm::Application.routes.draw do
 
+  resources :customeraccesses
+
   resources :paginators, :except => [:new, :create, :destroy]
   resources :worktimes
 
