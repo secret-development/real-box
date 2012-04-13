@@ -2,7 +2,7 @@
 # encdoing:utf-8
 
 # set up
-set :application, "armada"
+set :application, "demo"
 set :scm, :git
 set :repository,  "git://github.com/secret-development/real-box.git"
 

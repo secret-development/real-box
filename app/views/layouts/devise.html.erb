@@ -8,8 +8,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="position">
-    <%= yield %>
+  <div id="wrapper-login">
+    <div id="position-form-login">
+      <%= yield %>
+      <div class="clear"></div>
+    </div>  
   </div>
 </body>
 </html>
