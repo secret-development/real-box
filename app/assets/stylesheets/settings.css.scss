@@ -10,7 +10,7 @@
     
     li{
       float:left;
-      width: 31%;
+      width: 24%;
       min-height:80px;
       margin-right: 10px;
       margin-top: 25px;
@@ -57,6 +57,9 @@
       }
       .paginator-icon{
         background: url(paginator_icon.png) no-repeat center 30px;
+      }
+      .customers-s-icon{
+        background: url(customers_settings_icon.png) no-repeat center 30px;
       }
     }
     
