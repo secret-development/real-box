@@ -5,6 +5,8 @@ class Customer < ActiveRecord::Base
   belongs_to :social_status
   has_many :subjects, :dependent => :destroy
   has_many :transactions, :dependent => :destroy
+  has_many :phones, :dependent => :destroy
+  accepts_nested_attributes_for :phones, :reject_if => lambda {|a| a[:customerphone].blank? }, :allow_destroy => true
   belongs_to :user
   #validations
   validates :firstname, :presence => true
@@ -18,6 +20,9 @@ class Customer < ActiveRecord::Base
   # callbacks
   before_save :phonemobile_merge
   before_update :phonemobile_merge
+  
+  
+  
   
   #permalink
 #  def to_param
@@ -78,6 +83,31 @@ class Customer < ActiveRecord::Base
 
   def fullname
     lastname + " " + firstname
+  end
+  
+  def self.check_owner(user, customer)
+    if Customer.freeze_have?
+      if user.role == true
+        true
+      else
+        if user.id == customer.user_id
+          true
+        else
+          false
+        end
+      end
+    else
+      true
+    end
+  end
+  
+  def self.freeze_have?
+    c = Customeraccess.first
+    if c.access == true
+      false
+    else
+      true
+    end
   end
   
 end

@@ -21,6 +21,8 @@ describe CustomersController do
       :user_id => @user.id
     }
     
+    @customeraccess = Factory(:customeraccess)
+    
     soc = Factory(:social_status)
     typetr = Factory(:typetransaction)
     @customer = Factory(:customer, :typetransaction => typetr, :social_status => soc, :user => @user)

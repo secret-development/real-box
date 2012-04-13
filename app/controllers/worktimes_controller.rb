@@ -18,7 +18,7 @@ class WorktimesController < ApplicationController
     @worktime = Worktime.new(params[:worktime])
     if @worktime.save
       flash[:notice] = "Рабочее время настроено"
-      respond_with(@typesubject, :location => worktimes_path)  
+      respond_with(@worktime, :location => worktimes_path)  
     else
       render 'index'
     end
@@ -28,7 +28,7 @@ class WorktimesController < ApplicationController
     @worktime = Worktime.first
     if @worktime.update_attributes(params[:worktime])
       flash[:notice] = "Рабочее время настроено"
-      respond_with(@typesubject, :location => worktimes_path)
+      respond_with(@worktime, :location => worktimes_path)
     else
       render 'index'
     end

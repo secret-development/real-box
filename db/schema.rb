@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120406075403) do
+ActiveRecord::Schema.define(:version => 20120413075233) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,10 @@ ActiveRecord::Schema.define(:version => 20120406075403) do
     t.integer  "typesubject_id"
   end
 
+  create_table "customeraccesses", :force => true do |t|
+    t.boolean "access"
+  end
+
   create_table "customers", :force => true do |t|
     t.string   "firstname"
     t.string   "lastname"
@@ -37,9 +41,7 @@ ActiveRecord::Schema.define(:version => 20120406075403) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "potentials",         :default => false
-    t.integer  "type_customer_id"
     t.integer  "social_status_id"
-    t.string   "permalink"
     t.integer  "typetransaction_id"
     t.datetime "lastcall"
     t.integer  "user_id"
@@ -68,6 +70,11 @@ ActiveRecord::Schema.define(:version => 20120406075403) do
     t.integer "paginate"
   end
 
+  create_table "phones", :force => true do |t|
+    t.string  "customerphone"
+    t.integer "customer_id"
+  end
+
   create_table "photos", :force => true do |t|
     t.integer  "subject_id"
     t.string   "image"
@@ -76,12 +83,10 @@ ActiveRecord::Schema.define(:version => 20120406075403) do
   end
 
   create_table "properties", :force => true do |t|
-    t.string   "condition"
-    t.string   "value"
-    t.integer  "subject_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "typefield"
+    t.string  "condition"
+    t.string  "value"
+    t.integer "subject_id"
+    t.string  "typefield"
   end
 
   create_table "residents", :force => true do |t|

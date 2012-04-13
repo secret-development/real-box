@@ -6,6 +6,7 @@ class CustomersController < ApplicationController
   before_filter :all_deny
   before_filter :time_work
   before_filter :check_fired
+  before_filter :agent_owner, :only => [:edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
 
   
@@ -22,12 +23,14 @@ class CustomersController < ApplicationController
   def new
     @customer = Customer.new
     @title = "Добавление клиента"
+    3.times { @customer.phones.build }
     respond_with @customer 
   end
   
   def edit
     @customer = Customer.find(params[:id])
     @title = "Редактирование клиента"
+    3.times { @customer.phones.build }
     respond_with @customer
     #unauthorized! if cannot? :update, @customer   
   end
@@ -75,6 +78,8 @@ class CustomersController < ApplicationController
     end
   end
   
+
+  
   private
   
   def sort_column
@@ -90,6 +95,16 @@ class CustomersController < ApplicationController
       Paginator.find_by_resource("клиенты").paginate
     else
       25
+    end
+  end
+  
+  def agent_owner
+    unless current_user.role == true
+      customer = Customer.find(params[:id])
+      unless current_user.id == customer.user_id
+        flash[:alert] = "Данные клиент недоступен для вас"
+        redirect_to customers_path
+      end
     end
   end
   
