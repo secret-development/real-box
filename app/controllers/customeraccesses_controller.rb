@@ -1,0 +1,2 @@
+class CustomeraccessesController < ApplicationController
+end
