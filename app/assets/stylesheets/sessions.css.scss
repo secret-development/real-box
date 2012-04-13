@@ -1,4 +1,14 @@
-#position {
+#wrapper-login{
+  margin-top:-60px;
+  min-height:686px;
+  background-image:url(bg.jpg);
+  background-repeat: no-repeat;
+  background-size:100%;
+  text-shadow: 0px 1px 0px #DBDBDB;
+}
+#position-form-login{
+  padding-top:100px;
+  // border:1px solid #ccc;
   margin-left:auto;
   margin-right:auto;
   width:50%;
@@ -8,4 +18,14 @@
   position:relative;
   top:3px;
   left:5px;
+}
+.clear{
+  clear:both;
+}
+#session-new-title{
+  font-size:3.5em;
+  color:#656565;
+  font-weight:normal;
+  font-family:Helvetica;
+  margin-bottom:50px;
 }
