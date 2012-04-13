@@ -3,5 +3,6 @@
 
 FactoryGirl.define do
   factory :customeraccess do
+    access true
   end
 end
