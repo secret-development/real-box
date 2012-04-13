@@ -63,24 +63,6 @@
           <% end %>
         </div>
         <div class="field-customer">
-          <span class="title-field">Телефон:</span>
-          <%= isset_field(@customer.phonehome) %>
-        </div>
-        <div class="field-customer">
-          <span class="title-field">Мобильный телефон:</span>
-          <%= isset_field(@customer.phonemobile) %>
-        </div>
-        <div class="field-customer">
-          <span class="title-field">e-mail:</span>
-          <%= isset_mail(@customer.email) %>
-        </div>
-        <div class="field-customer">
-          <span class="title-field"><b>Заметка:</b></span>
-          <div class="customer-note">
-            <%= isset_field(@customer.note) %>
-          </div>
-        </div>
-        <div class="field-customer">
           <span class="title-field">Последний раз обращался:</span>
           <span id="last-call-value">
             <%= to_datetime(@customer.lastcall) %>
@@ -89,6 +71,35 @@
         <div class="field-customer">
           <span class="title-field">Добавлен:</span>
           <%= to_date(@customer.created_at) %>
+        </div>
+        <div class="field-customer customer-note field-customer-contacts">
+          <div class="field-c-c-title">Контактные данные:</div>
+          <div class="field-customer-c">
+            <span class="title-field">Телефон:</span>
+            <%= isset_field(@customer.phonehome) %>  
+          </div>
+          <div class="field-customer-c">
+            <span class="title-field">Мобильный телефон:</span>
+            <%= isset_field(@customer.phonemobile) %>  
+          </div>
+          <div class="field-customer-c">
+            <span class="title-field">e-mail:</span>
+            <%= isset_mail(@customer.email) %>  
+          </div>
+          <% @customer.phones.each do |p| %>
+            <div class="field-customer-c">
+              <span class="title-field">Доп.телефон:</span>
+              <%= isset_field(p.customerphone) %>  
+            </div>
+          <% end %>
+        </div>
+        <div class="field-customer">
+          <div class="customer-note">
+            <div class="field-c-c-title">Заметка:</div>
+            <div class="content-customer-note">
+              <%= isset_field(@customer.note) %>  
+            </div>
+          </div>
         </div>
         <div class="actions-with-customers">
           <%= link_to plus_icon_white + " Добавить недвижимость", new_subject_path(:customer_id => @customer.id), :class => "btn btn-primary" %>
