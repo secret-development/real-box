@@ -97,8 +97,6 @@ class CustomersController < ApplicationController
     end
   end
   
-<<<<<<< HEAD
-=======
   def agent_owner
     unless current_user.role == true
       customer = Customer.find(params[:id])
@@ -109,5 +107,4 @@ class CustomersController < ApplicationController
     end
   end
   
->>>>>>> 36834c50b72b8cbfccc1f007efe9716ce6517080
 end
