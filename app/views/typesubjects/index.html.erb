@@ -8,7 +8,6 @@
   <thead>
     <tr>
       <th>Название</th>
-      <th>Прямая ссылка</th>
       <th>ЖК важен?</th>
       <th>Этажность важна?</th>
       <th>Количество комнат?</th>
@@ -19,7 +18,6 @@
     <% @typesubjects.each do |t| %>
       <tr>
         <td><%= t.name %></td>
-        <td><%= t.permalink %></td>
         <td><%= t.resident == true ? "Да" : "Нет" %></td>
         <td><%= t.floor == true ? "Да" : "Нет" %></td>
         <td><%= t.room == true ? "Да" : "Нет" %></td>
