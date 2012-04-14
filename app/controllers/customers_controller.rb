@@ -8,7 +8,6 @@ class CustomersController < ApplicationController
   before_filter :check_fired
   before_filter :agent_owner, :only => [:edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
-
   
   def all
     @customers = Customer.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
