@@ -2,7 +2,7 @@
 # encdoing:utf-8
 
 # set up
-set :application, "armada"
+set :application, "demo"
 set :scm, :git
 set :repository,  "git://github.com/secret-development/real-box.git"
 
@@ -38,7 +38,8 @@ after "deploy", "deploy:cleanup"
 after "deploy:bundle_gems", "deploy:migrate"
 after "deploy:migrate", "deploy:seed"
 after "deploy:seed", "deploy:ascompile"
-after "deploy:ascompile", "deploy:restart"
+after "deploy:ascompile", "deploy:stop"
+after "deploy:stop", "deploy:start"
 
 # - for unicorn - #
 namespace :deploy do
