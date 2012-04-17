@@ -9,7 +9,7 @@ set :repository,  "git://github.com/secret-development/real-box.git"
 set :user, "hosting_lagox"
 set :use_sudo, false
 set :deploy_to, "/home/#{user}/projects/#{application}"
-set :keep_releases, 5
+set :keep_releases, 1
 
 role :web, "lithium.locum.ru"
 role :app, "lithium.locum.ru"
