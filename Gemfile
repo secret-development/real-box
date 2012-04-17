@@ -42,7 +42,7 @@ gem 'unicorn'
 
 # Deploy with Capistrano
 gem 'capistrano'
-
+gem 'mini_magick'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
@@ -52,6 +52,12 @@ gem 'dropbox-sdk', '~> 1.1.0'
 
 group :development do
   gem "awesome_print", "~> 1.0.2"
+  gem "magic_encoding", "~> 0.0.2"  
+  # annotate model:
+  gem 'annotate', '~> 2.4.1.beta'
+end
+
+group :test do
   gem 'spork', '0.9.0.rc9'
   gem "rspec", "~> 2.8.0"
   gem "rspec-rails", "~> 2.8.1"
@@ -59,11 +65,7 @@ group :development do
   gem "watchr"
   gem 'factory_girl_rails'
   gem "database_cleaner", "~> 0.7.1"
-  gem "magic_encoding", "~> 0.0.2"  
-  gem 'mini_magick'
   # Pretty printed test output
   gem 'turn', '~> 0.8.3', :require => false
   gem 'simplecov', :require => false
-  # annotate model:
-  gem 'annotate', '~> 2.4.1.beta'
 end
