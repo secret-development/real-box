@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
           if(current_time.hour == @w.end_hour && current_time.min > @w.end_min)
             cookies.delete(:auth_token)
             redirect_to sign_in_path
-            flash[:notice] = "Рабочий день закончился"
+            flash[:alert] = "Рабочий день закончился"
           else
             flash[:notice] = "Добро пожаловать"
             user.last_sign
@@ -39,7 +39,7 @@ class SessionsController < ApplicationController
         else
           cookies.delete(:auth_token)
           redirect_to sign_in_path
-          flash[:notice] = "Рабочий день закончился"
+          flash[:alert] = "Рабочий день закончился"
         end
       else
         #session[:user_id] = user.id
@@ -48,7 +48,7 @@ class SessionsController < ApplicationController
         redirect_to root_url  
       end
     else
-      flash[:notice] = "Неправильный почтовый адрес или пароль!"
+      flash[:alert] = "Неправильный почтовый адрес или пароль!"
       render 'new'
     end    
   end
