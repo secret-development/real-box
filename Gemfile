@@ -26,17 +26,9 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 
 # for attachment:
 gem "carrierwave", "~> 0.5.8"
-
-
-gem 'mini_magick'
 gem 'flash_cookie_session'
-
-
 # Authorization
 gem "cancan", "~> 1.6.7"
-
-# annotate model:
-gem 'annotate', '~> 2.4.1.beta'
 gem 'simple_form'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -58,7 +50,7 @@ gem 'capistrano'
 gem 'backup'
 gem 'dropbox-sdk', '~> 1.1.0'
 
-group :test, :development do
+group :development do
   gem "awesome_print", "~> 1.0.2"
   gem 'spork', '0.9.0.rc9'
   gem "rspec", "~> 2.8.0"
@@ -68,7 +60,10 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem "database_cleaner", "~> 0.7.1"
   gem "magic_encoding", "~> 0.0.2"  
+  gem 'mini_magick'
   # Pretty printed test output
   gem 'turn', '~> 0.8.3', :require => false
   gem 'simplecov', :require => false
+  # annotate model:
+  gem 'annotate', '~> 2.4.1.beta'
 end
