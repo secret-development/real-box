@@ -27,13 +27,15 @@
     // border:1px solid #ccc;
     float:right;
 
-    margin-top:100px;
-    margin-right:130px;
-    background:url('phone-call.png') no-repeat 40px 0px;
-    height:180px;
+    top:100px;
+    right:170px;
+    position:relative;
+    background:url('phone-call.png') no-repeat 60px 0px;
+    height:130px;
     #man-called-but{
       position:relative;
-      top:150px;
+      top:90px;
+      font-size:11px;
     }
   }
 }
