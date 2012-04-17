@@ -81,4 +81,9 @@ namespace :deploy do
   task :restart, :roles => :app do
     run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{unicorn_start_cmd}"
   end
+  
+  desc "Empty log files"
+  task :logclean, :roles => :app do
+    run "cd #{shared_path}/log && echo -n > unicorn.stderr.log && echo -n > production.log"
+  end
 end
