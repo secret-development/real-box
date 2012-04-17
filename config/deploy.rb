@@ -34,6 +34,7 @@ task :symlink_shared, roles => :app do
 end
 
 after "deploy", "deploy:bundle_gems"
+after "deploy", "deploy:cleanup"
 after "deploy:bundle_gems", "deploy:migrate"
 after "deploy:migrate", "deploy:seed"
 after "deploy:seed", "deploy:ascomplie"
