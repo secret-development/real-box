@@ -64,7 +64,7 @@ namespace :deploy do
   # bundle install
   desc "Bundle install"
   task :bundle_gems, :roles => :app do
-    run "cd #{current_path} && rvm use 1.9.3 do bundle install --path ~/.gem"
+    run "cd #{current_path} && rvm use 1.9.3 do bundle install --without development --path ~/.gem"
   end
   
   desc "Start application"
