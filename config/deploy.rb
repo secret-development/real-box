@@ -2,7 +2,7 @@
 # encdoing:utf-8
 
 # set up
-set :application, "demo"
+set :application, "armada"
 set :scm, :git
 set :repository,  "git://github.com/secret-development/real-box.git"
 
@@ -37,14 +37,14 @@ after "deploy", "deploy:bundle_gems"
 after "deploy", "deploy:cleanup"
 after "deploy:bundle_gems", "deploy:migrate"
 after "deploy:migrate", "deploy:seed"
-after "deploy:seed", "deploy:ascomplie"
-after "deploy:ascomplie", "deploy:restart"
+after "deploy:seed", "deploy:ascompile"
+after "deploy:ascompile", "deploy:restart"
 
 # - for unicorn - #
 namespace :deploy do
   # assets
   desc "Compile assets"
-  task :ascomplie, :roles => :app do
+  task :ascompile, :roles => :app do
     run "cd #{current_path} && rvm use 1.9.3 do bundle exec rake assets:precompile RAILS_ENV=production"    
   end
   
