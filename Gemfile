@@ -4,7 +4,6 @@ gem 'rails', "~> 3.2.1"
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
 gem 'mysql2'
 
 gem "rake", "~> 0.9.2"
@@ -27,8 +26,10 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 # for attachment:
 gem "carrierwave", "~> 0.5.8"
 gem 'flash_cookie_session'
+
 # Authorization
 gem "cancan", "~> 1.6.7"
+
 gem 'simple_form'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -68,4 +69,7 @@ group :test do
   # Pretty printed test output
   gem 'turn', '~> 0.8.3', :require => false
   gem 'simplecov', :require => false
+  # annotate model:
+  gem 'annotate', '~> 2.4.1.beta'
+  gem 'mini_magick'
 end
