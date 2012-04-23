@@ -56,6 +56,8 @@ group :development do
   gem "magic_encoding", "~> 0.0.2"  
   # annotate model:
   gem 'annotate', '~> 2.4.1.beta'
+  gem "rspec", "~> 2.8.0"
+  gem "rspec-rails", "~> 2.8.1"
 end
 
 group :test do
