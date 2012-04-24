@@ -2,7 +2,7 @@
 class ConditionField < ActiveRecord::Base
   
   # callbacks
-  before_validation :rename_properties
+  before_update :rename_properties
   
   # associations:
   has_many :value_fields, :dependent => :destroy
