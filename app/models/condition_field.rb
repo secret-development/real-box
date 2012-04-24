@@ -1,6 +1,9 @@
 # -*- encoding : utf-8 -*-
 class ConditionField < ActiveRecord::Base
   
+  # callbacks
+  before_validation :rename_properties
+  
   # associations:
   has_many :value_fields, :dependent => :destroy
   belongs_to :typesubject
@@ -45,6 +48,24 @@ class ConditionField < ActiveRecord::Base
 
   def namefield_with_typesubject
     "#{typesubject.name} → #{namefield}"
+  end
+  
+  def rename_properties
+    old_name_condition = namefield_was
+    new_name_condition = namefield
+    new_typefield = typefield
+    if namefield_changed? || typefield_changed?
+      change_properties(old_name_condition, new_name_condition, new_typefield)
+    end
+  end
+  
+  def change_properties(old_name_condition, new_name_condition, new_typefield)
+    properties = Property.where(:condition => old_name_condition)
+    properties.each do |p|
+      p.condition = new_name_condition
+      p.typefield = new_typefield
+      p.save
+    end
   end
   
 end

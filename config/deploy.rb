@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-# encdoing:utf-8
 
 # set up
 set :application, "imkv"
@@ -62,10 +61,13 @@ namespace :deploy do
     run "cd #{current_path} && rvm use 1.9.3 do bundle exec rake RAILS_ENV=production db:seed"
     puts "\n\n------- end seed -------\n\n"
   end
+  
   # bundle install
   desc "Bundle install"
   task :bundle_gems, :roles => :app do
+    puts "\n\n=== Install gems ===\n\n"
     run "cd #{current_path} && rvm use 1.9.3 do bundle install --without development --without test --path ~/.gem"
+    puts "\n\n=== end install gems ===\n\n"
   end
   
   desc "Start application"
