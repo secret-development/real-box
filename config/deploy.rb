@@ -1,15 +1,14 @@
 # -*- encoding : utf-8 -*-
-# encdoing:utf-8
 
 # set up
-set :application, "demo"
+set :application, "imkv"
 set :scm, :git
 set :repository,  "git://github.com/secret-development/real-box.git"
 
 set :user, "hosting_lagox"
 set :use_sudo, false
 set :deploy_to, "/home/#{user}/projects/#{application}"
-set :keep_releases, 5
+set :keep_releases, 1
 
 role :web, "lithium.locum.ru"
 role :app, "lithium.locum.ru"
@@ -34,16 +33,17 @@ task :symlink_shared, roles => :app do
 end
 
 after "deploy", "deploy:bundle_gems"
+after "deploy", "deploy:cleanup"
 after "deploy:bundle_gems", "deploy:migrate"
 after "deploy:migrate", "deploy:seed"
-after "deploy:seed", "deploy:ascomplie"
-after "deploy:ascomplie", "deploy:restart"
+after "deploy:seed", "deploy:ascompile"
+after "deploy:ascompile", "deploy:restart"
 
 # - for unicorn - #
 namespace :deploy do
   # assets
   desc "Compile assets"
-  task :ascomplie, :roles => :app do
+  task :ascompile, :roles => :app do
     run "cd #{current_path} && rvm use 1.9.3 do bundle exec rake assets:precompile RAILS_ENV=production"    
   end
   
@@ -60,6 +60,7 @@ namespace :deploy do
     run "cd #{current_path} && rvm use 1.9.3 do bundle exec rake RAILS_ENV=production db:seed"
     puts "\n\n------- end seed -------\n\n"
   end
+  
   # bundle install
   desc "Bundle install"
   task :bundle_gems, :roles => :app do
@@ -81,5 +82,10 @@ namespace :deploy do
   desc "Restart Application"
   task :restart, :roles => :app do
     run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{unicorn_start_cmd}"
+  end
+  
+  desc "Empty log files"
+  task :logclean, :roles => :app do
+    run "cd #{shared_path}/log && echo -n > unicorn.stderr.log && echo -n > production.log"
   end
 end
