@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 Crm::Application.routes.draw do
 
+  root :to => 'results#index'
+
   resources :customeraccesses
 
   resources :paginators, :except => [:new, :create, :destroy]
@@ -122,7 +124,6 @@ Crm::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'results#index'
 
   # See how all your routes lay out with "rake routes"
 
