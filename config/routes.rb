@@ -1,6 +1,11 @@
 # -*- encoding : utf-8 -*-
 Crm::Application.routes.draw do
 
+  # api:
+  namespace :api do
+    resources :subjects
+  end
+
   root :to => 'results#index'
 
   resources :customeraccesses
