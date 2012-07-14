@@ -61,7 +61,7 @@ group :development do
 end
 
 group :test do
-  gem 'spork', '0.9.0.rc9'
+  gem 'spork', '~> 1.0rc'
   gem "rspec", "~> 2.8.0"
   gem "rspec-rails", "~> 2.8.1"
   gem "capybara", "~> 1.1.2"
