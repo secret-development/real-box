@@ -166,6 +166,26 @@
         <%= link_to "Гостевой доступ", guest_subject_path(@subject), :class => "btn", :id => "guest-deny-button", "data-toggle" => "modal" %>
       </div>
     </div>
+    <!-- initilization yandex maps api -->
+    <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AOz7AFABAAAA5VxYSQQAVyBHkDsJvVxNY1Csn3LeNIOKWhoAAAAAAAAAAADWkLaeo1fp2ECpgO0Se22cgYu7ow=="   type="text/javascript"></script>
+    
+
+    <!-- config map -->
+    <script type="text/javascript">
+        window.onload = function () {
+            var map = new YMaps.Map(document.getElementById("YMapsID"));
+            map.setCenter(new YMaps.GeoPoint( 76.9437,43.2959), 16, YMaps.MapType.MAP);
+            map.addControl(new YMaps.TypeControl());
+            map.addControl(new YMaps.Zoom());
+            // map.addControl(new YMaps.MiniMap());
+            map.addControl(new YMaps.ScaleLine());
+        };      
+    </script>
+
+    <!-- yandex map -->
+    <div id="YMapsID" style="width:600px;height:400px"></div>
+
+
     <div class="tab-pane" id="2">
       <div id="fields-for-customers">
         <div class="field-customer">
