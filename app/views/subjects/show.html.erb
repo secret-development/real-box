@@ -166,6 +166,12 @@
         <%= link_to "Гостевой доступ", guest_subject_path(@subject), :class => "btn", :id => "guest-deny-button", "data-toggle" => "modal" %>
       </div>
     </div>
+    
+    <!-- initilization yandex maps api -->
+    <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AOz7AFABAAAA5VxYSQQAVyBHkDsJvVxNY1Csn3LeNIOKWhoAAAAAAAAAAADWkLaeo1fp2ECpgO0Se22cgYu7ow=="   type="text/javascript"></script>
+ <!--  config map -->
+    <%= render 'maps' %>
+
     <div class="tab-pane" id="2">
       <div id="fields-for-customers">
         <div class="field-customer">
