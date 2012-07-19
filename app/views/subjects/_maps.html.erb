@@ -2,7 +2,7 @@
     window.onload = function () {
         var map = new YMaps.Map(document.getElementById("YMapsID"));
             
-        var geocoder = new YMaps.Geocoder("<%= @subject.city.name %>, улица <%= @subject.street_src %>, дом <%= @subject.house_src %>");
+        var geocoder = new YMaps.Geocoder("<%= @subject.city.name %>, <%= @subject.street_src %>, дом <%= @subject.house_src %>");
         map.addOverlay(geocoder);
         
         map.setZoom(16);    
@@ -27,16 +27,3 @@
         };      
 </script>   
 <div id="YMapsID" style="width:600px;height:400px"></div>
-    // <script type="text/javascript">
-    //   YMaps.jQuery(function (){
-    //     var map = new YMaps.MAP(YMaps.jQuery("#YMapsID")[0]);
-        
-    //     var geocoder = new YMaps.Geocoder("Астана");
-        
-    //     YMaps.Events.observe(geocoder, geocoder.Events.Load, function (geocoder) {
-    //       if (geocoder.length()) {
-    //         map.setBounds(geocoder.get(0).getBounds());
-    //       }
-    //     });
-    //   });
-    // </script>

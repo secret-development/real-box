@@ -11,6 +11,11 @@
           Хозяин
         </a>
       </li>
+      <li class="advanced-li-tab">
+        <a href="#3" data-toggle="tab">
+          Карта
+        </a>
+      </li>
     </ul>
   </div>  
   <div class="tab-content">
@@ -167,10 +172,7 @@
       </div>
     </div>
     
-    <!-- initilization yandex maps api -->
-    <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AOz7AFABAAAA5VxYSQQAVyBHkDsJvVxNY1Csn3LeNIOKWhoAAAAAAAAAAADWkLaeo1fp2ECpgO0Se22cgYu7ow=="   type="text/javascript"></script>
- <!--  config map -->
-    <%= render 'maps' %>
+    
 
     <div class="tab-pane" id="2">
       <div id="fields-for-customers">
@@ -260,6 +262,12 @@
           </div>
         </div>
       </div>
+    </div>
+    
+    <div class="tab-pane" id="3">
+      <!-- initilization yandex maps api -->
+      <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AOz7AFABAAAA5VxYSQQAVyBHkDsJvVxNY1Csn3LeNIOKWhoAAAAAAAAAAADWkLaeo1fp2ECpgO0Se22cgYu7ow=="   type="text/javascript"></script>
+      <%= render 'maps' %>
     </div>
   </div>
 </div>
