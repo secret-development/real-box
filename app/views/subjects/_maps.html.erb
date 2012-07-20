@@ -1,42 +1,39 @@
 <script type="text/javascript">
-    window.onload = function () {
-        var map = new YMaps.Map(document.getElementById("YMapsID"));
-            
-        var geocoder = new YMaps.Geocoder("<%= @subject.city.name %>, улица <%= @subject.street_src %>, дом <%= @subject.house_src %>");
-        map.addOverlay(geocoder);
-        
-        map.setZoom(16);    
-        // map.setCenter(geocoder, 16, YMaps.MapType.MAP);
-        map.addControl(new YMaps.TypeControl());
-        map.addControl(new YMaps.Zoom());
-        // map.addControl(new YMaps.MiniMap());
-        map.addControl(new YMaps.ScaleLine());
+  window.onload = function () {
+    var map = new YMaps.Map(document.getElementById("YMapsID"));
            
-        YMaps.Events.observe(geocoder, geocoder.Events.Load, function (){
-            if (this.length()) {
-                alert("Найдено :" + this.length());
-                map.addOverlay(this.get(0));
-                map.panTo(this.get(0).getGeoPoint())
-            } else {
-                alert("NO")
-            }    
-        });
-        YMaps.Events.observe(geocoder, geocoder.Events.Fault, function (error) {
-            alert("Произошла ошибка: " + error.message)
-        });
-        };      
-</script>   
-<div id="YMapsID" style="width:600px;height:400px"></div>
-    // <script type="text/javascript">
-    //   YMaps.jQuery(function (){
-    //     var map = new YMaps.MAP(YMaps.jQuery("#YMapsID")[0]);
+    var geocoder = new YMaps.Geocoder("<%= @subject.city.name %>, <%= @subject.street_src %>, дом <%= @subject.house_src %>");
+    map.addOverlay(geocoder);
         
-    //     var geocoder = new YMaps.Geocoder("Астана");
-        
-    //     YMaps.Events.observe(geocoder, geocoder.Events.Load, function (geocoder) {
-    //       if (geocoder.length()) {
-    //         map.setBounds(geocoder.get(0).getBounds());
-    //       }
-    //     });
-    //   });
-    // </script>
+    map.setZoom(16);    
+        // map.setCenter(geocoder, 16, YMaps.MapType.MAP);
+    map.addControl(new YMaps.TypeControl());
+    map.addControl(new YMaps.Zoom());
+    // map.addControl(new YMaps.MiniMap());
+    map.addControl(new YMaps.ScaleLine());
+           
+    YMaps.Events.observe(geocoder, geocoder.Events.Load, function (){
+      if (this.length()) {
+        //alert("Найдено :" + this.length());
+        map.addOverlay(this.get(0));
+        map.panTo(this.get(0).getGeoPoint())
+      } else {
+          // alert("NO")
+        }    
+    });
+    YMaps.Events.observe(geocoder, geocoder.Events.Fault, function (error) {
+      // alert("Произошла ошибка: " + error.message)
+    });
+    // YMaps.jQuery("#mymod").bind('click', function (){
+    //   map.redraw();
+    // });
+    YMaps.Events.observe(map, map.Events.Click, function (){
+      map.redraw();
+    });
+  };      
+</script>
+<div class="overlay" id="overlay">
+     <div class="wrap">
+      <div id="YMapsID" style="width:530px;height:400px"></div> 
+     </div>
+   </div>   
