@@ -11,11 +11,6 @@
           Хозяин
         </a>
       </li>
-      <li class="advanced-li-tab">
-        <a href="#3" data-toggle="tab">
-          Карта
-        </a>
-      </li>
     </ul>
   </div>  
   <div class="tab-content">
@@ -169,6 +164,17 @@
           </div>
         </div>
         <%= link_to "Гостевой доступ", guest_subject_path(@subject), :class => "btn", :id => "guest-deny-button", "data-toggle" => "modal" %>
+        <%= link_to "Показать на карте", "#myModal", :class => "btn", "data-toggle" => "modal" %>
+        <div id="myModal" class="modal hide fade" style="display: none; ">
+          <div class="modal-body">
+            <!-- initilization yandex maps api -->
+            <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AOz7AFABAAAA5VxYSQQAVyBHkDsJvVxNY1Csn3LeNIOKWhoAAAAAAAAAAADWkLaeo1fp2ECpgO0Se22cgYu7ow=="   type="text/javascript"></script>
+            <%= render 'maps' %>
+          </div>
+          <div class="modal-footer">
+            <%= link_to "X "+" Закрыть","#", "data-dismiss" => "modal" %>
+          </div>
+        </div>
       </div>
     </div>
     
@@ -262,12 +268,6 @@
           </div>
         </div>
       </div>
-    </div>
-    
-    <div class="tab-pane" id="3">
-      <!-- initilization yandex maps api -->
-      <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AOz7AFABAAAA5VxYSQQAVyBHkDsJvVxNY1Csn3LeNIOKWhoAAAAAAAAAAADWkLaeo1fp2ECpgO0Se22cgYu7ow=="   type="text/javascript"></script>
-      <%= render 'maps' %>
     </div>
   </div>
 </div>
