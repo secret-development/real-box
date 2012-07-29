@@ -34,6 +34,30 @@ class Report < ActiveRecord::Base
     return summa.to_f.round(3)
   end
   
+  def self.select_period(period)
+    @period = period
+    case @period
+    when "Неделя"
+      @data = 1.weeks
+      @head = "Неделя"
+    when "Месяц"
+      @data = 1.months
+      @head = "Месяц"
+    when "Квартал"
+      @data = 3.months
+      @head = "Квартал"
+    when "Год"
+      @data = 1.years
+      @head = "Год"
+    end        
+  end
+  def self.return_period
+    @data
+  end
+  def self.return_head
+    @head    
+  end
+  
   #GENERAL 
   #all customers count
   def self.all_customers_count

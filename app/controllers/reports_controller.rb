@@ -58,17 +58,21 @@ class ReportsController < ApplicationController
   end
   
   def activ
-    Report.find_user(params[:agent][:agent_id]) if params[:period]
-    case params[:period]
-    when "Неделя"
+    if params[:period]
+      Report.find_user(params[:agent][:agent_id]) #if params[:period]
+      Report.select_period(params[:period]) 
       render "activ_week"
-    when "Месяц"
-      render "activ_month"
-    when "Квартал"
-      render "activ_quarter"
-    when "Год"
-      render "activ_year"    
     end
+    # case params[:period]
+    # when "Неделя"
+    #   render "activ_week"
+    # when "Месяц"
+    #   render "activ_month"
+    # when "Квартал"
+    #   render "activ_quarter"
+    # when "Год"
+    #   render "activ_year"    
+    # end
     # if params[:period] == "Неделя" #and params[:agent] # [:agent_id] == Report.current(:agent_id)
     #   Report.find_user(params[:agent][:agent_id])
     #   render "activ_week"

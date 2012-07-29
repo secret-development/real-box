@@ -4,7 +4,7 @@
   $(function() {
     new Highcharts.Chart({
       chart: { renderTo: 'chart-activ-week', zoomType: 'x', backgroundColor: "#F4F4FF"},
-      title: { text: 'Неделя'},
+      title: { text: '<%= Report.return_head %>'},
       xAxis: { type: 'datetime'},
       yAxis: {
         title: { text: 'Активность'},
@@ -30,8 +30,8 @@
       series: [{
         name: "<%= Report.return_name %>",
         pointInterval: <%= 1.day * 1000 %>,
-        pointStart: <%= 1.weeks.ago.to_i * 1000 %>,
-        data: <%= (1.weeks.ago.to_date..Date.today).map { |date| Report.activ_user(date)}.inspect %>
+        pointStart: <%= Report.return_period.ago.to_i * 1000 %>,
+        data: <%= (Report.return_period.ago.to_date..Date.today).map { |date| Report.activ_user(date)}.inspect %>
       }],
       exporting: {
         buttons: { 
