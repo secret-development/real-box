@@ -82,18 +82,5 @@ class Report < ActiveRecord::Base
   
   def self.subjects_add(date)
     Subject.where("date(created_at) = ?", date).count(:id)    
-  end
-  
-#  def self.activ_user_cust(date)
-#    @u.customers.where("date(created_at) = ?", date).count(:id)        
-#  end
-#  
-#  def self.activ_user_sub(date)
-#    @u.subjects.where("date(created_at) = ?", date).count(:id)    
-#  end
-#  
-#  def self.activ_user_tran(date)
-#    @u.transactions.where("date(created_at) = ?", date).count(:id)    
-#  end
-     
+  end     
 end
