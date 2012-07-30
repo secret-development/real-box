@@ -15,28 +15,32 @@ class ReportsController < ApplicationController
   end
   
   def general
-    if params[:objects] == "Клиенты"
-      case params[:period]
-      when "Неделя"
-        render "customers_week"
-      when "Месяц"
-        render "customers_month"
-      when "Квартал"
-        render "customers_quarter"
-      when "Год"
-        render "customers_year"        
-      end
-    elsif params[:objects] == "Объекты"
-      case params[:period]
-      when "Неделя"
-        render "subjects_week"
-      when "Месяц"
-        render "subjects_month"
-      when "Квартал"
-        render "subjects_quarter"
-      when "Год"
-        render "subjects_year"
-      end      
+    if params[:objects] == "Клиенты" and params[:period]
+      Report.select_period(params[:period])
+      render "customers_chart"
+      # case params[:period]
+      # when "Неделя"
+      #   render "customers_week"
+      # when "Месяц"
+      #   render "customers_month"
+      # when "Квартал"
+      #   render "customers_quarter"
+      # when "Год"
+      #   render "customers_year"        
+      # end
+    elsif params[:objects] == "Объекты" and params[:period]
+      Report.select_period(params[:period])
+      render "subjects_chart"
+      # case params[:period]
+      # when "Неделя"
+      #   render "subjects_week"
+      # when "Месяц"
+      #   render "subjects_month"
+      # when "Квартал"
+      #   render "subjects_quarter"
+      # when "Год"
+      #   render "subjects_year"
+      # end      
     end
   end
   
@@ -44,20 +48,24 @@ class ReportsController < ApplicationController
     if params[:period]
       Report.find_user(params[:agent][:agent_id])
       Report.select_period(params[:period]) 
-      render "activ_week"
+      render "activ_chart"
     end      
   end
   
   def finance
-    case params[:period]
-    when "Неделя"
-      render "weeks"
-    when "Месяц"
-      render "month"      
-    when "Квартал"
-      render "quarter"
-    when "Год"
-      render "year"
-    end           
+    if params[:period]
+      Report.select_period(params[:period]) #if params[:period]
+      render "finance_chart"  
+    end
+    # case params[:period]
+    # when "Неделя"
+    #   render "weeks"
+    # when "Месяц"
+    #   render "month"      
+    # when "Квартал"
+    #   render "quarter"
+    # when "Год"
+    #   render "year"
+    # end           
   end
 end
