@@ -37,15 +37,15 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
   process :resize_to_fill => [800, 600]
-  process :watermark => "#{Rails.root}/public/uploads/watermark.png"
+  # process :watermark => "#{Rails.root}/public/uploads/watermark.png"
 
-  def watermark(path_to_file)
-    manipulate! do |img|
-      img = img.composite(MiniMagick::Image.open(path_to_file), "png") do |c|
-        c.gravity "SouthEast"
-      end
-    end
-  end
+  # def watermark(path_to_file)
+  #   manipulate! do |img|
+  #     img = img.composite(MiniMagick::Image.open(path_to_file), "png") do |c|
+  #       c.gravity "center"
+  #     end
+  #   end
+  # end
   #
   # def scale(width, height)
   #   # do something
