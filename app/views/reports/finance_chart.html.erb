@@ -1,10 +1,10 @@
-<div id="chart-finance-month" style="width: 100%; height: 400px;">
+<div id="chart-finance-week" style="width: 100%; height: 400px;">
 </div>
-<script type="text/javascript" charset="urf-8">
+<script type="text/javascript" charset="utf-8">
   $(function() {
     new Highcharts.Chart({
-      chart: { renderTo: 'chart-finance-month', zoomType: 'x', backgroundColor: "#F4F4FF"},
-      title: { text: 'Месяц'},
+      chart: { renderTo: 'chart-finance-week', zoomType: 'x', backgroundColor: "#F4F4FF"},
+      title: { text: '<%= Report.return_head %>'},
       xAxis: { type: 'datetime'},
       yAxis: {
         title: { text: 'Доход'},
@@ -30,26 +30,26 @@
       series: [{
         name: "USD",
         pointInterval: <%= 1.day * 1000 %>,
-        pointStart: <%= 1.months.ago.to_i * 1000 %>,
-        data: <%= (1.months.ago.to_date..Date.today).map { |date| Report.total_dollar(date).to_f}.inspect %>
+        pointStart: <%= Report.return_period.ago.to_i * 1000 %>,
+        data: <%= (Report.return_period.ago.to_date..Date.today).map { |date| Report.total_dollar(date).to_f}.inspect %>
       },
       {
         name: "RU",
         pointInterval: <%= 1.day * 1000 %>,
-        pointStart: <%= 1.months.ago.to_i * 1000 %>,
-        data: <%= (1.months.ago.to_date..Date.today).map { |date| Report.total_ru(date).to_f}.inspect %>
+        pointStart: <%= Report.return_period.ago.to_i * 1000 %>,
+        data: <%= (Report.return_period.ago.to_date..Date.today).map { |date| Report.total_ru(date).to_f}.inspect %>
       },
       {
         name: "EURO",
         pointInterval: <%= 1.day * 1000 %>,
-        pointStart: <%= 1.months.ago.to_i * 1000 %>,
-        data: <%= (1.months.ago.to_date..Date.today).map { |date| Report.total_euro(date).to_f }.inspect %>
+        pointStart: <%= Report.return_period.ago.to_i * 1000 %>,
+        data: <%= (Report.return_period.ago.to_date..Date.today).map { |date| Report.total_euro(date).to_f }.inspect %>
       },
       {
         name: "TG",
         pointInterval: <%= 1.day * 1000 %>,
-        pointStart: <%= 1.months.ago.to_i * 1000 %>,
-        data: <%= (1.months.ago.to_date..Date.today).map { |date| Report.total_tg(date).to_f }.inspect %>
+        pointStart: <%= Report.return_period.ago.to_i * 1000 %>,
+        data: <%= (Report.return_period.ago.to_date..Date.today).map { |date| Report.total_tg(date).to_f }.inspect %>
       }],
       exporting: {
         buttons: { 
