@@ -62,8 +62,8 @@ end
 
 group :test do
   gem 'spork', '~> 1.0rc'
-  gem "rspec", "~> 2.11.0"
-  gem "rspec-rails", "~> 2.11.0"
+  gem "rspec", "~> 2.8.0"
+  gem "rspec-rails", "~> 2.8.1"
   gem "capybara", "~> 1.1.2"
   gem "watchr"
   gem 'factory_girl_rails'
@@ -72,6 +72,6 @@ group :test do
   gem 'turn', '~> 0.8.3', :require => false
   gem 'simplecov', :require => false
   # annotate model:
-  gem 'annotate', '~> 2.5.0'
+  gem 'annotate', '~> 2.4.1.beta'
   gem 'mini_magick'
 end

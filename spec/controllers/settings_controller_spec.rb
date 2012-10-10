@@ -5,7 +5,7 @@ describe SettingsController do
   
   before(:each) do
     # start auth
-    @user = Factory(:user)
+    @user = FactoryGirl.create(:user)
     test_log_in(@user)
     # end auth
   end
@@ -16,7 +16,7 @@ describe SettingsController do
   end
   
   it "routes to settings" do
-    { :get => "/settings" }.
+    { :get => "settings" }.
     should route_to(:controller => "settings", :action => "index")
   end
 end
