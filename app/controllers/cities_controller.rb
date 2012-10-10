@@ -9,26 +9,26 @@ class CitiesController < ApplicationController
   
   def index
     @cities = City.all
-    @title = "Города"
+    @title = "Cities"
     respond_with @cities
   end
   
   def new
     @city = City.new
-    @title = "Добавление города"
+    @title = "Adding a city"
     respond_with @city
   end
   
   def edit
     @city = City.find(params[:id])
-    @title = "Редактирование города"
+    @title = "Editing city"
     respond_with @city
   end
   
   def create
     @city = City.new(params[:city])
     if @city.save
-      flash[:notice] = "Город успешно добавлен"
+      flash[:notice] = "City successfully added"
       respond_with(@city, :location => cities_path)
     else
       render 'new'
@@ -38,7 +38,7 @@ class CitiesController < ApplicationController
   def update
     @city = City.find(params[:id])
     if @city.update_attributes(params[:city])
-      flash[:notice] = "Город успешно обновлён"
+      flash[:notice] = "City successfully updated"
       respond_with(@city, :location => cities_path)
     else
       render 'edit'
@@ -49,6 +49,6 @@ class CitiesController < ApplicationController
     @city = City.find(params[:id])
     @city.destroy
     redirect_to cities_path
-    flash[:notice] = "Город успешно удалён"
+    flash[:notice] = "City successfully removed"
   end
 end

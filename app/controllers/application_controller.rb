@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     
     def settings_deny
       unless current_user.role?
-        flash[:alert] = "Запрещено!"
+        flash[:alert] = "Unresolved!"
         redirect_to root_path
       end            
     end
@@ -50,14 +50,14 @@ class ApplicationController < ActionController::Base
           if(current_time.hour == @w.end_hour && current_time.min > @w.end_min)
             cookies.delete(:auth_token)
             redirect_to sign_in_path
-            flash[:notice] = "Рабочий день закончился"
+            flash[:notice] = "The working day is over"
           else
             true
           end
         else
           cookies.delete(:auth_token)
           redirect_to sign_in_path
-          flash[:notice] = "Рабочий день закончился"
+          flash[:notice] = "The working day is over"
         end
       end
     end
@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
       if current_user.fired == true
         cookies.delete(:auth_token)
         redirect_to sign_in_path
-        flash[:notice] = "Вас уволили"
+        flash[:notice] = "You are fired"
       end
     end
         
