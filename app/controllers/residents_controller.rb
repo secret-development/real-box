@@ -7,21 +7,21 @@ class ResidentsController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @title = "Жилые комплексы"
+    @title = "Apartment Complexes"
     @cities = City.all
     respond_with(@cities)
   end
   
   def edit
     @resident = Resident.find(params[:id])
-    @title = "Редактирование ЖК"
+    @title = "Editing"
     respond_with(@resident)
   end
   
   def update
     @resident = Resident.find(params[:id])
      if @resident.update_attributes(params[:resident])
-       flash[:notice] = "ЖК успешно обновлён"
+       flash[:notice] = "Apartment Complex successfully updated"
        respond_with(@resident, :location => residents_path)
      else
        render 'edit'
@@ -31,7 +31,7 @@ class ResidentsController < ApplicationController
   def destroy
     @resident = Resident.find(params[:id])
     @resident.destroy
-    flash[:notice] = "ЖК успешно удалён"
+    flash[:notice] = "Apartment Complex successfully removed"
     redirect_to residents_path
   end
   
