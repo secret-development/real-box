@@ -10,31 +10,31 @@ class HelpController < ApplicationController
   # end
   
   def search
-    @title = "Справка | Поиск"
+    @title = "Help | Search"
   end
   
   def customers
-    @title = "Справка | Клиенты"
+    @title = "Help | Customers"
   end
   
   def subjects
-    @title = "Справка | Объекты"
+    @title = "Help | Objects"
   end
   
   def users
-    @title = "Справка | Персонал"
+    @title = "Help | Staff"
   end
   
   def tasks
-    @title = "Справка | Задачи"
+    @title = "Help | Tasks"
   end
   
   def transactions
-    @title = "Справка | Сделки"
+    @title = "Help | Dealings"
   end
   
   def report
-    @title = "Справка | Отчеты"
+    @title = "Help | Reports"
   end
   
   def danger
