@@ -7,20 +7,20 @@ class PaginatorsController < ApplicationController
   
   def index
     @paginators = Paginator.all
-    @title = "Постраничный вывод"
+    @title = "Paginal show"
     respond_with(@paginators)
   end
   
   def edit
     @paginator = Paginator.find(params[:id])
-    @title = "Редактирование"
+    @title = "Editings"
     respond_with(@paginator)
   end
   
   def update
     @paginator = Paginator.find(params[:id])
     if @paginator.update_attributes(params[:paginator])
-      flash[:notice] = "Постраничный вывод успешно обновлен"
+      flash[:notice] = "Paginal show successfully updated"
       respond_with(@paginator, location: paginators_path)
     else
       render 'edit'
