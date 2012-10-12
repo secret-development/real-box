@@ -11,13 +11,13 @@ class PotentialsController < ApplicationController
   
   def index
     @potentials = Customer.potentials.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
-    @title = "Потенциальные клиенты"
+    @title = "Potential customers"
   end
   
   def destroy
     @potentials = Customer.find(params[:id])
     @potentials.destroy
-    flash[:notice] = "Клиент успешно удален"
+    flash[:notice] = "Customer successfully removed"
     redirect_to @potentials    
   end
   
