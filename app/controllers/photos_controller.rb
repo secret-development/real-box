@@ -9,7 +9,7 @@ class PhotosController < ApplicationController
   def create
     respond_to do |format|
       unless @photo.save
-        flash[:error] = "К сожалению, изображение не загрузилось"
+        flash[:error] = "Sorry, could not load the photo"
       end
       format.js do
         render :text => render_to_string(:partial => "photos/photo", :locals => {:photo => @photo})
@@ -20,7 +20,7 @@ class PhotosController < ApplicationController
   def destroy
     respond_to do |format|
       unless @photo.destroy
-        flash[:error] = "К сожалению, изображение не удалилось"
+        flash[:error] = "Sorry, the photo could not be removed"
       end
       format.js
     end
