@@ -11,24 +11,24 @@ class CustomersController < ApplicationController
   
   def all
     @customers = Customer.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
-    @title = "Все клиенты"
+    @title = "All customers"
   end
   
   def index
     @customers = Customer.real.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
-    @title = "Действующие клиенты"
+    @title = "Active customers"
   end
   
   def new
     @customer = Customer.new
-    @title = "Добавление клиента"
+    @title = "Adding a customer"
     3.times { @customer.phones.build }
     respond_with @customer 
   end
   
   def edit
     @customer = Customer.find(params[:id])
-    @title = "Редактирование клиента"
+    @title = "Editing customer"
     3.times { @customer.phones.build }
     respond_with @customer
     #unauthorized! if cannot? :update, @customer   
@@ -44,7 +44,7 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.create(params[:customer])
     if @customer.save
-      flash[:notice] = "Клиент успешно сохранен!"
+      flash[:notice] = "Customer successfully saved"
       respond_with(@customer)#, :location => customers_path)   
     else
       render 'new'      
@@ -54,7 +54,7 @@ class CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     if @customer.update_attributes(params[:customer])
-      flash[:notice] = "Клиент успешно обновлен"
+      flash[:notice] = "Customer successfully updated"
       respond_with @customer   
     else
       render 'edit'     
@@ -64,7 +64,7 @@ class CustomersController < ApplicationController
   def destroy
     @customer = Customer.find(params[:id])
     @customer.destroy
-    flash[:notice] = "Клиент успешно удален"
+    flash[:notice] = "Customer successfully removed"
     redirect_to @customer
   end
   
@@ -101,7 +101,7 @@ class CustomersController < ApplicationController
     unless current_user.role == true
       customer = Customer.find(params[:id])
       unless current_user.id == customer.user_id
-        flash[:alert] = "Данные клиент недоступен для вас"
+        flash[:alert] = "Customer data not available to you"
         redirect_to customers_path
       end
     end
