@@ -15,10 +15,10 @@ class ReportsController < ApplicationController
   end
   
   def general
-    if params[:objects] == "Клиенты" and params[:period]
+    if params[:objects] == "Customers" and params[:period]
       Report.select_period(params[:period])
       render "customers_chart"
-    elsif params[:objects] == "Объекты" and params[:period]
+    elsif params[:objects] == "Objects" and params[:period]
       Report.select_period(params[:period])
       render "subjects_chart"    
     end

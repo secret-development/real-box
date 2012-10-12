@@ -37,18 +37,18 @@ class Report < ActiveRecord::Base
   def self.select_period(period)
     @period = period
     case @period
-    when "Неделя"
+    when "week"
       @data = 1.weeks
-      @head = "Неделя"
-    when "Месяц"
+      @head = "Week"
+    when "month"
       @data = 1.months
-      @head = "Месяц"
-    when "Квартал"
+      @head = "Month"
+    when "quarter"
       @data = 3.months
-      @head = "Квартал"
-    when "Год"
+      @head = "Quarter"
+    when "Year"
       @data = 1.years
-      @head = "Год"
+      @head = "Year"
     end        
   end
   def self.return_period
