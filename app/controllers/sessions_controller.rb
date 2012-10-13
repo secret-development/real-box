@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   layout 'devise'
   
   def new
-    @title = "Вход"
+    @title = "Sign in"
   end
   
   def create
@@ -23,32 +23,32 @@ class SessionsController < ApplicationController
       if user.role == false
         current_time  = Time.current
         if(@w.start_hour.nil? && @w.start_min.nil? && @w.end_hour.nil? && @w.end_min.nil?)
-          flash[:notice] = "Добро пожаловать"
+          flash[:notice] = "Welcome"
           user.last_sign
           redirect_to root_url
         elsif(current_time.hour >= @w.start_hour && current_time.min >= @w.start_min && current_time.hour <= @w.end_hour)
           if(current_time.hour == @w.end_hour && current_time.min > @w.end_min)
             cookies.delete(:auth_token)
             redirect_to sign_in_path
-            flash[:alert] = "Рабочий день закончился"
+            flash[:alert] = "The working day is over"
           else
-            flash[:notice] = "Добро пожаловать"
+            flash[:notice] = "Welcome"
             user.last_sign
             redirect_to root_url  
           end
         else
           cookies.delete(:auth_token)
           redirect_to sign_in_path
-          flash[:alert] = "Рабочий день закончился"
+          flash[:alert] = "The working day is over"
         end
       else
         #session[:user_id] = user.id
-        flash[:notice] = "Добро пожаловать"
+        flash[:notice] = "Welcome"
         user.last_sign
         redirect_to root_url  
       end
     else
-      flash[:alert] = "Неправильный почтовый адрес или пароль!"
+      flash[:alert] = "Invalid email address or password!"
       render 'new'
     end    
   end
@@ -56,7 +56,7 @@ class SessionsController < ApplicationController
   def destroy
     cookies.delete(:auth_token)
     redirect_to sign_in_path
-    flash[:notice] = "Вы вышли из системы"    
+    flash[:notice] = "You have successfully logged out"
   end
   
   private 

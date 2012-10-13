@@ -6,6 +6,6 @@ class SettingsController < ApplicationController
   before_filter :settings_deny
   
   def index
-    @title = "Настройки"
+    @title = "Settings"
   end
 end
