@@ -10,26 +10,26 @@ class ValueFieldsController < ApplicationController
   
   def index
     @valuefields = ValueField.all
-    @title = "Значения для дополнительных полей"
+    @title = "Values ​​for additional fields"
     respond_with(@valufields)
   end
   
   def new
     @valuefield = ValueField.new
-    @title = "Добавление значений для доп.полей"
+    @title = "Adding values ​​to additional fields"
     respond_with(@valuefield)
   end
   
   def edit
     @valuefield = ValueField.find(params[:id])
-    @title = "Редактирование значения"
+    @title = "Editing value"
     respond_with(@valuefield)
   end
   
   def create
     @valuefield = ValueField.new(params[:value_field])
     if @valuefield.save
-      flash[:notice] = "Значение успешно добавлено"
+      flash[:notice] = "Value successfully created"
       respond_with(@valuefield, :location => value_fields_path)
     else
       render 'new'
@@ -39,7 +39,7 @@ class ValueFieldsController < ApplicationController
   def update
     @valuefield = ValueField.find(params[:id])
     if @valuefield.update_attributes(params[:value_field])
-      flash[:notice] = "Значение успешно обновлено"
+      flash[:notice] = "Value successfully updated"
       respond_with(@valuefield, :location => value_fields_path)
     else
       render 'edit'
@@ -49,7 +49,7 @@ class ValueFieldsController < ApplicationController
   def destroy
     @valuefield = ValueField.find(params[:id])
     @valuefield.destroy
-    flash[:notice] = "Значение успешно удалено"
+    flash[:notice] = "Value successfully removed"
     redirect_to value_fields_path
   end
   
