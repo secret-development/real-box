@@ -7,7 +7,7 @@ module SubjectsHelper
         typesubject = Typesubject.first
         typesubject.room == true
       rescue NoMethodError
-        redirect_to customers_path, :alert => "Заполните типы недвижимости"
+        redirect_to customers_path, :alert => "Fill property types"
       end
     else
       object.typesubject.room == true

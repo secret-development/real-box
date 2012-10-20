@@ -55,7 +55,7 @@ module Icons
   end
   
   def icon_camera_list(size_photos)
-    raw("<i class='icon-camera' rel='tooltip' title='#{size_photos} фото'></i>")
+    raw("<i class='icon-camera' rel='tooltip' title='#{size_photos}'></i>")
   end
   
   def icon_arrow_left_white
