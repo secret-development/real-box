@@ -13,29 +13,29 @@ class TransactionsController < ApplicationController
   
   def index
     @transactions = Transaction.joins(:customer).search(params[:search]).order(sort_column + " " + sort_direction).where(:user_id => current_user.id).page(params[:page]).per(page_paginate)
-    @title = "Мои сделки"
+    @title = "My contracts"
   end
   
   def all
     @transactions = Transaction.joins(:customer).search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
-    @title = "Все сделки"
+    @title = "All contracts"
   end
   
   def new
     begin
       @customer = Customer.find(params[:customer_id])
       @transaction = Transaction.new
-      @title = "Добавление новой сделки"
+      @title = "Adding new contract"
       respond_with @transaction
     rescue ActiveRecord::RecordNotFound
-      redirect_to(transactions_path, :alert => "Нет привязанного клиента")
+      redirect_to(transactions_path, :alert => "No associated customer")
     end
   end
   
   def create
     @transaction = Transaction.new(params[:transaction])
     if @transaction.save
-      flash[:notice] = "Сделка успешно добавлена"
+      flash[:notice] = "The contract was successfully added"
       respond_with(@transaction)
     else
       render 'new'
@@ -44,19 +44,19 @@ class TransactionsController < ApplicationController
   
   def show
     @transaction = Transaction.find(params[:id])
-    @title = "Информация о сделке"
+    @title = "Information about contract"
     respond_with @transaction
   end
   
   def edit
     @transaction = Transaction.find(params[:id])
-    @title = "Редактирование сделки"
+    @title = "Editing contract"
   end
   
   def update
     @transaction = Transaction.find(params[:id])
     if @transaction.update_attributes(params[:transaction])
-      flash[:notice] = "Сделка успешно обновлена"
+      flash[:notice] = "The contract has been successfully updated"
       redirect_to transactions_path
     else
       render 'edit'
@@ -66,13 +66,13 @@ class TransactionsController < ApplicationController
   def destroy
     @transaction = Transaction.find(params[:id])
     @transaction.destroy
-    flash[:notice] = "Сделка успешно удалена"
+    flash[:notice] = "The contract was successfully removed"
     redirect_to transactions_path
   end
   
   def add_document
     @transaction = Transaction.find(params[:id])
-    @title = "Добавление документов"
+    @title = "Adding documents"
   end
   
   private
@@ -96,7 +96,7 @@ class TransactionsController < ApplicationController
   def check_who_add
     @transaction = Transaction.find(params[:id])
     if current_user.id != @transaction.user_id && current_user.role != true
-      redirect_to transactions_path, :alert => "Доступ к этой сделке запрещен"
+      redirect_to transactions_path, :alert => "Access to this contract is denied"
     end
   end
   
