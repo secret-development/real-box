@@ -12,11 +12,11 @@ class ValueField < ActiveRecord::Base
   }
   
   def legend_value
-    new_record? ? "Добавить значение" : "Редактировать значение"
+    new_record? ? "Adding value" : "Editing value"
   end
   
   def button_value
-    new_record? ? "Добавить" : "Редактировать"
+    new_record? ? "Add" : "Edit"
   end
 
   
