@@ -23,26 +23,26 @@ class ConditionField < ActiveRecord::Base
   
   def typefields
     {
-      "выпадающий список" => "select",
-      "радио кнопки" => "radio",
-      "текстовое поле" => "textfield",
-      "большое текстовое поле" => "textarea" 
+      "drop-down list" => "select",
+      "radio buttons" => "radio",
+      "textbox" => "textfield",
+      "large text field" => "textarea" 
     }
   end
   
   def legend_value
     if new_record?
-      "Добавить поле"
+      "Adding field"
     else
-      "Редактировать поле"
+      "Editing field"
     end
   end
 
   def button_value
     if new_record?
-      "Добавить"
+      "Add"
     else
-      "Редактировать"
+      "Edit"
     end
   end
 
