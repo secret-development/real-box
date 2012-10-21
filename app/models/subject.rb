@@ -52,36 +52,36 @@ class Subject < ActiveRecord::Base
 
   def price_cur
     {
-      "доллар" => "доллар",
-      "тенге" => "тенге",
-      "евро" => "евро",
-      "рубль" => "рубль"
+      "dollar" => "dollar",
+      "kzt" => "kzt",
+      "euro" => "euro",
+      "ruble" => "ruble"
     }
   end
   
   # for search:
   def self.price_cur_search
     {
-      "любая валюта" => "",
-      "доллар" => "доллар",
-      "тенге" => "тенге",
-      "евро" => "евро",
-      "рубль" => "рубль"
+      "any currency" => "",
+      "dollar" => "dollar",
+      "kzt" => "kzt",
+      "euro" => "euro",
+      "ruble" => "ruble"
     }
   end
 
   def full_address
     if @street.blank?
       if new_record?
-        self.address = "Адресс неизвестен"
+        self.address = "address unknown"
       end
     else
       if @house.blank? && @flat.blank?
-        self.address = "ул. #{@street}"  
+        self.address = "#{@street} St."  
       elsif @flat.blank?
-        self.address = "ул. #{@street}, дом #{@house}"
+        self.address = "#{@street} St., #{@house} house"
       else
-        self.address = "ул. #{@street}, дом #{@house}, кв. #{@flat}"
+        self.address = "#{@street} St., #{@house} house, #{@flat} flat"
       end
       fill_src_if_any
     end
@@ -137,11 +137,11 @@ class Subject < ActiveRecord::Base
 
   
   def legend_value
-    new_record? ? "Добавить объект" : "Редактировать объект"
+    new_record? ? "Adding object" : "Editing object"
   end
   
   def button_value
-    new_record? ? "Добавить" : "Редактировать"
+    new_record? ? "Add" : "Edit"
   end
   
   
