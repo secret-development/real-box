@@ -38,7 +38,7 @@ $(document).ready(function() {
   function disabled_district(){
     $("#subject_district_id")
       .attr("disabled", true)
-      .html("<option>Нет района</option>");
+      .html("<option>The district is missing</option>");
   }
   
   function enable_district(){
@@ -212,23 +212,23 @@ $(document).ready(function() {
     },
     messages: {
       "user[email]": {
-        email: "Введите почтовый адрес!",
-        required: "Введите почтовый адрес!",
+        email: "Enter the email address",
+        required: "Enter the email address",
       },
       "user[password]": { 
-        minlength: "Пароль не менее 7ми  символов!",
-        required: "Введите пароль!",
+        minlength: "Password at least 7-character",
+        required: "Enter the password",
       },
       "user[password_confirmation]": {
-        equalTo: "Пароли не совпадают!",
-        required: "Введите пароль!",
-        minlength: "Пароль не менее 7ми символов!"
+        equalTo: "Passwords do not match",
+        required: "Enter the password",
+        minlength: "Password at least 7-character"
       },
       "user[lastname]": {
-        required: "Введите фамилию!",
+        required: "Enter the lastname",
       },
       "user[firstname]": {
-        required: "Введите имя!",
+        required: "Enter the firstname",
       }, 
     }
     
@@ -249,10 +249,10 @@ $(document).ready(function() {
     },
     messages : {
       "email" : {
-        required : "Поле не должно быть пустым!",
-        email : "Введите корректный почтовый адрес!",
+        required : "Field should not be empty",
+        email : "Please enter a valid email address",
       },
-      "password" : "Поле не должно быть пустым!",
+      "password" : "Field should not be empty",
     }
   })
 });
@@ -267,8 +267,8 @@ $(document).ready(function(){
     },
     messages : {
       "email" : {
-        required : "Введите почтовый адрес",
-        email : "Введите корректный почтовый адрес!",
+        required : "Enter a email address",
+        email : "Please enter a valid email address",
       }
     }  
   })
@@ -412,13 +412,13 @@ $(document).ready(function(){
     },
     messages: {
       "user[password]": { 
-        minlength: "Пароль не менее 7ми  символов!",
-        required: "Введите пароль!",
+        minlength: "Password at least 7-character",
+        required: "Enter the password",
       },
       "user[password_confirmation]": {
-        equalTo: "Пароли не совпадают!",
-        required: "Введите пароль!",
-        minlength: "Пароль не менее 7ми символов!"
+        equalTo: "Passwords do not match",
+        required: "Enter the password",
+        minlength: "Password at least 7-character"
       },  
     }
   })
@@ -440,13 +440,13 @@ $(document).ready(function() {
     },
     messages: {
       "customer[firstname]" : {
-        required: "Введите имя"
+        required: "Enter the firstname"
       },
       "customer[phonehome]" : {
-        digits: "Только цифры"
+        digits: "Only numbers"
       },
       "customer[email]" : {
-        email: "Неправильный формат e-mail"
+        email: "Invalid format for e-mail"
       }
     }
   });  
@@ -483,28 +483,28 @@ $(document).ready(function() {
     },
     messages: {
       "subject[districtname]" : {
-        required: "Введите название района"
+        required: "Enter the name of the district"
       },
       "subject[price]" : {
-        required: "Введите цену "
+        required: "Enter the price"
       },
       "subject[area]" : {
-        number: "Только числа"
+        number: "Only numbers"
       },
       "subject[floor]" : {
-        required: "Введите этаж",
-        digits: "Только цифры"
+        required: " Enter the floor",
+        digits: "Only numbers"
       },
       "subject[floorall]" : {
-        required: "Введите этажность",
-        digits: "Только цифры"
+        required: "Enter the number of floors",
+        digits: "Only numbers"
       },
       "subject[room]" : {
-        required: "Введите этаж",
-        digits: "Только цифры"
+        required: "Enter the number of rooms",
+        digits: "Only numbers"
       },
       "subject[note]" : {
-        maxlength: "Не более 800 символов"
+        maxlength: "No more than 800 characters"
       }
     }
   });
@@ -531,18 +531,18 @@ $(document).ready(function() {
     },
     messages: {
       "task[title]" : {
-        required: "Введите название",
-        maxlength: "Не более 140 символов"
+        required: "Enter the title",
+        maxlength: "No more than 140 characters"
       },
       "task[description]" : {
-        required: "Введите описание",
-        maxlength: "Не более 800 символов"
+        required: "Enter a description",
+        maxlength: "No more than 800 characters"
       },
       "task[user_id]" : {
-        required: "Выберите ответственного"
+        required: "Select responsible"
       },
       "task[deadline]" : {
-        required: "Выберите срок дедлйна"
+        required: "Choose date (deadline)"
       }
     }
   });
@@ -566,15 +566,15 @@ $(document).ready(function() {
     },
     messages: {
       "transaction[name]" : {
-        required: "Введите название",
-        maxlength: "Не более 140 символов"
+        required: "Enter the title",
+        maxlength: "No more than 140 characters"
       },
       "transaction[description]" : {
-        required: "Введите описание",
-        maxlength: "Не более 800 символов"
+        required: "Enter a description",
+        maxlength: "No more than 800 characters"
       },
       "transaction[price]" : {
-        required: "Введите цену"
+        required: "Enter the price"
       }
     }
   });
@@ -590,7 +590,7 @@ $(document).ready(function() {
     },
     messages: {
       "city[name]" : {
-        required: "Введите название"
+        required: "Enter a name"
       }
     }
   });
@@ -607,7 +607,7 @@ $(document).ready(function() {
     },
     messages: {
       "social_status[title]" : {
-        required: "Введите наименование"
+        required: "Enter the title"
       }      
     }
   });
@@ -626,10 +626,10 @@ $(document).ready(function() {
     },
     messages: {
       "typesubject[name]" : {
-        required: "Введите название"
+        required: "Enter the title"
       },
       "typesubject[permalink]" : {
-        required: "Введите постоянную ссылку"
+        required: "Enter permalink"
       }
     }
   });
@@ -645,7 +645,7 @@ $(document).ready(function() {
     },
     messages: {
       "condition_field[namefield]" : {
-        required: "Введите название поля"
+        required: "Enter the name of the field"
       }
     }
   });
@@ -661,7 +661,7 @@ $(document).ready(function() {
     },
     messages: {
       "value_field[valuefield]" : {
-        required: "Введите значение"
+        required: "Enter a value"
       }
     }
   });
@@ -677,7 +677,7 @@ $(document).ready(function() {
     },
     messages: {
       "district[title]" : {
-        required: "Введите значение"
+        required: "Enter a value"
       }
     }
   });
@@ -693,7 +693,7 @@ $(document).ready(function() {
     },
     messages: {
       "resident[title]" : {
-        required: "Введите значение"
+        required: "Enter a value"
       }
     }
   });
@@ -710,8 +710,8 @@ $(document).ready(function() {
     },
     messages: {
       "paginator[paginate]" : {
-        required: "Введите значение",
-        digits: "Только цифры"
+        required: "Enter a value",
+        digits: "Only numbers"
       }
     }
   });
@@ -735,7 +735,7 @@ $(document).ready(function() {
   function disabled_district(){
     $("#search_district_id_eq")
       .attr("disabled", true)
-      .html("<option>Нет района</option>");
+      .html("<option>The district is missing</option>");
   }
   
   function enable_district(){
@@ -749,7 +749,7 @@ $(document).ready(function() {
   // first state
   var city_first = $("#search_city_id_eq :selected").text();
   var opt_fir = $(districts).filter("optgroup[label='"+city_first+"']")
-    .prepend('<option value="">Все районы</option>')
+    .prepend('<option value="">All districts</option>')
     .html();
   $("#search_district_id_eq").html(opt_fir);
   if (!opt_fir) {
@@ -760,7 +760,7 @@ $(document).ready(function() {
   $("#search_city_id_eq").change(function(event) {
     var city = $("#search_city_id_eq :selected").text();
     var options = $(districts).filter("optgroup[label='"+city+"']")
-    .prepend('<option value="">Все районы</option>')
+    .prepend('<option value="">All districts</option>')
     .html();
     if (options) {
       enable_district();
@@ -922,7 +922,7 @@ $(document).ready(function() {
   function disabled_resident(){
     $("#search_resident_id_eq")
       .attr("disabled", true)
-      .html("<option>Нет ЖК</option>");
+      .html("<option>The apartment complex is missing</option>");
   }
   
   function enable_resident(){
@@ -936,7 +936,7 @@ $(document).ready(function() {
   // first state
   var city_first = $("#search_city_id_eq :selected").text();
   var opt_fir = $(residents).filter("optgroup[label='"+city_first+"']")
-    .prepend('<option value="">Все ЖК</option>')
+    .prepend('<option value="">All residential complexes</option>')
     .html();
   $("#search_resident_id_eq").html(opt_fir);
   if (!opt_fir) {
@@ -947,7 +947,7 @@ $(document).ready(function() {
   $("#search_city_id_eq").change(function(event) {
     var city = $("#search_city_id_eq :selected").text();
     var options = $(residents).filter("optgroup[label='"+city+"']")
-    .prepend('<option value="">Все ЖК</option>')
+    .prepend('<option value="">All residential complexes</option>')
     .html();
     if (options) {
       enable_resident();
@@ -1043,7 +1043,7 @@ $(document).ready(function() {
   function disabled_resident(){
     $("#subject_resident_id")
       .attr("disabled", true)
-      .html("<option>Нет ЖК</option>");
+      .html("<option>The apartment complex is missing</option>");
   }
   
   function enable_resident(){
