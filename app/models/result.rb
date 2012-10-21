@@ -7,11 +7,11 @@ class Result < ActiveRecord::Base
     all_typetransactions.each do |a|
       case a.name
       when "Продажа"
-        need_transaction["купить"] = a.id
+        need_transaction["buy"] = a.id
       when "Аренда"
-        need_transaction["снять"] = a.id
+        need_transaction["rent"] = a.id
       when "Обмен"
-        need_transaction["обменять"] = a.id
+        need_transaction["exchange"] = a.id
       end
     end
     return need_transaction
