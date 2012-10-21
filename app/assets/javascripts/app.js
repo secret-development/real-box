@@ -936,7 +936,7 @@ $(document).ready(function() {
   // first state
   var city_first = $("#search_city_id_eq :selected").text();
   var opt_fir = $(residents).filter("optgroup[label='"+city_first+"']")
-    .prepend('<option value="">All residential complexes</option>')
+    .prepend('<option value="">All apartment complexes</option>')
     .html();
   $("#search_resident_id_eq").html(opt_fir);
   if (!opt_fir) {
@@ -947,7 +947,7 @@ $(document).ready(function() {
   $("#search_city_id_eq").change(function(event) {
     var city = $("#search_city_id_eq :selected").text();
     var options = $(residents).filter("optgroup[label='"+city+"']")
-    .prepend('<option value="">All residential complexes</option>')
+    .prepend('<option value="">All apartment complexes</option>')
     .html();
     if (options) {
       enable_resident();
