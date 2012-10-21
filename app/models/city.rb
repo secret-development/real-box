@@ -14,17 +14,17 @@ class City < ActiveRecord::Base
             
   def legend_value
     if new_record?
-      "Добавить город"
+      "Add city"
     else
-      "Редактировать город"
+      "Editing city"
     end
   end
   
   def button_value
     if new_record?
-      "Добавить"
+      "Add"
     else
-      "Редактировать"
+      "Edit"
     end
   end
   
