@@ -5,17 +5,17 @@ class SocialStatus < ActiveRecord::Base
   default_scope order('title ASC')
   def button_value
     if new_record?
-      "Добавить"
+      "Add"
     else
-      "Редактировать"    
+      "Edit"    
     end  
   end
   
   def legend_value
     if new_record?
-      "Добавление статуса"
+      "Adding status"
     else 
-      "Редактирование статуса"      
+      "Editing status"      
     end    
   end
   
