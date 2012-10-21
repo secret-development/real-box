@@ -10,72 +10,72 @@
       <div class="nav-collapse in">
       <ul class="nav">
         <li classs="active">
-          <%= link_to "Поиск", root_path %>
+          <%= link_to "Search", root_path %>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Клиенты <b class="caret"></b>
+            Customers <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
             <li>
-            <%= link_to icon_plus_sign + " Добавить клиента", new_customer_path %>
+            <%= link_to icon_plus_sign + " Add the customer", new_customer_path %>
             </li>
             <li>
-              <%= link_to icon_user + " Все клиенты", all_customers_path %>
+              <%= link_to icon_user + " All customers", all_customers_path %>
             </li>
             <li>
-              <%= link_to icon_user + " Действующие клиенты", customers_path %>
+              <%= link_to icon_user + " Active customers", customers_path %>
             </li>
             <li>
-            <%= link_to icon_user + " Потенциальные клиенты", potentials_path %>
+            <%= link_to icon_user + " Potential customers", potentials_path %>
             </li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Объекты <b class="caret"></b>
+            Real Estate <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
             <li>
-              <%= link_to icon_home_black + " Все объекты", subjects_path %>
+              <%= link_to icon_home_black + " All objects", subjects_path %>
             </li>
             <li>
-              <%= link_to icon_home_black + " Активные объекты", active_subjects_path %>
+              <%= link_to icon_home_black + " Active objects", active_subjects_path %>
             </li>
             <li>
-              <%= link_to icon_home_black + " Не активные объекты", inactive_subjects_path %>
+              <%= link_to icon_home_black + " Not active objects", inactive_subjects_path %>
             </li>
           </ul>
         </li>
         <li>
-          <%= link_to "Персонал", users_path %>
+          <%= link_to "Staff", users_path %>
         </li>
         <li>
-          <%= link_to "Задачи", tasks_path %>
+          <%= link_to "Tasks", tasks_path %>
         </li>
         <li>
-          <%= link_to "Сделки", transactions_path %>
+          <%= link_to "Contracts", transactions_path %>
         </li>
         <% if current_user.role? %>
           <li>
-            <%= link_to "Отчеты", reports_path %>
+            <%= link_to "Reports", reports_path %>
           </li>
         <% end %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Справка <b class="caret"></b>
+            Help <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Поиск", help_search_path %></li>
-            <li><%= link_to "Клиенты", help_customers_path %></li>
-            <li><%= link_to "Объекты", help_subjects_path %></li>
-            <li><%= link_to "Персонал", help_users_path %></li>
-            <li><%= link_to "Задачи", help_tasks_path %></li>
-            <li><%= link_to "Сделки", help_transactions_path %></li>
-            <li><%= link_to "Отчёты", help_reports_path %></li>
+            <li><%= link_to "Search", help_search_path %></li>
+            <li><%= link_to "Customers", help_customers_path %></li>
+            <li><%= link_to "Objects", help_subjects_path %></li>
+            <li><%= link_to "Staff", help_users_path %></li>
+            <li><%= link_to "Tasks", help_tasks_path %></li>
+            <li><%= link_to "Contracts", help_transactions_path %></li>
+            <li><%= link_to "Reports", help_reports_path %></li>
             <% if current_user.role? %>
               <li>
-                <%= link_to "Важно!", help_danger_path %>
+                <%= link_to "It's important!", help_danger_path %>
               </li>
             <% end %>
           </ul>
@@ -84,7 +84,7 @@
       <ul class="nav pull-right">
         <% if current_user.role? %>
         <li id="settings-link">
-          <%= link_to "Настройки", settings_path %>
+          <%= link_to "Settings", settings_path %>
         </li>
         <% end %>
         <li class="divider-vertical"></li>
@@ -94,16 +94,16 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <%= link_to icon_tags + " Мои задачи", tasks_path, 
+              <%= link_to icon_tags + " My tasks", tasks_path, 
                 :class => "tasks-size-label" %>
               <div id="tasks-size">
                 <%= tasks_size %>
               </div>
             </li>
-            <li><%= link_to icon_user + ' Показать профиль', user_path(current_user) %></li>
-            <li><%= link_to icon_edit + ' Изменить профиль', add_info_user_path(current_user) %></li>
-            <li><%= link_to icon_lock_black + ' Изменить пароль', edit_user_path(current_user) %></li>
-            <li><%= link_to icon_off + ' Выход', sign_out_path %></li>
+            <li><%= link_to icon_user + ' Show my profile', user_path(current_user) %></li>
+            <li><%= link_to icon_edit + ' Edit profile', add_info_user_path(current_user) %></li>
+            <li><%= link_to icon_lock_black + ' Edit password', edit_user_path(current_user) %></li>
+            <li><%= link_to icon_off + ' Quit', sign_out_path %></li>
           </ul>
         </li>
       </ul>
