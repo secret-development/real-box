@@ -2,19 +2,19 @@
 class Report < ActiveRecord::Base
   # finance report
   def self.total_dollar(date)
-    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "доллар").sum(:price)    
+    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "dollar").sum(:price)    
   end
   
   def self.total_ru(date)
-    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "рубль").sum(:price)    
+    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "ruble").sum(:price)    
   end
   
   def self.total_euro(date)
-    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "евро").sum(:price)    
+    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "euro").sum(:price)    
   end
   
   def self.total_tg(date)
-    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "тенге").sum(:price)    
+    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "kzt").sum(:price)    
   end
   
   # activ users report
