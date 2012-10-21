@@ -38,10 +38,10 @@ class Transaction < ActiveRecord::Base
   # price currency
   def price_cur
     {
-      "доллар" => "доллар",
-      "тенге" => "тенге",
-      "евро" => "евро",
-      "рубль" => "рубль"
+      "dollar" => "dollar",
+      "kzt" => "kzt",
+      "euro" => "euro",
+      "ruble" => "ruble"
     }
   end
   
@@ -61,19 +61,19 @@ class Transaction < ActiveRecord::Base
   
   #methods
   def payment_value
-    payment == true ? "Сделка оплачена" : "Сделка не оплачена"
+    payment == true ? "The deal paid" : "The deal has not been paid"
   end
   
   def payment_short
-    payment == true ? "Да " : "Нет"
+    payment == true ? "Yes " : "No"
   end
   
   def legend
-    new_record? ? "Добавление" : "Редактирование"
+    new_record? ? "Adding" : "Editing"
   end
   
   def button_value
-    new_record? ? "Добавить" : "Обновить"
+    new_record? ? "Add" : "Edit"
   end
   
   def self.search(search)
