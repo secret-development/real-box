@@ -4,28 +4,28 @@
   <fieldset>
     <legend><%= @conditionfield.legend_value %></legend>
     <div class="control-group">
-      <%= f.label :typesubject_id, "Тип объекта:" %> 
+      <%= f.label :typesubject_id, "Type of real estate:" %> 
       <div class="controls">
         <%= collection_select(:condition_field, :typesubject_id,
             Typesubject.all, :id, :name) %>
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :namefield, "Название поля:" %>
+      <%= f.label :namefield, "The field name:" %>
       <div class="controls">
-        <%= f.text_field :namefield, :placeholder => "Мебель..." %>  
+        <%= f.text_field :namefield, :placeholder => "Furniture..." %>  
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :typefield, "Тип поля:" %>
+      <%= f.label :typefield, "Type of field:" %>
       <div class="controls">
         <%= f.select :typefield, @conditionfield.typefields %>
-        <%= link_to "Что такое тип поля?", "/assets/inputs-conditions.png", :id => "what-type-input" %>
+        <%= link_to "What is the type of field?", "/assets/inputs-conditions.png", :id => "what-type-input" %>
       </div>
     </div>
     <div class="form-actions">
       <%= f.submit @conditionfield.button_value, :class => "btn btn-primary" %>
-      <button type="reset" class="btn cancel-form">Отмена</button>
+      <button type="reset" class="btn cancel-form">Cancel</button>
     </div>
   </fieldset>
 <% end %>
