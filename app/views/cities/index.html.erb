@@ -1,6 +1,6 @@
 <div id="cities">
   <h1 class="title-page">
-    <%= link_to "Настройки", settings_path %> → Города
+    <%= link_to "Settings", settings_path %> → Cities
   </h1>
   <%= flash_msg(flash[:notice]) %>
   <ul id="cities-list">
@@ -12,11 +12,11 @@
         <div class="actions-with-cities">
           <%= link_to edit_icon, edit_city_path(city) %>
           <%= link_to delete_icon, city, :method => :delete,
-              :confirm => "Вы уверены?" %>
+              :confirm => "Are you sure?" %>
         </div>
       </li>
     <% end %>
   </ul>
-  <h1 class="warning-city">Осторожно! При удалении города, все объекты недвижимости относящиеся к этому городу автоматически удалятся!</h1>
-  <%= link_to plus_icon + " Добавить город", new_city_path, :class => "btn" %>
+  <h1 class="warning-city">Beware! When you delete a city, all objects belonging to this city will automatically be deleted!</h1>
+  <%= link_to plus_icon + " Add city", new_city_path, :class => "btn" %>
 </div>
