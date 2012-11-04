@@ -6,8 +6,8 @@ en:
   
   views:
     pagination:
-      next: "Следующий"
-      previous: "Предыдущий"
+      next: "Next"
+      previous: "Prev"
       truncate: "..."
 
   unauthorized: 
