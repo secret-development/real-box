@@ -2,12 +2,12 @@
   <thead>
     <tr>
       <th><%= sortable "id", "№" %></th>
-      <th><%= sortable "title", "Задача" %></th>
-      <th><%= sortable "user_id", "Ответственный" %></th>
-      <th><%= sortable "deadline", "Дедлайн" %></th>
-      <th><%= sortable "done", "Сделано" %></th>
-      <th><%= sortable "created_at", "Дата постановки" %></th>
-      <th>Операции</th>
+      <th><%= sortable "title", "Task" %></th>
+      <th><%= sortable "user_id", "Responsible" %></th>
+      <th><%= sortable "deadline", "Deadline" %></th>
+      <th><%= sortable "done", "Done" %></th>
+      <th><%= sortable "created_at", "Date of posting" %></th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -19,7 +19,7 @@
         <td><%= link_to task.title, task_path(task) %></td>
         <td>
           <% if task.user_id == nil %>
-            Отсутствует
+            None
           <% else %>
             <%= task.user.lastname %>  
           <% end %>
@@ -38,14 +38,14 @@
             </a>
             <ul class="dropdown-menu">
               <% if can? :update, task %>
-              <%= link_to "Задача не выполнена", task_path(task, 
+              <%= link_to "The task is not done", task_path(task, 
                           :task => { :done => false }),
                           :method => :put, 
-                          :confirm => "Вы уверены?" %>
-              <%= link_to "Задача выполнена", task_path(task, 
+                          :confirm => "Are you sure?" %>
+              <%= link_to "The task is done", task_path(task, 
                           :task => { :done => true}),
                           :method => :put, 
-                          :confirm => "Вы уверены?" %>
+                          :confirm => "Are you sure?" %>
               <% end %>
             </ul>
           </div>
@@ -58,7 +58,7 @@
           <% end %>
           <% if can? :destroy, task %>
             <%= link_to delete_icon, task, :method => :delete,
-                      :confirm => "Вы уверены?" %>
+                      :confirm => "Are you sure?" %>
           <% end %>
         </td>
         <% elsif !current_user.role? && current_user.id == task.user_id %>
@@ -66,7 +66,7 @@
         <td><%= link_to task.title, task_path(task) %></td>
         <td>
           <% if task.user_id == nil %>
-            Отсутствует
+            None
           <% else %>
             <%= task.user.lastname %>  
           <% end %>
@@ -85,14 +85,14 @@
             </a>
             <ul class="dropdown-menu">
               <% if can? :update, task %>
-              <%= link_to "Задача не выполнена", task_path(task, 
+              <%= link_to "The task is not done", task_path(task, 
                           :task => { :done => false }),
                           :method => :put, 
-                          :confirm => "Вы уверены?" %>
-              <%= link_to "Задача выполнена", task_path(task, 
+                          :confirm => "Are you sure?" %>
+              <%= link_to "The task is done", task_path(task, 
                           :task => { :done => true}),
                           :method => :put, 
-                          :confirm => "Вы уверены?" %>
+                          :confirm => "Are you sure?" %>
               <% end %>
             </ul>
           </div>
@@ -106,7 +106,7 @@
           <% end %>
           <% if can? :destroy, task %>
             <%= link_to delete_icon, task, :method => :delete,
-                      :confirm => "Вы уверены?" %>
+                      :confirm => "Are you sure?" %>
           <% end %>
         </td>
         <% end %>
