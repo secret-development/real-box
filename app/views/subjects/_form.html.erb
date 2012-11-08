@@ -4,46 +4,47 @@
   <fieldset>
     <legend><%= @subject.legend_value %></legend>
     <div class="control-group">
-      <%= f.label :active, "Активна:" %>
+      <%= f.label :active, "Active:" %>
       <div class="controls">
-        <%= select('subject', 'active', [["Да",true],["Нет",false]]) %>
+        <%= select('subject', 'active', [["Yes",true],["No",false]]) %>
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :typetransaction_id, "Тип сделки:" %>
+      <%= f.label :typetransaction_id, "Type of contract:" %>
       <div class="controls">
         <%= f.collection_select(:typetransaction_id, Typetransaction.all, 
             :id, :name) %>
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :city_id, "Город:" %>
+      <%= f.label :city_id, "City:" %>
       <div class="controls">
         <%= f.collection_select(:city_id,
             City.all, :id, :name) %>
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :typesubject_id, "Тип недвижимости:" %>
+      <%= f.label :typesubject_id, "Type of real estate:" %>
       <div class="controls">
         <%= f.collection_select(:typesubject_id, Typesubject.all, :id, :name) %>
       </div>
     </div>
     <!-- districts -->
     <div class="control-group">
-      <%= f.label :district, "Район:" %>
+      <%= f.label :district, "District:" %>
       <div class="controls">
         <div class="district-operations">
           <%= f.grouped_collection_select(:district_id, 
               City.order(:name), :districts, :name ,:id, :title) %>
-          <div class="title">Нет в списке района? Добавьте самостоятельно</div>
+          <div class="title">Not in the list district? Add the district independently
+</div>
           <button type="button" id="add-district-button" class="btn">
-            <%= icon_map + " Добавить район" %>
+            <%= icon_map + " Add district" %>
           </button>
         </div>
-        <%= f.text_field :districtname, :id => "add_district", :placeholder => "Западный" %>
+        <%= f.text_field :districtname, :id => "add_district", :placeholder => "Acton" %>
         <button type="button" id="back-district-select" class="btn">
-          <%= list_icon + " Вернуться к списку районов" %> 
+          <%= list_icon + " Back to list districts" %> 
         </button>
       </div>
     </div>
@@ -51,19 +52,19 @@
     
     <!-- residents -->
     <div class="control-group" id="resident-block">
-      <%= f.label :resident, "ЖК:" %>
+      <%= f.label :resident, "Apartment complex:" %>
       <div class="controls">
         <div class="resident-operations">
           <%= f.grouped_collection_select(:resident_id,
               City.order(:name), :residents, :name, :id, :title) %>
-          <div class="title">Нет в списке ЖК? Добавьте самостоятельно</div>
+          <div class="title">Not in the list of apartment complex? Add their own apartment complex</div>
           <button type="button" id="add-resident-button" class="btn">
-            <%= icon_map + " Добавить ЖК" %>
+            <%= icon_map + " Add apartment complex" %>
           </button>
         </div>
-        <%= f.text_field :residentname, :id => "add_resident", :placeholder => "Мунар" %>
+        <%= f.text_field :residentname, :id => "add_resident", :placeholder => "Dolphin House" %>
         <button type="button" id="back-resident-select" class="btn">
-          <%= list_icon + " Вернуться к списку ЖК" %>
+          <%= list_icon + " Back to list apartment complexes" %>
         </button>
       </div>
     </div>
@@ -71,14 +72,14 @@
     
     <!-- room -->
     <div class="control-group" id="room-subject-block">
-      <%= f.label :room, "Количество комнат:" %>
+      <%= f.label :room, "Number of rooms:" %>
       <div class="controls">
         <%= f.text_field :room, :placeholder => "3", :class => "sm-inp" %>
       </div>
     </div>
     <% if room?(@subject) %>
       <div class="control-group" id="exist-room-subject">
-        <%= f.label :room, "Количество комнат:" %>
+        <%= f.label :room, "Number of rooms:" %>
         <div class="controls">
           <%= f.text_field :room, :placeholder => "3", :class => "sm-inp" %>
         </div>
@@ -93,19 +94,19 @@
         <%= f.text_field :floor, :placeholder => "9", :class => "sm-inp" %> 
       </div>
       <br>
-      <%= f.label :floorall, "Этажность:" %>
+      <%= f.label :floorall, "Number of floors:" %>
       <div class="controls">
         <%= f.text_field :floorall, :placeholder => "30", :class => "sm-inp" %>
       </div>
     </div>
     <% if floor?(@subject) %>
       <div class="control-group" id="exist-floor-subject">
-        <%= f.label :floor, "Этаж:" %>
+        <%= f.label :floor, "Floor:" %>
         <div class="controls">
           <%= f.text_field :floor, :placeholder => "9", :class => "sm-inp" %> 
         </div>
         <br>
-        <%= f.label :floorall, "Этажность:" %>
+        <%= f.label :floorall, "Number of floors:" %>
         <div class="controls">
           <%= f.text_field :floorall, :placeholder => "30", :class => "sm-inp" %>
         </div>
@@ -113,14 +114,14 @@
     <% end %>
     <!-- end floor -->
     <div class="control-group">
-      <%= f.label :price, "Цена:" %>
+      <%= f.label :price, "Price:" %>
       <div class="controls">
         <%= f.text_field :price, :placeholder => "10000", :class => "norm-inp" %> 
         <%= f.select :price_currency, @subject.price_cur %>
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :area, "Площадь:" %>
+      <%= f.label :area, "Area:" %>
       <div class="controls">
         <%= f.text_field :area, :placeholder => "70", :class => "sm-inp" %> 
         <span class="calc-label">м&sup2;</span>
@@ -128,13 +129,13 @@
     </div>
     <!-- address -->
     <div class="control-group">
-      <%= f.label :address, "Адрес:" %>
+      <%= f.label :address, "Address:" %>
       <div class="controls address-fields">
-        <%= f.text_field :street, :id => "ad-street", :placeholder => "Абая" %>
-        <span class="address-label">дом</span>
+        <%= f.text_field :street, :id => "ad-street", :placeholder => "John avenue" %>
+        <span class="address-label">house</span>
         <%= f.text_field :house, :id => "ad-house", 
             :maxlength => "4", :placeholder => "34" %>
-        <span class="address-label">кв.</span>
+        <span class="address-label">flat</span>
         <%= f.text_field :flat, :id => "ad-flat", 
             :maxlength => "4", :placeholder => "15" %>
       </div>
@@ -148,15 +149,15 @@
     </div>
     <!-- note -->
     <div class="control-group" id="f-subject-note">
-      <%= f.label :note, "Заметка:" %>
+      <%= f.label :note, "Note:" %>
       <div class="controls">
-        <%= f.text_area :note, :rows => 5, :placeholder => "О недвижимости..." %>
+        <%= f.text_area :note, :rows => 5, :placeholder => "about..." %>
       </div>
     </div>
     <%= f.hidden_field :user_id, :value => current_user.id %>
     <div class="form-actions">
       <%= f.submit @subject.button_value, :class => "btn btn-primary" %>
-      <button type="reset" class="btn cancel-form">Отмена</button>
+      <button type="reset" class="btn cancel-form">Cancel</button>
     </div>
   </fieldset>
 <% end %>

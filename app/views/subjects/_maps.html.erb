@@ -2,7 +2,7 @@
   window.onload = function () {
     var map = new YMaps.Map(document.getElementById("YMapsID"));
            
-    var geocoder = new YMaps.Geocoder("<%= @subject.city.name %>, <%= @subject.street_src %>, дом <%= @subject.house_src %>");
+    var geocoder = new YMaps.Geocoder("<%= @subject.city.name %>, <%= @subject.street_src %>, house <%= @subject.house_src %>");
     map.addOverlay(geocoder);
         
     map.setZoom(16);    
