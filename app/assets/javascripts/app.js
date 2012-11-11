@@ -256,6 +256,27 @@ $(document).ready(function() {
     }
   })
 });
+
+// validation users(add info)
+$(document).ready(function(){
+  $("#add_info_for_user").validate({
+    rules: {
+      "user[lastname]": {
+        required : true,
+      },
+      "user[firstname]" : {
+        required : true,
+      }
+    },
+    messages : {
+      "user[lastname]" : {
+        required : "Field should not be empty",
+      },
+      "user[firstname]" : "Field should not be empty",
+    }
+  });
+});
+
 // validation send to email
 $(document).ready(function(){
   $('#send-to-email').validate({
