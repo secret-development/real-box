@@ -4,21 +4,21 @@
   <fieldset>
     <legend><%= @valuefield.legend_value %></legend>
     <div class="control-group">
-      <%= f.label :condition_field_id, "Поле:" %>
+      <%= f.label :condition_field_id, "Field:" %>
       <div class="controls">
         <%= collection_select(:value_field, :condition_field_id, 
             ConditionField.forform, :id, :namefield_with_typesubject) %>
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :valuefield, "Значение:" %>
+      <%= f.label :valuefield, "Value:" %>
       <div class="controls">
         <%= f.text_field :valuefield %>
       </div>
     </div>
     <div class="form-actions">
       <%= f.submit @valuefield.button_value, :class => "btn btn-primary" %>
-      <button type="reset" class="btn cancel-form">Отмена</button>
+      <button type="reset" class="btn cancel-form">Cancel</button>
     </div>
   </fieldset>
 <% end %>

@@ -1,8 +1,8 @@
 <h1 class="title-page">
-  <%= link_to "Настройки", settings_path %> → Значения для полей
+  <%= link_to "Settings", settings_path %> → Values ​​for additional fields
 </h1>
 <%= flash_msg(flash[:notice]) %>
-<%= link_to plus_icon + "Добавить" , new_value_field_path, 
+<%= link_to plus_icon + " Add" , new_value_field_path, 
     :class => "btn button-add" %>
 <% @typesubjects.each do |t| %>
   <table class="table table-bordered table-striped table-condensed cv-table" id="<%= t.id %>">
@@ -13,9 +13,9 @@
     </thead>
     <tbody>
       <tr>
-        <th>Поле</th>
-        <th>Значение</th>
-        <th>Действия</th>
+        <th>Field</th>
+        <th>Value</th>
+        <th>Actions</th>
       </tr>
       <% t.condition_fields.each do |c| %>
         <% c.value_fields.each do |v| %>
@@ -25,7 +25,7 @@
             <td class="actions-buttons">
               <%= link_to edit_icon, edit_value_field_path(v) %>
               <%= link_to delete_icon, v, :method => :delete, 
-                :confirm => "Вы уверены?" %>
+                :confirm => "Are you sure?" %>
             </td>          
             </tr>
         <% end %>
