@@ -59,7 +59,7 @@ describe ResidentsController do
       
       it "should have success message" do
         put :update, :id => @resident, :resident => @attr
-        flash[:notice].should =~ /ЖК успешно обновлён/i
+        flash[:notice].should =~ /Apartment Complex successfully updated/i
       end
     end
   end
@@ -79,7 +79,7 @@ describe ResidentsController do
     
     it "should have success message" do
       delete :destroy, :id => @resident
-      flash[:notice].should =~ /ЖК успешно удалён/i
+      flash[:notice].should =~ /Apartment Complex successfully removed/i
     end
   end
   

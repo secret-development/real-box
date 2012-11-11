@@ -71,7 +71,7 @@ describe ValueFieldsController do
       
       it "should success flash msg" do
         post :create, :value_field => @attr
-        flash[:notice].should =~ /Значение успешно добавлено/i
+        flash[:notice].should =~ /Value successfully created/i
       end
     end
   end
@@ -117,7 +117,7 @@ describe ValueFieldsController do
       it "should success message" do
         put :update, :id => @valuefield.id,
             :value_field => @attr
-        flash[:notice].should =~ /Значение успешно обновлено/i
+        flash[:notice].should =~ /Value successfully updated/i
       end
     end
   end
@@ -136,7 +136,7 @@ describe ValueFieldsController do
     
     it "should success message" do
       delete :destroy, :id => @valuefield.id
-      flash[:notice].should =~ /Значение успешно удалено/i
+      flash[:notice].should =~ /Value successfully removed/i
     end
   end
   
