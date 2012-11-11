@@ -132,6 +132,6 @@ ru:
   #       resource: "Ресурс"
   #       paginate: "Значение поля 'Количество элементов'"
         
-  # unauthorized: 
-  #   manage:
-  #     all: "Действия запрещены!"
+  unauthorized: 
+    manage:
+      all: "Actions are prohibited"

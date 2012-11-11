@@ -54,7 +54,7 @@ describe UsersController do
       
         it "should have a successful message" do
           post :create, :user => @new_user
-          flash[:notice].should =~ /Сотрудник создан/i        
+          flash[:notice].should =~ /Employee successfully created/i
         end     
       end  
     end
@@ -76,14 +76,14 @@ describe UsersController do
       
       it "should redirect root path" do
         put :update, :id => @other, :user => @attr
-        flash[:alert].should =~ /Действия запрещены!/i        
+        flash[:alert].should =~ /Actions are prohibited/i
       end
     end
     
     describe "can regular user" do
       it "update self" do
         put :update, :id => @regular_user, :user => @attr
-        flash[:notice].should =~ /Данные изменены/i      
+        flash[:notice].should =~ /Employee successfully updated/i      
       end
     end    
   end
@@ -103,7 +103,7 @@ describe UsersController do
     
     it "should have a flash success message" do
       delete :destroy, :id => @user_d
-      flash[:notice].should =~ /Сотрудник уволен/
+      flash[:notice].should =~ /Employe fired/
     end
     
     it "should not destroy the user" do

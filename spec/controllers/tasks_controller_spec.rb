@@ -76,7 +76,7 @@ describe TasksController do
       
       it "should have a success message" do
         post :create, :task => @attr
-        flash[:notice].should =~ /Задача успешно добавлена/i
+        flash[:notice].should =~ /The task was successfully added/i
       end
       
     end
@@ -123,7 +123,7 @@ describe TasksController do
       
       it "should have a success message" do
         put :update, :id => @task.id, :task => @attr
-        flash[:notice].should =~ /Задача успешно обновлена/i
+        flash[:notice].should =~ /The task has been successfully updated/i
       end
       
     end
@@ -145,7 +145,7 @@ describe TasksController do
     
     it "should have a success message" do
       delete :destroy, :id => @task.id
-      flash[:notice] =~ /Задача успешно уделена/i
+      flash[:notice] =~ /The task was successfully removed/i
     end
     
   end

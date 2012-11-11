@@ -59,7 +59,7 @@ describe PaginatorsController do
       
       it "should have success message" do
         put :update, :id => @paginator, :paginator => @attr
-        flash[:notice].should =~ /Постраничный вывод успешно обновлен/i
+        flash[:notice].should =~ /Paginal show successfully updated/i
       end
       
     end

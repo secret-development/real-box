@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
     if new_record?
       "Adding new employee"
     else
-      "Editing employe"      
+      "Editing employee"      
     end
   end
   

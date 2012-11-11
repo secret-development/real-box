@@ -95,7 +95,7 @@ describe TransactionsController do
       
       it "should have a success message" do
         post :create, :transaction => @attr
-        flash[:notice].should =~ /Сделка успешно добавлена/
+        flash[:notice].should =~ /The contract was successfully added/
       end
       
     end
@@ -142,7 +142,7 @@ describe TransactionsController do
       
       it "should have success message" do
         put :update, :id => @transaction, :transaction => @attr
-        flash[:notice].should =~ /Сделка успешно обновлена/i
+        flash[:notice].should =~ /The contract has been successfully updated/i
       end
       
     end
@@ -164,7 +164,7 @@ describe TransactionsController do
     
     it "should have success message" do
       delete :destroy, :id => @transaction
-      flash[:notice].should =~ /Сделка успешно удалена/i
+      flash[:notice].should =~ /The contract was successfully removed/i
     end
     
   end

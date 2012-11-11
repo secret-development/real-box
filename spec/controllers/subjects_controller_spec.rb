@@ -103,7 +103,7 @@ describe SubjectsController do
       
       it "should have a success message" do
         post :create, :subject => @attr
-        flash[:notice].should =~ /Объект успешно создан/i
+        flash[:notice].should =~ /Object successfully created/i
       end
     end
     
@@ -159,7 +159,7 @@ describe SubjectsController do
       
       it "should have success message" do
         put :update, :id => @subject, :subject => @attr
-        flash[:notice].should =~ /Объект успешно обновлён/i
+        flash[:notice].should =~ /Object successfully updated/i
       end
     end
   end
@@ -178,7 +178,7 @@ describe SubjectsController do
     
     it "should have success message" do
       delete :destroy, :id => @subject
-      flash[:notice].should =~ /Объект успешно удалён/i
+      flash[:notice].should =~ /Object successfully removed/i
     end
   end
   

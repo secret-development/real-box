@@ -84,7 +84,7 @@ describe CustomersController do
     
     it "should have a flash success message" do
       post :create, :customer => @attr
-      flash[:notice].should =~ /Клиент успешно сохранен!/
+      flash[:notice].should =~ /Customer successfully saved/
     end     
   end
   

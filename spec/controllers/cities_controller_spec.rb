@@ -63,7 +63,7 @@ describe CitiesController do
       
       it "should success flash" do
         post :create, :city => @attr
-        flash[:notice].should =~ /Город успешно добавлен/i
+        flash[:notice].should =~ /City successfully added/i
       end
     end
   end
@@ -104,7 +104,7 @@ describe CitiesController do
       
       it "should success message" do
         put :update, :id => @city.id, :city => @attr
-        flash[:notice].should =~ /город успешно обновлён/i
+        flash[:notice].should =~ /City successfully updated/i
       end
     end
   end
@@ -124,7 +124,7 @@ describe CitiesController do
     
     it "should success message" do
       delete :destroy, :id => @city.id
-      flash[:notice].should =~ /город успешно удалён/i
+      flash[:notice].should =~ /City successfully removed/i
     end
   end
 end

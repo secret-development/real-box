@@ -4,7 +4,7 @@ require 'spec_helper'
 describe ApplicationHelper do
   
   before(:all) do
-    @default_title = "Этванс"
+    @default_title = "Etvans"
   end
   
   describe "#title" do
