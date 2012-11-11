@@ -1,31 +1,32 @@
 <h1 class="title-page">
-  <%= link_to "Настройки", settings_path %> → Рабочее время
+  <%= link_to "Settings", settings_path %> → Working time
 </h1>
 <%= flash_msg(flash[:notice]) %>
 <div class="description-work-time">
-  <p>Если вы хотите чтобы система для агентов работала 24 часа в сутки, оставьте поля как "часы" : "минуты" в условиях "Начало работы" и "Конец работы"</p>
-  <p>Не оставляйте поля "часы" : "минуты" пустыми, если вы решили указать рабочее время!</p>
+  <p>If you want the system to agents working 24 hours a day, leave the fields as "hours", "minute" in the "Getting Started" and "End of Work"
+</p>
+  <p>Do not leave the field "hours", "minute" empty, if you choose to specify the working hours!</p>
   <div class="for-agents">
-    Рабочее время можно ограничить только для агентов
+    Working time can be limited only to agents
   </div>
 </div>
 <%= form_for(@worktime, :html => {:class => "form-horizontal worktime-form"}) do |f| %>
   <div class="control-group">
-    <%= f.label :starttime, "Начало работы:" %>  
+    <%= f.label :starttime, "Getting Started:" %>  
     <div class="controls">
-      <%= select("worktime", "start_hour", (0..23).to_a.collect {|p| p}, :include_blank => "Часы") %> :
-      <%= select("worktime", "start_min", (0..59).to_a.collect {|p| p}, :include_blank => "Минуты") %>
+      <%= select("worktime", "start_hour", (0..23).to_a.collect {|p| p}, :include_blank => "Hours") %> :
+      <%= select("worktime", "start_min", (0..59).to_a.collect {|p| p}, :include_blank => "Minutes") %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :starttime, "Конец работы:" %>  
+    <%= f.label :starttime, "End of Work:" %>  
     <div class="controls">
-      <%= select("worktime", "end_hour", (0..23).to_a.collect {|p| p}, :include_blank => "Часы") %> :
-      <%= select("worktime", "end_min", (0..59).to_a.collect {|p| p}, :include_blank => "Минуты") %>
+      <%= select("worktime", "end_hour", (0..23).to_a.collect {|p| p}, :include_blank => "Hours") %> :
+      <%= select("worktime", "end_min", (0..59).to_a.collect {|p| p}, :include_blank => "Minutes") %>
     </div>
   </div>
   <div class="form-actions">
-    <%= f.submit "Настроить", :class => "btn btn-primary" %>
-    <button type="reset" class="btn cancel-form">Отмена</button>
+    <%= f.submit "Set", :class => "btn btn-primary" %>
+    <button type="reset" class="btn cancel-form">Cancel</button>
   </div>
 <% end %>
