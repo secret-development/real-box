@@ -53,9 +53,9 @@ class Subject < ActiveRecord::Base
   def price_cur
     {
       "dollar" => "dollar",
-      "kzt" => "kzt",
-      "euro" => "euro",
-      "ruble" => "ruble"
+      "euro" => "euro"
+      # "kzt" => "kzt",
+      # "ruble" => "ruble"
     }
   end
   
@@ -64,9 +64,9 @@ class Subject < ActiveRecord::Base
     {
       "any currency" => "",
       "dollar" => "dollar",
-      "kzt" => "kzt",
-      "euro" => "euro",
-      "ruble" => "ruble"
+      "euro" => "euro"
+      # "kzt" => "kzt",
+      # "ruble" => "ruble"
     }
   end
 

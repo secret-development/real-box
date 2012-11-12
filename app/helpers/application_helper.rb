@@ -209,12 +209,12 @@ module ApplicationHelper
     case object.price_currency
     when "dollar"
       to_dollar(object)
-    when "tenge"
-      to_tenge(object)
     when "euro"
       to_euro(object)
-    when "ruble"
-      to_ruble(object)
+    # when "tenge"
+    #   to_tenge(object)
+    # when "ruble"
+    #   to_ruble(object)
     end
   end
   
@@ -223,20 +223,20 @@ module ApplicationHelper
       :unit => "$ ", :delimiter => " ", :format => "%n %u")
   end
   
-  def to_tenge(object)
-    number_to_currency(object.price, :locale => :ru, :precision => 0,
-      :unit => "tg.", :delimiter => " ", :format => "%n %u")
-  end
-  
   def to_euro(object)
     number_to_currency(object.price, :locale => :ru, :precision => 0,
       :unit => "€ ", :delimiter => " ", :format => "%n %u")
   end
   
-  def to_ruble(object)
-    number_to_currency(object.price, :locale => :ru, :precision => 0,
-      :unit => "rub.", :delimiter => " ", :format => "%n %u")
-  end
+  # def to_tenge(object)
+  #   number_to_currency(object.price, :locale => :ru, :precision => 0,
+  #     :unit => "tg.", :delimiter => " ", :format => "%n %u")
+  # end
+  
+  # def to_ruble(object)
+  #   number_to_currency(object.price, :locale => :ru, :precision => 0,
+  #     :unit => "rub.", :delimiter => " ", :format => "%n %u")
+  # end
   
 
   # search methods:
