@@ -183,7 +183,7 @@
     <div class="tab-pane" id="2">
       <div id="fields-for-customers">
         <div class="field-customer">
-          <span class="title-field"><b>Тип клиента:</b></span>
+          <span class="title-field"><b>Type of customer:</b></span>
           <span class="typecustomer">
             <%= type_customer(@subject.customer.potentials) %>
             <span class="icon-trans-status">
@@ -192,51 +192,51 @@
           </span>
         </div>
         <div class="field-customer">
-          <span class="title-field"><b>Тип сделки:</b></span>
+          <span class="title-field"><b>Type of contract:</b></span>
           <span class="typetransaction">
             <%= @subject.customer.typetransaction.name %>
           </span>
         </div>
         <div class="field-customer">
-          <span class="title-field">Имя:</span>
+          <span class="title-field">Firstname:</span>
           <%= isset_field(@subject.customer.firstname) %>
         </div>
         <div class="field-customer">
-          <span class="title-field">Фамилия:</span>
+          <span class="title-field">Lastname:</span>
           <%= isset_field(@subject.customer.lastname) %>
         </div>
         <div class="field-customer">
-          <span class="title-field">Тип сделки:</span>
+          <span class="title-field">Type of contract:</span>
           <%= isset_field(@subject.customer.typetransaction.name) %>
         </div>
         <div class="field-customer">
-          <span class="title-field">Социальный статус:</span>
+          <span class="title-field">Social status:</span>
           <% if have_object?(@subject.customer.social_status) %>
             <%= @subject.customer.social_status.title %>
           <% else %>
-            Отсутствует
+            None
           <% end %>
         </div>
         <div class="field-customer">
-          <span class="title-field">Последний раз обращался:</span>
+          <span class="title-field">Last handling:</span>
           <span id="last-call-value">
             <%= to_datetime(@subject.customer.lastcall) %>
           </span>
         </div>
         <div class="field-customer">
-          <span class="title-field">Добавлен:</span>
+          <span class="title-field">Added:</span>
           <%= to_date(@subject.customer.created_at) %>
         </div>
         <% if Customer.check_owner(current_user, @subject.customer) %>
           <!-- contacts -->
           <div class="field-customer customer-note field-customer-contacts">
-            <div class="field-c-c-title">Контактные данные:</div>
+            <div class="field-c-c-title">Contact info:</div>
             <div class="field-customer-c">
-              <span class="title-field">Телефон:</span>
+              <span class="title-field">Home phone:</span>
               <%= isset_field(@subject.customer.phonehome) %>  
             </div>
             <div class="field-customer-c">
-              <span class="title-field">Мобильный телефон:</span>
+              <span class="title-field">Mobile phone:</span>
               <%= isset_field(@subject.customer.phonemobile) %>  
             </div>
             <div class="field-customer-c">
@@ -245,7 +245,7 @@
             </div>
             <% @subject.customer.phones.each do |p| %>
               <div class="field-customer-c">
-                <span class="title-field">Доп.телефон:</span>
+                <span class="title-field">Additional phone:</span>
                 <%= isset_field(p.customerphone) %>  
               </div>
             <% end %>
@@ -253,15 +253,15 @@
           <!-- end contacts -->
         <% else %>
           <div class="field-customer customer-note field-customer-contacts">
-            <div class="field-c-c-title">Контактные данные:</div>
+            <div class="field-c-c-title">Contact info:</div>
             <div class="field-customer-c">
-              скрыты
+              hidden
             </div>
           </div>
         <% end %>
         <div class="field-customer">
           <div class="customer-note">
-            <div class="field-c-c-title">Заметка:</div>
+            <div class="field-c-c-title">Note:</div>
             <div class="content-customer-note">
               <%= isset_field(@subject.customer.note) %>  
             </div>
