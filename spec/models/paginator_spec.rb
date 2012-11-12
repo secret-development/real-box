@@ -6,7 +6,7 @@ describe Paginator do
     @paginator = FactoryGirl.create(:paginator)
     
     @attr = {
-      :resource => "клиенты",
+      :resource => "customers",
       :paginate => 20
     }
   end

@@ -14,7 +14,7 @@ if ENV['RAILS_ENV'] == "production"
   # type transactions
   exists_typetr = Typetransaction.all
   if exists_typetr.size == 0
-    types_of_transactions = ['Купля', 'Продажа', 'Аренда', 'Съем', 'Обмен']
+    types_of_transactions = ['purchase', 'sale', 'rent', 'lease', 'exchange']
     types_of_transactions.each do |t|
       Typetransaction.create(:name => t)
     end
@@ -23,7 +23,7 @@ if ENV['RAILS_ENV'] == "production"
   # users
   users = User.all
   if users.size == 0
-    User.create(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :role => true, :lastname => "Иванов", :firstname => "Иван")    
+    User.create(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :role => true, :lastname => "Smith", :firstname => "John")    
   end
   
   # worktimes
@@ -35,7 +35,7 @@ if ENV['RAILS_ENV'] == "production"
   # paginators
   paginators = Paginator.all
   default_page = 25
-  resources = ['поиск', 'клиенты', 'объекты', 'задачи', 'сделки']
+  resources = ['search', 'customers', 'objects', 'tasks', 'contracts']
   if paginators.size == 0
     resources.each do |r|
       Paginator.create(:resource => r, :paginate => default_page)
@@ -52,7 +52,7 @@ elsif ENV['RAILS_ENV'] = "development"
   # type transactions
   exists_typetr = Typetransaction.all
   if exists_typetr.size == 0
-    types_of_transactions = ['Купля', 'Продажа', 'Аренда', 'Съем', 'Обмен']
+    types_of_transactions = ['purchase', 'sale', 'rent', 'lease', 'exchange']
     types_of_transactions.each do |t|
       Typetransaction.create(:name => t)
     end
@@ -61,7 +61,7 @@ elsif ENV['RAILS_ENV'] = "development"
   # users
   users = User.all
   if users.size == 0
-    User.create(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :role => true, :lastname => "Иванов", :firstname => "Иван")    
+    User.create(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :role => true, :lastname => "Smith", :firstname => "John")    
   end
   
   # worktimes
@@ -73,7 +73,7 @@ elsif ENV['RAILS_ENV'] = "development"
   # paginators
   paginators = Paginator.all
   default_page = 25
-  resources = ['поиск', 'клиенты', 'объекты', 'задачи', 'сделки']
+  resources = ['search', 'customers', 'objects', 'tasks', 'contracts']
   if paginators.size == 0
     resources.each do |r|
       Paginator.create(:resource => r, :paginate => default_page)

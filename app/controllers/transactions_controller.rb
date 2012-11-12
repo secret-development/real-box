@@ -86,8 +86,8 @@ class TransactionsController < ApplicationController
   end
   
   def page_paginate
-    if Paginator.find_by_resource("сделки")
-      Paginator.find_by_resource("сделки").paginate
+    if Paginator.find_by_resource("contracts")
+      Paginator.find_by_resource("contracts").paginate
     else
       25
     end
