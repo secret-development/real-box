@@ -30,7 +30,8 @@ class ReportsController < ApplicationController
     elsif params[:period] == "Квартал" and params[:objects] == "Объекты"
       render "subjects_quarter"
     elsif params[:period] == "Год" and params[:objects] == "Объекты"
-      render "subjects_year"    
+      render "subjects_year"
+    end
   end
   
   def activ
