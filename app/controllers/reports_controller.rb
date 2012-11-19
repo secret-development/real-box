@@ -15,49 +15,49 @@ class ReportsController < ApplicationController
   end
   
   def general
-    if params[:period] == "Неделя" and params[:objects] == "Клиенты"
+    if params[:period] == "Week" and params[:objects] == "Customers"
       render "customers_week"
-    elsif params[:period] == "Месяц" and params[:objects] == "Клиенты"
+    elsif params[:period] == "Month" and params[:objects] == "Customers"
       render "customers_month"
-    elsif params[:period] == "Квартал" and params[:objects] == "Клиенты"
+    elsif params[:period] == "Quarter" and params[:objects] == "Customers"
       render "customers_quarter"
-    elsif params[:period] == "Год" and params[:objects] == "Клиенты"
+    elsif params[:period] == "Year" and params[:objects] == "Customers"
       render "customers_year"
-    elsif params[:period] == "Неделя" and params[:objects] == "Объекты"
+    elsif params[:period] == "Week" and params[:objects] == "Objects"
       render "subjects_week"
-    elsif params[:period] == "Месяц" and params[:objects] == "Объекты"
+    elsif params[:period] == "Month" and params[:objects] == "Objects"
       render "subjects_month"
-    elsif params[:period] == "Квартал" and params[:objects] == "Объекты"
+    elsif params[:period] == "Quarter" and params[:objects] == "Objects"
       render "subjects_quarter"
-    elsif params[:period] == "Год" and params[:objects] == "Объекты"
+    elsif params[:period] == "Year" and params[:objects] == "Objects"
       render "subjects_year"
     end
   end
   
   def activ
-    if params[:period] == "Неделя" #and params[:agent] # [:agent_id] == Report.current(:agent_id)
+    if params[:period] == "Week" #and params[:agent] # [:agent_id] == Report.current(:agent_id)
       Report.find_user(params[:agent][:agent_id])
       render "activ_week"
-    elsif params[:period] == "Месяц" #and params[:agent_id]
+    elsif params[:period] == "Month" #and params[:agent_id]
       Report.find_user(params[:agent][:agent_id])
       render "activ_month"
-    elsif params[:period] == "Квартал" #and params[:agent_id]
+    elsif params[:period] == "Quarter" #and params[:agent_id]
       Report.find_user(params[:agent][:agent_id])
       render "activ_quarter"
-    elsif params[:period] == "Год" #and params[:agent_id]
+    elsif params[:period] == "Year" #and params[:agent_id]
       Report.find_user(params[:agent][:agent_id])
       render "activ_year"                      
     end            
   end
   
   def finance
-    if params[:period] == "Неделя"
+    if params[:period] == "Week"
       render  "weeks"
-    elsif params[:period] == "Месяц"
+    elsif params[:period] == "Month"
       render  "month"
-    elsif params[:period] == "Квартал"
+    elsif params[:period] == "Quarter"
       render "quarter"
-    elsif params[:period] == "Год"
+    elsif params[:period] == "Year"
       render "year"      
     end           
   end
