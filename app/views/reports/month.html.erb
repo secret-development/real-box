@@ -34,22 +34,10 @@
         data: <%= (1.months.ago.to_date..Date.today).map { |date| Report.total_dollar(date).to_f}.inspect %>
       },
       {
-        name: "RU",
-        pointInterval: <%= 1.day * 1000 %>,
-        pointStart: <%= 1.months.ago.to_i * 1000 %>,
-        data: <%= (1.months.ago.to_date..Date.today).map { |date| Report.total_ru(date).to_f}.inspect %>
-      },
-      {
         name: "EURO",
         pointInterval: <%= 1.day * 1000 %>,
         pointStart: <%= 1.months.ago.to_i * 1000 %>,
         data: <%= (1.months.ago.to_date..Date.today).map { |date| Report.total_euro(date).to_f }.inspect %>
-      },
-      {
-        name: "TG",
-        pointInterval: <%= 1.day * 1000 %>,
-        pointStart: <%= 1.months.ago.to_i * 1000 %>,
-        data: <%= (1.months.ago.to_date..Date.today).map { |date| Report.total_tg(date).to_f }.inspect %>
       }],
       exporting: {
         buttons: { 

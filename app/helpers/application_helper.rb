@@ -258,8 +258,8 @@ module ApplicationHelper
   
   # for reports
 
-  MONTH = ["Week", "Month", "Quarter", "Year"]
-  OBJECTS = ["Customers", "Objects"]
+  MONTH_FOR_REPORT = ["Week", "Month", "Quarter", "Year"]
+  OBJECTS_FOR_REPORT = ["Customers", "Objects"]
 
   # for transaction views:
   
