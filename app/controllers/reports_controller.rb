@@ -26,6 +26,7 @@ class ReportsController < ApplicationController
   
   def activ
     if params[:period]
+      Report.find_user(params[:agent][:agent_id])
       Report.select_period(params[:period]) 
       render "activ_chart"
     end      
