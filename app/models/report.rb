@@ -27,29 +27,29 @@ class Report < ActiveRecord::Base
     return summa.to_f.round(3)
   end
   
-  # def self.select_period(period)
-  #   @period = period
-  #   case @period
-  #   when "Week"
-  #     @data = 1.weeks
-  #     @head = "Week"
-  #   when "Month"
-  #     @data = 1.months
-  #     @head = "Month"
-  #   when "Quarter"
-  #     @data = 3.months
-  #     @head = "Quarter"
-  #   when "Year"
-  #     @data = 1.years
-  #     @head = "Year"
-  #   end        
-  # end
-  # def self.return_period
-  #   @data
-  # end
-  # def self.return_head
-  #   @head    
-  # end
+  def self.select_period(period)
+    @period = period
+    case @period
+    when "Week"
+      @data = 1.weeks
+      @head = "Week"
+    when "Month"
+      @data = 1.months
+      @head = "Month"
+    when "Quarter"
+      @data = 3.months
+      @head = "Quarter"
+    when "Year"
+      @data = 1.years
+      @head = "Year"
+    end        
+  end
+  def self.return_period
+    @data
+  end
+  def self.return_head
+    @head    
+  end
   
   #GENERAL 
   #all customers count
