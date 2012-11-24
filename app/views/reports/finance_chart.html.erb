@@ -4,7 +4,7 @@
   $(function() {
     new Highcharts.Chart({
       chart: { renderTo: 'chart-finance-week', zoomType: 'x', backgroundColor: "#F4F4FF"},
-      title: { text: '<%= Report.return_head %>'},
+      title: { text: '<%= Report.return_head.downcase %>'},
       xAxis: { type: 'datetime'},
       yAxis: {
         title: { text: 'Income'},
@@ -39,30 +39,30 @@
         pointStart: <%= Report.return_period.ago.to_i * 1000 %>,
         data: <%= (Report.return_period.ago.to_date..Date.today).map { |date| Report.total_euro(date).to_f }.inspect %>
       }],
-      exporting: {
-        buttons: { 
-          exportButton: {
-            exportButtonTitle: "fewjfhwuefhuiew", 
-            menuItems: [{
-              text: "save in PNG",
-              onclick: function(){ this.exportChart();}
-            },
-            {
-              text: "save in JPG",
-              onclick: function(){ this.exportChart();}
-            },
-            {
-              text: "save in PDF",
-              onclick: function() {this.exportChart();}
-            },
-            null
-           ]  
-          }
-        },
-        enabled: true,
-        filename: 'Graph for the <%= Report.return_head %>',
-        type: 'image/png'      
-      },
+      // exporting: {
+      //   buttons: { 
+      //     exportButton: {
+      //       exportButtonTitle: "fewjfhwuefhuiew", 
+      //       menuItems: [{
+      //         text: "save in PNG",
+      //         onclick: function(){ this.exportChart();}
+      //       },
+      //       {
+      //         text: "save in JPG",
+      //         onclick: function(){ this.exportChart();}
+      //       },
+      //       {
+      //         text: "save in PDF",
+      //         onclick: function() {this.exportChart();}
+      //       },
+      //       null
+      //      ]  
+      //     }
+      //   },
+      //   enabled: true,
+      //   filename: 'Graph for the <%= Report.return_head %>',
+      //   type: 'image/png'      
+      // },
     });
     Highcharts.setOptions({
       lang: {

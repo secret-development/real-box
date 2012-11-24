@@ -33,30 +33,30 @@
         pointStart: <%= Report.return_period.ago.to_i * 1000 %>,
         data: <%= (Report.return_period.ago.to_date..Date.today).map { |date| Report.customers_add(date).to_i}.inspect %>
       }],
-      exporting: {
-        buttons: { 
-          exportButton: {
-            exportButtonTitle: "fewjfhwuefhuiew", 
-            menuItems: [{
-              text: "Save in PNG",
-              onclick: function(){ this.exportChart();}
-            },
-            {
-              text: "Save in JPG",
-              onclick: function(){ this.exportChart();}
-            },
-            {
-              text: "Save in PDF",
-              onclick: function() {this.exportChart();}
-            },
-            null
-           ]  
-          }
-        },
-        enabled: true,
-        filename: 'Graph for the <%= Report.return_head %>',
-        type: 'image/png'        
-      },
+      // exporting: {
+      //   buttons: { 
+      //     exportButton: {
+      //       exportButtonTitle: "fewjfhwuefhuiew", 
+      //       menuItems: [{
+      //         text: "Save in PNG",
+      //         onclick: function(){ this.exportChart();}
+      //       },
+      //       {
+      //         text: "Save in JPG",
+      //         onclick: function(){ this.exportChart();}
+      //       },
+      //       {
+      //         text: "Save in PDF",
+      //         onclick: function() {this.exportChart();}
+      //       },
+      //       null
+      //      ]  
+      //     }
+      //   },
+      //   enabled: true,
+      //   filename: 'Graph for the <%= Report.return_head %>',
+      //   type: 'image/png'        
+      // },
     });
     Highcharts.setOptions({
       lang: {
