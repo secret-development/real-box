@@ -6,7 +6,7 @@ describe UsersController do
   describe "admin user" do
     before(:each) do
       # start auth
-      @user = Factory(:user)
+      @user = FactoryGirl.create(:user)
       test_log_in(@user)
       # end auth
       @new_user = { 
@@ -54,7 +54,7 @@ describe UsersController do
       
         it "should have a successful message" do
           post :create, :user => @new_user
-          flash[:notice].should =~ /Сотрудник создан/i        
+          flash[:notice].should =~ /Employee successfully created/i
         end     
       end  
     end
@@ -62,9 +62,9 @@ describe UsersController do
   
   describe "regular user" do
     before(:each) do  
-      @regular_user = Factory(:regular_user) 
+      @regular_user = FactoryGirl.create(:regular_user) 
       test_log_in(@regular_user)
-      @other = Factory(:user)
+      @other = FactoryGirl.create(:user)
       @attr = { :email => "agent007@mail.ru"}
     end
       
@@ -76,23 +76,23 @@ describe UsersController do
       
       it "should redirect root path" do
         put :update, :id => @other, :user => @attr
-        flash[:alert].should =~ /Действия запрещены!/i        
+        flash[:alert].should =~ /Actions are prohibited/i
       end
     end
     
     describe "can regular user" do
       it "update self" do
         put :update, :id => @regular_user, :user => @attr
-        flash[:notice].should =~ /Данные изменены/i      
+        flash[:notice].should =~ /Employee successfully updated/i      
       end
     end    
   end
   
   describe "destroy" do
     before(:each) do
-      @user_d = Factory(:user)
+      @user_d = FactoryGirl.create(:user)
       test_log_in(@user_d)
-      @user_d2 = Factory(:user2)
+      @user_d2 = FactoryGirl.create(:user2)
       test_log_in(@user_d2)
     end
     
@@ -103,7 +103,7 @@ describe UsersController do
     
     it "should have a flash success message" do
       delete :destroy, :id => @user_d
-      flash[:notice].should =~ /Сотрудник уволен/
+      flash[:notice].should =~ /Employe fired/
     end
     
     it "should not destroy the user" do

@@ -64,30 +64,30 @@ class User < ActiveRecord::Base
   
   def legend_value
     if new_record?
-      "Добавление нового сотрудника"
+      "Adding new employee"
     else
-      "Изменение анкетных данных"      
+      "Editing employee"      
     end
   end
   
   def label_value
     if new_record?
-      "Введите пароль"
+      "Enter the password"
     else
-      "Введите новый пароль"      
+      "Enter the new password"      
     end    
   end
   
   def button_value
     if new_record?
-      "Создать"
+      "Add"
     else
-      "Изменить"      
+      "Edit"      
     end    
   end
   
   def legend_password
-    "Изменение пароля"    
+    "Editing password"    
   end
   
   # phone:

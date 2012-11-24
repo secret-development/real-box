@@ -2,15 +2,15 @@
   <thead>
     <tr>
       <th><%= sortable "id", "№" %></th>
-      <th><%= sortable "name", "Сделка" %></th>
-      <th><%= sortable "typetransaction_id", "Тип сделки" %></th>
-      <th><%= sortable "user_id", "Ответственный" %></th>
-      <th><%= sortable "customer_id", "Клиент" %></th>
-      <th><%= sortable "created_at", "Дата" %></th>
-      <th>Объект сделки</th>
-      <th><%= sortable "price", "Сумма" %></th>
-      <th>Оплата</th>
-      <th>Операции</th>
+      <th><%= sortable "name", "Title" %></th>
+      <th><%= sortable "typetransaction_id", "Type of contract" %></th>
+      <th><%= sortable "user_id", "Responsible" %></th>
+      <th><%= sortable "customer_id", "Customer" %></th>
+      <th><%= sortable "created_at", "Date" %></th>
+      <th>Object of the contract</th>
+      <th><%= sortable "price", "Sum" %></th>
+      <th>Payment</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -28,14 +28,14 @@
           </td>
           <td>
             <% if t.user_id == nil %>
-              Отсутствует
+              None
             <% else %>
               <%= link_to t.user.lastname, user_path(t.user) %>
             <% end %>
           </td>
           <td>
             <% if t.customer_id == nil %>
-              Отсутствует
+              None
             <% else %>
               <%= link_to t.customer.lastname, customer_path(t.customer) %>  
             <% end %>
@@ -45,7 +45,7 @@
           </td>
           <td class="id-table">
             <% if t.subject_id == nil %>
-              Отсутствует
+              None
             <% else %>
               <%= t.subject.address %>
             <% end %>
@@ -58,23 +58,23 @@
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <%= link_to "Сделка не оплачена", transaction_path(t, 
+                <%= link_to "The contract has not been paid", transaction_path(t, 
                             :transaction => { :payment => false }),
                             :method => :put, 
-                            :confirm => "Вы уверены?" %>
-                <%= link_to "Сделка оплачена", transaction_path(t, 
+                            :confirm => "Are you sure?" %>
+                <%= link_to "The contract paid", transaction_path(t, 
                             :transaction => { :payment => true}),
                             :method => :put, 
-                            :confirm => "Вы уверены?" %>
+                            :confirm => "Are you sure?" %>
               </ul>
             </div>
         </td>
         <td class="actions-buttons">
-          <%= link_to eye_icon, transaction_path(t), :title => "Просмотр" %>
+          <%= link_to eye_icon, transaction_path(t), :title => "View" %>
           <%= link_to edit_icon, edit_transaction_path(t), 
-              :title => "Редактировать" %>
+              :title => "Edit" %>
           <%= link_to delete_icon, t, :method => :delete,
-                      :confirm => "Вы уверены?" %>
+                      :confirm => "Are you sure?" %>
         </td>
         <% elsif t.user_id == current_user.id %>
           <td class="id-table">
@@ -88,14 +88,14 @@
           </td>
           <td>
             <% if t.user_id == nil %>
-              Отсутствует
+              None
             <% else %>
               <%= link_to t.user.lastname, user_path(t.user) %>
             <% end %>
           </td>
           <td>
             <% if t.customer_id == nil %>
-              Отсутствует
+              None
             <% else %>
               <%= link_to t.customer.lastname, customer_path(t.customer) %>  
             <% end %>
@@ -105,7 +105,7 @@
           </td>
           <td class="id-table">
             <% if t.subject_id == nil %>
-              Отсутствует
+              None
             <% else %>
               <%= t.subject.address %>
             <% end %>
@@ -118,23 +118,23 @@
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <%= link_to "Сделка не оплачена", transaction_path(t, 
+                <%= link_to "The contract has not been paid", transaction_path(t, 
                             :transaction => { :payment => false }),
                             :method => :put, 
-                            :confirm => "Вы уверены?" %>
-                <%= link_to "Сделка оплачена", transaction_path(t, 
+                            :confirm => "Are you sure?" %>
+                <%= link_to "The contract paid", transaction_path(t, 
                             :transaction => { :payment => true}),
                             :method => :put, 
-                            :confirm => "Вы уверены?" %>
+                            :confirm => "Are you sure?" %>
               </ul>
             </div>
           </td>
           <td class="actions-buttons">
-            <%= link_to eye_icon, transaction_path(t), :title => "Просмотр" %>
+            <%= link_to eye_icon, transaction_path(t), :title => "View" %>
             <%= link_to edit_icon, edit_transaction_path(t), 
-                :title => "Редактировать" %>
+                :title => "Edit" %>
             <%= link_to delete_icon, t, :method => :delete,
-                        :confirm => "Вы уверены?" %>
+                        :confirm => "Are you sure?" %>
           </td>
         <% end %>
       </tr>

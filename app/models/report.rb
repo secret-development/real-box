@@ -2,20 +2,13 @@
 class Report < ActiveRecord::Base
   # finance report
   def self.total_dollar(date)
-    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "доллар").sum(:price)    
-  end
-  
-  def self.total_ru(date)
-    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "рубль").sum(:price)    
+    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "dollar").sum(:price)    
   end
   
   def self.total_euro(date)
-    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "евро").sum(:price)    
+    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "euro").sum(:price)    
   end
   
-  def self.total_tg(date)
-    Transaction.where("date(created_at) = ? AND price_currency = ?", date, "тенге").sum(:price)    
-  end
   
   # activ users report
   def self.find_user(user)
@@ -32,6 +25,30 @@ class Report < ActiveRecord::Base
     tran = @u.transactions.where("date(created_at) = ?", date).count(:id)
     summa = (cust + sub + tran)/3.0
     return summa.to_f.round(3)
+  end
+  
+  def self.select_period(period)
+    @period = period
+    case @period
+    when "Week"
+      @data = 1.weeks
+      @head = "Week"
+    when "Month"
+      @data = 1.months
+      @head = "Month"
+    when "Quarter"
+      @data = 3.months
+      @head = "Quarter"
+    when "Year"
+      @data = 1.years
+      @head = "Year"
+    end        
+  end
+  def self.return_period
+    @data
+  end
+  def self.return_head
+    @head    
   end
   
   #GENERAL 
@@ -58,18 +75,5 @@ class Report < ActiveRecord::Base
   
   def self.subjects_add(date)
     Subject.where("date(created_at) = ?", date).count(:id)    
-  end
-  
-#  def self.activ_user_cust(date)
-#    @u.customers.where("date(created_at) = ?", date).count(:id)        
-#  end
-#  
-#  def self.activ_user_sub(date)
-#    @u.subjects.where("date(created_at) = ?", date).count(:id)    
-#  end
-#  
-#  def self.activ_user_tran(date)
-#    @u.transactions.where("date(created_at) = ?", date).count(:id)    
-#  end
-     
+  end     
 end

@@ -5,20 +5,20 @@
     <fieldset>
       <legend><%= @task.legend %></legend>
       <div class="control-group">
-        <%= f.label :title, "Название:" %>
+        <%= f.label :title, "Title:" %>
         <div class="controls">
           <%= f.text_field :title %>  
         </div>
       </div>
       <div class="control-group">
-        <%= f.label :description, "Описание:" %>
+        <%= f.label :description, "Description:" %>
         <div class="controls"> 
           <%= f.text_area :description, :rows => "8", :class => "span4" %>  
         </div>
       </div>
       <% if current_user.role? %>
       <div class="control-group">
-        <%= f.label :user_id, "Ответственный" %>
+        <%= f.label :user_id, "Responsible" %>
         <div class="controls">
           <%= f.collection_select(:user_id, User.all, :id, :lastname) %>
         </div>
@@ -29,7 +29,7 @@
         <%= f.hidden_field :admin, :value => false %>
       <% end %>
       <div class="control-group">
-        <%= f.label :deadline, "Дедлайн:" %>
+        <%= f.label :deadline, "Deadline:" %>
         <div class="controls">
           <%= f.text_field :deadline %>
             <script type="text/javascript">
@@ -42,7 +42,7 @@
       <%= f.hidden_field :done, :value => false %>
       <div class="form-actions">
         <%= f.submit @task.button_value, :class => "btn btn-primary" %>
-        <button type="reset" class="btn cancel-form">Отмена</button>
+        <button type="reset" class="btn cancel-form">Cancel</button>
       </div>
     </fieldset>
   <% end %>

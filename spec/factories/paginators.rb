@@ -3,7 +3,7 @@
 
 FactoryGirl.define do
   factory :paginator do
-    resource "объекты"
+    resource "objects"
     paginate 10
   end
 end

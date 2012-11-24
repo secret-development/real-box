@@ -9,26 +9,26 @@ class TypesubjectsController < ApplicationController
   
   def index
     @typesubjects = Typesubject.all
-    @title = "Типы недвижимости"
+    @title = "Property types"
     respond_with(@typesubjects)
   end
   
   def new
     @typesubject = Typesubject.new
-    @title = "Добавление типа"
+    @title = "Adding types"
     respond_with(@typesubject)
   end
   
   def edit
     @typesubject = Typesubject.find(params[:id])
-    @title = "Редактирование типа"
+    @title = "Editing type"
     respond_with(@typesubject)
   end
   
   def create
     @typesubject = Typesubject.new(params[:typesubject])
     if @typesubject.save
-      flash[:notice] = "Тип объекта успешно добавлен"
+      flash[:notice] = "Object type has been added"
       respond_with(@typesubject, :location => typesubjects_path)
     else
       render 'new'
@@ -38,7 +38,7 @@ class TypesubjectsController < ApplicationController
   def update
     @typesubject = Typesubject.find(params[:id])
     if @typesubject.update_attributes(params[:typesubject])
-      flash[:notice] = "Тип объекта успешно обновлён"
+      flash[:notice] = "Object type has been successfully updated"
       respond_with(@typesubject, :location => typesubjects_path)
     else
       render 'edit'
@@ -48,7 +48,7 @@ class TypesubjectsController < ApplicationController
   def destroy
     @typesubject = Typesubject.find(params[:id])
     @typesubject.destroy
-    flash[:notice] = "Тип объекта успешно удалён"
+    flash[:notice] = "Type of object is successfully removed"
     redirect_to typesubjects_path
   end
   

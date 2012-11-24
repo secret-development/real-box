@@ -1,34 +1,34 @@
-<h1 class="title-page"><%= link_to "Задачи", tasks_path %> → Информация о задаче</h1>
+<h1 class="title-page"><%= link_to "Tasks", tasks_path %> → Information about the task</h1>
 <div id="show-task">
-  <h6>Задача № <%= @task.id %></h6>
+  <h6>Task № <%= @task.id %></h6>
   <div class="field-task">
-    <span class="title-field">Суть задачи:</span>
+    <span class="title-field">Title:</span>
     <%= @task.title %>
   </div>
   <div class="field-task">
-    <span class="title-field">Ответственный:</span>
+    <span class="title-field">Responsible:</span>
     <% if @task.user_id == nil %>
-      Отсутствует
+      None
     <% else %>
       <%= link_to(@task.user.fullname, user_path(@task.user)) %>
     <% end %>
   </div>
   <div class="field-task">
-    <span class="title-field">Дата постановки:</span>
+    <span class="title-field">Date of posting:</span>
     <%= to_datetime(@task.created_at) %>
   </div>
   <div class="field-task">
-    <span class="title-field">Описание задачи:</span>
+    <span class="title-field">Description:</span>
   </div>
   <div class="task-desc">
     <%= raw @task.description %>
   </div>
   <div class="field-task">
-    <span class="title-field">Дедлайн:</span>
+    <span class="title-field">Deadline:</span>
     <%= to_datetime(@task.deadline) %>
   </div>
   <div class="field-task">
-    <span class="title-field">Готово:</span>
+    <span class="title-field">Done:</span>
     <%= @task.status %>
   </div>
   <div id="clear"></div>

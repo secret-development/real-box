@@ -1,23 +1,24 @@
 <h1 class="title-page">
-  <%= link_to "Настройки", settings_path %> → Доступ к клиентам
+  <%= link_to "Settings", settings_path %> → Access to customers
 </h1>
 <%= flash_msg(flash[:notice]) %>
 <div class="description-access">
-  <p>По умолчанию доступ к контактным данным клиентов и редактированию имеет весь персонал.</p>
-  <p>Если вы хотите ограничить этот доступ, то видеть контактные данные и возможность редактировать клиента сможет тот агент, который добавил данного клиента.</p>
+  <p>By default, access to the contact information of clients and has edited all the staff.</p>
+  <p>If you want to restrict this access, see the contact information, and the client will be able to edit one agent, who added that customer.
+</p>
   <div class="for-access">
-    Доступ к клиентам можно ограничить только для агентов
+    Access to customers can be limited only to agents
   </div>
 </div>
 <%= form_for(@customeraccess, :html => {:class => "form-horizontal customeraccess-form"}) do |f| %>
   <div class="control-group">
-    <%= f.label :access, "Доступ:" %>  
+    <%= f.label :access, "Access:" %>  
     <div class="controls">
       <%= f.select :access, Customeraccess.types %>
     </div>
   </div>
   <div class="form-actions">
-    <%= f.submit "Настроить", :class => "btn btn-primary" %>
-    <button type="reset" class="btn cancel-form">Отмена</button>
+    <%= f.submit "Tune in", :class => "btn btn-primary" %>
+    <button type="reset" class="btn cancel-form">Cancel</button>
   </div>
 <% end %>

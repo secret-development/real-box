@@ -9,7 +9,7 @@ class DocumentsController < ApplicationController
   def create
     respond_to do |format|
       unless @document.save
-        flash[:error] = "К сожалению, загрузить документ не удалось"
+        flash[:error] = "Sorry, could not load the document"
       end
       format.js do
         render :text => render_to_string(:partial => "documents/document", :locals => {:document => @document})
@@ -20,7 +20,7 @@ class DocumentsController < ApplicationController
   def destroy
     respond_to do |format|
       unless @document.destroy
-        flash[:error] = "К сожалению, удалить документ не удалось"
+        flash[:error] = "Sorry, the document could not be removed"
       end
       format.js
     end

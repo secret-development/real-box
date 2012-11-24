@@ -59,17 +59,17 @@ class Customer < ActiveRecord::Base
   
   def button_value
     if new_record?
-      "Добавить"
+      "Add"
     else
-      "Редактировать"      
+      "Edit"      
     end    
   end
   
   def legend_value
     if new_record?
-      "Добавление клиента"
+      "Adding customer"
     else 
-      "Редактирование клиента"      
+      "Editing customer"      
     end    
   end
   

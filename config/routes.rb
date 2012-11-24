@@ -35,7 +35,6 @@ Crm::Application.routes.draw do
   end
   
   resources :subjects do
-    resources :photos, :only => [:create, :destroy]
     get 'add_properties', :on => :member, :as => :add_properties
     get 'add_photo', :on => :member, :as => :add_photo
     get 'guest', :on => :member, :as => :guest
@@ -44,7 +43,7 @@ Crm::Application.routes.draw do
     # scopes:
     get 'active', :on => :collection
     get 'inactive', :on => :collection
-    
+    resources :photos, :only => [:create, :destroy]
   end
   
   resources :transactions do

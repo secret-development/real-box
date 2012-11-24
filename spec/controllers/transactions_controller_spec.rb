@@ -8,21 +8,21 @@ describe TransactionsController do
   
   before(:each) do
     # login
-    @user = Factory(:user)
+    @user = FactoryGirl.create(:user)
     test_log_in(@user)
     # end login
     
-    @typetransaction = Factory(:typetransaction)
+    @typetransaction = FactoryGirl.create(:typetransaction)
 
-    city = Factory(:city)
-    @typesubject = Factory(:typesubject)
-    @customer = Factory(:customer)
-    @district = Factory(:district)
-    @subject = Factory(:subject, :typesubject => @typesubject, :city => city,
+    city = FactoryGirl.create(:city)
+    @typesubject = FactoryGirl.create(:typesubject)
+    @customer = FactoryGirl.create(:customer)
+    @district = FactoryGirl.create(:district)
+    @subject = FactoryGirl.create(:subject, :typesubject => @typesubject, :city => city,
               :typetransaction => @typetransaction, :customer => @customer,
               :district => @district)
 
-    @transaction = Factory(:transaction, :typetransaction => @typetransaction,
+    @transaction = FactoryGirl.create(:transaction, :typetransaction => @typetransaction,
                   :user => @user, :user_lastname => @user.lastname, 
                   :customer => @customer, :subject => @subject)
                   
@@ -95,7 +95,7 @@ describe TransactionsController do
       
       it "should have a success message" do
         post :create, :transaction => @attr
-        flash[:notice].should =~ /Сделка успешно добавлена/
+        flash[:notice].should =~ /The contract was successfully added/
       end
       
     end
@@ -142,7 +142,7 @@ describe TransactionsController do
       
       it "should have success message" do
         put :update, :id => @transaction, :transaction => @attr
-        flash[:notice].should =~ /Сделка успешно обновлена/i
+        flash[:notice].should =~ /The contract has been successfully updated/i
       end
       
     end
@@ -164,7 +164,7 @@ describe TransactionsController do
     
     it "should have success message" do
       delete :destroy, :id => @transaction
-      flash[:notice].should =~ /Сделка успешно удалена/i
+      flash[:notice].should =~ /The contract was successfully removed/i
     end
     
   end

@@ -8,11 +8,11 @@ describe TypesubjectsController do
   
   before(:each) do
     # start auth
-    @user = Factory(:user)
+    @user = FactoryGirl.create(:user)
     test_log_in(@user)
     # end auth
     
-    @typesubject = Factory(:typesubject)
+    @typesubject = FactoryGirl.create(:typesubject)
   end
   
   it "get :index" do
@@ -68,7 +68,7 @@ describe TypesubjectsController do
       
       it "should have a success message" do
         post :create, :typesubject => @attr
-        flash[:notice].should =~ /Тип объекта успешно добавлен/i
+        flash[:notice].should =~ /Object type has been added/i
       end
     end
   end
@@ -114,7 +114,7 @@ describe TypesubjectsController do
       it "should success message" do
         put :update, :id => @typesubject.id,
             :typesubject => @attr
-        flash[:notice].should =~ /Тип объекта успешно обновлён/i
+        flash[:notice].should =~ /Object type has been successfully updated/i
       end
     end
   end
@@ -133,7 +133,7 @@ describe TypesubjectsController do
     
     it "should success message" do
       delete :destroy, :id => @typesubject
-      flash[:notice].should =~ /Тип объекта успешно удалён/i
+      flash[:notice].should =~ /Type of object is successfully removed/i
     end
   end
   

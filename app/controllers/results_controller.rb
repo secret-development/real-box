@@ -7,12 +7,12 @@ class ResultsController < ApplicationController
   before_filter :check_fired
   
   def index
-    @title = "Поиск"
+    @title = "Search"
     @search = Subject.search(params[:search])
     if params[:search]
       @subjects = @search.page(params[:page]).per(page_paginate)
       if @subjects.size == 0
-        flash.now[:alert] = "Ничего не найдено"
+        flash.now[:alert] = "Nothing found"
       end
       respond_with(@subjects)
     end
@@ -21,8 +21,8 @@ class ResultsController < ApplicationController
   private
   
     def page_paginate
-      if Paginator.find_by_resource("поиск")
-        Paginator.find_by_resource("поиск").paginate
+      if Paginator.find_by_resource("search")
+        Paginator.find_by_resource("search").paginate
       else
         25
       end

@@ -6,11 +6,11 @@ describe PaginatorsController do
   
   before(:each) do
     # start auth
-    @user = Factory(:user)
+    @user = FactoryGirl.create(:user)
     test_log_in(@user)
     # end auth
     
-    @paginator = Factory(:paginator)
+    @paginator = FactoryGirl.create(:paginator)
   end
   
   it "get index" do
@@ -59,7 +59,7 @@ describe PaginatorsController do
       
       it "should have success message" do
         put :update, :id => @paginator, :paginator => @attr
-        flash[:notice].should =~ /Постраничный вывод успешно обновлен/i
+        flash[:notice].should =~ /Paginal show successfully updated/i
       end
       
     end

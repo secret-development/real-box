@@ -1,35 +1,35 @@
 <div class="row">
   <div class="span12" id="subjects-results">
     <% if @subjects %>
-      <h1 class="subjects-results-title">Результат:</h1>
+      <h1 class="subjects-results-title">Result:</h1>
       <div id="sort-search-subjects">
-        <span class="sort-search-title">Сортировать по:</span>
-        <%= sort_link @search, :price, "по цене" %> | 
-        <%= sort_link @search, :area, "по площади" %> |
-        <%= sort_link @search, :created_at, "по дате добавления" %>
+        <span class="sort-search-title">Sort by:</span>
+        <%= sort_link @search, :price, "price" %> | 
+        <%= sort_link @search, :area, "area" %> |
+        <%= sort_link @search, :created_at, "updated" %>
       </div>
       <% @subjects.each do |s| %>
         <div class="sub-one">
           <div class="photo-sub">
             <% if isset_photo?(s) %>
               <%= link_to(image_tag(s.photos.first.image_url(:thumb),                     
-                  :title => "#{s.photos.size} фото"), s) %>
+                  :title => "#{s.photos.size} photo"), s) %>
                   <div class="overimage">
                     <span class="overimage-field">
-                      Цена: <%= price_currency(s) %>
+                      Price: <%= price_currency(s) %>
                     </span>
                     <span class="overimage-field">
-                      Площадь: <%= isset_data(s.area) %> м&sup2;
+                      Area: <%= isset_data(s.area) %> м&sup2;
                     </span>
                   </div>
             <% else %>
-              <%= link_to(image_tag("no-photo.gif", :title => "Нет фото"), s) %>
+              <%= link_to(image_tag("no-photo.gif", :title => "No photo"), s) %>
                   <div class="overimage">
                     <span class="overimage-field">
-                      Цена: <%= price_currency(s) %>
+                      Price: <%= price_currency(s) %>
                     </span>
                     <span class="overimage-field">
-                      Площадь: <%= isset_data(s.area) %> м&sup2;
+                      Area: <%= isset_data(s.area) %> м&sup2;
                     </span>
                   </div>
             <% end %>
@@ -38,9 +38,9 @@
             <div class="main-info-about-subject">
               <% if s.active == true %>
                 <div class="active-sub">
-                  <%= link_to s.typesubject.name, s%>
+                  <%= link_to s.typesubject.name, s %>
                   <div class="info-price-subject">
-                    за <%= price_currency(s) %>
+                    <%= price_currency(s) %>
                   </div>
                   <% if have_object?(s.room) %>
                     <div class="room-subject-title">
@@ -50,9 +50,9 @@
                 </div>
               <% else %>
               <div class="inactive-sub">
-                <%= link_to s.typesubject.name, s%>
+                <%= link_to s.typesubject.name, s %>
                 <div class="info-price-subject">
-                  за <%= price_currency(s) %>
+                  <%= price_currency(s) %>
                 </div>
                 <% if have_object?(s.room) %>
                   <div class="room-subject-title">
@@ -64,33 +64,33 @@
             </div>
             <div class="other-info-subject">
               <div class="field-other">
-                Адресс: <%= s.address %>
+                Address: <%= s.address %>
               </div>
               <% if have_object?(s.floor) %>
                 <div class="field-other">
-                  Этаж: <%= s.floor %>
+                  Floor: <%= s.floor %>
                 </div>
               <% end %>
               <% if have_object?(s.floorall) %>
                 <div class="field-other">
-                  Этажность: <%= s.floorall %>
+                  Number of floors: <%= s.floorall %>
                 </div>
               <% end %>
               <% if have_object?(s.resident) %>
                 <div class="field-other">
-                  ЖК: <%= s.resident.title %>
+                  Apartament complex: <%= s.resident.title %>
                 </div>
               <% end %>
               <% if have_object?(s.district) %>
                 <div class="field-other">
-                  Район: <%= s.district.title %>
+                  District: <%= s.district.title %>
                 </div>
               <% end %>
               <div class="advanced-info">
                 <%= puts_properties(s) %>
               </div>
               <div class="field-other small-field-subject">
-                Дата добавления: <%= to_date(s.created_at) %>
+                Created at: <%= to_date(s.created_at) %>
               </div>
             </div>
             

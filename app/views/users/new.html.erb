@@ -3,28 +3,28 @@
     <%= error_messages_for(@user) %>
     <legend> <%= @user.legend_value %></legend>
     <div class="control-group">
-      <%= f.label :lastname, "Фамилия" %>
+      <%= f.label :lastname, "Lastname" %>
       <div class="controls">
         <%= f.text_field :lastname %>
       </div>
     </div>
     
     <div class="control-group">
-      <%= f.label :firstname, "Имя" %>
+      <%= f.label :firstname, "Firstname" %>
       <div class="controls">
         <%= f.text_field :firstname %>
       </div>
     </div>
     
     <div class="control-group">
-      <%= f.label :phonehome, "Дом. телефон" %>
+      <%= f.label :phonehome, "Home phone" %>
       <div class="controls">
         <%= f.text_field :phonehome %>
       </div>
     </div>
     
     <div class="control-group">
-      <%= f.label :phonemobile, "Сот. телефон" %>
+      <%= f.label :phonemobile, "Mobile phone" %>
         <div class="controls">
           <span class="phone-area-start">+7</span>
           <%= f.text_field :area_code, :id =>"area_code", :maxlength => 3, :class => "input-mphone" %> - 
@@ -34,7 +34,7 @@
     </div>
     
     <div class="control-group">
-      <%= f.label :email, "Почтовый адрес" %>
+      <%= f.label :email, "e-mail" %>
       <div class="controls">
       <%= f.email_field :email %>
       </div>
@@ -47,14 +47,14 @@
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :password_confirmation, "Повторите пароль" %>
+      <%= f.label :password_confirmation, "Confirm password" %>
       <div class="controls">
       <%= f.password_field :password_confirmation %>
       </div>
     </div>
     <% if current_user.role? %>  
     <div class="control-group">
-      <%= f.label :role, "Администратор" %>
+      <%= f.label :role, "Administrator" %>
       <div class="controls">
       <%= f.check_box :role %>
       </div>
@@ -62,8 +62,8 @@
     <% else %>
     <% end %>  
     <div class="form-actions"> 
-      <%= f.submit "Создать", :class => "btn btn-primary" %>
-      <button type="reset" class="btn cancel-form">Отмена</button>
+      <%= f.submit "Create", :class => "btn btn-primary" %>
+      <button type="reset" class="btn cancel-form">Cancel</button>
     </div>
   </fieldset>  
 <% end %>

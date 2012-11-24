@@ -6,28 +6,28 @@ describe Transaction do
   
   before(:each) do
 
-    @user = Factory(:user)
-    @city = Factory(:city)
-    @typesubject = Factory(:typesubject)
-    @district = Factory(:district)
-    @customer = Factory(:customer)
-    @typetransaction = Factory(:typetransaction)
+    @user = FactoryGirl.create(:user)
+    @city = FactoryGirl.create(:city)
+    @typesubject = FactoryGirl.create(:typesubject)
+    @district = FactoryGirl.create(:district)
+    @customer = FactoryGirl.create(:customer)
+    @typetransaction = FactoryGirl.create(:typetransaction)
     # subject active false
-    @subject_active_false = Factory(:subject_active_false, :typesubject => @typesubject, :city => @city, :customer => @customer, :district => @district)
+    @subject_active_false = FactoryGirl.create(:subject_active_false, :typesubject => @typesubject, :city => @city, :customer => @customer, :district => @district)
     # subject active true
-    @subject = Factory(:subject, :typesubject => @typesubject, :city => @city, 
+    @subject = FactoryGirl.create(:subject, :typesubject => @typesubject, :city => @city, 
         :customer => @customer, :district => @district)
 
-    @transaction = Factory(:transaction, :typetransaction => @typetransaction,
+    @transaction = FactoryGirl.create(:transaction, :typetransaction => @typetransaction,
                     :user => @user, :customer => @customer,
                     :subject => @subject, :user_lastname => @user.lastname)
     
     # price_currency
     @pricecur = {
-      "тенге" => "тенге",
-      "доллар" => "доллар",
-      "евро" => "евро",
-      "рубль" => "рубль"
+      "dollar" => "dollar",
+      "kzt" => "kzt",
+      "euro" => "euro",
+      "ruble" => "ruble"
     }
     
     # attr
@@ -40,7 +40,7 @@ describe Transaction do
       :customer_id => @customer.id,
       :subject_id => @subject.id,
       :typetransaction_id => @typetransaction.id,
-      :price_currency => @pricecur["доллар"],
+      :price_currency => @pricecur["dollar"],
       :user_lastname => @user.lastname
     }
     
@@ -203,54 +203,54 @@ describe Transaction do
     
     describe "payment methods" do
       
-      it "should write 'Сделка оплачена' if payment is true" do
+      it "should write 'The deal paid' if payment is true" do
         @transaction = Transaction.new(:payment => true)
-        @transaction.payment_value.should eql("Сделка оплачена")
+        @transaction.payment_value.should eql("The deal paid")
       end
       
-      it "should write 'Сделка не оплачена' if payment is false" do
+      it "should write 'The deal has not been paid' if payment is false" do
         @transaction = Transaction.new(:payment => false)
-        @transaction.payment_value.should eql("Сделка не оплачена")
+        @transaction.payment_value.should eql("The deal has not been paid")
       end
       
-      it "should write 'Да ' if payment is true" do
+      it "should write 'Yes ' if payment is true" do
         @transaction = Transaction.new(:payment => true)
-        @transaction.payment_short.should eql("Да ")
+        @transaction.payment_short.should eql("Yes ")
       end
       
-      it "should write 'Нет' if payment is false" do
+      it "should write 'No' if payment is false" do
         @transaction = Transaction.new(:payment => false)
-        @transaction.payment_short.should eql("Нет")
+        @transaction.payment_short.should eql("No")
       end
       
     end
     
     describe "legend method" do
       
-      it "should write 'Добавление' if new record" do
+      it "should write 'Adding' if new record" do
         @transaction = Transaction.new(@attr)
-        @transaction.legend.should == "Добавление"
+        @transaction.legend.should == "Adding"
       end
       
-      it "should write 'Редактирование' if it is not" do
+      it "should write 'Editing' if it is not" do
         @transaction = Transaction.new(@attr)
         @transaction.save  
-        @transaction.legend.should == "Редактирование"
+        @transaction.legend.should == "Editing"
       end
       
     end
     
     describe "button_value method" do
       
-      it "should write 'Добавить' if new record" do
+      it "should write 'Add' if new record" do
         @transaction = Transaction.new(@attr)
-        @transaction.button_value.should == "Добавить"
+        @transaction.button_value.should == "Add"
       end
         
-      it "should write 'Добавить' if it is not" do
+      it "should write 'Edit' if it is not" do
         @transaction = Transaction.new(@attr)
         @transaction.save    
-        @transaction.button_value.should == "Обновить"
+        @transaction.button_value.should == "Edit"
       end
       
     end

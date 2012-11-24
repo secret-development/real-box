@@ -7,21 +7,21 @@ class DistrictsController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @title = "Районы"
+    @title = "Districts"
     @cities = City.all
     respond_with(@cities)
   end
   
   def edit
     @district = District.find(params[:id])
-    @title = "Редактирование района"
+    @title = "Editing district"
     respond_with(@district)
   end
   
   def update
     @district = District.find(params[:id])
     if @district.update_attributes(params[:district])
-      flash[:notice] = "Район успешно обновлён"
+      flash[:notice] = "District successfully updated"
       respond_with(@district, :location => districts_path)
     else
       render 'edit'
@@ -31,7 +31,7 @@ class DistrictsController < ApplicationController
   def destroy
     @district = District.find(params[:id])
     @district.destroy
-    flash[:notice] = "Район успешно удалён"
+    flash[:notice] = "District successfully removed"
     redirect_to districts_path
   end
   

@@ -1,57 +1,57 @@
-<h1 class="title-page"><%= link_to "Сделки", transactions_path %> → Информация о сделке</h1>
+<h1 class="title-page"><%= link_to "Contracts", transactions_path %> → Information about contract</h1>
 <%= flash_msg(flash[:notice]) %>
 <div id="show-transaction">
-  <h6>Сделка № <%= @transaction.id %></h6>
+  <h6>Contract № <%= @transaction.id %></h6>
   <div class="field-transaction">
-    <span class="title-field"><b>Сделка:</b></span>
+    <span class="title-field"><b>Title:</b></span>
     <b><%= @transaction.name %></b>
   </div>
   <div class="field-transaction">
-    <span class="title-field"><b>Тип сделки:</b></span>
+    <span class="title-field"><b>Type of contract:</b></span>
     <b><%= @transaction.typetransaction.name %></b>
   </div>
   <div class="field-transaction">
-    <span class="title-field"><b>Оплата:</b></span>
+    <span class="title-field"><b>Payment:</b></span>
     <b><%= @transaction.payment_value %></b>
   </div>
   <div class="field-transaction">
-    <span class="title-field">Ответственный:</span>
+    <span class="title-field">Responsible:</span>
     <% if @transaction.user_id == nil %>
-      Отсутствует
+      None
     <% else %>      
       <%= link_to(@transaction.user.fullname, user_path(@transaction.user)) %>  
     <% end %>
   </div>
   <div class="field-transaction">
-    <span class="title-field">Клиент:</span>
+    <span class="title-field">Customer:</span>
     <%= link_to(@transaction.customer.fullname,
                 customer_path(@transaction.customer)) %>
   </div>
   <div class="field-transaction">
-    <span class="title-field">Объект сделки:</span>
+    <span class="title-field">Object of the contract:</span>
     <% if @transaction.subject == nil %>
-      Отсутствует
+      None
     <% else %>
       <%= link_to(@transaction.subject.address,
           subject_path(@transaction.subject)) %>
     <% end %>
   </div>
   <div class="field-transaction">
-    <span class="title-field">Сумма:</span>
+    <span class="title-field">Sum:</span>
     <%= price_currency(@transaction) %>
   </div>
   <div class="field-transaction">
-    <span class="title-field">Дата:</span>
+    <span class="title-field">Date:</span>
     <%= to_formatted_date(@transaction.created_at) %>
   </div>
   <div class="field-transaction">
-    <span class="title-field">Описание сделки:</span>
+    <span class="title-field">Details of the contract:</span>
   </div>
   <div class="transaction-desc">
     <%= raw @transaction.description %>
   </div>
   <% unless @transaction.documents.size == 0 %>
-   <h8><%= link_to "Прикрепленные документы:",
+   <h8><%= link_to "Attached documents:",
                     add_document_transaction_path(@transaction) %></h8>
   <div class="doc-field">
     <% @transaction.documents.each do |d| %>
@@ -67,15 +67,15 @@
   <div class="clear"></div>
   <div class="actions-with-transaction">
     <% if current_user.role? || @transaction.user_id == current_user.id %>
-    <%= link_to edit_icon + " Редактировать",
+    <%= link_to edit_icon + " Edit",
         edit_transaction_path(@transaction), 
         :class => "btn" %>
-    <%= link_to delete_icon + " Удалить",
+    <%= link_to delete_icon + " Remove",
         @transaction, :method => :delete,
-        :confirm => "Вы уверены?",
+        :confirm => "Are you sure?",
         :class => "btn" %>
     <% end %>
-    <%= link_to list_icon + " Прикрепить документ", 
+    <%= link_to list_icon + " Attach a document", 
         add_document_transaction_path(@transaction), 
         :class => "btn" %>
   </div>

@@ -9,27 +9,27 @@ class SocialStatusesController < ApplicationController
   
   def index
     @socialstatuses = SocialStatus.all
-    @title = "Социальные статусы"
+    @title = "Social statuses"
     respond_with @socialstatuses    
   end
   
   def new
     @socialstatus = SocialStatus.new
-    @title = "Добавление социального статуса"
+    @title = "Adding social status"
     respond_with @socialstatus    
   end
 
   
   def edit
     @socialstatus = SocialStatus.find(params[:id])
-    @title = "Редактирование социального статуса"
+    @title = "Editing social status"
     respond_with @socialstatus    
   end
   
   def create
     @socialstatus = SocialStatus.new(params[:social_status])
     if @socialstatus.save
-      flash[:notice] = "Социальный статус создан!"
+      flash[:notice] = "Social status successfully created"
       respond_with(@socialstatus, :location => social_statuses_path)
     else
       render 'new'      
@@ -39,7 +39,7 @@ class SocialStatusesController < ApplicationController
   def update
     @socialstatus = SocialStatus.find(params[:id])
     if @socialstatus.update_attributes(params[:social_status])
-      flash[:notice] = "Социальный статус обновлен!"
+      flash[:notice] = "Social status successfully updated"
       respond_with(@socialstatus, :location => social_statuses_path)
     else
       render 'edit'      
@@ -50,6 +50,6 @@ class SocialStatusesController < ApplicationController
     @socialstatus = SocialStatus.find(params[:id])
     @socialstatus.destroy
     redirect_to social_statuses_path
-    flash[:notice] = "Социальный статус удален!"    
+    flash[:notice] = "Social status successfully removed"
   end  
 end

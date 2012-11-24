@@ -2,16 +2,16 @@
   {:class => 'form-horizontal district-form-validation'}) do |f| %>
   <%= error_messages_for(@district) %>
   <fieldset>
-    <legend>Редактирование района</legend>
+    <legend>Editing district</legend>
     <div class="control-group">
-      <%= f.label :title, "Название:" %>
+      <%= f.label :title, "Title:" %>
       <div class="controls">
         <%= f.text_field :title %>
       </div>
     </div>
     <div class="form-actions">
-      <%= f.submit "Редактировать", :class => "btn btn-primary" %>
-      <button type="reset" class="btn cancel-form">Отмена</button>
+      <%= f.submit "Edit", :class => "btn btn-primary" %>
+      <button type="reset" class="btn cancel-form">Cancel</button>
     </div>
   </fieldset>
 <% end %>

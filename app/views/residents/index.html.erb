@@ -1,5 +1,5 @@
 <h1 class="title-page">
-  <%= link_to "Настройки", settings_path %> → Жилые комплексы
+  <%= link_to "Settings", settings_path %> → Apartment complexes
 </h1>
 <%= flash_msg(flash[:notice]) %>
 <% @cities.each do |c| %>
@@ -12,8 +12,8 @@
             <%= r.title %>
           </span>
           <span class="actions-with-d">
-            <%= link_to edit_icon, edit_resident_path(r), :rel => "tooltip", :title => "Редактировать" %>
-            <%= link_to delete_icon, r, :method => :delete, :confirm => "Вы уверены?", :rel => "tooltip", :title => "Удалить (нежелательно)" %>
+            <%= link_to edit_icon, edit_resident_path(r), :rel => "tooltip", :title => "Edit" %>
+            <%= link_to delete_icon, r, :method => :delete, :confirm => "Are you sure?", :rel => "tooltip", :title => "Remove (undesirable)" %>
           </span>
         </div>
       <% end %>

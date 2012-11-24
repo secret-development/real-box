@@ -4,33 +4,33 @@
   <fieldset>
     <legend><%= @typesubject.legend_value %></legend>
     <div class="control-group">
-      <%= f.label :name, "Название:" %>
+      <%= f.label :name, "Title:" %>
       <div class="controls">
-        <%= f.text_field :name, :placeholder => "Коттедж..." %>
+        <%= f.text_field :name, :placeholder => "Cottage..." %>
       </div>
     </div>
-    <h3 class="advanced-options-for-typesubject">Важны ли следующие опции?</h3>
+    <h3 class="advanced-options-for-typesubject">Important whether the following options?</h3>
     <div class="control-group">
-      <%= f.label :floor, "Жилые комплексы:" %>
+      <%= f.label :floor, "Apartment complexes:" %>
       <div class="controls">
-        <%= select('typesubject', 'resident', [["Да",true],["Нет",false]]) %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :floor, "Этажность:" %>
-      <div class="controls">
-        <%= select('typesubject', 'floor', [["Да",true],["Нет",false]]) %>
+        <%= select('typesubject', 'resident', [["Yes",true],["No",false]]) %>
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :room, "Количество комнат:" %>
+      <%= f.label :floor, "Number of floors:" %>
       <div class="controls">
-        <%= select('typesubject', 'room', [["Да",true],["Нет",false]]) %>  
+        <%= select('typesubject', 'floor', [["Yes",true],["No",false]]) %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :room, "Number of rooms:" %>
+      <div class="controls">
+        <%= select('typesubject', 'room', [["Yes",true],["No",false]]) %>  
       </div>
     </div>
     <div class="form-actions">
       <%= f.submit @typesubject.button_value, :class => "btn btn-primary" %>
-      <button type="reset" class="btn cancel-form">Отмена</button>
+      <button type="reset" class="btn cancel-form">Cancel</button>
     </div>
   </fieldset>
 <% end %>

@@ -2,15 +2,15 @@
   <thead>
     <tr>
       <th><%= sortable "id", "№" %></th>
-      <th><%= sortable "typetransaction_id", "Сделка" %></th>
-      <th><%= sortable "lastname", "Фамилия" %></th>
-      <th><%= sortable "firstname", "Имя" %></th>
-      <th><%= sortable "social_status_id", "Соц. статус" %></th>
-      <th>Дом. телефон</th>
-      <th>Сот. телефон</th>
-      <th>Добавить объект</th>
-      <th>Заключить сделку</th>
-      <th>Действия</th>
+      <th><%= sortable "typetransaction_id", "Contract" %></th>
+      <th><%= sortable "lastname", "Lastname" %></th>
+      <th><%= sortable "firstname", "Name" %></th>
+      <th><%= sortable "social_status_id", "Social status" %></th>
+      <th>Home phone</th>
+      <th>Mobile phone</th>
+      <th>Add object</th>
+      <th>Conclude contract</th>
+      <th>Actions</th>
     </tr>
   </thead>
    
@@ -25,39 +25,39 @@
           <% if have_object?(p.social_status) %>
             <%= p.social_status.title %>
           <% else %>
-            Отсутствует
+            None
           <% end %>
         </td>
         <td class="id-table">
           <% if Customer.check_owner(current_user, p) %>
             <%= p.phonehome %>
           <% else %>
-            скрыт
+            hidden
           <% end %>
         </td>
         <td class="id-table">
           <% if Customer.check_owner(current_user, p) %>
             <%= p.phonemobile %>
           <% else %>
-            скрыт
+            hidden
           <% end %>
         </td>
         <td>
           <%= link_to plus_icon, new_subject_path(:customer_id => p.id), 
-              :title => "Добавить недвижимость" %>
+              :title => "Add real estate" %>
         </td>
         <td class="id-table">
           <span class="icon-trans-status">
             <%= customer_act?(p) %>  
           </span>
-          <%= link_to "Сделка", new_transaction_path(:customer_id => p.id) %>
+          <%= link_to "Contract", new_transaction_path(:customer_id => p.id) %>
         </td>
         <td class="actions-buttons">
-          <%= link_to eye_icon, customer_path(p), :title => "Подробнее", 
+          <%= link_to eye_icon, customer_path(p), :title => "More...", 
               :rel => "tooltip" %>
           <%= link_to edit_icon, edit_customer_path(p) %>
           <%= link_to delete_icon, p , :method => :delete, 
-              :confirm => "Вы уверены?" %>
+              :confirm => "Are you sure?" %>
         </td>
       </tr>
       <% end %>

@@ -22,15 +22,15 @@ class Task < ActiveRecord::Base
   after_validation :set_user_lastname
   
   def status
-    done == true ? "Да " : "Нет"
+    done == true ? "Yes " : "No"
   end
   
   def button_value
-    new_record? ? "Добавить" : "Обновить"
+    new_record? ? "Add" : "Edit"
   end
   
   def legend
-    new_record? ? "Добавление" : "Редактирование"
+    new_record? ? "Adding" : "Editing"
   end
   
   def date_for_validation

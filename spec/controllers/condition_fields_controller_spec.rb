@@ -6,11 +6,11 @@ describe ConditionFieldsController do
   
   before(:each) do
     # start auth
-    @user = Factory(:user)
+    @user = FactoryGirl.create(:user)
     test_log_in(@user)
     # end auth
-    typesubject = Factory(:typesubject)
-    @conditionfield = Factory(:condition_field, :typesubject => typesubject)
+    typesubject = FactoryGirl.create(:typesubject)
+    @conditionfield = FactoryGirl.create(:condition_field, :typesubject => typesubject)
   end
   
   it "get index" do
@@ -65,7 +65,7 @@ describe ConditionFieldsController do
       
       it "should have a success message" do
         post :create, :condition_field => @attr
-        flash[:notice].should =~ /Поле успешно добавлено/i
+        flash[:notice].should =~ /The field successfully added/i
       end
     end
     
@@ -112,7 +112,7 @@ describe ConditionFieldsController do
       it "should success messages" do
         put :update, :id => @conditionfield.id,
             :condition_field => @attr
-        flash[:notice].should =~ /Поле успешно обновлено/i
+        flash[:notice].should =~ /The field successfully updated/i
       end
     end
 
@@ -133,7 +133,7 @@ describe ConditionFieldsController do
     
     it "should success message" do
       delete :destroy, :id => @conditionfield.id
-      flash[:notice].should =~ /Поле успешно удалено/i
+      flash[:notice].should =~ /The field successfully removed/i
     end
   end
   

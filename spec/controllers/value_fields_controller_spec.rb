@@ -6,12 +6,12 @@ describe ValueFieldsController do
   
   before(:each) do
     # start auth
-    @user = Factory(:user)
+    @user = FactoryGirl.create(:user)
     test_log_in(@user)
     # end auth
-    @typesubject = Factory(:typesubject)
-    @conditionfield = Factory(:condition_field, :typesubject => @typesubject)
-    @valuefield = Factory(:value_field, :condition_field => @conditionfield)
+    @typesubject = FactoryGirl.create(:typesubject)
+    @conditionfield = FactoryGirl.create(:condition_field, :typesubject => @typesubject)
+    @valuefield = FactoryGirl.create(:value_field, :condition_field => @conditionfield)
     @attr = {
       :valuefield => "Нет",
       :condition_field_id => @conditionfield.id
@@ -71,7 +71,7 @@ describe ValueFieldsController do
       
       it "should success flash msg" do
         post :create, :value_field => @attr
-        flash[:notice].should =~ /Значение успешно добавлено/i
+        flash[:notice].should =~ /Value successfully created/i
       end
     end
   end
@@ -117,7 +117,7 @@ describe ValueFieldsController do
       it "should success message" do
         put :update, :id => @valuefield.id,
             :value_field => @attr
-        flash[:notice].should =~ /Значение успешно обновлено/i
+        flash[:notice].should =~ /Value successfully updated/i
       end
     end
   end
@@ -136,7 +136,7 @@ describe ValueFieldsController do
     
     it "should success message" do
       delete :destroy, :id => @valuefield.id
-      flash[:notice].should =~ /Значение успешно удалено/i
+      flash[:notice].should =~ /Value successfully removed/i
     end
   end
   

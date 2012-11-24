@@ -6,11 +6,11 @@ describe ResidentsController do
   
   before(:each) do
     # start auth
-    @user = Factory(:user)
+    @user = FactoryGirl.create(:user)
     test_log_in(@user)
     # end auth
-    @city = Factory(:city)
-    @resident = Factory(:resident, :city => @city)
+    @city = FactoryGirl.create(:city)
+    @resident = FactoryGirl.create(:resident, :city => @city)
   end
   
   it "get 'index'" do
@@ -59,7 +59,7 @@ describe ResidentsController do
       
       it "should have success message" do
         put :update, :id => @resident, :resident => @attr
-        flash[:notice].should =~ /ЖК успешно обновлён/i
+        flash[:notice].should =~ /Apartment Complex successfully updated/i
       end
     end
   end
@@ -79,7 +79,7 @@ describe ResidentsController do
     
     it "should have success message" do
       delete :destroy, :id => @resident
-      flash[:notice].should =~ /ЖК успешно удалён/i
+      flash[:notice].should =~ /Apartment Complex successfully removed/i
     end
   end
   

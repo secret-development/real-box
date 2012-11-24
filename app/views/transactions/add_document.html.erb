@@ -1,15 +1,15 @@
 <div class="alert alert-success" id="transaction-document-complete-msg">
   <a class="close" data-dismiss="alert">×</a>
-  Документ загружен успешно
+  The document is uploaded successfully
 </div>
 <%= form_for(@transaction, :html => 
   {:multipart => true,:class => "form-horizontal"}) do |f| %>
   <%= error_messages_for(@transaction) %>
   <fieldset>
-    <legend>Добавить документ</legend>
+    <legend>Add a document</legend>
   </fieldset>
   <div id="documents" class="well">
-    <h1>Документы:</h1>
+    <h1>Documents:</h1>
   <% key = Rails.application.config.session_options[:key] %>
   <script type="text/javascript">
   $(function(){
@@ -48,7 +48,7 @@
   </div>
   <div class="clear"></div>
   <div id="back-to-transaction">
-    <%= link_to icon_arrow_left_white + " Вернуться к сделке",
+    <%= link_to icon_arrow_left_white + " Back to the contract",
         transaction_path(@transaction), :class => "btn btn-primary" %>
   </div>
 <% end %>

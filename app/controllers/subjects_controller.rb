@@ -12,19 +12,19 @@ class SubjectsController < ApplicationController
   
   def index
     @subjects = Subject.order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
-    @title = "Объекты"
+    @title = "Objects"
   end
   
   # active
   def active
     @subjects = Subject.active_subjects.order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
-    @title = "Активные объекты"
+    @title = "Active objects"
   end
   
   # inactive
   def inactive
     @subjects = Subject.inactive_subjects.order(sort_column + " " + sort_direction).page(params[:page]).per(page_paginate)
-    @title = "Неактивные объекты"
+    @title = "Inactive objects"
   end
   
   
@@ -36,9 +36,9 @@ class SubjectsController < ApplicationController
 
   def new
     if params[:customer_id].nil?
-      redirect_to(subjects_path, :alert => "Нет привязанного клиента")
+      redirect_to(subjects_path, :alert => "No associated customer")
     else
-      @title = "Новый объект"
+      @title = "New object"
       session[:customer_id] = params[:customer_id]
       @subject = Subject.new
       respond_with(@subject)      
@@ -47,7 +47,7 @@ class SubjectsController < ApplicationController
   
   def edit
     @subject = Subject.find(params[:id])
-    @title = "Редактирование объекта"
+    @title = "Editing object"
     respond_with(@subject)
   end
   
@@ -60,21 +60,21 @@ class SubjectsController < ApplicationController
         if @subject.typesubject.condition_fields.size > 0
           respond_with(@subject, :location => add_properties_subject_path(@subject))
         else
-          flash[:notice] = "Объект успешно создан"
+          flash[:notice] = "Object successfully created"
           respond_with(@subject)
         end
       else
         render 'new'
       end
     rescue ActiveRecord::RecordNotFound
-      redirect_to(subjects_path, :alert => "Что-то пошло не так")
+      redirect_to(subjects_path, :alert => "Something went wrong")
     end
   end
   
   def update
     @subject = Subject.find(params[:id])
     if @subject.update_attributes(params[:subject])
-      flash[:notice] = "Объект успешно обновлён"
+      flash[:notice] = "Object successfully updated"
       respond_with(@subject, :location => @subjects)
     else
       render 'edit'
@@ -84,7 +84,7 @@ class SubjectsController < ApplicationController
   def destroy
     @subject = Subject.find(params[:id])
     @subject.destroy
-    flash[:notice] = "Объект успешно удалён"
+    flash[:notice] = "Object successfully removed"
     redirect_to subjects_path
   end
 
@@ -93,13 +93,13 @@ class SubjectsController < ApplicationController
   
   def add_properties
     @subject = Subject.find(params[:id])
-    @title = "Дополнительная информация"
+    @title = "Additional information"
     @subject.properties.build
   end
   
   def add_photo
     @subject = Subject.find(params[:id])
-    @title = "Фотографии"
+    @title = "Photos"
   end
   
   # AJAX -> subject -> floor/room
@@ -121,7 +121,7 @@ class SubjectsController < ApplicationController
   
   def guest
     @subject = Subject.find(params[:id])
-    @title = "Гостевой доступ"
+    @title = "Guest access"
     render :layout => 'guest'
   end
   
@@ -143,14 +143,14 @@ class SubjectsController < ApplicationController
         typesubject.condition_fields.each do |c|
           if c.typefield != "textfield" && c.typefield != "textarea" && c.value_fields.empty?
             redirect_to subject_path(subject),
-              :alert => "Не указаны значения для дополнительного поля"
+              :alert => "No value for the additional field"
           else
             @attr = typesubject.find_values 
           end
         end
       else
         redirect_to subject_path(subject), 
-          :alert => "Дополнительные поля для данного типа недвижимости не указаны в настройках"
+          :alert => "Additional fields for this type of property is not listed in the settings"
       end
     end
     
@@ -163,8 +163,8 @@ class SubjectsController < ApplicationController
     end
     
     def page_paginate
-      if Paginator.find_by_resource("объекты")
-        Paginator.find_by_resource("объекты").paginate
+      if Paginator.find_by_resource("objects")
+        Paginator.find_by_resource("objects").paginate
       else
         25
       end

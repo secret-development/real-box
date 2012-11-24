@@ -7,7 +7,7 @@ class WorktimesController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @title = "Рабочее время"
+    @title = "Working time"
     @worktime = Worktime.first
     if @worktime.nil?
       @worktime = Worktime.new
@@ -17,7 +17,7 @@ class WorktimesController < ApplicationController
   def create
     @worktime = Worktime.new(params[:worktime])
     if @worktime.save
-      flash[:notice] = "Рабочее время настроено"
+      flash[:notice] = "Working time configured"
       respond_with(@worktime, :location => worktimes_path)  
     else
       render 'index'
@@ -27,7 +27,7 @@ class WorktimesController < ApplicationController
   def update
     @worktime = Worktime.first
     if @worktime.update_attributes(params[:worktime])
-      flash[:notice] = "Рабочее время настроено"
+      flash[:notice] = "Working time configured"
       respond_with(@worktime, :location => worktimes_path)
     else
       render 'index'

@@ -1,6 +1,6 @@
 <% if object.errors.any? %>
   <div class="errorExplanation">
-    <p class="error-title">Ошибки:</p>
+    <p class="error-title">Errors:</p>
     <ul>
       <% object.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

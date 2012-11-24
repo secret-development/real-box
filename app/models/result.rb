@@ -6,12 +6,12 @@ class Result < ActiveRecord::Base
     need_transaction = {}
     all_typetransactions.each do |a|
       case a.name
-      when "Продажа"
-        need_transaction["купить"] = a.id
-      when "Аренда"
-        need_transaction["снять"] = a.id
-      when "Обмен"
-        need_transaction["обменять"] = a.id
+      when "sale"
+        need_transaction["buy"] = a.id
+      when "rent"
+        need_transaction["rent"] = a.id
+      when "exchange"
+        need_transaction["exchange"] = a.id
       end
     end
     return need_transaction

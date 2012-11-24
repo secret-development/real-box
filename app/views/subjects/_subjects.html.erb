@@ -2,16 +2,16 @@
   <thead>
     <tr>
       <th><%= sortable "id", "№" %></th>
-      <th><%= sortable "typetransaction_id", "Сделка" %></th>
-      <th>Объект</th>
-      <th><%= sortable "city_id", "Город" %></th>
-      <th><%= sortable "room", "Кол-во комнат:" %></th>
-      <th>Адрес</th>
-      <th><%= sortable "price", "Цена" %></th>
-      <th><%= sortable "area", "Площадь" %></th>
-      <th>Фото</th>
-      <th><%= sortable "active", "Статус" %></th>
-      <th>Действия</th>
+      <th><%= sortable "typetransaction_id", "Contract" %></th>
+      <th>Object</th>
+      <th><%= sortable "city_id", "City" %></th>
+      <th><%= sortable "room", "Number of rooms:" %></th>
+      <th>Address</th>
+      <th><%= sortable "price", "Price" %></th>
+      <th><%= sortable "area", "Area" %></th>
+      <th>Photo</th>
+      <th><%= sortable "active", "Status" %></th>
+      <th>Actions</th>
     </tr>
   </thead>  
   <tbody>
@@ -24,7 +24,7 @@
           <% if have_object?(s.city) %>
             <%= s.city.name %>
           <% else %>
-            Отсутствует
+            None
           <% end %>
         </td>
         <td class="id-table"><%= isset_data(s.room) %></td>
@@ -34,10 +34,10 @@
         <td class="id-table photo-list"><%= photo_list(s) %></td>
         <td><%= active_subject?(s) %></td>
         <td class="actions-buttons">
-          <%= link_to eye_icon, subject_path(s), :title => "Подробнее...",
+          <%= link_to eye_icon, subject_path(s), :title => "More...",
               :rel => "tooltip" %>
           <%= link_to edit_icon, edit_subject_path(s) %>
-          <%= link_to delete_icon, s, :method => :delete, :confirm => "Вы уверены?" %>
+          <%= link_to delete_icon, s, :method => :delete, :confirm => "Are you sure?" %>
         </td>
       </tr>
     <% end %>    

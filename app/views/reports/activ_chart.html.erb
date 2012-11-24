@@ -1,0 +1,71 @@
+<div id="chart-activ-week" style="width: 100%; height: 400px;">
+</div>
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    new Highcharts.Chart({
+      chart: { renderTo: 'chart-activ-week', zoomType: 'x', backgroundColor: "#F4F4FF"},
+      title: { text: '<%= Report.return_head %>'},
+      xAxis: { type: 'datetime'},
+      yAxis: {
+        title: { text: 'Activity'},
+        min: 0,
+        labels: {
+          formatter: function() {
+            return this.value
+          }
+        }
+      },
+      tooltip: {
+        formatter: function () {
+          return Highcharts.dateFormat("%B %e %Y", this.x) + ': '  + Highcharts.numberFormat(this.y, 2);
+        }  
+      },
+      plotOptions: {
+       line: {
+          dataLabels: {
+            enabled: true
+          },
+        }
+      },
+      series: [{
+        name: "<%= Report.return_name %>",
+        pointInterval: <%= 1.day * 1000 %>,
+        pointStart: <%= Report.return_period.ago.to_i * 1000 %>,
+        data: <%= (Report.return_period.ago.to_date..Date.today).map { |date| Report.activ_user(date)}.inspect %>
+      }],
+      // exporting: {
+      //   buttons: { 
+      //     exportButton: {
+      //       exportButtonTitle: "fewjfhwuefhuiew", 
+      //       menuItems: [{
+      //         text: "Save in PNG",
+      //         onclick: function(){ this.exportChart();}
+      //       },
+      //       {
+      //         text: "Save in JPG",
+      //         onclick: function(){ this.exportChart();}
+      //       },
+      //       {
+      //         text: "Save in PDF",
+      //         onclick: function() {this.exportChart();}
+      //       },
+      //       null
+      //       ]  
+      //     }
+      //   },
+      //   enabled: true,
+      //   filename: 'Graph for the <%= Report.return_head.downcase %>',
+      //   type: 'image/png'        
+      // },
+    });
+    Highcharts.setOptions({
+      lang: {
+        months: ['Januar','February', 'March', 'April', 'May', 'June', 'Июль', 'August', 'September', 'October', 'November', 'December'],
+        shortMonths: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+        resetZoom: 'Reset',
+        resetZoomTitle: "Back to the scale of 1:1",
+        weekdays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']        
+      },
+    });
+  });
+</script>

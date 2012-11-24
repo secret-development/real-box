@@ -5,33 +5,33 @@
         :html => {:method => :get, :id => "search-main-form"} do |f| %>
         <div class="s-group-field">
           <div class="s-field">
-            <%= f.label :city_id_eq, "Город:" %>
+            <%= f.label :city_id_eq, "City:" %>
             <%= f.collection_select(:city_id_eq,
                 City.all, :id, :name) %>
           </div>
           <div class="s-field">
-            <%= f.label :typetransaction_id_eq, "Клиент хочет" %>
+            <%= f.label :typetransaction_id_eq, "Customer wants" %>
             <%= f.select :typetransaction_id_eq, Result.typetransaction %>
           </div>
           <div class="s-field">
-            <%= f.label :typesubject_id_eq, "Тип недвижимости:" %>
+            <%= f.label :typesubject_id_eq, "Type of real estate:" %>
             <%= f.collection_select(:typesubject_id_eq,
                 Typesubject.all, :id, :name) %>
           </div>
         </div>
         <div class="s-group-field">
           <div class="s-field" id="resident-search-block">
-            <%= f.label :resident_id_eq, "ЖК:" %>
+            <%= f.label :resident_id_eq, "Apartament complex:" %>
             <%= f.grouped_collection_select(:resident_id_eq, 
                 City.order(:name), :residents, :name ,:id, :title, :include_blank => true) %>
           </div>
           <div class="s-field">
-            <%= f.label :district_id_eq, "Район:" %>
+            <%= f.label :district_id_eq, "District:" %>
             <%= f.grouped_collection_select(:district_id_eq, 
                 City.order(:name), :districts, :name ,:id, :title, :include_blank => true) %>
           </div>
           <div class="s-field">
-            <%= f.label :price_gte, "Цена:" %>
+            <%= f.label :price_gte, "Price:" %>
             <%= f.text_field :price_gte, :class => "price-search-field" %> 
             – 
             <%= f.text_field :price_lte, :class => "price-search-field" %>
@@ -40,27 +40,27 @@
         </div>
         <div class="s-group-field">
           <div class="s-field">
-            <%= f.label :area_gte, "Площадь:" %>
+            <%= f.label :area_gte, "Area:" %>
             <%= f.text_field :area_gte, :class => "area-search-field" %>
             –
             <%= f.text_field :area_lte, :class => "area-search-field" %>
             <span class="calc-label">м&sup2;</span>
           </div>
           <div class="s-field" id="room-search-block">
-            <%= f.label :room_gte, "Количество комнат:" %>
+            <%= f.label :room_gte, "Number of rooms:" %>
             <%= f.text_field :room_gte, :class => "room-search-field" %> 
             – 
             <%= f.text_field :room_lte, :class => "room-search-field" %>
           </div>
           <div class="s-field" id="floor-search-block">
-            <%= f.label :floor_gte, "Этаж:" %>
+            <%= f.label :floor_gte, "Floor:" %>
             <%= f.text_field :floor_gte, :class => "floor-search-field" %>
             -
             <%= f.text_field :floor_lte, :class => "floor-search-field" %>
           </div>
         </div>
         <div class="s-action">
-          <%= f.submit "Поиск", :class => "btn btn-large btn-success" %>  
+          <%= f.submit "Search", :class => "btn btn-large btn-success" %>  
         </div>
       <% end %>
     </div>

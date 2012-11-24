@@ -6,7 +6,7 @@ class CustomeraccessesController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @title = "Доступ к клиентам"
+    @title = "Access to customers"
     @customeraccess = Customeraccess.first
     if @customeraccess.nil?
       @customeraccess = Customeraccess.new
@@ -16,7 +16,7 @@ class CustomeraccessesController < ApplicationController
   def create
     @customeraccess = Customeraccess.new(params[:customeraccess])
     if @customeraccess.save
-      flash[:notice] = "Доступ к клиентам настроен"
+      flash[:notice] = "Access to customers configured"
       respond_with(@customeraccess, :location => customeraccesses_path)  
     else
       render 'index'
@@ -26,7 +26,7 @@ class CustomeraccessesController < ApplicationController
   def update
     @customeraccess = Customeraccess.first
     if @customeraccess.update_attributes(params[:customeraccess])
-      flash[:notice] = "Доступ к клиентам настроен"
+      flash[:notice] = "Access to customers configured"
       respond_with(@customeraccess, :location => customeraccesses_path)
     else
       render 'index'

@@ -7,11 +7,11 @@ describe DistrictsController do
   
   before(:each) do
     # start auth
-    @user = Factory(:user)
+    @user = FactoryGirl.create(:user)
     test_log_in(@user)
     # end auth
-    @city = Factory(:city)
-    @district = Factory(:district, :city => @city)
+    @city = FactoryGirl.create(:city)
+    @district = FactoryGirl.create(:district, :city => @city)
   end
   
   it "get 'index'" do
@@ -60,7 +60,7 @@ describe DistrictsController do
       
       it "should have success message" do
         put :update, :id => @district, :district => @attr
-        flash[:notice].should =~ /Район успешно обновлён/i
+        flash[:notice].should =~ /District successfully updated/i
       end
     end
   end
@@ -79,7 +79,7 @@ describe DistrictsController do
     
     it "should have success message" do
       delete :destroy, :id => @district
-      flash[:notice].should =~ /Район успешно удалён/i
+      flash[:notice].should =~ /District successfully removed/i
     end
   end
   

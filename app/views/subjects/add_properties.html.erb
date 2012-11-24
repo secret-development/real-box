@@ -1,7 +1,7 @@
 <%= simple_form_for(@subject, :html => {:class => "form-horizontal"}) do |f| %>
   <%= error_messages_for(@subject) %>
   <fieldset>
-    <legend>Добавить дополнительные данные</legend>
+    <legend>Add additional data</legend>
       <% if properties_zero?(@subject) %>
         <% @attr.each do |key, value| %>
           <%= f.simple_fields_for :properties do |p| %>
@@ -16,8 +16,8 @@
         <% end %>
       <% end %>
     <div class="form-actions">
-      <%= f.submit "Добавить", :class => "btn btn-primary" %>
-      <%= link_to icon_share_alt_white + " Пропустить", @subject, :class => "btn btn-info property-cancel" %>
+      <%= f.submit "Add", :class => "btn btn-primary" %>
+      <%= link_to icon_share_alt_white + " Skip", @subject, :class => "btn btn-info property-cancel" %>
     </div>
   </fieldset>
 <% end %>

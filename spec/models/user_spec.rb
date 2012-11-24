@@ -74,19 +74,19 @@ describe User do
   describe "test help methods" do
     it "legend value for new" do
       @user = User.new(@attr)
-      @user.legend_value.should == "Добавление нового сотрудника"      
+      @user.legend_value.should == "Adding new employee" 
     end
     
     it "legend value for update" do
       @update = User.create!(@attr)
       @update.firstname = "Ваня"
-      @update.legend_value.should == "Изменение анкетных данных"      
+      @update.legend_value.should == "Editing employee"      
     end
     
   end
   # password reset
   describe "send password reset" do
-    let(:user) {Factory(:user)}
+    let(:user) {FactoryGirl.create(:user)}
     
     it "generate a unique password reset token" do
       user.send_password_reset

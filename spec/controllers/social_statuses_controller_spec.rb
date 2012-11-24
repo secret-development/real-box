@@ -6,10 +6,10 @@ describe SocialStatusesController do
   
   before(:each) do
     # start auth
-    @user = Factory(:user)
+    @user = FactoryGirl.create(:user)
     test_log_in(@user)
     # end auth
-    @socialstatus = Factory(:social_status)
+    @socialstatus = FactoryGirl.create(:social_status)
   end
   
   it "GET 'new'" do
@@ -55,7 +55,7 @@ describe SocialStatusesController do
     
     it "should have a message" do
       post :create, :social_status => @attr
-      flash[:notice].should =~ /Социальный статус создан!/i      
+      flash[:notice].should =~ /Social status successfully created/i      
     end    
   end
   
@@ -77,7 +77,7 @@ describe SocialStatusesController do
     
     it "should have a success message" do
       put :update, :id => @socialstatus.id, :social_status => @attr
-      flash[:notice].should =~ /Социальный статус обновлен!/i      
+      flash[:notice].should =~ /Social status successfully updated/i
     end    
   end
   
@@ -96,7 +96,7 @@ describe SocialStatusesController do
     
     it "shoult have a success message" do
       delete :destroy, :id => @socialstatus.id
-      flash[:notice].should =~ /Социальный статус удален!/i      
+      flash[:notice].should =~ /Social status successfully removed/i      
     end
   end 
 

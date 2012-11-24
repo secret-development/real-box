@@ -6,8 +6,8 @@ require 'spec_helper'
 describe Task do
   
   before(:each) do
-    @user = Factory(:user)
-    @task = Factory(:task, :user => @user, :user_lastname => @user.lastname)
+    @user = FactoryGirl.create(:user)
+    @task = FactoryGirl.create(:task, :user => @user, :user_lastname => @user.lastname)
     
     @attr = {
       :title => "MyTask",
@@ -97,44 +97,44 @@ describe Task do
     
     describe "done methods" do
       
-      it "should write 'Да ' if done true" do
+      it "should write 'Yes ' if done true" do
         @task = Task.new(:task => @attr, :done => true )
-        @task.status.should == "Да "
+        @task.status.should == "Yes "
       end
       
-      it "should write 'Нет' if done false" do
+      it "should write 'No' if done false" do
         @task = Task.new(@attr)
-        @task.status.should == "Нет"
+        @task.status.should == "No"
       end
       
     end
     
     describe "legend" do
       
-      it "should write 'Добавление' if new record" do
+      it "should write 'Adding' if new record" do
         @task = Task.new(@attr)
-        @task.legend.should == "Добавление"
+        @task.legend.should == "Adding"
       end
       
-      it "should write 'Редактирование' if it is not" do
+      it "should write 'Editing' if it is not" do
         @task = Task.new(@attr)
         @task.save
-        @task.legend.should == "Редактирование"
+        @task.legend.should == "Editing"
       end
       
     end
     
     describe "button_value" do
       
-      it "should write 'Добавить' if new record" do
+      it "should write 'Add' if new record" do
         @task = Task.new(@attr)
-        @task.button_value.should == "Добавить"
+        @task.button_value.should == "Add"
       end
       
-      it "should write 'Обновить' if it is not" do
+      it "should write 'Edit' if it is not" do
         @task = Task.new(@attr)
         @task.save
-        @task.button_value.should == "Обновить"
+        @task.button_value.should == "Edit"
       end
       
     end

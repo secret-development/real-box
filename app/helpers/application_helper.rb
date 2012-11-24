@@ -4,7 +4,7 @@ module ApplicationHelper
   require 'simple_form'
   
   def base_title
-    "Этванс"
+    "Etvans"
   end
   
   def title
@@ -33,9 +33,9 @@ module ApplicationHelper
 
   def isset_field(object)
     if object.nil?
-      "нет данных"
+      "no data"
     elsif object.empty?
-      "нет данных"
+      "no data"
     else
       object
     end
@@ -43,7 +43,7 @@ module ApplicationHelper
   
   def isset_mail(object)
     if object.empty?
-      "нет данных"
+      "no data"
     else
       mail_to object, object
     end
@@ -63,17 +63,17 @@ module ApplicationHelper
 
   def type_customer(object)
     if object == true
-      "Потенциальный"
+      "Potential"
     else
-      "Действующий"
+      "Active"
     end
   end
   
   def to_area(object)
     if object == nil
-      raw("– м&sup2;")
+      raw("– m&sup2;")
     else
-      raw("#{object} м&sup2;")
+      raw("#{object} m&sup2;")
     end
   end
   
@@ -181,25 +181,25 @@ module ApplicationHelper
   
   def active_subject?(object)
     if object.active == true
-      image_tag('active.png', :title => "Активен", :rel => "tooltip")
+      image_tag('active.png', :title => "Most active", :rel => "tooltip")
     else
-      image_tag('busy.png', :title => "Не активен", :rel => "tooltip")
+      image_tag('busy.png', :title => "Not active", :rel => "tooltip")
     end
   end
   
   def customer_act?(object)
     if object.potentials == true
-      image_tag('customer_pot.gif', :title => "Потенциальный клиент", :rel => "tooltip")
+      image_tag('customer_pot.gif', :title => "Potential customer", :rel => "tooltip")
     else
-      image_tag('customer_act.gif', :title => "Действующий клиент", :rel => "tooltip")
+      image_tag('customer_act.gif', :title => "The active customer", :rel => "tooltip")
     end
   end
   
   def active_subject_text?(object)
     if object.active == true
-      "Активен"
+      "Most active"
     else
-      "Не активен"
+      "Not active"
     end
   end
   
@@ -207,14 +207,10 @@ module ApplicationHelper
   
   def price_currency(object)
     case object.price_currency
-    when "доллар"
+    when "dollar"
       to_dollar(object)
-    when "тенге"
-      to_tenge(object)
-    when "евро"
+    when "euro"
       to_euro(object)
-    when "рубль"
-      to_ruble(object)
     end
   end
   
@@ -223,20 +219,11 @@ module ApplicationHelper
       :unit => "$ ", :delimiter => " ", :format => "%n %u")
   end
   
-  def to_tenge(object)
-    number_to_currency(object.price, :locale => :ru, :precision => 0,
-      :unit => "тг.", :delimiter => " ", :format => "%n %u")
-  end
-  
   def to_euro(object)
     number_to_currency(object.price, :locale => :ru, :precision => 0,
       :unit => "€ ", :delimiter => " ", :format => "%n %u")
   end
   
-  def to_ruble(object)
-    number_to_currency(object.price, :locale => :ru, :precision => 0,
-      :unit => "руб.", :delimiter => " ", :format => "%n %u")
-  end
   
 
   # search methods:
@@ -258,8 +245,8 @@ module ApplicationHelper
   
   # for reports
 
-  MONTH = ["Неделя", "Месяц", "Квартал", "Год"]
-  OBJECTS = ["Клиенты", "Объекты"]
+  MONTH_FOR_REPORT = ["Week", "Month", "Quarter", "Year"]
+  OBJECTS_FOR_REPORT = ["Customers", "Objects"]
 
   # for transaction views:
   
@@ -279,9 +266,9 @@ module ApplicationHelper
   
   def level_access(object)
     if object.role == true
-      "Администратор"
+      "Administrator"
     else
-      "Агент"
+      "Agent"
     end
   end
   
@@ -296,9 +283,9 @@ module ApplicationHelper
   def to_room(object)
     typesubject = object.typesubject.name
     if typesubject[typesubject.length-1] == "а"
-      "#{object.room}-комнатная"
+      "#{object.room}-room"
     else
-      "#{object.room}-комнатный"
+      "#{object.room}-room"
     end
   end
   

@@ -19,11 +19,11 @@ class Typesubject < ActiveRecord::Base
   default_scope order("name ASC")
   
   def legend_value
-    new_record? ? "Добавить тип недвижимости" : "Редактировать тип недвижимости"
+    new_record? ? "Adding type of property" : "Editing type of property"
   end
   
   def button_value
-    new_record? ? "Добавить" : "Редактировать"
+    new_record? ? "Add" : "Edit"
   end
   
   
