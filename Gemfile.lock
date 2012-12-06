@@ -265,7 +265,6 @@ DEPENDENCIES
   dropbox-sdk (~> 1.1.0)
   factory_girl_rails
   flash_cookie_session
-  i18n (~> 0.6.1)
   jquery-rails
   jquery_datepicker
   kaminari (~> 0.13.0)

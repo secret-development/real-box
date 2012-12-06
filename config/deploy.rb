@@ -1,4 +1,8 @@
 # -*- encoding : utf-8 -*-
+require "rvm/capistrano"  # Load RVM's capistrano plugin.
+
+set :rvm_type, :system    # :user is the default
+set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"") # Read from local system
 
 # set up
 set :application, "public"
@@ -65,7 +69,7 @@ namespace :deploy do
   desc "Bundle install"
   task :bundle_gems, :roles => :app do
     puts "\n\n=== Install gems ===\n\n"
-    run "cd #{current_path} && rvm use 1.9.3 do bundle install --without development --without test --path ~/.gem"
+    run "cd #{current_path} && rvm use 1.9.3 do bundle install --without development --without test --deployment --path ~/.gem"
     puts "\n\n=== end install gems ===\n\n"
   end
   
