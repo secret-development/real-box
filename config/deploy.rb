@@ -1,8 +1,4 @@
 # -*- encoding : utf-8 -*-
-require "rvm/capistrano"  # Load RVM's capistrano plugin.
-
-set :rvm_type, :system    # :user is the default
-set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"") # Read from local system
 
 # set up
 set :application, "public"
