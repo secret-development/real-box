@@ -8,7 +8,6 @@ gem 'mysql2'
 
 # gem "rake", "~> 0.9.2"
 gem "rake", "~> 10.0.2"
-gem "i18n", "~> 0.6.1"
 
 # Gems used only for assets and not required
 # in production environments by default.
