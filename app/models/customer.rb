@@ -15,11 +15,11 @@ class Customer < ActiveRecord::Base
   scope :potentials, where(:potentials => true)
   #default_scope order("lastname ASC")
 
-  attr_writer :area_code, :phonemobile1, :phonemobile2
+  # attr_writer :area_code, :phonemobile1, :phonemobile2
   
   # callbacks
-  before_save :phonemobile_merge
-  before_update :phonemobile_merge
+  # before_save :phonemobile_merge
+  # before_update :phonemobile_merge
   
   
   
@@ -29,33 +29,33 @@ class Customer < ActiveRecord::Base
 #    permalink    
 #  end
   
-  def phonemobile_merge
-    if (@area_code.blank? || @phonemobile1.blank? || @phonemobile2.blank?)
-      if new_record?
-        self.phonemobile = ""  
-      end
-    else
-      self.phonemobile = "+7 #{@area_code} #{@phonemobile1} #{@phonemobile2}" 
-    end
-  end
+  # def phonemobile_merge
+  #   if (@area_code.blank? || @phonemobile1.blank? || @phonemobile2.blank?)
+  #     if new_record?
+  #       self.phonemobile = ""  
+  #     end
+  #   else
+  #     self.phonemobile = "+7 #{@area_code} #{@phonemobile1} #{@phonemobile2}" 
+  #   end
+  # end
   
-  def area_code
-    unless phonemobile.nil?
-      phonemobile.split(' ').second
-    end
-  end
+  # def area_code
+  #   unless phonemobile.nil?
+  #     phonemobile.split(' ').second
+  #   end
+  # end
   
-  def phonemobile1
-    unless phonemobile.nil?
-      phonemobile.split(' ').third
-    end
-  end
+  # def phonemobile1
+  #   unless phonemobile.nil?
+  #     phonemobile.split(' ').third
+  #   end
+  # end
   
-  def phonemobile2
-    unless phonemobile.nil?
-      phonemobile.split(' ').fourth
-    end
-  end
+  # def phonemobile2
+  #   unless phonemobile.nil?
+  #     phonemobile.split(' ').fourth
+  #   end
+  # end
   
   def button_value
     if new_record?

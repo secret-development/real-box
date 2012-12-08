@@ -297,8 +297,18 @@ $(document).ready(function(){
 
 
 // customer -> mobile phone fields(autotab)
+// $(document).ready(function() {
+//   $('#area_code, #phonemobile1, #phonemobile2')
+//     .autotab_magic()
+//     .autotab_filter('numeric');
+//   $('#customer_phonehome').autotab_filter('numeric');
+  
+//   $('#ad-house, #ad-flat')
+//     .autotab_magic();
+// });
+
 $(document).ready(function() {
-  $('#area_code, #phonemobile1, #phonemobile2')
+  $('#customer_phonemobile')
     .autotab_magic()
     .autotab_filter('numeric');
   $('#customer_phonehome').autotab_filter('numeric');
@@ -306,7 +316,6 @@ $(document).ready(function() {
   $('#ad-house, #ad-flat')
     .autotab_magic();
 });
-
 // subject -> floor
 $(document).ready(function() {
   if ($("form").find("#exist-floor-subject").length != 0) {
