@@ -26,10 +26,7 @@
     <div class="control-group">
       <%= f.label :phonemobile, "Mobile phone" %>
         <div class="controls">
-          <span class="phone-area-start">+7</span>
-          <%= f.text_field :area_code, :id =>"area_code", :maxlength => 3, :class => "input-mphone" %> - 
-          <%= f.text_field :phonemobile1, :id => "phonemobile1", :maxlength => 3, :class => "input-mphone" %> -
-          <%= f.text_field :phonemobile2, :id => "phonemobile2", :maxlength => 4, :class => "input-mphone" %>
+          <%= f.text_field :phonemobile, :placeholder => "mobile phone" %>
         </div>
     </div>
     
