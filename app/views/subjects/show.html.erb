@@ -164,17 +164,6 @@
           </div>
         </div>
         <%= link_to "Guest access", guest_subject_path(@subject), :class => "btn", :id => "guest-deny-button", "data-toggle" => "modal" %>
-        <%= link_to "Show on map", "#myModal", :class => "btn", "data-toggle" => "modal" %>
-        <div id="myModal" class="modal hide fade" style="display: none; ">
-          <div class="modal-body">
-            <!-- initilization yandex maps api -->
-            <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AOz7AFABAAAA5VxYSQQAVyBHkDsJvVxNY1Csn3LeNIOKWhoAAAAAAAAAAADWkLaeo1fp2ECpgO0Se22cgYu7ow=="   type="text/javascript"></script>
-            <%= render 'maps' %>
-          </div>
-          <div class="modal-footer">
-            <%= link_to "X "+" Close","#", "data-dismiss" => "modal" %>
-          </div>
-        </div>
       </div>
     </div>
     
