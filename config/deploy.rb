@@ -1,14 +1,14 @@
 # -*- encoding : utf-8 -*-
 
 # set up
-set :application, "imkv"
+set :application, "broadway"
 set :scm, :git
 set :repository,  "git://github.com/secret-development/real-box.git"
-
+set :branch, "russian"
 set :user, "hosting_lagox"
 set :use_sudo, false
 set :deploy_to, "/home/#{user}/projects/#{application}"
-set :keep_releases, 1
+set :keep_releases, 2
 
 role :web, "lithium.locum.ru"
 role :app, "lithium.locum.ru"
@@ -65,7 +65,7 @@ namespace :deploy do
   desc "Bundle install"
   task :bundle_gems, :roles => :app do
     puts "\n\n=== Install gems ===\n\n"
-    run "cd #{current_path} && rvm use 1.9.3 do bundle install --without development --without test --path ~/.gem"
+    run "cd #{current_path} && rvm use 1.9.3 do bundle install --without development --without test --deployment --path ~/.gem"
     puts "\n\n=== end install gems ===\n\n"
   end
   
