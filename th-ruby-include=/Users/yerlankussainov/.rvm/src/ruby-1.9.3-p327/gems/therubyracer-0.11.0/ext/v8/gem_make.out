@@ -1,0 +1,56 @@
+/Users/yerlankussainov/.rvm/rubies/ruby-1.9.3-p327/bin/ruby extconf.rb
+checking for main() in -lpthread... yes
+checking for main() in -lobjc... yes
+checking for v8.h... no
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of
+necessary libraries and/or headers.  Check the mkmf.log file for more
+details.  You may need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/Users/yerlankussainov/.rvm/rubies/ruby-1.9.3-p327/bin/ruby
+	--with-pthreadlib
+	--without-pthreadlib
+	--with-objclib
+	--without-objclib
+	--enable-debug
+	--disable-debug
+	--with-v8-dir
+	--without-v8-dir
+	--with-v8-include
+	--without-v8-include=${v8-dir}/include
+	--with-v8-lib
+	--without-v8-lib=${v8-dir}/lib
+/Users/yerlankussainov/Projects/remeli/crm/th-ruby-include=/Users/yerlankussainov/.rvm/src/ruby-1.9.3-p327/gems/therubyracer-0.11.0/ext/v8/build.rb:42:in `build_with_system_libv8': unable to locate libv8. Please see output for details (RuntimeError)
+	from extconf.rb:22:in `<main>'
+    The Ruby Racer requires libv8 ~> 3.11.8
+    to be present on your system in order to compile
+    and link, but it could not be found.
+
+    In order to resolve this, you will either need to manually
+    install an appropriate libv8 and make sure that this
+    build process can find it. If you install it into the
+    standard system path, then it should just be picked up
+    automatically. Otherwise, you'll have to pass some extra
+    flags to the build process as a hint.
+
+    If you don't want to bother with all that, there is a
+    rubygem that will do all this for you. You can add
+    following line to your Gemfile:
+        gem 'libv8', '~> 3.11.8'
+
+    We hope that helps, and we apologize, but now we have
+    to push the eject button on this install.
+
+    thanks,
+    The Mgmt.
+

@@ -143,11 +143,11 @@ describe Typesubject do
       @attr2 = {
         :namefield => "Состояние",
         :typefield => "select",
-        :typesubject_id => @typesubject
+        :typesubject_id => @typesubject.id
       }
       @attr3 = {
         :valuefield => "Нет",
-        :condition_field_id => @conditionfield
+        :condition_field_id => @conditionfield.id
       }
     end
     
