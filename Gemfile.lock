@@ -92,6 +92,7 @@ GEM
       activesupport (>= 3.0.0)
       railties (>= 3.0.0)
     kgio (2.7.4)
+    libv8 (3.11.8.4)
     libwebsocket (0.1.7.1)
       addressable
       websocket
@@ -238,6 +239,7 @@ DEPENDENCIES
   jquery-rails
   jquery_datepicker
   kaminari (~> 0.13.0)
+  libv8
   magic_encoding (~> 0.0.2)
   meta_search
   mini_magick
