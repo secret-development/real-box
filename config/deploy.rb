@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 
 # set up
-set :application, "centrgroup"
+set :application, "fortuna"
 set :scm, :git
 set :repository,  "git://github.com/secret-development/real-box.git"
 set :branch, "russian"
