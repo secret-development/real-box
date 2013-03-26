@@ -120,7 +120,7 @@ class User < ActiveRecord::Base
   end
   
   def fullname
-    lastname + " " + firstname
+    lastname.to_s + " " + firstname.to_s
   end
   
   #last_sign_in_at
