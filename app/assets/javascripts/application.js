@@ -10,4 +10,5 @@
 //= require jquery-ui
 //= require swfobject
 //= require jquery.uploadify
+//= provide plupload/dependencies
 //= require_tree .
